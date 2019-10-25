@@ -15,6 +15,12 @@ class CreatePageItemsTable extends Migration
     {
         Schema::create('page_items', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->softDeletes();
+            $table->string('particular');
+            $table->string('excel_file_url');
+            $table->string('pdf_file_url');
+            $table->string('excel_file_url_download_count');
+            $table->string('pdf_file_url_download_count');
             $table->timestamps();
         });
     }

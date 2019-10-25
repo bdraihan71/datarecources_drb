@@ -15,6 +15,9 @@ class CreateSurveyQuestionsTable extends Migration
     {
         Schema::create('survey_questions', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->softDeletes();
+            $table->bigInteger('survey_id');
+            $table->string('question');
             $table->timestamps();
         });
     }

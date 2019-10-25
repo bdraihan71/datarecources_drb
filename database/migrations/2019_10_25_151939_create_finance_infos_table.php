@@ -15,6 +15,37 @@ class CreateFinanceInfosTable extends Migration
     {
         Schema::create('finance_infos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->softDeletes();
+            $table->bigInteger('company_id');
+            $table->integer('year');
+            $table->string('annual_excel_url');
+            $table->string('annual_pdf_1_url');
+            $table->string('annual_pdf_2_url');
+            $table->string('annual_pdf_3_url');
+            $table->string('annual_pdf_4_url');
+            $table->string('annual_pdf_5_url');
+            $table->string('q1__pdf_url');
+            $table->string('q1_excel_url');
+            $table->string('q2__pdf_url');
+            $table->string('q2_excel_url');
+            $table->string('q3__pdf_url');
+            $table->string('q3_excel_url');
+            $table->string('q4__pdf_url');
+            $table->string('q4_excel_url');
+            $table->string('annual_excel_download_count');
+            $table->string('annual_pdf_1_download_count');
+            $table->string('annual_pdf_2_download_count');
+            $table->string('annual_pdf_3_download_count');
+            $table->string('annual_pdf_4_download_count');
+            $table->string('annual_pdf_5_download_count');
+            $table->string('q1__pdf_download_count');
+            $table->string('q1_excel_download_count');
+            $table->string('q2__pdf_download_count');
+            $table->string('q2_excel_download_count');
+            $table->string('q3__pdf_download_count');
+            $table->string('q3_excel_download_count');
+            $table->string('q4__pdf_download_count');
+            $table->string('q4_excel_download_count');
             $table->timestamps();
         });
     }

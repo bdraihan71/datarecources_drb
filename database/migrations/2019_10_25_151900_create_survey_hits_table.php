@@ -15,6 +15,9 @@ class CreateSurveyHitsTable extends Migration
     {
         Schema::create('survey_hits', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->softDeletes();
+            $table->bigInteger('user_id');
+            $table->bigInteger('survey_answer_option_id');
             $table->timestamps();
         });
     }

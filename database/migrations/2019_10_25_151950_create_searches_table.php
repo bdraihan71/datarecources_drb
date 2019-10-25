@@ -15,6 +15,9 @@ class CreateSearchesTable extends Migration
     {
         Schema::create('searches', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->softDeletes();
+            $table->bigInteger('user_id');
+            $table->string('search_term');
             $table->timestamps();
         });
     }

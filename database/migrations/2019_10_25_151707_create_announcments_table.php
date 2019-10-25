@@ -15,6 +15,9 @@ class CreateAnnouncmentsTable extends Migration
     {
         Schema::create('announcments', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->softDeletes();
+            $table->text('text');
+            $table->boolean('is_published')->default(false);
             $table->timestamps();
         });
     }

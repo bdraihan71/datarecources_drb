@@ -15,6 +15,12 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->softDeletes();
+            $table->bigInteger('user_id');
+            $table->integer('amount');
+            $table->bigInteger('subscription_plan_id');
+            $table->date('subscription_starts_at');
+            $table->date('subscription_ends_at');
             $table->timestamps();
         });
     }

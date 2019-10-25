@@ -15,6 +15,8 @@ class CreateSectorsTable extends Migration
     {
         Schema::create('sectors', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->softDeletes();
+            $table->string('name');
             $table->timestamps();
         });
     }

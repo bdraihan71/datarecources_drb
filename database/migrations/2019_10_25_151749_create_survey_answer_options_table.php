@@ -15,6 +15,10 @@ class CreateSurveyAnswerOptionsTable extends Migration
     {
         Schema::create('survey_answer_options', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->softDeletes();
+            $table->bigInteger('survey_question_id');
+            $table->string('answer_option');
+            $table->integer('hit_count');
             $table->timestamps();
         });
     }
