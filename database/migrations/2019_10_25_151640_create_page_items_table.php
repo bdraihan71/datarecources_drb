@@ -19,8 +19,8 @@ class CreatePageItemsTable extends Migration
             $table->string('particular');
             $table->string('excel_file_url');
             $table->string('pdf_file_url');
-            $table->string('excel_file_url_download_count');
-            $table->string('pdf_file_url_download_count');
+            $table->integer('excel_file_url_download_count');
+            $table->integer('pdf_file_url_download_count');
             $table->timestamps();
         });
     }
