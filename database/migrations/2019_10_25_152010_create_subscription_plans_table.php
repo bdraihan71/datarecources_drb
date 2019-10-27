@@ -16,7 +16,7 @@ class CreateSubscriptionPlansTable extends Migration
         Schema::create('subscription_plans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->softDeletes();
-            $table->bigInteger('name');
+            $table->string('name');
             $table->integer('price');
             $table->integer('duration_in_days');
             $table->boolean('is_visible')->default(false);
