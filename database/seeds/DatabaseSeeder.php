@@ -25,7 +25,6 @@ class DatabaseSeeder extends Seeder
         factory(App\StaticContent::class, 20)->create();
         factory(App\Search::class, 20)->create();
         factory(App\Sector::class, 20)->create();
-        factory(App\Sector::class, 20)->create();
         factory(App\SubscriptionPlan::class, 20)->create();
     }
 }

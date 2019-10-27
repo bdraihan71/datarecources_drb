@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+  //Sector
+  Route::resource('sector', 'SectorController')->except(['show']);
