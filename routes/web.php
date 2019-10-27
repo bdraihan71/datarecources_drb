@@ -17,3 +17,11 @@ Route::get('/', function () {
 
   //Sector
   Route::resource('sector', 'SectorController')->except(['show']);
+
+  //SubscriptionPlan
+  Route::resource('subscriptionplan', 'SubscriptionPlanController')->except(['show']);
+
+  //Configuration
+  Route::get('/configuration', 'StaticContentController@index')->name('configuration.index');
+  Route::get('/configuration/{id}/edit', 'StaticContentController@edit')->name('configuration.edit');
+  Route::patch('/configuration/{id}','StaticContentController@update')->name('configuration.update');

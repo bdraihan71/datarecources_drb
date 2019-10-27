@@ -28,7 +28,7 @@ class SectorController extends Controller
             'name' => $request->get('name')
         ]);
         $sector->save();
-        return redirect()->route(' sector.index');
+        return redirect()->route('sector.index');
     }
 
     public function edit($id)
@@ -44,14 +44,14 @@ class SectorController extends Controller
         $sector = Sector::find($id);
         $sector->name = $request->get('name');
         $sector->save();
-        return redirect()->route(' sector.index');
+        return redirect()->route('sector.index');
     }
 
     public function destroy($id)
     {
         $sector = Sector::find($id);
         $sector->delete();
-        return redirect()->route(' sector.index');
+        return redirect()->route('sector.index');
     }
 
 }
