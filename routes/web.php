@@ -29,3 +29,7 @@ Route::get('/', function () {
   //Announcment
   Route::resource('announcment', 'AnnouncmentController')->except(['show']);
 
+  //Company
+  Route::resource('company', 'CompanyController')->except(['show']);
+
+
