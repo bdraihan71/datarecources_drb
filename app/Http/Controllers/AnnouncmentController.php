@@ -9,8 +9,8 @@ class AnnouncmentController extends Controller
 {
     public function index()
     {
-        $announcment = Announcment::orderBy('text')->get()->sortBy('text', SORT_NATURAL|SORT_FLAG_CASE);
-       dd($announcment);
+        $announcments = Announcment::orderBy('text')->get()->sortBy('text', SORT_NATURAL|SORT_FLAG_CASE);
+       dd($announcments);
     }
 
     public function create()

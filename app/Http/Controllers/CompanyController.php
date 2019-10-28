@@ -9,8 +9,8 @@ class CompanyController extends Controller
 {
     public function index()
     {
-        $company = Company::orderBy('name')->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE);
-        dd($company);
+        $companies = Company::orderBy('name')->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE);
+        dd($companies);
     }
 
     public function create()

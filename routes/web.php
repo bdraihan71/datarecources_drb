@@ -32,4 +32,7 @@ Route::get('/', function () {
   //Company
   Route::resource('company', 'CompanyController')->except(['show']);
 
+  //Page
+  Route::resource('page', 'PageController')->except(['show']);
+
 
