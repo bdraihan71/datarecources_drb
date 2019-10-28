@@ -25,3 +25,7 @@ Route::get('/', function () {
   Route::get('/configuration', 'StaticContentController@index')->name('configuration.index');
   Route::get('/configuration/{id}/edit', 'StaticContentController@edit')->name('configuration.edit');
   Route::patch('/configuration/{id}','StaticContentController@update')->name('configuration.update');
+
+  //Announcment
+  Route::resource('announcment', 'AnnouncmentController')->except(['show']);
+
