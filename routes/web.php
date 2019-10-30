@@ -42,3 +42,7 @@ Route::get('/', function () {
   Route::resource('survey', 'SurveyController')->except(['show']);
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
