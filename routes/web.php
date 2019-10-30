@@ -38,4 +38,7 @@ Route::get('/', function () {
   //SurveyQuestion
   Route::resource('surveyquestion', 'SurveyQuestionController')->except(['show']);
 
+  //Survey
+  Route::resource('survey', 'SurveyController')->except(['show']);
+
 
