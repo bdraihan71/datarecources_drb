@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
   //Sector
   Route::resource('sector', 'SectorController')->except(['show']);
 
@@ -46,3 +42,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+  //Template
+  Route::view('/', 'layout');
+  Route::view('/page', 'page');
