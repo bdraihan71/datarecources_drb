@@ -11,7 +11,7 @@ class PageController extends Controller
     public function index()
     {
         $pages = Page::orderBy('slug')->get()->sortBy('slug', SORT_NATURAL|SORT_FLAG_CASE);
-        dd($pages);
+        return view('page.index', compact('pages'));
     }
 
     public function create()

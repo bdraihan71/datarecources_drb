@@ -12,6 +12,9 @@
             <a href="{{route('menu.index')}}">Menu</a>
         </li>
         <li>
+                <a href="{{route('page.index')}}">Page</a>
+            </li>
+        <li>
             <a href="#">About</a>
         </li>
         <li>
