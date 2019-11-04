@@ -11,37 +11,38 @@
 |
 */
 
-  //Sector
-  Route::resource('sector', 'SectorController')->except(['show']);
+Route::get('/logout', 'Auth\LoginController@logout');
+Route::middleware(['auth'])->group(function () {
 
-  //SubscriptionPlan
-  Route::resource('subscriptionplan', 'SubscriptionPlanController')->except(['show']);
+    Route::view('/', 'layout');
+    Route::view('/page', 'page');
 
-  //Configuration
-  Route::get('/configuration', 'StaticContentController@index')->name('configuration.index');
-  Route::get('/configuration/{id}/edit', 'StaticContentController@edit')->name('configuration.edit');
-  Route::patch('/configuration/{id}','StaticContentController@update')->name('configuration.update');
+    //Sector
+    Route::resource('sector', 'SectorController')->except(['show']);
 
-  //Announcment
-  Route::resource('announcment', 'AnnouncmentController')->except(['show']);
+    //SubscriptionPlan
+    Route::resource('subscriptionplan', 'SubscriptionPlanController')->except(['show']);
 
-  //Company
-  Route::resource('company', 'CompanyController')->except(['show']);
+    //Configuration
+    Route::get('/configuration', 'StaticContentController@index')->name('configuration.index');
+    Route::get('/configuration/{id}/edit', 'StaticContentController@edit')->name('configuration.edit');
+    Route::patch('/configuration/{id}','StaticContentController@update')->name('configuration.update');
 
-  //Page
-  Route::resource('page', 'PageController')->except(['show']);
+    //Announcment
+    Route::resource('announcment', 'AnnouncmentController')->except(['show']);
 
-  //SurveyQuestion
-  Route::resource('surveyquestion', 'SurveyQuestionController')->except(['show']);
+    //Company
+    Route::resource('company', 'CompanyController')->except(['show']);
 
-  //Survey
-  Route::resource('survey', 'SurveyController')->except(['show']);
+    //Page
+    Route::resource('page', 'PageController')->except(['show']);
 
+    //SurveyQuestion
+    Route::resource('surveyquestion', 'SurveyQuestionController')->except(['show']);
 
+    //Survey
+    Route::resource('survey', 'SurveyController')->except(['show']);
+
+});
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-  //Template
-  Route::view('/', 'layout');
-  Route::view('/page', 'page');
