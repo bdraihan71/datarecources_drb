@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('profession');
             $table->string('institution');
             $table->string('type')->default('visitor');
-            $table->string('email')->unique();
+            $table->string('email',128)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

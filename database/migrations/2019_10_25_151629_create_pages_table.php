@@ -19,7 +19,7 @@ class CreatePagesTable extends Migration
             $table->string('title');
             $table->bigInteger('menu_id');
             $table->string('description')->nullable();
-            $table->string('slug')->unique();
+            $table->string('slug',128)->unique();
             $table->timestamps();
         });
     }
