@@ -14,8 +14,12 @@
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::middleware(['auth'])->group(function () {
 
-    Route::view('/', 'layout');
+    Route::view('/', 'layout')->name('home');
     Route::view('/page', 'page');
+
+    //Menu
+    Route::resource('menu', 'MenuController')->except(['show']);
+
 
     //Sector
     Route::resource('sector', 'SectorController')->except(['show']);
@@ -35,7 +39,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('company', 'CompanyController')->except(['show']);
 
     //Page
-    Route::resource('page', 'PageController')->except(['show']);
+    // Route::resource('page', 'PageController')->except(['show']);
 
     //SurveyQuestion
     Route::resource('surveyquestion', 'SurveyQuestionController')->except(['show']);
