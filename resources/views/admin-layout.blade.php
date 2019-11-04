@@ -17,7 +17,7 @@
       
               @include('breadcrumb')
       
-              @yield('content')
+              @include('page')
       
             </div>
             <!-- /.container-fluid -->

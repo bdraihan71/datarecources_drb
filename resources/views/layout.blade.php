@@ -26,6 +26,8 @@
 
 <body id="page-top">
 
+
+    @yield('main-content')
     @yield('admin-content')
 
     

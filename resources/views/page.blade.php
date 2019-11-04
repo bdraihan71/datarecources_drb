@@ -1,7 +1,3 @@
-@extends('layout')
-
-@section('content')
-
 <div class="row">
     <div class="col-md-4">
         <div class="form-group">
@@ -28,5 +24,3 @@
 </div>
 
 @include('datatable')
-
-@endsection
