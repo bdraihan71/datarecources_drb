@@ -14,7 +14,7 @@
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::middleware(['auth'])->group(function () {
 
-    Route::view('/', 'layout')->name('home');
+    Route::view('/admin', 'admin-layout')->name('home');
     Route::view('/page', 'page');
 
     //Menu

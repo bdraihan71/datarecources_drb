@@ -26,32 +26,7 @@
 
 <body id="page-top">
 
-    <div class="wrapper">
-        
-        @include('sidenav')
-
-        <!-- Page Content  -->
-        <div id="content">
-
-            @include('topnav')
-
-            <div id="content-wrapper">
-
-                <div class="container-fluid">
-          
-                  @include('breadcrumb')
-          
-                  @yield('content')
-          
-                </div>
-                <!-- /.container-fluid -->
-          
-                @include('footer')
-          
-            </div>
-            <!-- /.content-wrapper -->
-        </div>
-    </div>
+    @yield('admin-content')
 
     
     <!-- Scroll to Top Button-->
