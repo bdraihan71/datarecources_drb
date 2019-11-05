@@ -28,6 +28,7 @@
 
 
     @yield('main-content')
+    @yield('sub-content')
     @yield('admin-content')
 
     
