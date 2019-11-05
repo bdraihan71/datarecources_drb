@@ -1,3 +1,4 @@
+<?php $i = 1 ; ?>
 <div class="card mb-3">
         <div class="card-header">
             <i class="fas fa-table"></i>
@@ -26,7 +27,7 @@
                 <tbody>
                 @foreach ($pages as $page)
                     <tr>
-                        <td>1</td>
+                        <td>{{$i++}}</td>
                         <td>{{ $page->title }}</td>
                         <td>{{ $page->menu->title }}</td>
                         <td>{{ $page->slug }}</td>

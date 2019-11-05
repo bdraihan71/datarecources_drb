@@ -10,14 +10,9 @@ class PageController extends Controller
 {
     public function index()
     {
-        $pages = Page::orderBy('slug')->get()->sortBy('slug', SORT_NATURAL|SORT_FLAG_CASE);
-        return view('page.index', compact('pages'));
-    }
-
-    public function create()
-    {
         $menus = Menu::orderBy('title')->get()->sortBy('title', SORT_NATURAL|SORT_FLAG_CASE);
-        dd($menus);
+        $pages = Page::orderBy('slug')->get()->sortBy('slug', SORT_NATURAL|SORT_FLAG_CASE);
+        return view('back-end.page.index', compact('pages', 'menus'));
     }
 
     public function store(Request $request)
@@ -25,7 +20,7 @@ class PageController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'menu_id' => 'required',
-            'slug' => 'required|slug|unique:pages',
+            'slug' => 'required|unique:pages',
         ]);
 
         $page = new Page([
@@ -35,12 +30,14 @@ class PageController extends Controller
             'slug' => $request->get('slug')
         ]);
         $page->save();
-        return redirect()->route('page.index');
+        return redirect()->route('page.index')->with('success', 'Page create successfully');
     }
 
     public function edit($id)
     {
+        $menus = Menu::orderBy('title')->get()->sortBy('title', SORT_NATURAL|SORT_FLAG_CASE);
         $page = Page::find($id);
+        return view('back-end.page.edit', compact('page', 'menus'));
     }
 
     public function update(Request $request, $id)
@@ -48,22 +45,21 @@ class PageController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'menu_id' => 'required',
-            'slug' => 'required|slug|unique:pages',
-            'company_id' => 'required|unique:users,company_id,'.$id,
+            'slug' => 'required|unique:pages,slug,'.$id,
         ]);
-        $sector = Sector::find($id);
-        $sector->name = $request->get('name');
-        $sector->name = $request->get('name');
-        $sector->name = $request->get('name');
-        $sector->name = $request->get('name');
-        $sector->save();
-        return redirect()->route('sector.index');
+        $page = Page::find($id);
+        $page->title = $request->get('title');
+        $page->menu_id = $request->get('menu_id');
+        $page->description = $request->get('description');
+        $page->slug = $request->get('slug');
+        $page->save();
+        return redirect()->route('page.index')->with('success', 'Page update successfully');
     }
 
     public function destroy($id)
     {
-        $sector = Sector::find($id);
-        $sector->delete();
-        return redirect()->route('sector.index');
+        $page = Page::find($id);
+        $page->delete();
+        return redirect()->route('page.index')->with('success', 'Page delete successfully');
     }
 }

@@ -1,3 +1,4 @@
+<?php $i = 1 ; ?>
 <div class="card mb-3">
     <div class="card-header">
         <i class="fas fa-table"></i>
@@ -22,7 +23,7 @@
             <tbody>
             @foreach ($menus as $menu)
                 <tr>
-                    <td>1</td>
+                    <td>{{$i++}}</td>
                     <td>{{ $menu->title }}</td>
                     <td>
                         <a href="{{ route('menu.edit', $menu->id)}}" class="btn btn-outline-primary">Edit</a>
