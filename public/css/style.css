@@ -320,6 +320,12 @@ a.article:hover {
     }
   } 
 
+  @media (min-width: 768px) {
+    .sub-plan-check-top {
+        margin-top: 40px;
+    }
+  }
+
 .call-to-action {
     height: 30vh;
 }
