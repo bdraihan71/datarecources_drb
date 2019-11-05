@@ -30,7 +30,7 @@ class PageController extends Controller
             'slug' => $request->get('slug')
         ]);
         $page->save();
-        return redirect()->route('page.index')->with('success', 'Page create successfully');
+        return redirect()->route('page.index')->with('success', 'Page has been created successfully');
     }
 
     public function edit($id)
@@ -53,13 +53,13 @@ class PageController extends Controller
         $page->description = $request->get('description');
         $page->slug = $request->get('slug');
         $page->save();
-        return redirect()->route('page.index')->with('success', 'Page update successfully');
+        return redirect()->route('page.index')->with('success', 'Page has been updated successfully');
     }
 
     public function destroy($id)
     {
         $page = Page::find($id);
         $page->delete();
-        return redirect()->route('page.index')->with('success', 'Page delete successfully');
+        return redirect()->route('page.index')->with('success', 'Page has been deleted successfully');
     }
 }

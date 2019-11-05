@@ -9,7 +9,7 @@
             <thead>
             <tr>
                 <th>Sl.</th>
-                <th>Sector Name</th>
+                <th>Menu Name</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -21,13 +21,13 @@
             </tr>
             </tfoot>
             <tbody>
-            @foreach ($sectors as $sector)
+            @foreach ($menus as $menu)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{ $sector->name }}</td>
+                    <td>{{ $menu->title }}</td>
                     <td>
-                        <a href="{{ route('sector.edit', $sector->id)}}" class="btn btn-outline-primary">Edit</a>
-                        <form action="{{ route('sector.destroy', $sector->id)}}" onclick="return confirm('Are you sure, you want to delete this sector?')" method="post" style="display: inline;">
+                        <a href="{{ route('menu.edit', $menu->id)}}" class="btn btn-outline-primary">Edit</a>
+                        <form action="{{ route('menu.destroy', $menu->id)}}" onclick="return confirm('Are you sure, you want to delete this menu?')" method="post" style="display: inline;">
                             @csrf
                             @method('delete')
                             <button type="submit" class="btn btn-outline-danger">Delete</button>

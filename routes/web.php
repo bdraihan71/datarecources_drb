@@ -17,9 +17,12 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->group(function () {
         //Menu
         Route::resource('menu', 'MenuController')->except(['show']);
-        
+
         //Page
         Route::resource('page', 'PageController')->except(['show']);
+
+        //Sector
+        Route::resource('sector', 'SectorController')->except(['show']);
     });
 
 

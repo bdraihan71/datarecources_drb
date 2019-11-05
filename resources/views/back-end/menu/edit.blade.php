@@ -32,7 +32,7 @@
 
         <div class="col-md-2">
             <label>.</label>
-            <button type="submit" class="btn btn-outline-primary w-100">Submit</button>
+            <button type="submit" class="btn btn-outline-primary w-100">Update</button>
         </div>
     </div>
 </form>

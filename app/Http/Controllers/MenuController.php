@@ -31,7 +31,7 @@ class MenuController extends Controller
 
         ]);
         $menu->save();
-        return redirect(route('menu.index'))->with('success', 'Menu create successfully');
+        return redirect(route('menu.index'))->with('success', 'Menu has been created successfully');
     }
 
     public function edit($id)
@@ -50,13 +50,13 @@ class MenuController extends Controller
         $menu->title = $request->get('title');
         $menu->parent_menu_id = $request->get('parent_menu_id');
         $menu->save();
-        return redirect()->route('menu.index')->with('success', 'Menu update successfully');
+        return redirect()->route('menu.index')->with('success', 'Menu has been updated successfully');
     }
 
     public function destroy($id)
     {
         $menu = Menu::find($id);
         $menu->delete();
-        return redirect()->route('menu.index')->with('success', 'Menu delete successfully');
+        return redirect()->route('menu.index')->with('success', 'Menu has been deleted successfully');
     }
 }
