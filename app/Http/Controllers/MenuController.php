@@ -10,7 +10,7 @@ class MenuController extends Controller
     public function index()
     {
         $menus = Menu::orderBy('title')->get()->sortBy('title', SORT_NATURAL|SORT_FLAG_CASE);
-        return view('menu.index', compact('menus'));
+        return view('back-end.menu.index', compact('menus'));
     }
 
     public function store(Request $request)
@@ -37,8 +37,8 @@ class MenuController extends Controller
     public function edit($id)
     {
         $menu = Menu::find($id);
-        $menus = Menu::orderBy('title')->get()->sortBy('title', SORT_NATURAL|SORT_FLAG_CASE);
-        return view('menu.edit', compact('menu', 'menus'));
+        $allmenus = Menu::orderBy('title')->get()->sortBy('title', SORT_NATURAL|SORT_FLAG_CASE);
+        return view('back-end.menu.edit', compact('menu', 'allmenus'));
     }
 
     public function update(Request $request, $id)

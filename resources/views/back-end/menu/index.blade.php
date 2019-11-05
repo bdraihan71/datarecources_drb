@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('back-end.admin-layout')
 
 @section('content')
 
@@ -32,6 +32,6 @@
         </div>
     </div>
 </form>
-@include('menu.datatable')
+@include('back-end.menu.datatable')
 
 @endsection

@@ -3,27 +3,28 @@
 @section('admin-content')
 
 <div class="wrapper">
-        
-    @include('sidenav')
+
+    @include('back-end.partial.sidenav')
 
     <!-- Page Content  -->
     <div id="content">
 
-        @include('topnav')
+        @include('back-end.partial.topnav')
 
         <div id="content-wrapper">
 
             <div class="container-fluid">
-      
+
               @include('breadcrumb')
-      
-              @include('page')
-      
+              @yield('content')
+
+              {{-- @include('page') --}}
+
             </div>
             <!-- /.container-fluid -->
-      
-            @include('footer')
-      
+
+            @include('back-end.footer')
+
         </div>
         <!-- /.content-wrapper -->
     </div>

@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('back-end.admin-layout')
 
 @section('content')
 
@@ -18,11 +18,11 @@
                 <label class="col-12 col-form-label">Parent Menu:<span class="text-danger">*</span> </label>
                 <div class="col-12">
                     <select class="form-control dropdown-custom" name="parent_menu_id" require>
-                        @foreach($menus as $menu)
-                            @if (($menu->id) == $menu->id))
-                                <option value="{{$menu->id}}" selected>{{$menu->title}}</option>
+                        @foreach($allmenus as $allmenu)
+                            @if ($menu->id == $allmenu->parent_menu_id))
+                                <option value="{{$allmenu->id}}" selected>{{$allmenu->title}}</option>
                             @else
-                                <option value="{{$menu->id}}">{{$menu->title}}</option>
+                                <option value="{{$allmenu->id}}">{{$allmenu->title}}</option>
                             @endif
                         @endforeach
                     </select>

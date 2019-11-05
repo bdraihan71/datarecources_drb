@@ -14,12 +14,12 @@
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::middleware(['auth'])->group(function () {
 
-    Route::view('/', 'main-layout')->name('home');
-    Route::view('/sub', 'sub-layout')->name('sub');
-    Route::view('/admin', 'admin-layout')->name('admin');
+    Route::prefix('admin')->group(function () {
+        //Menu
+        Route::resource('menu', 'MenuController')->except(['show']);
+    });
 
-    //Menu
-    Route::resource('menu', 'MenuController')->except(['show']);
+
 
     //Page
     Route::resource('page', 'PageController')->except(['show']);
@@ -53,3 +53,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Auth::routes();
+
+Route::view('/', 'main-layout')->name('home');
+    Route::view('/sub', 'sub-layout')->name('sub');
+    Route::view('/admin', 'admin-layout')->name('admin');
