@@ -33,6 +33,9 @@ Route::middleware(['auth'])->group(function () {
         //SubscriptionPlan
         Route::resource('subscriptionplan', 'SubscriptionPlanController')->except(['show','create']);
 
+         //Survey
+        Route::resource('survey', 'SurveyController')->except(['show', 'create']);
+
     });
 
 
@@ -51,8 +54,7 @@ Route::middleware(['auth'])->group(function () {
     //SurveyQuestion
     Route::resource('surveyquestion', 'SurveyQuestionController')->except(['show']);
 
-    //Survey
-    Route::resource('survey', 'SurveyController')->except(['show']);
+
 
 });
 
