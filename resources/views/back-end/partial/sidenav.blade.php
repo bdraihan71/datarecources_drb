@@ -27,6 +27,9 @@
             <a href="{{route('subscriptionplan.index')}}">Subscription Plan</a>
         </li>
         <li>
+            <a href="{{route('survey.index')}}">Survey</a>
+        </li>
+        <li>
             <a href="#">About</a>
         </li>
         <li>
