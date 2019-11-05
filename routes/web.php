@@ -23,13 +23,12 @@ Route::middleware(['auth'])->group(function () {
 
         //Sector
         Route::resource('sector', 'SectorController')->except(['show']);
+
+        //Company
+        Route::resource('company', 'CompanyController')->except(['show']);
+
     });
 
-
-
-
-    //Sector
-    Route::resource('sector', 'SectorController')->except(['show']);
 
     //SubscriptionPlan
     Route::resource('subscriptionplan', 'SubscriptionPlanController')->except(['show']);
@@ -41,9 +40,6 @@ Route::middleware(['auth'])->group(function () {
 
     //Announcment
     Route::resource('announcment', 'AnnouncmentController')->except(['show']);
-
-    //Company
-    Route::resource('company', 'CompanyController')->except(['show']);
 
     //Page
     // Route::resource('page', 'PageController')->except(['show']);

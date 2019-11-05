@@ -29,7 +29,9 @@
                     <tr>
                         <td>{{$i++}}</td>
                         <td>{{ $page->title }}</td>
-                        <td>{{ $page->menu->title }}</td>
+                        @if($page->menu)
+                            <td>{{ $page->menu->title }}</td>
+                        @endif
                         <td>{{ $page->slug }}</td>
                         <td>
                             <a href="{{ route('page.edit', $page->id)}}" class="btn btn-outline-primary">Edit</a>

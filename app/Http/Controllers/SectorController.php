@@ -13,11 +13,6 @@ class SectorController extends Controller
         return view('back-end.sector.index', compact('sectors'));
     }
 
-    public function create()
-    {
-       dd('hello');
-    }
-
     public function store(Request $request)
     {
         $this->validate($request, [

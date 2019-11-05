@@ -3,19 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\Sector;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
     public function index()
     {
+        $sectors = Sector::orderBy('name')->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE);
         $companies = Company::orderBy('name')->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE);
-        dd($companies);
-    }
-
-    public function create()
-    {
-       dd('hello');
+        return view('back-end.company.index', compact('companies','sectors'));
     }
 
     public function store(Request $request)
@@ -37,7 +34,9 @@ class CompanyController extends Controller
 
     public function edit($id)
     {
+        $sectors = Sector::orderBy('name')->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE);
         $company = Company::find($id);
+        return view('back-end.company.edit', compact('company', 'sectors'));
     }
 
     public function update(Request $request, $id)
@@ -49,16 +48,16 @@ class CompanyController extends Controller
         ]);
         $company = Company::find($id);
         $company->name = $request->get('name');
-        $company->name = $request->get('ticker');
-        $company->name = $request->get('sector_id');
+        $company->ticker = $request->get('ticker');
+        $company->sector_id = $request->get('sector_id');
         $company->save();
-        return redirect()->route('company.index');
+        return redirect()->route('company.index')->with('success', 'Company has been updated successfully');
     }
 
     public function destroy($id)
     {
         $company = Company::find($id);
         $company->delete();
-        return redirect()->route('company.index');
+        return redirect()->route('company.index')->with('success', 'Page has been deleted successfully');
     }
 }

@@ -18,6 +18,6 @@
         </div>
     </div>
 </form>
-@include('back-end.menu.datatable')
+@include('back-end.sector.datatable')
 
 @endsection

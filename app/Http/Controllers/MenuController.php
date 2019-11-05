@@ -18,13 +18,6 @@ class MenuController extends Controller
         $this->validate($request, [
             'title' => 'required|max:100',
         ]);
-
-        // if ( $request->get('parent_menu_id') != null ) {
-        //     $parent_id = $request->get('parent_menu_id');
-        // }else{
-        //     $parent_id =
-        // }
-
         $menu = new Menu([
             'title' => $request->get('title'),
             'parent_menu_id' => $request->get('parent_menu_id')

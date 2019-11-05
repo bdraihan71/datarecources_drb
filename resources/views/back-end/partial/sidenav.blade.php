@@ -18,6 +18,9 @@
             <a href="{{route('sector.index')}}">Sector</a>
         </li>
         <li>
+            <a href="{{route('company.index')}}">Company</a>
+        </li>
+        <li>
             <a href="#">About</a>
         </li>
         <li>
