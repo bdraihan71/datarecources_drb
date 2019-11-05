@@ -23,7 +23,7 @@ class AnnouncmentController extends Controller
             $is_published = 0;
           } else {
             $is_published = request('is_published');
-          }
+        }
 
         $announcment = new Announcment([
             'text' => $request->get('text'),

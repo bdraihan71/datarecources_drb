@@ -24,6 +24,9 @@
             <a href="{{route('announcment.index')}}">Announcment</a>
         </li>
         <li>
+            <a href="{{route('subscriptionplan.index')}}">Subscription Plan</a>
+        </li>
+        <li>
             <a href="#">About</a>
         </li>
         <li>

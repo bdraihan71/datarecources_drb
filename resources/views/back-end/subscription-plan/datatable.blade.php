@@ -9,34 +9,40 @@
             <thead>
             <tr>
                 <th>Sl.</th>
-                <th>Announcment</th>
-                <th>Publish</th>
+                <th>Plan Name</th>
+                <th>Price</th>
+                <th>Duration</th>
+                <th>Visible</th>
                 <th>Action</th>
             </tr>
             </thead>
             <tfoot>
             <tr>
                 <th>Sl.</th>
-                <th>Announcment</th>
-                <th>Publish</th>
+                <th>Plan Name</th>
+                <th>Price</th>
+                <th>Duration</th>
+                <th>Visible</th>
                 <th>Action</th>
             </tr>
             </tfoot>
             <tbody>
-                @foreach ($announcments as $announcment)
+                @foreach ($subscriptionplans as $subscriptionplan)
                     <tr>
                         <td>{{$i++}}</td>
-                        <td>{{ $announcment->text }}</td>
+                        <td>{{ $subscriptionplan->name }}</td>
+                        <td>{{ $subscriptionplan->price }}</td>
+                        <td>{{ $subscriptionplan->duration_in_days }}</td>
                         <td>
-                            @if ( $announcment->is_published == 0)
+                            @if ( $subscriptionplan->is_visible == 0)
                                 No
                             @else
                                 Yes
                             @endif
                         </td>
                         <td>
-                            <a href="{{ route('announcment.edit', $announcment->id)}}" class="btn btn-outline-primary">Edit</a>
-                            <form action="{{ route('announcment.destroy', $announcment->id)}}" onclick="return confirm('Are you sure, you want to delete this announcment?')" method="post" style="display: inline;">
+                            <a href="{{ route('subscriptionplan.edit', $subscriptionplan->id)}}" class="btn btn-outline-primary">Edit</a>
+                            <form action="{{ route('subscriptionplan.destroy', $subscriptionplan->id)}}" onclick="return confirm('Are you sure, you want to delete this subscription plan?')" method="post" style="display: inline;">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-outline-danger">Delete</button>

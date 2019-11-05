@@ -16,25 +16,27 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('admin')->group(function () {
         //Menu
-        Route::resource('menu', 'MenuController')->except(['show']);
+        Route::resource('menu', 'MenuController')->except(['show','create']);
 
         //Page
-        Route::resource('page', 'PageController')->except(['show']);
+        Route::resource('page', 'PageController')->except(['show','create']);
 
         //Sector
-        Route::resource('sector', 'SectorController')->except(['show']);
+        Route::resource('sector', 'SectorController')->except(['show','create']);
 
         //Company
-        Route::resource('company', 'CompanyController')->except(['show']);
+        Route::resource('company', 'CompanyController')->except(['show','create']);
 
         //Announcment
-        Route::resource('announcment', 'AnnouncmentController')->except(['show']);
+        Route::resource('announcment', 'AnnouncmentController')->except(['show','create']);
+
+        //SubscriptionPlan
+        Route::resource('subscriptionplan', 'SubscriptionPlanController')->except(['show','create']);
 
     });
 
 
-    //SubscriptionPlan
-    Route::resource('subscriptionplan', 'SubscriptionPlanController')->except(['show']);
+
 
     //Configuration
     Route::get('/configuration', 'StaticContentController@index')->name('configuration.index');
