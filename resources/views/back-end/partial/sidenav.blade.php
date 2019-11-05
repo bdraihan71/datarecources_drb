@@ -33,6 +33,9 @@
             <a href="{{route('surveyquestion.index')}}">Survey Question</a>
         </li>
         <li>
+            <a href="{{route('configuration.index')}}">Configuration</a>
+        </li>
+        <li>
             <a href="#">About</a>
         </li>
         <li>

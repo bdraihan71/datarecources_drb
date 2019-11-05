@@ -39,17 +39,12 @@ Route::middleware(['auth'])->group(function () {
         //SurveyQuestion
         Route::resource('surveyquestion', 'SurveyQuestionController')->except(['show', 'create']);
 
+        //Configuration
+        Route::get('/configuration', 'StaticContentController@index')->name('configuration.index');
+        Route::get('/configuration/{id}/edit', 'StaticContentController@edit')->name('configuration.edit');
+        Route::patch('/configuration/{id}','StaticContentController@update')->name('configuration.update');
+
     });
-
-
-
-
-    //Configuration
-    Route::get('/configuration', 'StaticContentController@index')->name('configuration.index');
-    Route::get('/configuration/{id}/edit', 'StaticContentController@edit')->name('configuration.edit');
-    Route::patch('/configuration/{id}','StaticContentController@update')->name('configuration.update');
-
-
 
     //Page
     // Route::resource('page', 'PageController')->except(['show']);
