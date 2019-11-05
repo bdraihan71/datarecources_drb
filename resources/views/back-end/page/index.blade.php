@@ -4,7 +4,7 @@
 
 <form  method="post" action="{{ route('page.store') }}">
     @csrf
-    <div class="row">
+    <div class="row bg-white my-4 mx-1 p-3 shadow-sm">
         <div class="col-md-4">
             <div class="form-group">
             <label>Menu Name</label>
@@ -14,15 +14,13 @@
 
         <div class="col-md-4">
             <div class="form-group ">
-                <label class="col-12 col-form-label">Parent Menu:<span class="text-danger">*</span> </label>
-                <div class="col-12">
-                    <select class="form-control dropdown-custom" name="menu_id" require>
-                    <option value="">Choose Menu</option>
-                    @foreach($menus as $menu)
-                        <option value="{{$menu->id}}"  {{ (old("parent_menu_id") == $menu->id ? "selected":"") }}>{{$menu->title}}</option>
-                    @endforeach
-                    </select>
-                </div>
+                <label>Parent Menu:<span class="text-danger">*</span> </label>
+                <select class="form-control dropdown-custom" name="menu_id" require>
+                <option value="">Choose Menu</option>
+                @foreach($menus as $menu)
+                    <option value="{{$menu->id}}"  {{ (old("parent_menu_id") == $menu->id ? "selected":"") }}>{{$menu->title}}</option>
+                @endforeach
+                </select>
             </div>
         </div>
 
@@ -41,8 +39,8 @@
         </div>
 
         <div class="col-md-2">
-            <label>.</label>
-            <button type="submit" class="btn btn-outline-primary w-100">Submit</button>
+            <label></label>
+            <button type="submit" class="btn btn-outline-primary w-100 mt-md-2">Submit</button>
         </div>
     </div>
 </form>
