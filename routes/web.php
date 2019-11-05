@@ -27,6 +27,9 @@ Route::middleware(['auth'])->group(function () {
         //Company
         Route::resource('company', 'CompanyController')->except(['show']);
 
+        //Announcment
+        Route::resource('announcment', 'AnnouncmentController')->except(['show']);
+
     });
 
 
@@ -38,8 +41,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/configuration/{id}/edit', 'StaticContentController@edit')->name('configuration.edit');
     Route::patch('/configuration/{id}','StaticContentController@update')->name('configuration.update');
 
-    //Announcment
-    Route::resource('announcment', 'AnnouncmentController')->except(['show']);
+
 
     //Page
     // Route::resource('page', 'PageController')->except(['show']);
