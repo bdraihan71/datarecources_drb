@@ -30,6 +30,9 @@
             <a href="{{route('survey.index')}}">Survey</a>
         </li>
         <li>
+            <a href="{{route('surveyquestion.index')}}">Survey Question</a>
+        </li>
+        <li>
             <a href="#">About</a>
         </li>
         <li>
