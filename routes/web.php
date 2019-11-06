@@ -13,8 +13,6 @@
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
-//Page
-Route::get('{slug}', 'PageController@page')->name('page');
 
 Route::middleware(['auth'])->group(function () {
 
@@ -23,7 +21,11 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('menu', 'MenuController')->except(['show','create']);
 
         //Page
-        Route::resource('page', 'PageController')->except(['show','create']);
+        Route::resource('page', 'PageController')->except(['create']);
+
+        //Page 
+        //TODO:: Clean the route below. Only keep necessary route methods.
+        Route::resource('page-item', 'PageItemController')->except(['create']);
 
         //Sector
         Route::resource('sector', 'SectorController')->except(['show','create']);
@@ -66,3 +68,6 @@ Auth::routes();
 
 Route::view('/', 'front-end.main-layout')->name('home');
 Route::view('/sub', 'sub-layout')->name('sub');
+
+//Page
+Route::get('{slug}', 'PageController@page')->name('page');

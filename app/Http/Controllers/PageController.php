@@ -68,4 +68,9 @@ class PageController extends Controller
         $page = Page::where('slug', $slug)->first();
         return view('front-end.pages.page', compact('page'));
     }
+
+    public function show(Request $request, Page $page)
+    {
+        return view('back-end.page.show', compact('page'));
+    }
 }

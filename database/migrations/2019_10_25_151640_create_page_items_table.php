@@ -21,6 +21,7 @@ class CreatePageItemsTable extends Migration
             $table->string('pdf_file_url');
             $table->integer('excel_file_url_download_count');
             $table->integer('pdf_file_url_download_count');
+            $table->bigInteger('page_id');
             $table->timestamps();
         });
     }
