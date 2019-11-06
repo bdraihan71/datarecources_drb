@@ -5,10 +5,10 @@
     </div>
 
     <ul class="list-unstyled components">
-        <li>
+        <li> 
             <a href="{{route('home')}}">Home</a>
         </li>
-        <li>
+        <li class="{{ request()->url() == route('menu.index') ? 'active' : '' }}">
             <a href="{{route('menu.index')}}">Menu</a>
         </li>
         <li>

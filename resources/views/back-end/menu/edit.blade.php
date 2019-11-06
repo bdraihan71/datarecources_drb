@@ -17,8 +17,13 @@
             <div class="form-group ">
                 <label>Parent Menu:<span class="text-danger">*</span> </label>
                 <select class="form-control dropdown-custom" name="parent_menu_id" require>
+                    @if(!$menu->parent_menu_id)
+                        <option value="" selected>No Parent Menu</option>
+                    @else
+                        <option value="">No Parent Menu</option>
+                    @endif
                     @foreach($allmenus as $allmenu)
-                        @if ($menu->id == $allmenu->parent_menu_id))
+                        @if ($menu->parent_menu_id == $allmenu->id))
                             <option value="{{$allmenu->id}}" selected>{{$allmenu->title}}</option>
                         @else
                             <option value="{{$allmenu->id}}">{{$allmenu->title}}</option>
