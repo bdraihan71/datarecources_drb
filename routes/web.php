@@ -44,6 +44,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/configuration/{id}/edit', 'StaticContentController@edit')->name('configuration.edit');
         Route::patch('/configuration/{id}','StaticContentController@update')->name('configuration.update');
 
+        //SurveyAnswerOption
+        Route::resource('surveyansweroption', 'SurveyAnswerOptionController')->except(['show', 'create']);
+
     });
 
     //Page

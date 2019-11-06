@@ -5,9 +5,9 @@
     </div>
 
     <ul class="list-unstyled components">
-        <li>
+        {{-- <li>
             <a href="{{route('home')}}">Home</a>
-        </li>
+        </li> --}}
         <li>
             <a href="{{route('menu.index')}}">Menu</a>
         </li>
@@ -34,6 +34,9 @@
         </li>
         <li>
             <a href="{{route('configuration.index')}}">Configuration</a>
+        </li>
+        <li>
+            <a href="{{route('surveyansweroption.index')}}">Survey Answer Option</a>
         </li>
         <li>
             <a href="#">About</a>
