@@ -62,4 +62,11 @@ class PageItemController extends Controller
         $page_item->save();
         return redirect()->back()->with('success', 'Page item has been created successfully');
     }
+
+    public function destroy($id)
+    {
+        $page = PageItem::find($id);
+        $page->delete();
+        return redirect()->back()->with('success', 'Page has been deleted successfully');
+    }
 }

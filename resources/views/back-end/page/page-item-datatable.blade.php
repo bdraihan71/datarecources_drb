@@ -7,39 +7,45 @@
             <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
-                <tr>
-                    <th>Sl.</th>
-                    <th>Page Title</th>
-                    <th>Menu</th>
-                    <th>Description</th>
-                    <th>Slug</th>
-                    <th>Action</th>
-                </tr>
+                    <tr>
+                        <th>Sl.</th>
+                        <th>Particular</th>
+                        <th>PDF</th>
+                        <th>Excel</th>
+                        <th>Action</th>
+                    </tr>
                 </thead>
                 <tfoot>
-                <tr>
-                    <th>Sl.</th>
-                    <th>Page Title</th>
-                    <th>Menu</th>
-                    <th>Description</th>
-                    <th>Slug</th>
-                    <th>Action</th>
-                </tr>
+                    <tr>
+                        <th>Sl.</th>
+                        <th>Particular</th>
+                        <th>PDF</th>
+                        <th>Excel</th>
+                        <th>Action</th>
+                    </tr>
                 </tfoot>
                 <tbody>
                 @foreach ($page->pageItems as $item)
                     <tr>
                         <td>{{$i++}}</td>
                         <td>{{ $item->particular }}</td>
-                        {{-- <td>
-                            <a href="{{ route('page.show', $page->id)}}" class="btn btn-outline-primary">Show</a>
-                            <a href="{{ route('page.edit', $page->id)}}" class="btn btn-outline-primary">Edit</a>
-                            <form action="{{ route('page.destroy', $page->id)}}" onclick="return confirm('Are you sure, you want to delete this menu?')" method="post" style="display: inline;">
+                        @if($item->pdf_file_url != '#')
+                            <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->pdf_file_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                        @else
+                            <td>No PDF</td>
+                        @endif
+                        @if($item->excel_file_url != '#')
+                            <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->excel_file_url }}" type="button" class="btn btn-outline-primary">Excel</a></td>
+                        @else
+                            <td>No Excel</td>
+                        @endif
+                        <td>
+                            <form action="{{ route('page-item.destroy', $item->id)}}" onclick="return confirm('Are you sure, you want to delete this item?')" method="post" style="display: inline;">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-outline-danger">Delete</button>
                             </form>
-                        </td> --}}
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
