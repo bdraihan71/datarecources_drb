@@ -5,40 +5,40 @@
     </div>
 
     <ul class="list-unstyled components">
-        <li> 
+        <li>
             <a href="{{route('home')}}">Home</a>
         </li>
-        <li class="{{ request()->url() == route('menu.index') ? 'active' : '' }}">
+        <li class="{{ request()->url() == route('menu.index') ? 'sidebar-active' : '' }}">
             <a href="{{route('menu.index')}}">Menu</a>
         </li>
-        <li>
+        <li class="{{ request()->url() == route('page.index') ? 'sidebar-active' : '' }}">
             <a href="{{route('page.index')}}">Page</a>
         </li>
-        <li>
+        <li class="{{ request()->url() == route('sector.index') ? 'sidebar-active' : '' }}">
             <a href="{{route('sector.index')}}">Sector</a>
         </li>
-        <li>
+        <li class="{{ request()->url() == route('company.index') ? 'sidebar-active' : '' }}">
             <a href="{{route('company.index')}}">Company</a>
         </li>
-        <li>
+        <li class="{{ request()->url() == route('announcment.index') ? 'sidebar-active' : '' }}">
             <a href="{{route('announcment.index')}}">Announcment</a>
         </li>
-        <li>
+        <li class="{{ request()->url() == route('subscriptionplan.index') ? 'sidebar-active' : '' }}">
             <a href="{{route('subscriptionplan.index')}}">Subscription Plan</a>
         </li>
-        <li>
+        <li class="{{ request()->url() == route('survey.index') ? 'sidebar-active' : '' }}">
             <a href="{{route('survey.index')}}">Survey</a>
         </li>
-        <li>
+        <li class="{{ request()->url() == route('surveyquestion.index') ? 'sidebar-active' : '' }}">
             <a href="{{route('surveyquestion.index')}}">Survey Question</a>
         </li>
-        <li>
+        <li class="{{ request()->url() == route('configuration.index') ? 'sidebar-active' : '' }}">
             <a href="{{route('configuration.index')}}">Configuration</a>
         </li>
-        <li>
+        <li class="{{ request()->url() == route('surveyansweroption.index') ? 'sidebar-active' : '' }}">
             <a href="{{route('surveyansweroption.index')}}">Survey Answer Option</a>
         </li>
-        <li>
+        <li >
             <a href="#">About</a>
         </li>
         <li>
