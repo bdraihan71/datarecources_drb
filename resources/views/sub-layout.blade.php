@@ -5,7 +5,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top nav-bg border-bottom mt-md-n4">
     <div class="container">
-        <a class="navbar-brand text-white" href="#"><h2>DRB</h2></a>
+        <a class="navbar-brand text-white" href="/"><h2>DRB</h2></a>
         <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
