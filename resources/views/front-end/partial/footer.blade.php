@@ -22,7 +22,7 @@
             </div>
             <div class="col-md-12 border-top border-light mt-5">
                 <div class="text-center mt-5 w-100">
-                    <span>Copyright © Data Resource BD 2019</span>
+                    <span><a href="www.techynaf.com" target="_blank">Copyright © Techynaf Technologies Limited 2019</a></span>
                 </div>
             </div>
         </div>

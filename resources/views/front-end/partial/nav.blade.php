@@ -32,38 +32,21 @@
                         </li>
                     @endif
                 @endforeach
-                <li class="nav-item dropdown nav-custom-margin-top">
-                    <a class="nav-link dropdown-toggle font-weight-bold text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        COMMODITY
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown nav-custom-margin-top">
+                {{-- <li class="nav-item dropdown nav-custom-margin-top">
                     <a class="nav-link dropdown-toggle font-weight-bold text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         COMPANY
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Financial Statement</a>
+                        <a class="dropdown-item" href="#">Shareholding Data</a>
+                        <a class="dropdown-item" href="#">Analysis</a>
                     </div>
-                </li>
-                <li class="nav-item dropdown nav-custom-margin-top">
-                    <a class="nav-link dropdown-toggle nav-custom-margin-right font-weight-bold text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        MARKET
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
+                </li> --}}
                 <form class="form-inline my-2 my-lg-0">
                     @if(Auth::check())
+                        @if(Auth::user()->type == 'admin')
+                        <button class="btn btn-warning my-2 my-sm-0 mx-1" type="submit"><a href="/admin/menu">Admin Panel</a></button>
+                        @endif
                         <button class="btn btn-warning my-2 my-sm-0 mx-1" type="submit"><a href="{{route('logout')}}"> Sign Out</a></button>
                     @else
                         <button class="btn btn-warning my-2 my-sm-0 mx-1" type="submit"><a href="{{route('register')}}"> Sign Up</a></button>

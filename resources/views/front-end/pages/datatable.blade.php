@@ -27,11 +27,15 @@
                     <td>{{$i++}}</td>
                     <td>{{$item->particular}}</td>
                     <td>
-                        @if($item->pdf_file_url != '#')
-                            <a target="_blank" href="{{ env('S3_URL') }}{{ $item->pdf_file_url }}" type="button" class="btn btn-outline-primary">PDF</a>
-                        @endif
-                        @if($item->excel_file_url != '#')
-                            <a target="_blank" href="{{ env('S3_URL') }}{{ $item->excel_file_url }}" type="button" class="btn btn-outline-primary">Excel</a>
+                        @if(auth()->user())
+                            @if($item->pdf_file_url != '#')
+                                <a target="_blank" href="{{ env('S3_URL') }}{{ $item->pdf_file_url }}" type="button" class="btn btn-outline-primary">PDF</a>
+                            @endif
+                            @if($item->excel_file_url != '#')
+                                <a target="_blank" href="{{ env('S3_URL') }}{{ $item->excel_file_url }}" type="button" class="btn btn-outline-primary">Excel</a>
+                            @endif
+                        @else
+                            <a href="/login">Please login to download</a>
                         @endif
                     </td>
                 </tr>

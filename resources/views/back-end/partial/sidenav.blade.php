@@ -1,13 +1,10 @@
 <!-- Sidebar  -->
 <nav id="sidebar">
     <div class="sidebar-header">
-        <h4>Data Resource BD</h4>
+        <a href="{{route('home')}}"><h4>Data Resource BD</h4></a>
     </div>
 
     <ul class="list-unstyled components">
-        <li>
-            <a href="{{route('home')}}">Home</a>
-        </li>
         <li class="{{ request()->url() == route('menu.index') ? 'sidebar-active' : '' }}">
             <a href="{{route('menu.index')}}">Menu</a>
         </li>
@@ -41,7 +38,7 @@
         <li class="{{ request()->url() == route('user.index') ? 'sidebar-active' : '' }}">
             <a href="{{route('user.index')}}">User</a>
         </li>
-        <li >
+        {{-- <li >
             <a href="#">About</a>
         </li>
         <li>
@@ -63,6 +60,6 @@
         </li>
         <li>
             <a href="#">Contact</a>
-        </li>
+        </li> --}}
     </ul>
 </nav>
