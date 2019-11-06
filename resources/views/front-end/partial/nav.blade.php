@@ -63,8 +63,12 @@
                     </div>
                 </li>
                 <form class="form-inline my-2 my-lg-0">
-                    <button class="btn btn-warning my-2 my-sm-0 mx-1" type="submit">Sign Up</button>
-                    <button class="btn btn-outline-warning my-2 my-sm-0 text-white mx-1" type="submit">Sign In</button>
+                    @if(Auth::check())
+                        <button class="btn btn-warning my-2 my-sm-0 mx-1" type="submit"><a href="{{route('logout')}}"> Sign Out</a></button>
+                    @else
+                        <button class="btn btn-warning my-2 my-sm-0 mx-1" type="submit"><a href="{{route('register')}}"> Sign Up</a></button>
+                        <button class="btn btn-outline-warning my-2 my-sm-0 text-white mx-1" type="submit"><a href="{{route('login')}}"> Sign In</a></button>
+                    @endif
                 </form>
             </ul>
         </div>

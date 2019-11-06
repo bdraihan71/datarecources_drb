@@ -13,8 +13,6 @@
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
-//Page
-Route::get('{slug}', 'PageController@page')->name('page');
 
 Route::middleware(['auth'])->group(function () {
 
@@ -66,3 +64,6 @@ Auth::routes();
 
 Route::view('/', 'front-end.home.index')->name('home');
 Route::view('/sub', 'sub-layout')->name('sub');
+
+//Page
+Route::get('{slug}', 'PageController@page')->name('page');
