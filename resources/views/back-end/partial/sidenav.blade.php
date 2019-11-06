@@ -29,15 +29,15 @@
         <li class="{{ request()->url() == route('survey.index') ? 'sidebar-active' : '' }}">
             <a href="{{route('survey.index')}}">Survey</a>
         </li>
-        <li class="{{ request()->url() == route('surveyquestion.index') ? 'sidebar-active' : '' }}">
+        {{-- <li class="{{ request()->url() == route('surveyquestion.index') ? 'sidebar-active' : '' }}">
             <a href="{{route('surveyquestion.index')}}">Survey Question</a>
-        </li>
+        </li> --}}
         <li class="{{ request()->url() == route('configuration.index') ? 'sidebar-active' : '' }}">
             <a href="{{route('configuration.index')}}">Configuration</a>
         </li>
-        <li class="{{ request()->url() == route('surveyansweroption.index') ? 'sidebar-active' : '' }}">
+        {{-- <li class="{{ request()->url() == route('surveyansweroption.index') ? 'sidebar-active' : '' }}">
             <a href="{{route('surveyansweroption.index')}}">Survey Answer Option</a>
-        </li>
+        </li> --}}
         <li class="{{ request()->url() == route('user.index') ? 'sidebar-active' : '' }}">
             <a href="{{route('user.index')}}">User</a>
         </li>

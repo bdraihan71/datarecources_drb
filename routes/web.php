@@ -40,10 +40,10 @@ Route::middleware(['auth','admin'])->group(function () {
         Route::resource('subscriptionplan', 'SubscriptionPlanController')->except(['show','create']);
 
          //Survey
-        Route::resource('survey', 'SurveyController')->except(['show', 'create']);
+        Route::resource('survey', 'SurveyController')->except(['create']);
 
         //SurveyQuestion
-        Route::resource('surveyquestion', 'SurveyQuestionController')->except(['show', 'create']);
+        Route::resource('surveyquestion', 'SurveyQuestionController')->except(['create']);
 
         //Configuration
         Route::get('/configuration', 'StaticContentController@index')->name('configuration.index');

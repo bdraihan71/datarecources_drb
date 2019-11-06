@@ -5,15 +5,9 @@
 <form  method="post" action="{{ route('surveyquestion.store') }}">
     @csrf
     <div class="row bg-white my-4 mx-1 p-3 shadow-sm">
-
         <div class="col-md-5">
-            <label>Survey:<span class="text-danger">*</span> </label>
-            <select class="form-control dropdown-custom" name="survey_id" require>
-            <option value="">Choose Survey</option>
-            @foreach($surveys as $survey)
-                <option value="{{$survey->id}}"  {{ (old("survey_id") == $survey->id ? "selected":"") }}>{{$survey->title}}</option>
-            @endforeach
-            </select>
+            <h5>Survey Name:</h5> <h6>{{$survey->title}}</h6>
+            <input type="hidden" name="survey_id" value="{{$survey->id}}">
         </div>
 
         <div class="col-md-5">

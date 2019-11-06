@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Survey;
+use App\SurveyAnswerOption;
 use App\SurveyQuestion;
 use Illuminate\Http\Request;
 
@@ -27,14 +28,13 @@ class SurveyQuestionController extends Controller
             'question' => $request->get('question')
         ]);
         $surveyquestion->save();
-        return redirect()->route('surveyquestion.index')->with('success', 'Survey question has been created successfully');
+        return redirect()->back()->with('success', 'Survey question has been created successfully');
     }
 
     public function edit($id)
     {
-        $surveys = Survey::orderBy('title')->get()->sortBy('title', SORT_NATURAL|SORT_FLAG_CASE);
         $surveyquestion = SurveyQuestion::find($id);
-        return view('back-end.survey-question.edit', compact('surveys', 'surveyquestion'));
+        return view('back-end.survey-question.edit', compact('surveyquestion'));
     }
 
     public function update(Request $request, $id)
@@ -47,13 +47,19 @@ class SurveyQuestionController extends Controller
         $surveyquestion->survey_id = $request->get('survey_id');
         $surveyquestion->question = $request->get('question');
         $surveyquestion->save();
-        return redirect()->route('surveyquestion.index')->with('success', 'Survey question has been updated successfully');
+        return redirect('admin/survey/'. $request->get('survey_id'))->with('success', 'Survey question has been updated successfully');
     }
 
     public function destroy($id)
     {
         $surveyquestion = SurveyQuestion::find($id);
         $surveyquestion->delete();
-        return redirect()->route('surveyquestion.index')->with('success', 'Survey question has been deleted successfully');
+        return redirect()->back()->with('success', 'Survey question has been deleted successfully');
+    }
+
+    public function show(Request $request, SurveyQuestion   $surveyquestion )
+    {
+        $surveyansweroptions = SurveyAnswerOption::where('survey_question_id', $surveyquestion->id)->orderBy('answer_option')->get()->sortBy('answer_option', SORT_NATURAL|SORT_FLAG_CASE);
+        return view('back-end.survey-answer-option.index', compact('surveyquestion', 'surveyansweroptions'));
     }
 }

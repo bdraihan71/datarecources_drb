@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\SurveyQuestion;
 use App\Survey;
 use Illuminate\Http\Request;
 
@@ -84,5 +85,11 @@ class SurveyController extends Controller
         $survey = Survey::find($id);
         $survey->delete();
         return redirect()->route('survey.index')->with('success', 'Survey has been deleted successfully');
+    }
+
+    public function show(Request $request, Survey $survey)
+    {
+        $surveyquestions = SurveyQuestion::where('survey_id', $survey->id)->orderBy('question')->get()->sortBy('question', SORT_NATURAL|SORT_FLAG_CASE);
+        return view('back-end.survey-question.index', compact('survey', 'surveyquestions'));
     }
 }

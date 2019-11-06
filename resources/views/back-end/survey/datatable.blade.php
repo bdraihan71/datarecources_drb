@@ -47,6 +47,7 @@
                             @endif
                         </td>
                         <td>
+                            <a href="{{ route('survey.show', $survey->id)}}" class="btn btn-outline-primary">View</a>
                             <a href="{{ route('survey.edit', $survey->id)}}" class="btn btn-outline-primary">Edit</a>
                             <form action="{{ route('survey.destroy', $survey->id)}}" onclick="return confirm('Are you sure, you want to delete this survey?')" method="post" style="display: inline;">
                                 @csrf

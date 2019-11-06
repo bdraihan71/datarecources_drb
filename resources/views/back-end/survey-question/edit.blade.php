@@ -6,17 +6,10 @@
     @csrf
     @method('patch')
     <div class="row bg-white my-4 mx-1 p-3 shadow-sm">
+        
         <div class="col-md-5">
-            <label>Survey:<span class="text-danger">*</span> </label>
-            <select class="form-control dropdown-custom" name="survey_id" require>
-                @foreach($surveys as $survey)
-                    @if (($surveyquestion->survey->id) == $survey->id))
-                        <option value="{{$survey->id}}" selected>{{$survey->title}}</option>
-                    @else
-                        <option value="{{$survey->id}}">{{$survey->title}}</option>
-                    @endif
-                @endforeach
-            </select>
+            <h5>Survey Name:</h5> <h6>{{$surveyquestion->survey->title}}</h6>
+            <input type="hidden" name="survey_id" value="{{$surveyquestion->survey->id}}">
         </div>
 
         <div class="col-md-5">

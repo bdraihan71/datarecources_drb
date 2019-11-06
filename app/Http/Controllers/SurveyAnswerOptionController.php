@@ -27,14 +27,13 @@ class SurveyAnswerOptionController extends Controller
 
         ]);
         $surveyAnswerOption->save();
-        return redirect(route('surveyansweroption.index'))->with('success', 'Survey answer option has been created successfully');
+        return redirect()->back()->with('success', 'Survey answer option has been created successfully');
     }
 
     public function edit($id)
     {
-        $surveyquestions = SurveyQuestion::orderBy('question')->get()->sortBy('question', SORT_NATURAL|SORT_FLAG_CASE);
         $surveyansweroption = SurveyAnswerOption::find($id);
-        return view('back-end.survey-answer-option.edit', compact('surveyansweroption', 'surveyquestions'));
+        return view('back-end.survey-answer-option.edit', compact('surveyansweroption'));
     }
 
     public function update(Request $request, $id)
@@ -48,13 +47,13 @@ class SurveyAnswerOptionController extends Controller
         $surveyAnswerOption->survey_question_id = $request->get('survey_question_id');
         $surveyAnswerOption->answer_option = $request->get('answer_option');
         $surveyAnswerOption->save();
-        return redirect()->route('surveyansweroption.index')->with('success', 'survey Answer Option has been updated successfully');
+        return redirect('admin/surveyquestion/'. $request->get('survey_question_id'))->with('success', 'survey Answer Option has been updated successfully');
     }
 
     public function destroy($id)
     {
         $surveyAnswerOption = SurveyAnswerOption::find($id);
         $surveyAnswerOption->delete();
-        return redirect()->route('surveyansweroption.index')->with('success', 'Survey Answer Option has been deleted successfully');
+        return redirect()->back()->with('surveyansweroption.index')->with('success', 'Survey Answer Option has been deleted successfully');
     }
 }

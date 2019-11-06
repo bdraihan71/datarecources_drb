@@ -9,7 +9,6 @@
             <thead>
             <tr>
                 <th>Sl.</th>
-                <th>Survey Question</th>
                 <th>Answer</th>
                 <th>Hit</th>
                 <th>Action</th>
@@ -18,7 +17,6 @@
             <tfoot>
             <tr>
                 <th>Sl.</th>
-                <th>Survey Question</th>
                 <th>Answer</th>
                 <th>Hit</th>
                 <th>Action</th>
@@ -28,7 +26,6 @@
                 @foreach ($surveyansweroptions as $surveyansweroption)
                     <tr>
                         <td>{{$i++}}</td>
-                        <td>{{ $surveyansweroption->surveyQuestion->question }}</td>
                         <td>{{ $surveyansweroption->answer_option }}</td>
                         <td>{{ $surveyansweroption->hit_count }}</td>
                         <td>

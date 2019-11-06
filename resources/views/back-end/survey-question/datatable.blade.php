@@ -9,7 +9,6 @@
             <thead>
             <tr>
                 <th>Sl.</th>
-                <th>Survey Name</th>
                 <th>Question</th>
                 <th>Action</th>
             </tr>
@@ -17,7 +16,6 @@
             <tfoot>
             <tr>
                 <th>Sl.</th>
-                <th>Survey Name</th>
                 <th>Question</th>
                 <th>Action</th>
             </tr>
@@ -26,9 +24,9 @@
                 @foreach ($surveyquestions as $surveyquestion)
                     <tr>
                         <td>{{$i++}}</td>
-                        <td>{{ $surveyquestion->survey->title }}</td>
                         <td>{{ $surveyquestion->question }}</td>
                         <td>
+                            <a href="{{ route('surveyquestion.show', $surveyquestion->id)}}" class="btn btn-outline-primary">View</a>
                             <a href="{{ route('surveyquestion.edit', $surveyquestion->id)}}" class="btn btn-outline-primary">Edit</a>
                             <form action="{{ route('surveyquestion.destroy', $surveyquestion->id)}}" onclick="return confirm('Are you sure, you want to delete this survey question?')" method="post" style="display: inline;">
                                 @csrf

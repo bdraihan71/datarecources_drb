@@ -6,18 +6,9 @@
     @csrf
     <div class="row">
 
-        <div class="col-md-4">
-            <div class="form-group ">
-                <label class="col-12 col-form-label">Survey Question:<span class="text-danger">*</span> </label>
-                <div class="col-12">
-                    <select class="form-control dropdown-custom" name="survey_question_id" require>
-                    <option value="">Choose Question</option>
-                    @foreach($surveyquestions as $surveyquestion)
-                        <option value="{{$surveyquestion->id}}"  {{ (old("survey_question_id") == $surveyquestion->id ? "selected":"") }}>{{$surveyquestion->question}}</option>
-                    @endforeach
-                    </select>
-                </div>
-            </div>
+        <div class="col-md-5">
+            <h5>Survey Question:</h5> <h6>{{$surveyquestion->question}}</h6>
+            <input type="hidden" name="survey_question_id" value="{{$surveyquestion->id}}">
         </div>
 
         <div class="col-md-4">
