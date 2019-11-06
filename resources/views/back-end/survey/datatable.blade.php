@@ -10,6 +10,7 @@
             <tr>
                 <th>Sl.</th>
                 <th>Survey Name</th>
+                <th>Survey Description</th>
                 <th>Publish</th>
                 <th>Accepting Answer</th>
                 <th>Action</th>

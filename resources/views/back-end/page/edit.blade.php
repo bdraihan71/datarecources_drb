@@ -5,7 +5,7 @@
 <form  method="post" action="{{ route('page.update', $page->id) }}">
     @csrf
     @method('patch')
-    <div class="row">
+    <div class="row bg-white my-4 mx-1 p-3 shadow-sm">
         <div class="col-md-4">
             <div class="form-group">
             <label>Menu Name</label>
@@ -15,18 +15,16 @@
 
         <div class="col-md-4">
             <div class="form-group ">
-                <label class="col-12 col-form-label">Parent Menu:<span class="text-danger">*</span> </label>
-                <div class="col-12">
-                    <select class="form-control dropdown-custom" name="menu_id" require>
-                        @foreach($menus as $menu)
-                            @if (($page->menu->id) == $menu->id))
-                                <option value="{{$menu->id}}" selected>{{$menu->title}}</option>
-                            @else
-                                <option value="{{$menu->id}}">{{$menu->title}}</option>
-                            @endif
-                        @endforeach
-                    </select>
-                </div>
+                <label>Parent Menu:<span class="text-danger">*</span> </label>
+                <select class="form-control dropdown-custom" name="menu_id" require>
+                    @foreach($menus as $menu)
+                        @if (($page->menu->id) == $menu->id))
+                            <option value="{{$menu->id}}" selected>{{$menu->title}}</option>
+                        @else
+                            <option value="{{$menu->id}}">{{$menu->title}}</option>
+                        @endif
+                    @endforeach
+                </select>
             </div>
         </div>
 
@@ -45,8 +43,8 @@
         </div>
 
         <div class="col-md-2">
-            <label>.</label>
-            <button type="submit" class="btn btn-outline-primary w-100">Update</button>
+            <label></label>
+            <button type="submit" class="btn btn-outline-primary w-100 mt-md-2">Update</button>
         </div>
     </div>
 </form>
