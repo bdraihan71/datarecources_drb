@@ -33,14 +33,13 @@ class PageItemController extends Controller
         }
 
         $excel_path = "#";
-
         if($request->file('excel')){
             $request->validate([
                 'excel' => 'mimes:xlsx,xls',
             ]);
 
             try{
-                $path = $request->file('excel')->store(
+                $epath = $request->file('excel')->store(
                     env('APP_ENV') . '/' . $request->get('page_id') . '/excel', 's3'
                 );
             }catch(\Exception $exception){
@@ -48,7 +47,7 @@ class PageItemController extends Controller
                 return back()->withError("There was an error with uploading your file")->withInput(); 
             }
 
-            $excel_path = $path;
+            $excel_path = $epath;
         }
 
         $page_item = new PageItem([
