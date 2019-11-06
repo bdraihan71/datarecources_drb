@@ -20,18 +20,18 @@
                     @endphp
                     @if(count($sub_menus)>0)
                     <li class="nav-item dropdown nav-custom-margin-top">
-                        <a class="nav-link dropdown-toggle font-weight-bold text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle font-weight-bold text-white" href="{{ $menu->page ? $menu->page->slug : "#" }}"  id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{$menu->title}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             @foreach($sub_menus as $menu)
-                                <a class="dropdown-item" href="#">{{$menu->title}}</a>
+                                <a class="dropdown-item" href="{{ $menu->page ? $menu->page->slug : "#" }}">{{$menu->title}}</a>
                             @endforeach
                         </div>
                     </li>
                     @else
                         <li class="nav-item nav-custom-margin-top">
-                            <a class="nav-link font-weight-bold text-white" href="#" >
+                            <a class="nav-link font-weight-bold text-white" href="{{ $menu->page ? $menu->page->slug : "#" }}" >
                                 {{$menu->title}}
                             </a>
                         </li>

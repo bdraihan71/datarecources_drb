@@ -62,4 +62,10 @@ class PageController extends Controller
         $page->delete();
         return redirect()->route('page.index')->with('success', 'Page has been deleted successfully');
     }
+
+    public function page($slug)
+    {
+        $page = Page::where('slug', $slug)->first();
+        return view('front-end.pages.page', compact('page'));
+    }
 }

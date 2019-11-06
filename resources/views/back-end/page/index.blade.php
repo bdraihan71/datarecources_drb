@@ -7,14 +7,14 @@
     <div class="row bg-white my-4 mx-1 p-3 shadow-sm">
         <div class="col-md-4">
             <div class="form-group">
-            <label>Menu Name</label>
+            <label>Page Title</label>
             <input class="form-control" name="title"  value="{{ old('title') }}" type="text" placeholder="Enter Menu Name">
             </div>
         </div>
 
         <div class="col-md-4">
             <div class="form-group ">
-                <label>Parent Menu:<span class="text-danger">*</span> </label>
+                <label>Menu:<span class="text-danger">*</span> </label>
                 <select class="form-control dropdown-custom" name="menu_id" require>
                 <option value="">Choose Menu</option>
                 @foreach($menus as $menu)

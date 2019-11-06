@@ -12,6 +12,10 @@
 */
 
 Route::get('/logout', 'Auth\LoginController@logout');
+
+//Page
+Route::get('{slug}', 'PageController@page')->name('page');
+
 Route::middleware(['auth'])->group(function () {
 
     Route::prefix('admin')->group(function () {
@@ -60,6 +64,5 @@ Route::middleware(['auth'])->group(function () {
 
 Auth::routes();
 
-Route::view('/', 'main-layout')->name('home');
-    Route::view('/sub', 'sub-layout')->name('sub');
-    Route::view('/admin', 'admin-layout')->name('admin');
+Route::view('/', 'front-end.main-layout')->name('home');
+Route::view('/sub', 'sub-layout')->name('sub');

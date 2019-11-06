@@ -2,7 +2,7 @@
 <div class="card mb-3">
         <div class="card-header">
             <i class="fas fa-table"></i>
-            Data Table Example</div>
+            Page List</div>
         <div class="card-body">
             <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -11,6 +11,7 @@
                     <th>Sl.</th>
                     <th>Page Title</th>
                     <th>Menu</th>
+                    <th>Description</th>
                     <th>Slug</th>
                     <th>Action</th>
                 </tr>
@@ -20,6 +21,7 @@
                     <th>Sl.</th>
                     <th>Page Title</th>
                     <th>Menu</th>
+                    <th>Description</th>
                     <th>Slug</th>
                     <th>Action</th>
                 </tr>
@@ -32,6 +34,7 @@
                         @if($page->menu)
                             <td>{{ $page->menu->title }}</td>
                         @endif
+                        <td>{{ $page->description }}</td>
                         <td>{{ $page->slug }}</td>
                         <td>
                             <a href="{{ route('page.edit', $page->id)}}" class="btn btn-outline-primary">Edit</a>
