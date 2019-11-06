@@ -66,7 +66,7 @@ Route::middleware(['auth'])->group(function () {
 
 Auth::routes();
 
-Route::view('/', 'front-end.main-layout')->name('home');
+Route::view('/', 'front-end.home.index')->name('home');
 Route::view('/sub', 'sub-layout')->name('sub');
 
 //Page
