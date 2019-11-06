@@ -12,5 +12,6 @@ $factory->define(App\PageItem::class, function (Faker $faker) {
         'pdf_file_url' => 'http://www.africau.edu/images/default/sample.pdf',
         'excel_file_url_download_count' => $faker->numberBetween($min = 1, $max = 20),
         'pdf_file_url_download_count' => $faker->numberBetween($min = 1, $max = 20),
+        'page_id' => $faker->numberBetween($min = 1, $max = 20),
     ];
 });

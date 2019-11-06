@@ -2,7 +2,7 @@
 <div class="card mb-3">
         <div class="card-header">
             <i class="fas fa-table"></i>
-            Page List</div>
+            Page Item List</div>
         <div class="card-body">
             <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -27,16 +27,11 @@
                 </tr>
                 </tfoot>
                 <tbody>
-                @foreach ($pages as $page)
+                @foreach ($page->pageItems as $item)
                     <tr>
                         <td>{{$i++}}</td>
-                        <td>{{ $page->title }}</td>
-                        @if($page->menu)
-                            <td>{{ $page->menu->title }}</td>
-                        @endif
-                        <td>{{ $page->description }}</td>
-                        <td>{{ $page->slug }}</td>
-                        <td>
+                        <td>{{ $item->particular }}</td>
+                        {{-- <td>
                             <a href="{{ route('page.show', $page->id)}}" class="btn btn-outline-primary">Show</a>
                             <a href="{{ route('page.edit', $page->id)}}" class="btn btn-outline-primary">Edit</a>
                             <form action="{{ route('page.destroy', $page->id)}}" onclick="return confirm('Are you sure, you want to delete this menu?')" method="post" style="display: inline;">
@@ -44,7 +39,7 @@
                                 @method('delete')
                                 <button type="submit" class="btn btn-outline-danger">Delete</button>
                             </form>
-                        </td>
+                        </td> --}}
                     </tr>
                 @endforeach
                 </tbody>

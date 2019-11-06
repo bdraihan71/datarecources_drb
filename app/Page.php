@@ -10,4 +10,9 @@ class Page extends DrbModel
     {
         return $this->belongsTo('App\Menu');
     }
+
+    public function pageItems()
+    {
+        return $this->hasMany('App\PageItem');
+    }
 }
