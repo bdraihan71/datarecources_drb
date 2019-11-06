@@ -23,7 +23,7 @@ Route::middleware(['auth'])->group(function () {
         //Page
         Route::resource('page', 'PageController')->except(['create']);
 
-        //Page 
+        //Page
         //TODO:: Clean the route below. Only keep necessary route methods.
         Route::resource('page-item', 'PageItemController')->except(['create']);
 
