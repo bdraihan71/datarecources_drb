@@ -2,33 +2,34 @@
 
 @section('content')
 
-<form  method="post" action="{{ route('menu.update', $menu->id) }}">
+<form  method="post" action="{{ route('surveyansweroption.update', $surveyansweroption->id) }}">
     @csrf
     @method('patch')
     <div class="row">
         <div class="col-md-4">
-            <div class="form-group">
-            <label>Menu Name</label>
-            <input class="form-control" name="title"  value="{{ $menu->title}}" type="text" placeholder="Enter Menu Name">
-            </div>
-        </div>
-
-        <div class="col-md-4">
             <div class="form-group ">
-                <label class="col-12 col-form-label">Parent Menu:<span class="text-danger">*</span> </label>
+                <label class="col-12 col-form-label">Survey Question:<span class="text-danger">*</span> </label>
                 <div class="col-12">
-                    <select class="form-control dropdown-custom" name="parent_menu_id" require>
-                        @foreach($allmenus as $allmenu)
-                            @if ($menu->id == $allmenu->parent_menu_id))
-                                <option value="{{$allmenu->id}}" selected>{{$allmenu->title}}</option>
+                    <select class="form-control dropdown-custom" name="survey_question_id" require>
+                        @foreach($surveyquestions as $surveyquestion)
+                            @if (($surveyansweroption->surveyQuestion->id) == $surveyquestion->id))
+                                <option value="{{$surveyquestion->id}}" selected>{{$surveyquestion->question}}</option>
                             @else
-                                <option value="{{$allmenu->id}}">{{$allmenu->title}}</option>
+                                <option value="{{$surveyquestion->id}}">{{$surveyquestion->question}}</option>
                             @endif
                         @endforeach
                     </select>
                 </div>
             </div>
         </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+            <label>Answer</label>
+            <input class="form-control" name="answer_option"  value="{{ $surveyansweroption->answer_option }}" type="text" placeholder="Enter Answer">
+            </div>
+        </div>
+
 
         <div class="col-md-2">
             <label>.</label>
