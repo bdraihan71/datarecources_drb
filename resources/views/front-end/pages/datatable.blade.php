@@ -27,8 +27,12 @@
                     <td>{{$i++}}</td>
                     <td>{{$item->particular}}</td>
                     <td>
-                        <button type="button" class="btn btn-outline-primary">PDF</button>
-                        <button type="button" class="btn btn-outline-primary">Excel</button>
+                        @if($item->pdf_file_url != '#')
+                            <a target="_blank" href="{{ env('S3_URL') }}{{ $item->pdf_file_url }}" type="button" class="btn btn-outline-primary">PDF</a>
+                        @endif
+                        @if($item->excel_file_url != '#')
+                            <a target="_blank" href="{{ env('S3_URL') }}{{ $item->excel_file_url }}" type="button" class="btn btn-outline-primary">Excel</a>
+                        @endif
                     </td>
                 </tr>
             @endforeach
@@ -36,5 +40,4 @@
         </table>
         </div>
     </div>
-    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
 </div>
