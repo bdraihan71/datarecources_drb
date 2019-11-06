@@ -5,7 +5,7 @@
     </div>
 
     <ul class="list-unstyled components">
-        <li>
+        <li class="sidebar-active">
             <a href="{{route('home')}}">Home</a>
         </li>
         <li>
