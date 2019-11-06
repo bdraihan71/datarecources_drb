@@ -5,9 +5,9 @@
     </div>
 
     <ul class="list-unstyled components">
-        {{-- <li>
+        <li>
             <a href="{{route('home')}}">Home</a>
-        </li> --}}
+        </li>
         <li>
             <a href="{{route('menu.index')}}">Menu</a>
         </li>
