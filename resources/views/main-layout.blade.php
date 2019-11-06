@@ -12,19 +12,30 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 @php
-                    $menus = App\Menu::whereNull('parent_menu_id')->orderBy('title')->get()
+                    $menus = App\Menu::whereNull('parent_menu_id')->orderBy('title')->get();
                 @endphp
                 @foreach($menus as $menu)
+                    @php
+                        $sub_menus = App\Menu::where('parent_menu_id', $menu->id)->orderBy('title')->get()
+                    @endphp
+                    @if(count($sub_menus)>0)
                     <li class="nav-item dropdown nav-custom-margin-top">
                         <a class="nav-link dropdown-toggle font-weight-bold text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{$menu->title}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            @foreach($sub_menus as $menu)
+                                <a class="dropdown-item" href="#">{{$menu->title}}</a>
+                            @endforeach
                         </div>
                     </li>
+                    @else
+                        <li class="nav-item nav-custom-margin-top">
+                            <a class="nav-link font-weight-bold text-white" href="#" >
+                                {{$menu->title}}
+                            </a>
+                        </li>
+                    @endif
                 @endforeach
                 <li class="nav-item dropdown nav-custom-margin-top">
                     <a class="nav-link dropdown-toggle font-weight-bold text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
