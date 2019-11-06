@@ -53,6 +53,12 @@ Route::middleware(['auth'])->group(function () {
         //SurveyAnswerOption
         Route::resource('surveyansweroption', 'SurveyAnswerOptionController')->except(['show', 'create']);
 
+          //User
+        Route::get('/user', 'UserController@index')->name('user.index');
+        Route::get('/user/{id}', 'UserController@edit')->name('user.edit');
+        Route::get('/user/{id}/edit', 'UserController@edit')->name('user.edit');
+        Route::patch('/user/{id}', 'UserController@update')->name('user.update');
+        Route::delete('/user/{id} ', 'UserController@destroy')->name('user.destroy');
     });
 
     //Page

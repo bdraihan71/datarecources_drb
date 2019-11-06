@@ -38,6 +38,9 @@
         <li class="{{ request()->url() == route('surveyansweroption.index') ? 'sidebar-active' : '' }}">
             <a href="{{route('surveyansweroption.index')}}">Survey Answer Option</a>
         </li>
+        <li class="{{ request()->url() == route('user.index') ? 'sidebar-active' : '' }}">
+            <a href="{{route('user.index')}}">User</a>
+        </li>
         <li >
             <a href="#">About</a>
         </li>
