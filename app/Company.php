@@ -10,4 +10,9 @@ class Company extends DrbModel
     {
         return $this->belongsTo('App\Sector');
     }
+
+    public function financeInfos()
+    {
+        return $this->hasMany('App\FinanceInfo');
+    }
 }

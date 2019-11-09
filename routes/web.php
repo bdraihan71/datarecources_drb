@@ -31,8 +31,9 @@ Route::middleware(['auth','admin'])->group(function () {
         Route::resource('sector', 'SectorController')->except(['show','create']);
 
         //Company
-        Route::resource('company', 'CompanyController')->except(['show','create']);
+        Route::resource('company', 'CompanyController')->except(['create']);
 
+        //TODO::Fix typo
         //Announcment
         Route::resource('announcment', 'AnnouncmentController')->except(['show','create']);
 
@@ -59,15 +60,14 @@ Route::middleware(['auth','admin'])->group(function () {
         Route::get('/user/{id}/edit', 'UserController@edit')->name('user.edit');
         Route::patch('/user/{id}', 'UserController@update')->name('user.update');
         Route::delete('/user/{id} ', 'UserController@destroy')->name('user.destroy');
+
+        //Finance Info
+        //TODO:: constrain routes
+        Route::resource('finance-info', 'FinanceInfoController');
     });
 
     //Page
     // Route::resource('page', 'PageController')->except(['show']);
-
-
-
-
-
 });
 
 Auth::routes();

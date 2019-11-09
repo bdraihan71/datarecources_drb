@@ -34,6 +34,7 @@
                             <td>{{ $company->sector->name }}</td>
                         @endif
                         <td>
+                            <a href="{{ route('company.show', $company->id)}}" class="btn btn-outline-primary">Show</a>
                             <a href="{{ route('company.edit', $company->id)}}" class="btn btn-outline-primary">Edit</a>
                             <form action="{{ route('company.destroy', $company->id)}}" onclick="return confirm('Are you sure, you want to delete this menu?')" method="post" style="display: inline;">
                                 @csrf

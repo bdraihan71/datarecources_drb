@@ -60,4 +60,9 @@ class CompanyController extends Controller
         $company->delete();
         return redirect()->route('company.index')->with('success', 'Page has been deleted successfully');
     }
+
+    public function show($id){
+        $company = Company::find($id);
+        return view('back-end.company.show', compact('company'));
+    }
 }
