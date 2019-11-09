@@ -75,5 +75,9 @@ Auth::routes();
 Route::view('/', 'front-end.home.index')->name('home');
 Route::view('/sub', 'sub-layout')->name('sub');
 
+
+//Financial Info
+Route::get('/finance-info', 'FinanceInfoController@all')->name('finance-info-all');
+
 //Page
 Route::get('{slug}', 'PageController@page')->name('page');

@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class FinanceInfoController extends Controller
 {
+    public function all(){
+        $finance_infos = FinanceInfo::all();
+        return view('front-end.finance-info.all', compact('finance_infos'));
+    }
     public function store(Request $request){
         $this->validate($request, [
             'year' => 'required|numeric',

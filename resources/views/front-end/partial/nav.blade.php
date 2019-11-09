@@ -32,16 +32,14 @@
                         </li>
                     @endif
                 @endforeach
-                {{-- <li class="nav-item dropdown nav-custom-margin-top">
+                <li class="nav-item dropdown nav-custom-margin-top">
                     <a class="nav-link dropdown-toggle font-weight-bold text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         COMPANY
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Financial Statement</a>
-                        <a class="dropdown-item" href="#">Shareholding Data</a>
-                        <a class="dropdown-item" href="#">Analysis</a>
+                        <a class="dropdown-item" href="{{route('finance-info-all')}}">Financial Statement</a>
                     </div>
-                </li> --}}
+                </li>
                 <form class="form-inline my-2 my-lg-0">
                     @if(Auth::check())
                         @if(Auth::user()->type == 'admin')
