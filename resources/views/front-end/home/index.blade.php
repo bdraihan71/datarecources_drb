@@ -143,12 +143,15 @@
                                 $i = 0;
                             ?>
                             @foreach ($surveyquestion->surveyansweroptions as $surveyansweroption)
-
-                            <form action="{{ route('vote')}}" method="POST">
-                                @csrf
-                                <input type="hidden" name="survey_answer_option_id" value="{{ $surveyansweroption->id }}">
-                                <button type="submit" class="btn {{$colors[$i++]}}">{{$surveyansweroption->answer_option}}</button>
-                            </form>
+                            @if(Auth::check())
+                                <form action="{{ route('vote')}}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="survey_answer_option_id" value="{{ $surveyansweroption->id }}">
+                                    <button type="submit" class="btn {{$colors[$i++]}}">{{$surveyansweroption->answer_option}}</button>
+                                </form>
+                            @else
+                                <a href="{{ route('login') }}"><button class="btn {{$colors[$i++]}}">{{$surveyansweroption->answer_option}}</button></a>
+                            @endif
                             @endforeach
                         </div>
                     @endforeach
