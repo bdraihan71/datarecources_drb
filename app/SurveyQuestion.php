@@ -10,4 +10,9 @@ class SurveyQuestion extends DrbModel
     {
         return $this->belongsTo('App\Survey');
     }
+
+    public function surveyansweroptions()
+    {
+        return $this->hasMany('App\SurveyAnswerOption');
+    }
 }

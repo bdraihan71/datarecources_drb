@@ -134,12 +134,25 @@
                 <canvas id="chDonut1"></canvas>
             </div>
             <div class="col-md-6">
-                <p>Do you think exchange rate will be BDT 87 per USD?</p>
-                <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-success">Yes</button>
-                    <button type="button" class="btn btn-primary">No</button>
-                    <button type="button" class="btn btn-warning">May Be</button>
-                </div>
+                @foreach ($surveys as $survey)
+                    @foreach ($survey->surveyQuestions as $surveyquestion)
+                        <p>{{$surveyquestion->question}}</p>
+                        <div class="btn-group mb-3" role="group" aria-label="Basic example">
+                            <?php
+                                $colors = array('btn-success', 'btn-primary', 'btn-warning');
+                                $i = 0;
+                            ?>
+                            @foreach ($surveyquestion->surveyansweroptions as $surveyansweroption)
+
+                            <form action="{{ route('vote')}}" method="POST">
+                                @csrf
+                                <input type="hidden" name="survey_answer_option_id" value="{{ $surveyansweroption->id }}">
+                                <button type="submit" class="btn {{$colors[$i++]}}">{{$surveyansweroption->answer_option}}</button>
+                            </form>
+                            @endforeach
+                        </div>
+                    @endforeach
+                @endforeach
                 <div class="progress my-3">
                     <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>

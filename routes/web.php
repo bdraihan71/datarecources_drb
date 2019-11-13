@@ -72,7 +72,8 @@ Route::middleware(['auth','admin'])->group(function () {
 
 Auth::routes();
 
-Route::view('/', 'front-end.home.index')->name('home');
+Route::get('/', 'HomeController@homePage')->name('home');
+Route::post('/vote', 'HomeController@vote')->name('vote');
 Route::view('/sub', 'sub-layout')->name('sub');
 
 
