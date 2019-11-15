@@ -363,23 +363,7 @@ a.article:hover {
 }
 
 .announcement {
-    display: inline-block;
-    height: 100%;
-    text-align: center;
-    width: 100%;
-    background: black;
-    color: white;
-    font-family: Arial, sans;
-    margin: 0;
-    padding: 0;
-    vertical-align: middle;
-    font-size: 0.8em;
-  }
-  
-  .announcement a { 
-    color: #ccc; 
-  }
-  
-  .announcement a:hover {
-    color: red;
-  }
+    position: fixed;
+    right: 0;
+    top: 155px;
+}
