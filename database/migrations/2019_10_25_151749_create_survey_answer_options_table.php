@@ -18,7 +18,7 @@ class CreateSurveyAnswerOptionsTable extends Migration
             $table->softDeletes();
             $table->bigInteger('survey_question_id');
             $table->string('answer_option');
-            $table->integer('hit_count')->nullable();
+            $table->integer('hit_count')->default(0);
             $table->timestamps();
         });
     }

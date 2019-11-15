@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\SurveyQuestion;
 use App\Survey;
+use App\SurveyAnswerOption;
+use App\SurveyHit;
 use Illuminate\Http\Request;
 
 class SurveyController extends Controller
@@ -91,5 +93,23 @@ class SurveyController extends Controller
     {
         $surveyquestions = SurveyQuestion::where('survey_id', $survey->id)->orderBy('question')->get()->sortBy('question', SORT_NATURAL|SORT_FLAG_CASE);
         return view('back-end.survey-question.index', compact('survey', 'surveyquestions'));
+    }
+
+    public function saveResponse(Request $request, SurveyQuestion $surveyQuestion){
+        if(auth()->user()->canSubmitResponse($surveyQuestion)){
+            SurveyHit::create([
+                'user_id' => auth()->user()->id,
+                'survey_question_id' => $surveyQuestion->id,
+                'survey_answer_option_id' => $request->get($surveyQuestion->id)
+            ]);
+
+            $answer = SurveyAnswerOption::find($request->get($surveyQuestion->id));
+            $answer->hit_count = $answer->hit_count + 1;
+            $answer->save();
+            return redirect()->back();
+        }else{
+            return redirect()->back()->withErrors(['You already submitted an answer for this survey question.']);
+        }
+        
     }
 }

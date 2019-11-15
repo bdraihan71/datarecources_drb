@@ -43,6 +43,8 @@ Route::middleware(['auth','admin'])->group(function () {
          //Survey
         Route::resource('survey', 'SurveyController')->except(['create']);
 
+        
+
         //SurveyQuestion
         Route::resource('surveyquestion', 'SurveyQuestionController')->except(['create']);
 
@@ -72,7 +74,13 @@ Route::middleware(['auth','admin'])->group(function () {
 
 Auth::routes();
 
-Route::view('/', 'front-end.home.index')->name('home');
+Route::middleware(['auth'])->group(function () {
+  Route::prefix('user')->group(function () {
+      Route::post('survey/{surveyQuestion}', 'SurveyController@saveResponse')->name('save-response');
+  });
+});
+
+Route::get('/', 'PublicPagesController@landing')->name('home');
 Route::view('/sub', 'sub-layout')->name('sub');
 
 

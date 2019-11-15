@@ -38,4 +38,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function canSubmitResponse(SurveyQuestion $question){
+        $hit = SurveyHit::where('user_id', $this->id)->where('survey_question_id', $question->id)->first();
+        if($hit == null){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

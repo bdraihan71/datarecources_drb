@@ -17,6 +17,7 @@ class CreateSurveyHitsTable extends Migration
             $table->bigIncrements('id');
             $table->softDeletes();
             $table->bigInteger('user_id');
+            $table->bigInteger('survey_question_id');
             $table->bigInteger('survey_answer_option_id');
             $table->timestamps();
         });

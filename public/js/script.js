@@ -53,35 +53,3 @@
 
 })(jQuery);
 
-
-/* chart.js chart examples */
-
-// chart colors
-var colors = ['#0066cc','#e67300','#a6a6a6','#c3e6cb','#dc3545','#6c757d'];
-
-/* 3 donut charts */
-var donutOptions = {
-  cutoutPercentage: 85, 
-  legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}}
-};
-
-// donut 1
-var chDonutData1 = {
-    labels: ['Yes', 'No', 'May Be'],
-    datasets: [
-      {
-        backgroundColor: colors.slice(0,3),
-        borderWidth: 0,
-        data: [54, 21, 40]
-      }
-    ]
-};
-
-var chDonut1 = document.getElementById("chDonut1");
-if (chDonut1) {
-  new Chart(chDonut1, {
-      type: 'pie',
-      data: chDonutData1,
-      options: donutOptions
-  });
-}

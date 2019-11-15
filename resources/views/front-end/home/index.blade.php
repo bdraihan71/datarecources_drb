@@ -123,38 +123,97 @@
 </section>
 
 
-<section class="survey">
-    <div class="container-fluid h-100">
-        <div class="row text-center mt-5 align-items-center h-100">
-            <div class="col-md-12">
-                <h1 class="my-5 survey-margin-top">Survey Result</h1>
-            </div>
-            <div class="col-md-6">
-                <p>Do you think private sector credit growth will slow down?</p>
-                <canvas id="chDonut1"></canvas>
-            </div>
-            <div class="col-md-6">
-                <p>Do you think exchange rate will be BDT 87 per USD?</p>
-                <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-success">Yes</button>
-                    <button type="button" class="btn btn-primary">No</button>
-                    <button type="button" class="btn btn-warning">May Be</button>
+@if(count($survey_results)>0)
+    <section class="survey">
+        <div class="container-fluid h-100">
+            <div class="row text-center mt-5 align-items-center h-100">
+                <div class="col-md-12">
+                    <h1 class="my-5 survey-margin-top">Survey Result</h1>
                 </div>
-                <div class="progress my-3">
-                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <div class="progress my-3">
-                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <div class="progress my-3">
-                    <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
+
+                @foreach ($survey_results as $survey)
+
+
+                    <div class="col-md-6">
+                        <p>{{$survey->title}}</p>
+                        @foreach($survey->surveyQuestions as $surveyQuestion)
+                            @include('front-end.home.survey-answer')
+
+                            <div class="col-md-6">
+                                <p>{{$surveyQuestion->question}}</p>
+                                <canvas id="chDonut1{{$surveyQuestion->id}}"></canvas>
+                            </div>
+                            <script src="/vendor/chart.js/Chart.min.js"></script>
+
+                            <script>
+                            
+                            /* chart.js chart examples */
+
+                            // chart colors
+                            var colors = ['#0066cc','#e67300','#a6a6a6','#c3e6cb','#dc3545','#6c757d'];
+
+                            /* 3 donut charts */
+                            var donutOptions = {
+                            cutoutPercentage: 85, 
+                            legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}}
+                            };
+
+                            // donut 1
+                            var chDonutData1{{$surveyQuestion->id}} = {
+                                labels: @json($surveyQuestion->surveyAnswerOptions->pluck('answer_option')),
+                                datasets: [
+                                {
+                                    backgroundColor: colors.slice(0,3),
+                                    borderWidth: 0,
+                                    data: @json($surveyQuestion->surveyAnswerOptions->pluck('hit_count'))
+                                }
+                                ]
+                            };
+
+                            var chDonut1{{$surveyQuestion->id}} = document.getElementById("chDonut1{{$surveyQuestion->id}}");
+                            if (chDonut1{{$surveyQuestion->id}}) {
+                            new Chart(chDonut1{{$surveyQuestion->id}}, {
+                                type: 'pie',
+                                data: chDonutData1{{$surveyQuestion->id}},
+                                options: donutOptions
+                            });
+                            }
+                            </script>
+                        @endforeach
+                    </div>
+                @endforeach
             </div>
         </div>
-    </div>
-</section>
-
-
+    </section>
+@endif
+@if(count($surveys)>0)
+    <section class="survey">
+        <div class="container-fluid h-100">
+            <div class="row text-center mt-5 align-items-center h-100">
+                <div class="col-md-12">
+                    <h1 class="my-5 survey-margin-top">Participate in Survey</h1>
+                </div>
+                @foreach ($surveys as $survey)
+                    <div class="col-md-6">
+                        <h3>{{$survey->title}}</h3>
+                        @foreach($survey->surveyQuestions as $surveyQuestion)
+                            @if(auth()->user())
+                                @if(auth()->user()->canSubmitResponse($surveyQuestion))
+                                    @include('front-end.home.survey-answer-form')
+                                @else
+                                    @include('front-end.home.survey-answer')
+                                @endif
+                            @else
+                                @include('front-end.home.survey-answer-form')      
+                            @endif
+                        @endforeach
+                    </div>
+                @endforeach
+                
+            </div>
+        </div>
+    </section>
+@endif
 <section class="call-to-action bg-warning">
     <div class="container-fluid h-100">
         <div class="row text-center align-items-center h-100 mt-5">
