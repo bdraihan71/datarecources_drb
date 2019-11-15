@@ -7,4 +7,5 @@
 @yield('content')
 
 @include('front-end.partial.footer')
+
 @endsection

@@ -1,4 +1,5 @@
 @extends('front-end.main-layout')
+
 @section('content')
 <header>
     <div class="hero-background">

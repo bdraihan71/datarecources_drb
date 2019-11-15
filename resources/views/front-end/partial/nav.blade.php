@@ -54,4 +54,11 @@
             </ul>
         </div>
     </div>
+
+    @if(App\Announcment::where('is_published', true)->first())
+        <div class="alert alert-info" role="alert">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>Announcement! </strong>{{ App\Announcment::where('is_published', true)->first()->text }}
+        </div>
+    @endif
 </nav>
