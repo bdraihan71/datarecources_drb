@@ -14,6 +14,9 @@ class SurveyAnswerOption extends DrbModel
         foreach($answers as $answer){
             $total_hit += $answer->hit_count;
         }
+        if($total_hit == 0){
+            return $total_hit;
+        }
         return ($this->hit_count/$total_hit)*100;
     }
     public function surveyQuestion()
