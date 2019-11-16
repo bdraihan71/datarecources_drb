@@ -1,6 +1,7 @@
-<form action="{{route('save-response', $surveyQuestion->id)}}" method="POST">
-    @csrf
-    <div class="card" style="width: 18rem;">
+
+    <div class="card">
+        <form action="{{route('save-response', $surveyQuestion->id)}}" method="POST">
+            @csrf
         <div class="card-header">
             {{$surveyQuestion->question}}
         </div>
@@ -17,9 +18,9 @@
                 @endif
             </ul>
             @if(auth()->user())
-                <button type="submit" class="btn btn-danger">Submit Response</button>
+                <button type="submit" class="btn btn-danger my-3">Submit Response</button>
             @else
-                <a href="/login" class="btn btn-primary">Please login to Submit Response</a>
+                <a href="/login" class="btn btn-primary my-3">Please login to Submit Response</a>
             @endif
+        </form>
     </div>
-</form>

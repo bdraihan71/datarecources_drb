@@ -367,3 +367,18 @@ a.article:hover {
     right: 0;
     top: 155px;
 }
+
+.survey-card{
+    float:left;
+    padding:0px 10px;
+    width: 33%;
+}
+
+.survey-result-card{
+    float:left;
+    padding:0px 10px;
+    width: 46%;
+    background:white;
+    margin: 1%;
+    padding: 1%
+}

@@ -132,57 +132,30 @@
                     <h1 class="my-5 survey-margin-top">Survey Result</h1>
                 </div>
 
-                @foreach ($survey_results as $survey)
-
-
-                    <div class="col-md-6">
-                        <p>{{$survey->title}}</p>
-                        @foreach($survey->surveyQuestions as $surveyQuestion)
-                            @include('front-end.home.survey-answer')
-
-                            <div class="col-md-6">
-                                <p>{{$surveyQuestion->question}}</p>
-                                <canvas id="chDonut1{{$surveyQuestion->id}}"></canvas>
-                            </div>
-                            <script src="/vendor/chart.js/Chart.min.js"></script>
-
-                            <script>
-                            
-                            /* chart.js chart examples */
-
-                            // chart colors
-                            var colors = ['#0066cc','#e67300','#a6a6a6','#c3e6cb','#dc3545','#6c757d'];
-
-                            /* 3 donut charts */
-                            var donutOptions = {
-                            cutoutPercentage: 85, 
-                            legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}}
-                            };
-
-                            // donut 1
-                            var chDonutData1{{$surveyQuestion->id}} = {
-                                labels: @json($surveyQuestion->surveyAnswerOptions->pluck('answer_option')),
-                                datasets: [
-                                {
-                                    backgroundColor: colors.slice(0,3),
-                                    borderWidth: 0,
-                                    data: @json($surveyQuestion->surveyAnswerOptions->pluck('hit_count'))
-                                }
-                                ]
-                            };
-
-                            var chDonut1{{$surveyQuestion->id}} = document.getElementById("chDonut1{{$surveyQuestion->id}}");
-                            if (chDonut1{{$surveyQuestion->id}}) {
-                            new Chart(chDonut1{{$surveyQuestion->id}}, {
-                                type: 'pie',
-                                data: chDonutData1{{$surveyQuestion->id}},
-                                options: donutOptions
-                            });
-                            }
-                            </script>
-                        @endforeach
-                    </div>
-                @endforeach
+                <div class="container">
+                    @foreach ($survey_results as $survey)
+                        <div class="survey-result-card">
+                            <h3>{{$survey->title}}</h3>
+                            @foreach($survey->surveyQuestions as $surveyQuestion)
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <canvas id="chDonut1{{$surveyQuestion->id}}"></canvas>
+                                    @include('front-end.home.chart')
+                                </div>        
+                            </div>   
+                                <div class="row">
+                                    <div class="col-md-2">
+                                    </div>
+                                    <div class="col-md-8">
+                                        @include('front-end.home.survey-answer')<br>
+                                    </div>
+                                    <div class="col-md-2">
+                                    </div>
+                                </div>       
+                            @endforeach
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </section>
@@ -194,23 +167,24 @@
                 <div class="col-md-12">
                     <h1 class="my-5 survey-margin-top">Participate in Survey</h1>
                 </div>
-                @foreach ($surveys as $survey)
-                    <div class="col-md-6">
-                        <h3>{{$survey->title}}</h3>
-                        @foreach($survey->surveyQuestions as $surveyQuestion)
-                            @if(auth()->user())
-                                @if(auth()->user()->canSubmitResponse($surveyQuestion))
-                                    @include('front-end.home.survey-answer-form')
+                <div class="container">
+                    @foreach ($surveys as $survey)
+                        <div class="survey-card">
+                            <h3>{{$survey->title}}</h3>
+                            @foreach($survey->surveyQuestions as $surveyQuestion)
+                                @if(auth()->user())
+                                    @if(auth()->user()->canSubmitResponse($surveyQuestion))
+                                        @include('front-end.home.survey-answer-form')
+                                    @else
+                                        @include('front-end.home.survey-answer')
+                                    @endif
                                 @else
-                                    @include('front-end.home.survey-answer')
-                                @endif
-                            @else
-                                @include('front-end.home.survey-answer-form')      
-                            @endif
-                        @endforeach
-                    </div>
-                @endforeach
-                
+                                    @include('front-end.home.survey-answer-form')      
+                                @endif<br>
+                            @endforeach
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </section>
