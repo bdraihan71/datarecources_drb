@@ -28,22 +28,6 @@
     </div>
 </header>
 
-<section class="who-we-are">
-    <div class="container h-100">
-        <div class="row align-items-center h-100">
-            <div class="col-md-5">
-                <h1>WHO WE ARE</h1>
-                <h5>DRB aims to provide accurate and workable data to help you make e best investment decision.
-                    We want to be your one step solution for all kinds of data need.
-                </h5>
-            </div>
-            <div class="col-md-7 text-center">
-                <img src="/img/hero.jpg" class="img-fluid">
-            </div>
-        </div>
-    </div>
-</section>
-
 <section class="analyze">
     <div class="container-fluid">
         <div class="row">
@@ -197,7 +181,7 @@
                 <h3>Sign Up for Free</h3>
             </div>
             <div class="col-md-4">
-                <button class="btn btn-dark rounded-pill py-2 w-100" type="submit">Signup</button>
+                <button class="btn btn-dark rounded-pill py-2 w-100 main-color" type="submit">Signup</button>
             </div>
             <div class="col-md-2"></div>
         </div>
@@ -206,19 +190,22 @@
 
 
 <section class="contact-us pb-5">
-    <div class="container h-100">
-        <div class="row text-center align-items-center h-100 mt-5">
-            <div class="col-md-6">
-                <h1>CONTACT US</h1>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-6 main-text-color border-right">
+                <h1>Who We Are</h1>
+                <p class="main-text-color">DRB aims to provide accurate and workable data to help you make e best investment decision. All the data are collected from secondary source.
+                </p>
             </div>
             <div class="col-md-6">
+                <h1 class="main-text-color">Contact Us</h1>
                 <div class="form-group">
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                 </div>
                 <div class="form-group">
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Message"></textarea>
                 </div>
-                <button class="btn btn-dark py-2 w-100" type="submit">Submit</button>
+                <button class="btn btn-dark py-2 w-100 main-color" type="submit">Submit</button>
             </div>
         </div>
     </div>
