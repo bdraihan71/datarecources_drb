@@ -125,7 +125,7 @@
                     <h1 class="my-5 survey-margin-top">Survey Result</h1>
                 </div>
 
-                <div class="container">
+                <div class="col-md-12">
                     @foreach ($survey_results as $survey)
                         <div class="survey-result-card">
                             <h3>{{$survey->title}}</h3>
@@ -155,15 +155,14 @@
 @endif
 @if(count($surveys)>0)
     <section class="survey">
-        <div class="container-fluid h-100">
+        <div class="container h-100">
             <div class="row text-center mt-5 align-items-center h-100">
                 <div class="col-md-12">
                     <h1 class="my-5 survey-margin-top">Participate in Survey</h1>
                 </div>
-                <div class="container">
+                <div class="col-md-12">
                     @foreach ($surveys as $survey)
-                        <div class="survey-card">
-                            <h3>{{$survey->title}}</h3>
+                            <h3 class="main-text-color">{{$survey->title}}</h3>
                             @foreach($survey->surveyQuestions as $surveyQuestion)
                                 @if(auth()->user())
                                     @if(auth()->user()->canSubmitResponse($surveyQuestion))
@@ -175,7 +174,6 @@
                                     @include('front-end.home.survey-answer-form')      
                                 @endif<br>
                             @endforeach
-                        </div>
                     @endforeach
                 </div>
             </div>
