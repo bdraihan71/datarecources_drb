@@ -125,30 +125,24 @@
                     <h1 class="my-5 survey-margin-top">Survey Result</h1>
                 </div>
 
+                
+                @foreach ($survey_results as $survey)
                 <div class="col-md-12">
-                    @foreach ($survey_results as $survey)
-                        <div class="survey-result-card">
-                            <h3>{{$survey->title}}</h3>
-                            @foreach($survey->surveyQuestions as $surveyQuestion)
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <canvas id="chDonut1{{$surveyQuestion->id}}"></canvas>
-                                    @include('front-end.home.chart')
-                                </div>        
-                            </div>   
-                                <div class="row">
-                                    <div class="col-md-2">
-                                    </div>
-                                    <div class="col-md-8">
-                                        @include('front-end.home.survey-answer')<br>
-                                    </div>
-                                    <div class="col-md-2">
-                                    </div>
-                                </div>       
-                            @endforeach
-                        </div>
-                    @endforeach
+                    <h3>{{$survey->title}}</h3>
                 </div>
+                    @foreach($survey->surveyQuestions as $surveyQuestion)
+                        <div class="row">
+                            <div class="col-md-7">
+                                <canvas id="chDonut1{{$surveyQuestion->id}}"></canvas>
+                                @include('front-end.home.chart')
+                            </div>  
+                            <div class="col-md-5">
+                                @include('front-end.home.survey-answer')
+                            </div>
+                        </div>       
+                    @endforeach
+                @endforeach
+                
             </div>
         </div>
     </section>
