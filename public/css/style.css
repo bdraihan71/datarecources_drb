@@ -179,7 +179,7 @@ a.article:hover {
 }
 
 .hero-background {
-    height:100vh;
+    height:55vh;
     min-height:400px;
     background-size:cover;
     background-image:linear-gradient(rgba(29, 30, 114, 0.4), rgba(4, 3, 102, 0.4)),url('../img/hero.jpg');
@@ -381,4 +381,8 @@ a.article:hover {
     background:white;
     margin: 1%;
     padding: 1%
+}
+
+.main-color {
+    background-color: #101c53;
 }
