@@ -32,56 +32,65 @@
     <div class="container-fluid">
         <div class="row">
             <div class="header">
-                <div class="inner-header flex mt-5">
-                    <h1 class="my-md-5">START ANALYZE WITH</h1>
+                <div class="inner-header flex mt-4">
+                    <h1 class="my-md-3 main-text-color">Start Analyze With</h1>
                     <div class="col-12">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <button class="btn btn-warning rounded-pill my-2" type="submit">Annual Financial statement</button>
-                            </div>
-                            <div class="col-md-4">
-                            </div>
-                            <div class="col-md-4">
-                                <button class="btn btn-warning rounded-pill my-2" type="submit">Annual Financial statement</button>
-                            </div>
-                        </div>
-                        <div class="row">
+                        <div class="row no-gutters">
                             <div class="col-md-2">
-
-                            </div>
-                            <div class="col-md-5">
-                                <button class="btn btn-warning rounded-pill my-2" type="submit">Annual Financial statement 2</button>
-                            </div>
-                            <div class="col-md-3">
-                                <button class="btn btn-warning rounded-pill my-2" type="submit">Annual Financial statement</button>
+                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">GrameenPhone</button>
                             </div>
                             <div class="col-md-2">
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <button class="btn btn-warning rounded-pill my-2" type="submit">Annual Financial statement</button>
-                            </div>
-                            <div class="col-md-5">
-                                <button class="btn btn-warning rounded-pill my-2" type="submit">Annual Financial statement</button>
-                            </div>
-                            <div class="col-md-4">
-                                <button class="btn btn-warning rounded-pill my-2" type="submit">Annual Financial statement</button>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-2">
-
-                            </div>
-                            <div class="col-md-5">
-                                <button class="btn btn-warning rounded-pill my-2" type="submit">Annual Financial statement 2</button>
-                            </div>
-                            <div class="col-md-3">
-                                <button class="btn btn-warning rounded-pill my-2" type="submit">Annual Financial statement</button>
+                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">BRAC Bank</button>
                             </div>
                             <div class="col-md-2">
+                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">GrameenPhone</button>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">BRAC Bank</button>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">GrameenPhone</button>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">BRAC Bank</button>
+                            </div>
+    
+                            <div class="col-md-2">
+                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">BRAC Bank</button>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">GrameenPhone</button>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">BRAC Bank</button>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">GrameenPhone</button>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">BRAC Bank</button>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">GrameenPhone</button>
+                            </div>
 
+                            <div class="col-md-2">
+                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">GrameenPhone</button>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">BRAC Bank</button>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">GrameenPhone</button>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">BRAC Bank</button>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">GrameenPhone</button>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">BRAC Bank</button>
                             </div>
                         </div>
                     </div>
@@ -89,7 +98,7 @@
 
                 <!--Waves Container-->
                 <div>
-                    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 120 28" preserveAspectRatio="none" shape-rendering="auto">
                         <defs>
                             <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
                         </defs>
@@ -178,7 +187,7 @@
         <div class="row text-center align-items-center h-100 mt-5">
             <div class="col-md-2"></div>
             <div class="col-md-4">
-                <h3>Sign Up for Free</h3>
+                <h1 class="main-text-color">Sign Up for Free</h1>
             </div>
             <div class="col-md-4">
                 <button class="btn btn-dark rounded-pill py-2 w-100 main-color" type="submit">Signup</button>
