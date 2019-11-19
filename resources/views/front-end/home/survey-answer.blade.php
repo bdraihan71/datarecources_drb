@@ -7,7 +7,7 @@
     </div>
 
     @if($surveyQuestion->surveyAnswerOptions)
-        <div class="col-md-7 text-left bg-white">
+        <div class="col-md-7 text-left bg-light">
             @foreach ($surveyQuestion->surveyAnswerOptions as $surveyAnswerOption)
 
                 <div class="progress my-3">
