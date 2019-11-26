@@ -122,7 +122,7 @@
         <div class="container-fluid h-100">
             <div class="row text-center mt-5 align-items-center h-100">
                 <div class="col-md-12">
-                    <h1 class="my-5 survey-margin-top">Survey Result</h1>
+                    <h1 class="my-5 survey-margin-top">Your Opinion</h1>
                 </div>
 
                 
