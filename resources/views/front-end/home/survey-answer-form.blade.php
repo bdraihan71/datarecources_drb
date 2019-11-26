@@ -22,9 +22,9 @@
 
         <div class="col-md-6 text-right mt-n2">
             @if(auth()->user())
-                <button type="submit" class="btn btn-danger w-100 rounded-0">Submit</button>
+                <button type="submit" class="btn btn-warning">Submit</button>
             @else
-                <a href="/login" class="btn btn-primary w-100 rounded-0">Please login to Submit Response</a>
+                <span class="font-weight-bold">Please <a href="/login" class="btn btn-warning">Login</a> to Submit Response</span>
             @endif
         </div>
     </div>

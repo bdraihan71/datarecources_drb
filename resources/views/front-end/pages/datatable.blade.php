@@ -35,7 +35,7 @@
                                 <a target="_blank" href="{{ env('S3_URL') }}{{ $item->excel_file_url }}" type="button" class="btn btn-outline-primary">Excel</a>
                             @endif
                         @else
-                            <a href="/login">Please login to download</a>
+                            <span class="font-weight-bold">Please <a href="/login" class="btn btn-warning">Login</a> to Submit Response</span>
                         @endif
                     </td>
                 </tr>
