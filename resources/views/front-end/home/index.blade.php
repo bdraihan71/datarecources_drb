@@ -33,7 +33,7 @@
         <div class="row">
             <div class="header">
                 <div class="inner-header flex mt-4">
-                    <h1 class="my-md-3 main-text-color">Start Analyze With</h1>
+                    <h1 class="my-md-5 main-text-color">Start Analyze With</h1>
                     <div class="col-12">
                         <div class="row no-gutters">
                             <div class="col-md-2">
@@ -96,7 +96,7 @@
                     </div>
                 </div>
 
-                <!--Waves Container-->
+                {{-- <!--Waves Container-->
                 <div>
                     <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 120 28" preserveAspectRatio="none" shape-rendering="auto">
                         <defs>
@@ -110,7 +110,7 @@
                         </g>
                     </svg>
                 </div>
-                <!--Waves end-->
+                <!--Waves end--> --}}
             </div>
         </div>
     </div>
