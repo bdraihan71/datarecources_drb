@@ -371,7 +371,8 @@ a.article:hover {
 .announcement {
     position: fixed;
     right: 0;
-    top: 155px;
+    top: 100px;
+    width: 30%;
 }
 
 .survey-card{
