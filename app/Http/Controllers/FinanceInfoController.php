@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\FinanceInfo;
+use App\Sector;
+use App\Company;
 use Illuminate\Http\Request;
 
 class FinanceInfoController extends Controller
 {
     public function all(){
+        $sectors = Sector::all();
+        $companies = Company::all();
         $finance_infos = FinanceInfo::all();
-        return view('front-end.finance-info.all', compact('finance_infos'));
+        return view('front-end.finance-info.all', compact('finance_infos', 'sectors', 'companies'));
     }
     public function store(Request $request){
         $this->validate($request, [
