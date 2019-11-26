@@ -7,7 +7,7 @@
             <div class="row align-items-center h-100">
                 <div class="col-md-12 text-center text-white mt-5">
                     <h1 class="mb-3 mt-5">Bangladesh's First Aggregate Data Platform</h1>
-                    <h4 class="my-4"><span class="main-color px-5 py-2">More Than 1000 Contents</span></h4>
+                    <h4 class="my-4">More than 1000 Contents</h4>
                     <div class="row">
                         <div class="col-md-3"></div>
                         <div class="col-md-6">
