@@ -2,14 +2,14 @@
 @section('content')
 <!-- Navigation -->
 
-<section class="financial-statement">
+<section class="financial-statement" id="mainApp">
     <div class="container h-100">
         <h3>Financial Statements </h3>
         <p>We have curated data from different companies for you. </p>
         <form action="{{route('financefilter')}}" method="GET">
             <div class="form-group">
                 <label for="exampleInputEmail1">Sector</label>
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select class="form-control" id="exampleFormControlSelect1" v-model="chosen_sector" @change="onChange">
                     <option >Choose sector...</option>
                     @foreach ($sectors as $sector)
                         <option value="{{$sector->id}}">{{$sector->name}}</option>
@@ -20,9 +20,11 @@
                 <label for="exampleInputPassword1">Company</label>
                 <select class="form-control" id="exampleFormControlSelect1" name="company">
                     <option value=''>Choose company...</option>
-                    @foreach ($companies as $company)
+                    <!-- @foreach ($companies as $company)
                         <option value="{{$company->id}}">{{$company->name}}</option>
-                    @endforeach
+                    @endforeach -->
+                    <option v-for="company in companies" :value="company.id" >@{{company.name}}</option>
+
                 </select>
             </div>
 
@@ -77,8 +79,28 @@
 </section>
 @endsection
 @section('scripts')
-<script type="text/javascript">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+    el: '#mainApp',
+    data () {
+        return {
+        chosen_sector: null,
+        companies: [],
+        }
+    },
+    methods: {
+        onChange: function(){
+        if(this.chosen_sector!=null){
+            fetch('/api/getcompany/' + this.chosen_sector)
+            .then(function(response) {
+                console.log(response.json());
+            })
+            .then(response => (this.companies = (response)))
+        }
+        }
+    },
 
-
+    })
 </script>
 @endsection
