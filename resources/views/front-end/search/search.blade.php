@@ -8,7 +8,7 @@
             <div class="col-md-12 my-4">
                 <form action="{{route('search')}}" method="GET">
                     <div class="input-group">
-                        <input class="form-control border-secondary py-4 search-border border border-secondary" type="search" value="" name="search" placeholder=" Search by keyword">
+                        <input class="form-control border-secondary py-4 search-border border border-secondary" type="search" value="{{Request::get('search')}}" name="search" placeholder=" Search by keyword">
                         <div class="input-group-append">
                             <button type="submit" class="btn btn-warning px-5 search-btn-border border border-secondary" type="button">
                                 <i class="fa fa-search"></i>
@@ -20,11 +20,13 @@
             <div class="col-md-12 text-center">
                 @if($finance_infos->count() > 0)
                     @include('front-end.search.financial')
-                @elseif($pages->count() > 0)
+                @endif    
+                @if($pages->count() > 0)
                     @include('front-end.search.page') 
-                @else
-                    <h3>Your search did not match any documents.</h3>
-                @endif  
+                @endif 
+                @if($finance_infos->count() == 0 and  $pages->count() == 0)
+                    <h3>Your search  did not match any documents.</h3>
+                @endif 
             </div>
         </div>
     </div>

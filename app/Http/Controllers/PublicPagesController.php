@@ -40,6 +40,7 @@ class PublicPagesController extends Controller
             $pages = Page::where('title', 'LIKE', "%$request->search%")
             ->orWhere('description', 'LIKE', "%$request->search%")->get();
         }
+
         
 
         return view('front-end.search.search', compact('finance_infos', 'pages'));
