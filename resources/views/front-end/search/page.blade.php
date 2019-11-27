@@ -12,8 +12,7 @@
                     <th>Page Title</th>
                     <th>Menu</th>
                     <th>Description</th>
-                    <th>Slug</th>
-                    <!-- <th>Action</th> -->
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tfoot>
@@ -22,8 +21,7 @@
                     <th>Page Title</th>
                     <th>Menu</th>
                     <th>Description</th>
-                    <th>Slug</th>
-                    <!-- <th>Action</th> -->
+                    <th>Action</th>
                 </tr>
                 </tfoot>
                 <tbody>
@@ -35,16 +33,7 @@
                             <td>{{ $page->menu->title }}</td>
                         @endif
                         <td>{{ $page->description }}</td>
-                        <td>{{ $page->slug }}</td>
-                        <!-- <td>
-                            <a href="{{ route('page.show', $page->id)}}" class="btn btn-outline-primary">Show</a>
-                            <a href="{{ route('page.edit', $page->id)}}" class="btn btn-outline-primary">Edit</a>
-                            <form action="{{ route('page.destroy', $page->id)}}" onclick="return confirm('Are you sure, you want to delete this menu?')" method="post" style="display: inline;">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-outline-danger">Delete</button>
-                            </form>
-                        </td> -->
+                        <td><a href="{{ $page->slug }}" class="btn btn-outline-primary">Show</a></td>
                     </tr>
                 @endforeach
                 </tbody>

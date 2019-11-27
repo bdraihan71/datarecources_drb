@@ -18,8 +18,13 @@
                 </from>
             </div>
             <div class="col-md-12 text-center">
-                @include('front-end.search.financial')   
-                @include('front-end.search.page')   
+                @if($finance_infos->count() > 0)
+                    @include('front-end.search.financial')
+                @elseif($pages->count() > 0)
+                    @include('front-end.search.page') 
+                @else
+                    <h3>Your search did not match any documents.</h3>
+                @endif  
             </div>
         </div>
     </div>
