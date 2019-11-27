@@ -1,7 +1,7 @@
 
 <div class="row mt-2 text-center">
     <div class="col-md-12">
-        <h3>{{$surveyQuestion->question}}</h3>
+        <h4>{{$surveyQuestion->question}}</h4>
     </div>
 
     @if($surveyQuestion->surveyAnswerOptions)
