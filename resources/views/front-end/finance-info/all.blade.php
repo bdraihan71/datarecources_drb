@@ -6,11 +6,11 @@
     <div class="container h-100">
         <h3>Financial Statements </h3>
         <p>We have curated data from different companies for you. </p>
-        <form>
+        <form action="{{route('financefilter')}}" method="GET">
             <div class="form-group">
                 <label for="exampleInputEmail1">Sector</label>
                 <select class="form-control" id="exampleFormControlSelect1">
-                    <option selected>Choose sector...</option>
+                    <option >Choose sector...</option>
                     @foreach ($sectors as $sector)
                         <option value="{{$sector->id}}">{{$sector->name}}</option>
                     @endforeach
@@ -18,8 +18,8 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Company</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option selected>Choose company...</option>
+                <select class="form-control" id="exampleFormControlSelect1" name="company">
+                    <option value=''>Choose company...</option>
                     @foreach ($companies as $company)
                         <option value="{{$company->id}}">{{$company->name}}</option>
                     @endforeach
@@ -67,5 +67,4 @@
         </div>
     </div>
 </section>
-
 @endsection

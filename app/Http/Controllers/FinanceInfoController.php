@@ -15,6 +15,17 @@ class FinanceInfoController extends Controller
         $finance_infos = FinanceInfo::all();
         return view('front-end.finance-info.all', compact('finance_infos', 'sectors', 'companies'));
     }
+
+    public function financeFilter(Request $request)
+    {
+        $sectors = Sector::all();
+        $companies = Company::all();
+        $finance_infos = FinanceInfo::where('company_id', 'LIKE', "%$request->company%")->get();
+     
+        // dd($finance_infos);
+        return view('front-end.finance-info.all', compact('finance_infos','sectors','companies'));
+    }
+
     public function store(Request $request){
         $this->validate($request, [
             'year' => 'required|numeric',

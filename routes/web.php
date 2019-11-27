@@ -87,5 +87,10 @@ Route::view('/sub', 'sub-layout')->name('sub');
 //Financial Info
 Route::get('/finance-info', 'FinanceInfoController@all')->name('finance-info-all');
 
+//filter
+Route::get('/filter', 'FinanceInfoController@financeFilter')->name('financefilter');
+
+
 //Page
 Route::get('{slug}', 'PageController@page')->name('page');
+
