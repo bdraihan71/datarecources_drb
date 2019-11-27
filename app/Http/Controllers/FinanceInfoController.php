@@ -13,7 +13,8 @@ class FinanceInfoController extends Controller
         $sectors = Sector::all();
         $companies = Company::all();
         $finance_infos = FinanceInfo::all();
-        return view('front-end.finance-info.all', compact('finance_infos', 'sectors', 'companies'));
+        $frequency = null;
+        return view('front-end.finance-info.all', compact('finance_infos', 'sectors', 'companies','frequency'));
     }
 
     public function financeFilter(Request $request)
@@ -21,9 +22,15 @@ class FinanceInfoController extends Controller
         $sectors = Sector::all();
         $companies = Company::all();
         $finance_infos = FinanceInfo::where('company_id', 'LIKE', "%$request->company%")->get();
-     
+        if($request->frequency == 'yearly'){
+           $frequency = 'yearly';
+        }elseif($request->frequency == 'quarterly'){
+            $frequency = 'quarterly';
+        }else{
+            $frequency = null;
+        }
         // dd($finance_infos);
-        return view('front-end.finance-info.all', compact('finance_infos','sectors','companies'));
+        return view('front-end.finance-info.all', compact('finance_infos','sectors','companies','frequency'));
     }
 
     public function store(Request $request){

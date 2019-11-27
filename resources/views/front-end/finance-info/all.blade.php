@@ -29,11 +29,11 @@
             <div class="form-group">
                 <label for="frequency">Frequency:</label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" value="">
+                    <input type="radio" class="form-check-input" value="yearly" name="frequency">
                     <label class="form-check-label">Yearly</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox"  value="">
+                    <input type="radio" class="form-check-input" value="quarterly" name="frequency">
                     <label class="form-check-label">Quarterly</label>
                 </div>
             </div>
@@ -62,9 +62,23 @@
         </form></br>
         <div class="row align-items-center h-100">
             <div class="col-md-12 text-center">
-                @include('front-end.finance-info.datatable')
+                @if($frequency == 'yearly')
+                    @include('front-end.finance-info.yearlydata')  
+                @elseif($frequency == 'quarterly')
+                    <p>Raihan<P>
+                @else
+                    @include('front-end.finance-info.datatable')     
+                       
+                @endif 
+                     
             </div>
         </div>
     </div>
 </section>
+@endsection
+@section('scripts')
+<script type="text/javascript">
+
+
+</script>
 @endsection
