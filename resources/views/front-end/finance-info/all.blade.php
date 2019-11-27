@@ -20,9 +20,6 @@
                 <label for="exampleInputPassword1">Company</label>
                 <select class="form-control" id="exampleFormControlSelect1" name="company">
                     <option value=''>Choose company...</option>
-                    <!-- @foreach ($companies as $company)
-                        <option value="{{$company->id}}">{{$company->name}}</option>
-                    @endforeach -->
                     <option v-for="company in companies" :value="company.id" >@{{company.name}}</option>
 
                 </select>
@@ -31,31 +28,31 @@
             <div class="form-group">
                 <label for="frequency">Frequency:</label>
                 <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input" value="yearly" name="frequency">
+                    <input type="radio" class="form-check-input" value="yearly" name="frequency" onclick="hide();">
                     <label class="form-check-label">Yearly</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input" value="quarterly" name="frequency">
+                    <input type="radio" class="form-check-input" value="quarterly" name="frequency" onclick="show();">
                     <label class="form-check-label">Quarterly</label>
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group drb-hide" id="drb-hide-div">
                 <label for="frequency">Quarterly:</label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" value="">
+                    <input class="form-check-input" type="checkbox" name="q1" value="q1">
                     <label class="form-check-label">Q1</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox"  value="">
+                    <input class="form-check-input" type="checkbox" name="q2" value="q2">
                     <label class="form-check-label">Q2</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox"  value="">
+                    <input class="form-check-input" type="checkbox" name="q3" value="q3">
                     <label class="form-check-label">Q3</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox"  value="">
+                    <input class="form-check-input" type="checkbox" name="q4" value="q4">
                     <label class="form-check-label">Q4</label>
                 </div>
             </div>
@@ -67,7 +64,7 @@
                 @if($frequency == 'yearly')
                     @include('front-end.finance-info.yearlydata')  
                 @elseif($frequency == 'quarterly')
-                    <p>Raihan<P>
+                    @include('front-end.finance-info.quarterlydata')
                 @else
                     @include('front-end.finance-info.datatable')     
                        
@@ -94,7 +91,7 @@
         if(this.chosen_sector!=null){
             fetch('/api/getcompany/' + this.chosen_sector)
             .then(function(response) {
-                console.log(response.json());
+                return response.json();
             })
             .then(response => (this.companies = (response)))
         }
@@ -102,5 +99,13 @@
     },
 
     })
+</script>
+<script>
+    function hide(){
+    document.getElementById('drb-hide-div').style.display ='none';
+    }
+    function show(){
+    document.getElementById('drb-hide-div').style.display = 'block';
+    }
 </script>
 @endsection

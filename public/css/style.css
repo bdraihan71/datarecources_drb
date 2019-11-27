@@ -396,3 +396,7 @@ a.article:hover {
 .main-text-color {
     color: #101c53;
 }
+
+.drb-hide {
+    display: none;
+}
