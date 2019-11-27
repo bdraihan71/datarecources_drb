@@ -152,11 +152,11 @@
         <div class="container h-100">
             <div class="row text-center mt-5 align-items-center h-100">
                 <div class="col-md-12">
-                    <h1 class="my-5 survey-margin-top">Participate in Survey</h1>
+                    <h4 class="mt-5 survey-margin-top">Participate in Survey</h4>
                 </div>
                 <div class="col-md-12">
                     @foreach ($surveys as $survey)
-                            <h3 class="main-text-color">{{$survey->title}}</h3>
+                            <h5 class="main-text-color">{{$survey->title}}</h5>
                             @foreach($survey->surveyQuestions as $surveyQuestion)
                                 @if(auth()->user())
                                     @if(auth()->user()->canSubmitResponse($surveyQuestion))
