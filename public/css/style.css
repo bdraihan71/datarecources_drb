@@ -405,3 +405,7 @@ a.article:hover {
 .radio-back-color {
     background-color: #f2f2f2;
 }
+
+.progress-height {
+    height: 30px; 
+}
