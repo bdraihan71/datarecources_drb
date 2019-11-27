@@ -150,17 +150,21 @@
                 <div class="col-md-12">
                     @foreach ($surveys as $survey)
                             <h5 class="main-text-color">{{$survey->title}}</h5>
-                            @foreach($survey->surveyQuestions as $surveyQuestion)
-                                @if(auth()->user())
-                                    @if(auth()->user()->canSubmitResponse($surveyQuestion))
-                                        @include('front-end.home.survey-answer-form')
-                                    @else
-                                        @include('front-end.home.survey-answer')
-                                    @endif
-                                @else
-                                    @include('front-end.home.survey-answer-form')      
-                                @endif<br>
-                            @endforeach
+                            <div class="row">
+                                @foreach($survey->surveyQuestions as $surveyQuestion)
+                                    <div class="col-md-6">
+                                        @if(auth()->user())
+                                            @if(auth()->user()->canSubmitResponse($surveyQuestion))
+                                                @include('front-end.home.survey-answer-form')
+                                            @else
+                                                @include('front-end.home.survey-answer')
+                                            @endif
+                                        @else
+                                            @include('front-end.home.survey-answer-form')      
+                                        @endif<br>
+                                    </div>
+                                @endforeach
+                            </div>
                     @endforeach
                 </div>
             </div>
