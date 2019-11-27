@@ -10,9 +10,9 @@
         <div class="col-md-6 text-left">
             @foreach ($surveyQuestion->surveyAnswerOptions as $surveyAnswerOption)
                 
-                <span class="py-2 px-3 bg-secondary mr-2">
+                <span class="py-2 px-3 radio-back-color main-text-color font-weight-bold rounded mr-2">
                     <input type="radio" name="{{$surveyQuestion->id}}" value="{{$surveyAnswerOption->id}}">
-                    <label for="{{$surveyQuestion->id}}">{{ $surveyAnswerOption->answer_option }}</label>
+                    &nbsp;<label for="{{$surveyQuestion->id}}">{{ $surveyAnswerOption->answer_option }}</label>
                 </span>
                 
             @endforeach 
