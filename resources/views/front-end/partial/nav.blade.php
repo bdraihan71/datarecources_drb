@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top nav-bg border-bottom mt-md-n4">
+<nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top nav-bg border-bottom mt-lg-n5">
     <div class="container">
         <a class="navbar-brand text-white" href="/"><h2>DRB</h2></a>
         <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,7 +56,7 @@
     </div>
 
     @if(App\Announcment::where('is_published', true)->first())
-        <div class="alert alert-info announcement w-25" role="alert">
+        <div class="alert alert-info announcement" role="alert">
             <button type="button" class="close" data-dismiss="alert">×</button>
             <strong>Announcement! </strong>{{ App\Announcment::where('is_published', true)->first()->text }}
         </div>

@@ -7,7 +7,7 @@
             <div class="row align-items-center h-100">
                 <div class="col-md-12 text-center text-white mt-5">
                     <h1 class="mb-3 mt-5">Bangladesh's First Aggregate Data Platform</h1>
-                    <h4 class="my-4"><span class="main-color px-5 py-2">More Than 1000 Contents</span></h4>
+                    <h4 class="my-4">More than 1000 Contents</h4>
                     <div class="row">
                         <div class="col-md-3"></div>
                         <div class="col-md-6">
@@ -35,7 +35,7 @@
         <div class="row">
             <div class="header">
                 <div class="inner-header flex mt-4">
-                    <h1 class="my-md-3 main-text-color">Start Analyze With</h1>
+                    <h1 class="my-md-5 main-text-color">Start Analyze With</h1>
                     <div class="col-12">
                         <div class="row no-gutters">
                             <div class="col-md-2">
@@ -98,7 +98,7 @@
                     </div>
                 </div>
 
-                <!--Waves Container-->
+                {{-- <!--Waves Container-->
                 <div>
                     <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 120 28" preserveAspectRatio="none" shape-rendering="auto">
                         <defs>
@@ -112,7 +112,7 @@
                         </g>
                     </svg>
                 </div>
-                <!--Waves end-->
+                <!--Waves end--> --}}
             </div>
         </div>
     </div>
@@ -121,27 +121,20 @@
 
 @if(count($survey_results)>0)
     <section class="survey">
-        <div class="container-fluid h-100">
+        <div class="container h-100">
             <div class="row text-center mt-5 align-items-center h-100">
                 <div class="col-md-12">
-                    <h1 class="my-5 survey-margin-top">Survey Result</h1>
+                    <h1 class="mt-5 survey-margin-top">Your Opinion</h1>
                 </div>
 
-                
                 @foreach ($survey_results as $survey)
                 <div class="col-md-12">
-                    <h3>{{$survey->title}}</h3>
+                    <h5 class="main-text-color">{{$survey->title}}</h5>
                 </div>
                     @foreach($survey->surveyQuestions as $surveyQuestion)
-                        <div class="row">
-                            <div class="col-md-7">
-                                <canvas id="chDonut1{{$surveyQuestion->id}}"></canvas>
-                                @include('front-end.home.chart')
-                            </div>  
-                            <div class="col-md-5">
-                                @include('front-end.home.survey-answer')
-                            </div>
-                        </div>       
+                        <div class="col-md-12">
+                            @include('front-end.home.survey-answer')
+                        </div>     
                     @endforeach
                 @endforeach
                 
@@ -154,22 +147,26 @@
         <div class="container h-100">
             <div class="row text-center mt-5 align-items-center h-100">
                 <div class="col-md-12">
-                    <h1 class="my-5 survey-margin-top">Participate in Survey</h1>
+                    <h4 class="mt-5 survey-margin-top">Participate in Survey</h4>
                 </div>
                 <div class="col-md-12">
                     @foreach ($surveys as $survey)
-                            <h3 class="main-text-color">{{$survey->title}}</h3>
-                            @foreach($survey->surveyQuestions as $surveyQuestion)
-                                @if(auth()->user())
-                                    @if(auth()->user()->canSubmitResponse($surveyQuestion))
-                                        @include('front-end.home.survey-answer-form')
-                                    @else
-                                        @include('front-end.home.survey-answer')
-                                    @endif
-                                @else
-                                    @include('front-end.home.survey-answer-form')      
-                                @endif<br>
-                            @endforeach
+                            <h5 class="main-text-color">{{$survey->title}}</h5>
+                            <div class="row">
+                                @foreach($survey->surveyQuestions as $surveyQuestion)
+                                    <div class="col-md-6">
+                                        @if(auth()->user())
+                                            @if(auth()->user()->canSubmitResponse($surveyQuestion))
+                                                @include('front-end.home.survey-answer-form')
+                                            @else
+                                                @include('front-end.home.survey-answer')
+                                            @endif
+                                        @else
+                                            @include('front-end.home.survey-answer-form')      
+                                        @endif<br>
+                                    </div>
+                                @endforeach
+                            </div>
                     @endforeach
                 </div>
             </div>
