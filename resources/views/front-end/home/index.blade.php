@@ -11,14 +11,16 @@
                     <div class="row">
                         <div class="col-md-3"></div>
                         <div class="col-md-6">
-                            <div class="input-group">
-                                <input class="form-control border-secondary py-4 search-border border border-secondary" type="search" value="" placeholder=" Search by keyword">
-                                <div class="input-group-append">
-                                    <button class="btn btn-warning px-5 search-btn-border border border-secondary" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
+                            <form action="{{route('search')}}" method="GET">
+                                <div class="input-group">
+                                    <input class="form-control border-secondary py-4 search-border border border-secondary" type="search" value="" name="search" placeholder=" Search by keyword">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-warning px-5 search-btn-border border border-secondary" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
+                            </from>
                         </div>
                         <div class="col-md-3"></div>
                     </div>

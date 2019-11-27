@@ -90,6 +90,9 @@ Route::get('/finance-info', 'FinanceInfoController@all')->name('finance-info-all
 //filter
 Route::get('/filter', 'FinanceInfoController@financeFilter')->name('financefilter');
 
+//search
+Route::get('/search', 'PublicPagesController@search')->name('search');
+
 
 //Page
 Route::get('{slug}', 'PageController@page')->name('page');
