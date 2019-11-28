@@ -122,8 +122,8 @@
 @if(count($survey_results)>0)
     <section class="survey" id="opinion">
         <div class="container h-100">
-            <div class="row text-center mt-5 align-items-center h-100">
-                <div class="col-md-12">
+            <div class="row text-center mt-md-5 align-items-center h-100">
+                <div class="col-md-12 mt-md-5">
                     <h1 class="mt-5 survey-margin-top">Your Opinion</h1>
                 </div>
 
@@ -145,9 +145,9 @@
 @if(count($surveys)>0)
     <section class="survey" id="opinion">
         <div class="container h-100">
-            <div class="row text-center mt-5 align-items-center h-100">
+            <div class="row text-center align-items-center h-100">
                 <div class="col-md-12">
-                    <h4 class="mt-5 survey-margin-top">Participate in Survey</h4>
+                    <h4 class="mt-md-5 survey-margin-top">Participate in Survey</h4>
                 </div>
                 <div class="col-md-12">
                     @foreach ($surveys as $survey)

@@ -227,11 +227,11 @@ a.article:hover {
 }
 
 .analyze {
-    height: 39vh;
+    height: 100%;
 }
 
 .header {
-    position: relative;
+    position: static;
     text-align: center;
     background: white;
     color: white;
@@ -310,25 +310,16 @@ a.article:hover {
     h1 {
       font-size: 24px;
     }
-    h4 {
+    /* h4 {
       font-size: 14px;
-    }
+    } */
     .inner-header {
-        height: 89.1%;
-        width: 100vw;
+        height: 100%;
+        width: 100%;
         margin: 0;
         padding: 0;
     }
-    .analyze {
-        height: 159vh;
-    }
   }  
-
-  @media (max-width: 768px) {
-    .survey-margin-top {
-        margin-top: 150px !important;
-    }
-  } 
 
   @media (min-width: 768px) {
     .sub-plan-check-top {
