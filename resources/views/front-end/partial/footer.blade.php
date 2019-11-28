@@ -6,9 +6,8 @@
             </div>
             <div class="col-md-3">
                 <ul class="list-unstyled">
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Support</li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#opinion">Your Opinion</a></li>
                 </ul>
             </div>
             <div class="col-md-6">

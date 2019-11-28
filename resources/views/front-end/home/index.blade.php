@@ -1,7 +1,7 @@
 @extends('front-end.main-layout')
 
 @section('content')
-<header>
+<header id="home">
     <div class="hero-background">
         <div class="container-fluid h-100">
             <div class="row align-items-center h-100">
@@ -120,7 +120,7 @@
 
 
 @if(count($survey_results)>0)
-    <section class="survey">
+    <section class="survey" id="opinion">
         <div class="container h-100">
             <div class="row text-center mt-5 align-items-center h-100">
                 <div class="col-md-12">
@@ -143,7 +143,7 @@
     </section>
 @endif
 @if(count($surveys)>0)
-    <section class="survey">
+    <section class="survey" id="opinion">
         <div class="container h-100">
             <div class="row text-center mt-5 align-items-center h-100">
                 <div class="col-md-12">
