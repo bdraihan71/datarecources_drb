@@ -20,7 +20,7 @@
                                         </button>
                                     </div>
                                 </div>
-                            </from>
+                            </form>
                         </div>
                         <div class="col-md-3"></div>
                     </div>
@@ -151,7 +151,7 @@
                 </div>
                 <div class="col-md-12">
                     @foreach ($surveys as $survey)
-                            <h5 class="main-text-color">{{$survey->title}}</h5>
+                            <!-- <h5 class="main-text-color">{{$survey->title}}</h5> -->
                             <div class="row">
                                 @foreach($survey->surveyQuestions as $surveyQuestion)
                                     <div class="col-md-6">
@@ -159,7 +159,8 @@
                                             @if(auth()->user()->canSubmitResponse($surveyQuestion))
                                                 @include('front-end.home.survey-answer-form')
                                             @else
-                                                @include('front-end.home.survey-answer')
+                                                <p>Question: {{ $surveyQuestion->question }}</p>
+                                                <p>Thank you for taking the survey</p>
                                             @endif
                                         @else
                                             @include('front-end.home.survey-answer-form')      
