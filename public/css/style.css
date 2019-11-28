@@ -370,6 +370,15 @@ a.article:hover {
     width: 30%;
 }
 
+@media (max-width: 768px) {
+    .announcement {
+        position: fixed;
+        right: 0;
+        top: 100px;
+        width: 80%;
+    }
+  } 
+
 .survey-card{
     float:left;
     padding:0px 10px;
