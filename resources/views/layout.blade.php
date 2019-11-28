@@ -33,9 +33,9 @@
 
 
     <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded-pill" href="#page-top">
+    <button class="rounded-pill" onclick="topFunction()" id="scroll-to-top" title="Go to top">
         <i class="fas fa-angle-up"></i>
-    </a>
+    </button>
 
     <!-- JQuery and Bootstrap -->
     <script src="/vendor/jquery/jquery.slim.min.js"></script>
