@@ -1,13 +1,14 @@
 <section class="footer-main py-5">
     <div class="container h-100">
         <div class="row align-items-center h-100">
-            <div class="col-md-3">
-                <h1>DRB</h1>
+            <div class="col-md-2">
+                <h1><a href="#home">DRB</a></h1>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <ul class="list-unstyled">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#opinion">Your Opinion</a></li>
+                    <li>Phone: +880 1720 227189</li>
+                    <li>Email: info@drb.com</li>
+                    <li>Web: www.dataresourcebd.com</li>
                 </ul>
             </div>
             <div class="col-md-6">
