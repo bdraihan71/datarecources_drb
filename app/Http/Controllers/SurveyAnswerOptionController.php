@@ -20,11 +20,12 @@ class SurveyAnswerOptionController extends Controller
         $this->validate($request, [
             'survey_question_id' => 'required',
             'answer_option' => 'required',
+            'color' => 'required'
         ]);
         $surveyAnswerOption = new SurveyAnswerOption([
             'survey_question_id' => $request->get('survey_question_id'),
-            'answer_option' => $request->get('answer_option')
-
+            'answer_option' => $request->get('answer_option'),
+            'color' => $request->get('color')
         ]);
         $surveyAnswerOption->save();
         return redirect()->back()->with('success', 'Survey answer option has been created successfully');
@@ -41,11 +42,13 @@ class SurveyAnswerOptionController extends Controller
         $this->validate($request, [
             'survey_question_id' => 'required',
             'answer_option' => 'required',
+            'color' => 'required',
         ]);
 
         $surveyAnswerOption = SurveyAnswerOption::find($id);
         $surveyAnswerOption->survey_question_id = $request->get('survey_question_id');
         $surveyAnswerOption->answer_option = $request->get('answer_option');
+        $surveyAnswerOption->color = $request->get('color');
         $surveyAnswerOption->save();
         return redirect('admin/surveyquestion/'. $request->get('survey_question_id'))->with('success', 'survey Answer Option has been updated successfully');
     }

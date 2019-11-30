@@ -19,6 +19,7 @@ class CreateSurveyAnswerOptionsTable extends Migration
             $table->bigInteger('survey_question_id');
             $table->string('answer_option');
             $table->integer('hit_count')->default(0);
+            $table->string('color')->default('yellow');
             $table->timestamps();
         });
     }

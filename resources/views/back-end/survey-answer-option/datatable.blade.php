@@ -26,7 +26,7 @@
                 @foreach ($surveyansweroptions as $surveyansweroption)
                     <tr>
                         <td>{{$i++}}</td>
-                        <td>{{ $surveyansweroption->answer_option }}</td>
+                        <td style="background-color:{{$surveyansweroption->color}}">{{ $surveyansweroption->answer_option }}</td>
                         <td>{{ $surveyansweroption->hit_count }}</td>
                         <td>
                             <a href="{{ route('surveyansweroption.edit', $surveyansweroption->id)}}" class="btn btn-outline-primary">Edit</a>

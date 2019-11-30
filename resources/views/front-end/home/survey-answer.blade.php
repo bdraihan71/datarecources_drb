@@ -12,9 +12,9 @@
                         <label class="h5 pt-2" for="{{$surveyQuestion->id}}">{{ $surveyAnswerOption->answer_option }}</label>
                     </div>
                     <div class="col-md-10">
-                        <div class="progress progress-height my-2">
-                            <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $surveyAnswerOption->hit_percent }}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                <label class="h5 pt-2" for="{{$surveyQuestion->id}}"> {{ $surveyAnswerOption->hit_count ? $surveyAnswerOption->hit_count : 0 }}</label>
+                        <div class="progress progress-height my-2" >
+                            <div class="progress-bar bg-warning" role="progressbar" style="background-color:{{$surveyAnswerOption->color}} !important  ; width: {{ $surveyAnswerOption->hit_percent }}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                <label class="h5 pt-2" for="{{$surveyQuestion->id}}"> {{ $surveyAnswerOption->hit_count ?  round($surveyAnswerOption->hit_percent) . '%' : '0%' }}</label>
                             </div>
                         </div>
                     </div>   
