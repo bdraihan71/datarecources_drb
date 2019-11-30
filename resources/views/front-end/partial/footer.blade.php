@@ -7,7 +7,7 @@
             <div class="col-md-4">
                 <ul class="list-unstyled">
                     <li>Phone: +880 1720 227189</li>
-                    <li>Email: info@drb.com</li>
+                    <li>Email: info@dataresources-bd.com</li>
                     <li>Web: www.dataresourcebd.com</li>
                 </ul>
             </div>
