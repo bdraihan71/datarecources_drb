@@ -39,60 +39,60 @@
                     <div class="col-12">
                         <div class="row no-gutters">
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">GrameenPhone</button>
+                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">Commodity</button>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">BRAC Bank</button>
+                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">Vehicle</button>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">GrameenPhone</button>
+                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">Monthly Macro</button>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">BRAC Bank</button>
+                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">Internet</button>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">GrameenPhone</button>
+                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">Publication</button>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">BRAC Bank</button>
+                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">Mobile Subscriber</button>
                             </div>
     
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">BRAC Bank</button>
+                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">Grameenphone</button>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">GrameenPhone</button>
+                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">BRAC Bank</button>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">BRAC Bank</button>
+                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">BergerPBL</button>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">GrameenPhone</button>
+                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">RECKITTBEN</button>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">BRAC Bank</button>
+                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">Marico</button>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">GrameenPhone</button>
+                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">Esquire knit</button>
                             </div>
 
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">GrameenPhone</button>
+                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">Ifad Autos</button>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">BRAC Bank</button>
+                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">Olympic</button>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">GrameenPhone</button>
+                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">Summit Power</button>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">BRAC Bank</button>
+                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">IDLC</button>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">GrameenPhone</button>
+                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">Singer</button>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">BRAC Bank</button>
+                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">Bata Shoe</button>
                             </div>
                         </div>
                     </div>
