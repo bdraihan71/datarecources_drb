@@ -39,60 +39,60 @@
                     <div class="col-12">
                         <div class="row no-gutters">
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">Commodity</button>
+                                <a href="#" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100">Commodity</a>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">Vehicle</button>
+                                <a href="#" class="btn rounded-0 main-color text-white my-2 w-100">Vehicle</a>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">Monthly Macro</button>
+                                <a href="#" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100">Monthly Macro</a>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">Internet</button>
+                                <a href="#" class="btn rounded-0 main-color text-white my-2 w-100">Internet</a>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">Publication</button>
+                                <a href="#" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100">Publication</a>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">Mobile Subscriber</button>
+                                <a href="#" class="btn rounded-0 main-color text-white my-2 w-100">Mobile Subscriber</a>
                             </div>
     
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">Grameenphone</button>
+                                <a href="#" class="btn rounded-0 main-color text-white my-2 w-100">Grameenphone</a>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">BRAC Bank</button>
+                                <a href="#" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100">BRAC Bank</a>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">BergerPBL</button>
+                                <a href="#" class="btn rounded-0 main-color text-white my-2 w-100">BergerPBL</a>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">RECKITTBEN</button>
+                                <a href="#" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100">RECKITTBEN</a>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">Marico</button>
+                                <a href="#" class="btn rounded-0 main-color text-white my-2 w-100">Marico</a>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">Esquire knit</button>
+                                <a href="#" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100">Esquire knit</a>
                             </div>
 
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">Ifad Autos</button>
+                                <a href="#" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100">Ifad Autos</a>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">Olympic</button>
+                                <a href="#" class="btn rounded-0 main-color text-white my-2 w-100">Olympic</a>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">Summit Power</button>
+                                <a href="#" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100">Summit Power</a>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">IDLC</button>
+                                <a href="#" class="btn rounded-0 main-color text-white my-2 w-100">IDLC</a>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" type="submit">Singer</button>
+                                <a href="#" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100">Singer</a>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn rounded-0 main-color text-white my-2 w-100" type="submit">Bata Shoe</button>
+                                <a href="#" class="btn rounded-0 main-color text-white my-2 w-100">Bata Shoe</a>
                             </div>
                         </div>
                     </div>
