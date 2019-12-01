@@ -93,7 +93,12 @@ Route::get('/filter', 'FinanceInfoController@financeFilter')->name('financefilte
 //search
 Route::get('/search', 'PublicPagesController@search')->name('search');
 
+//mail
+Route::post('/contact-us', 'PublicPagesController@contactUs')->name('contactus');
+
 
 //Page
 Route::get('{slug}', 'PageController@page')->name('page');
+
+
 

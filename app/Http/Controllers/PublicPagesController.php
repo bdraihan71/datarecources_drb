@@ -7,6 +7,8 @@ use App\FinanceInfo;
 use App\Company;
 use App\Page;
 use App\Menu;
+use Mail;
+use App\Mail\ContactUs;
 
 class PublicPagesController extends Controller
 {
@@ -44,6 +46,19 @@ class PublicPagesController extends Controller
         
 
         return view('front-end.search.search', compact('finance_infos', 'pages'));
+    }
+
+    public function contactUs(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required',
+            'body' => 'required|max:255',
+        ]);
+        Mail::to([env('MY_MAIL')])
+        ->queue(new ContactUs( $request->email, $request->body));
+
+        return Redirect()->back()->with('success', 'Your message successfully sent');
+
     }
 
 

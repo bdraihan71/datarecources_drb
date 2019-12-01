@@ -200,13 +200,16 @@
             </div>
             <div class="col-md-6">
                 <h1 class="main-text-color">Contact Us</h1>
-                <div class="form-group">
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Message"></textarea>
-                </div>
-                <button class="btn btn-dark py-2 w-100 main-color" type="submit">Submit</button>
+                <form action="{{route('contactus')}}" method="post">
+                    @csrf
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Message" name="body"></textarea>
+                    </div>
+                    <button class="btn btn-dark py-2 w-100 main-color" type="submit">Submit</button>
+                </form>    
             </div>
         </div>
     </div>
