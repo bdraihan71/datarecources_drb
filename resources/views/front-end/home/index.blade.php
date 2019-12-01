@@ -182,7 +182,7 @@
                 <h1 class="main-text-color">Sign Up for Free</h1>
             </div>
             <div class="col-md-4">
-                <button class="btn btn-dark rounded-pill py-2 w-100 main-color" type="submit">Signup</button>
+                <button class="btn btn-dark rounded-pill py-2 w-100 main-color" type="submit">Sign Up</button>
             </div>
             <div class="col-md-2"></div>
         </div>
