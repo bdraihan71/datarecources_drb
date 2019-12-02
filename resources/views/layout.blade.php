@@ -22,6 +22,9 @@
     <!-- Custom styles -->
     <link href="/css/style.css" rel="stylesheet">
 
+    <!-- Favicon -->
+    <link rel="icon" href="/img/favicon.png">
+
 </head>
 
 <body id="page-top">

@@ -7,16 +7,14 @@
 
 
         @if($surveyQuestion->surveyAnswerOptions)
-        <div class="col-md-12">
             @foreach ($surveyQuestion->surveyAnswerOptions as $surveyAnswerOption)
                 
-                <span class="py-2 px-3 radio-back-color main-text-color font-weight-bold rounded mr-2">
+                <span class="pt-2 px-3 radio-back-color main-text-color font-weight-bold rounded mr-2 ml-3 mb-2">
                     <input type="radio" name="{{$surveyQuestion->id}}" value="{{$surveyAnswerOption->id}}">
                     &nbsp;<label for="{{$surveyQuestion->id}}">{{ $surveyAnswerOption->answer_option }}</label>
                 </span>
                 
-            @endforeach 
-        </div>
+            @endforeach
         @endif
         
 
