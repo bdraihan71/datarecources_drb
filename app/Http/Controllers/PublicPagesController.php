@@ -39,17 +39,18 @@ class PublicPagesController extends Controller
         }  
 
         $menu = Menu::where('title', 'LIKE', "%$request->search%")->first();
-        $pageitems = PageItem::where('particular', 'LIKE', "%$request->search%")->get();
+        // $pageitems = PageItem::where('particular', 'LIKE', "%$request->search%")->get();
         if($menu != null)
         {
             $pages = Page::where('menu_id', 'LIKE', "%$menu->id%")->get();
-        }elseif($pageitems != null)
-        {
-            foreach ($pageitems as $pageitem)
-            {
-                $pages = Page::where('id', 'LIKE', "%$pageitem->page_id%")->get();
-            }    
         }
+        // elseif($pageitems != null)
+        // {
+        //     foreach ($pageitems as $pageitem)
+        //     {
+        //         $pages = Page::where('id', 'LIKE', "%$pageitem->page_id%")->get();
+        //     }    
+        // }
         else{
             $pages = Page::where('title', 'LIKE', "%$request->search%")
             ->orWhere('description', 'LIKE', "%$request->search%")->get();
