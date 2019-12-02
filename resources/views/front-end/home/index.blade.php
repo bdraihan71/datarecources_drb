@@ -39,60 +39,60 @@
                     <div class="col-12">
                         <div class="row no-gutters">
                             <div class="col-md-2">
-                                <a href="#" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100">Commodity</a>
+                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/Commodity_Price" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">Commodity</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="#" class="btn rounded-0 main-color text-white my-2 w-100">Vehicle</a>
+                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/Registered%20Vehicle" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Vehicle</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="#" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100">Monthly Macro</a>
+                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/Monthly%20Macro" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">Monthly Macro</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="#" class="btn rounded-0 main-color text-white my-2 w-100">Internet</a>
+                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/Internet%20Subscriber" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Internet</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="#" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100">Publication</a>
+                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/Publication" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">Publication</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="#" class="btn rounded-0 main-color text-white my-2 w-100">Mobile Subscriber</a>
+                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/Mobile%20Subscriber" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Mobile Subscriber</a>
                             </div>
     
                             <div class="col-md-2">
-                                <a href="#" class="btn rounded-0 main-color text-white my-2 w-100">Grameenphone</a>
+                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/finance-info" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Grameenphone</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="#" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100">BRAC Bank</a>
+                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/search?search=brac+bank" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">BRAC Bank</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="#" class="btn rounded-0 main-color text-white my-2 w-100">BergerPBL</a>
+                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/search?search=bergerpbl" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">BergerPBL</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="#" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100">RECKITTBEN</a>
+                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/search?search=reckit" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">RECKITTBEN</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="#" class="btn rounded-0 main-color text-white my-2 w-100">Marico</a>
+                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/search?search=marico" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Marico</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="#" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100">Esquire knit</a>
+                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/search?search=Esquire+knit" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">Esquire knit</a>
                             </div>
 
                             <div class="col-md-2">
-                                <a href="#" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100">Ifad Autos</a>
+                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/search?search=ifad+autos" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">Ifad Autos</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="#" class="btn rounded-0 main-color text-white my-2 w-100">Olympic</a>
+                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/search?search=olympic" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Olympic</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="#" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100">Summit Power</a>
+                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/search?search=summit+power" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">Summit Power</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="#" class="btn rounded-0 main-color text-white my-2 w-100">IDLC</a>
+                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/search?search=IDLC" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">IDLC</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="#" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100">Singer</a>
+                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/search?search=Singer" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">Singer</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="#" class="btn rounded-0 main-color text-white my-2 w-100">Bata Shoe</a>
+                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/search?search=Bata+shoe" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Bata Shoe</a>
                             </div>
                         </div>
                     </div>
