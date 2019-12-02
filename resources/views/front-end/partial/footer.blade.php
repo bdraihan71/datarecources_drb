@@ -13,12 +13,15 @@
             </div>
             <div class="col-md-6">
                 <label>Stay Updated</label>
-                <div class="input-group">
-                    <input type="email" class="form-control rounded-0" placeholder="Enter your email">
-                    <span class="input-group-btn">
-                    <button class="btn btn-warning rounded-0" type="submit">Subscribe</button>
-                    </span>
-                </div>
+                 <form action="{{route('subscribe')}}" method="post">
+                    @csrf
+                    <div class="input-group">
+                        <input type="email" class="form-control rounded-0" name="email" placeholder="Enter your email">
+                        <span class="input-group-btn">
+                        <button class="btn btn-warning rounded-0" type="submit">Subscribe</button>
+                        </span>
+                    </div>
+                </form>
             </div>
             <div class="col-md-12 border-top border-light mt-5">
                 <div class="text-center mt-5 w-100">

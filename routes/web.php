@@ -95,6 +95,7 @@ Route::get('/search', 'PublicPagesController@search')->name('search');
 
 //mail
 Route::post('/contact-us', 'PublicPagesController@contactUs')->name('contactus');
+Route::post('/subscribe', 'PublicPagesController@subscribe')->name('subscribe');
 
 
 //Page

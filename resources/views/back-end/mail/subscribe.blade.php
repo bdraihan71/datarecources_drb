@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <title>DRB Contacted Us</title>
+    <title>DRB Subscribe</title>
 </head>
 <body>
     <div class="container-fluid">
         <div class="row">
             Email: {{$email}} </br>
-            Message: {{$body}}
         </div>
     </div>
 </body>

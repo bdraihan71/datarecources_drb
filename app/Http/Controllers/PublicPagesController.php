@@ -9,6 +9,7 @@ use App\Page;
 use App\Menu;
 use Mail;
 use App\Mail\ContactUs;
+use App\Mail\Subscribe;
 
 class PublicPagesController extends Controller
 {
@@ -58,6 +59,18 @@ class PublicPagesController extends Controller
         ->queue(new ContactUs( $request->email, $request->body));
 
         return Redirect()->back()->with('success', 'Your message successfully sent');
+
+    }
+
+    public function subscribe(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required'
+        ]);
+        Mail::to([env('MY_MAIL')])
+        ->queue(new Subscribe( $request->email));
+
+        return Redirect()->back()->with('success', 'Your email successfully subscribed');
 
     }
 
