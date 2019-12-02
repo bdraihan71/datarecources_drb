@@ -6,8 +6,8 @@
         <div class="container-fluid h-100">
             <div class="row align-items-center h-100">
                 <div class="col-md-12 text-center text-white mt-5">
-                    <h1 class="mb-3 mt-5">Bangladesh's First Aggregate Data Platform</h1>
-                    <h4 class="my-4">More than 1000 Contents</h4>
+                    <h1 class="mb-3 mt-5">{{$staticcontent[4]['value']}}</h1>
+                    <h4 class="my-4">{{$staticcontent[5]['value']}}</h4>
                     <div class="row">
                         <div class="col-md-3"></div>
                         <div class="col-md-6">
@@ -195,7 +195,7 @@
         <div class="row mt-5">
             <div class="col-md-6 main-text-color border-right">
                 <h1>Who We Are</h1>
-                <p class="main-text-color">DRB aims to provide accurate and workable data to help you make e best investment decision. All the data are collected from secondary source.
+                <p class="main-text-color">{{$staticcontent[3]['value']}}
                 </p>
             </div>
             <div class="col-md-6">

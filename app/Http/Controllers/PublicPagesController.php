@@ -11,13 +11,15 @@ use Mail;
 use App\Mail\ContactUs;
 use App\Mail\Subscribe;
 use App\PageItem;
+use App\StaticContent;
 
 class PublicPagesController extends Controller
 {
     public function landing(){
         $survey_results = Survey::where('is_published', true)->get();
         $surveys = Survey::where('is_accepting_answer', true)->get();
-        return view('front-end.home.index', compact('surveys', 'survey_results'));
+        $staticcontent = StaticContent::all();
+        return view('front-end.home.index', compact('surveys', 'survey_results','staticcontent'));
     }
 
     public function search(Request $request)
