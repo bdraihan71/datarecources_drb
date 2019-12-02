@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\StaticContent;
 
 class RegisterController extends Controller
 {
@@ -38,6 +39,12 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    public function showRegistrationForm ()
+    {
+        $staticcontent = StaticContent::all(); 
+        return view('auth.register', compact('staticcontent'));
     }
 
     /**
