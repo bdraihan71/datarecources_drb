@@ -10,7 +10,8 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            Email: {{$email}} </br>
+            Email: {{$email}} 
+            <br>
             Message: {{$body}}
         </div>
     </div>
