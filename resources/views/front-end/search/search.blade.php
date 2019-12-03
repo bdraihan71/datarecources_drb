@@ -20,13 +20,13 @@
             <div class="col-md-12 text-center">
                 @if($finance_infos->count() > 0)
                     @include('front-end.search.financial')
-                @endif    
+                @endif
                 @if($pages->count() > 0)
-                    @include('front-end.search.page') 
-                @endif 
+                    @include('front-end.search.page')
+                @endif
                 @if($finance_infos->count() == 0 and  $pages->count() == 0)
                     <h3>Your search  did not match any documents.</h3>
-                @endif 
+                @endif
             </div>
         </div>
     </div>

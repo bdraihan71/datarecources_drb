@@ -18,7 +18,7 @@ class PublicPagesController extends Controller
     public function landing(){
         $survey_results = Survey::where('is_published', true)->get();
         $surveys = Survey::where('is_accepting_answer', true)->get();
-        $staticcontent = StaticContent::all(); 
+        $staticcontent = StaticContent::all();
         return view('front-end.home.index', compact('surveys', 'survey_results','staticcontent'));
     }
 
@@ -36,27 +36,31 @@ class PublicPagesController extends Controller
         }
         else{
             $finance_infos = FinanceInfo::where('year', 'LIKE', "%$request->search%")->get();
-        }  
+        }
 
         $menu = Menu::where('title', 'LIKE', "%$request->search%")->first();
-        // $pageitems = PageItem::where('particular', 'LIKE', "%$request->search%")->get();
+        $pageitems = PageItem::where('particular', 'LIKE', "%$request->search%")->get();
         if($menu != null)
         {
+
             $pages = Page::where('menu_id', 'LIKE', "%$menu->id%")->get();
         }
-        // elseif($pageitems != null)
-        // {
-        //     foreach ($pageitems as $pageitem)
-        //     {
-        //         $pages = Page::where('id', 'LIKE', "%$pageitem->page_id%")->get();
-        //     }    
-        // }
+        elseif( $pageitems->count() > 0)
+        {
+            // $pages = array();
+            foreach ($pageitems as $pageitem)
+            {
+                $pages = Page::where('id', 'LIKE', "%$pageitem->page_id%")->get();
+                // $pages[] = $page;
+            }
+            // dd($pages);
+        }
         else{
             $pages = Page::where('title', 'LIKE', "%$request->search%")
             ->orWhere('description', 'LIKE', "%$request->search%")->get();
         }
 
-        
+
 
         return view('front-end.search.search', compact('finance_infos', 'pages'));
     }
