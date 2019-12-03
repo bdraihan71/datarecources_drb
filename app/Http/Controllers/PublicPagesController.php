@@ -12,6 +12,7 @@ use App\Mail\ContactUs;
 use App\Mail\Subscribe;
 use App\PageItem;
 use App\StaticContent;
+use Illuminate\Database\Eloquent\Collection;
 
 class PublicPagesController extends Controller
 {
@@ -44,16 +45,16 @@ class PublicPagesController extends Controller
         {
 
             $pages = Page::where('menu_id', 'LIKE', "%$menu->id%")->get();
+            dd($pages);
         }
         elseif( $pageitems->count() > 0)
         {
-            // $pages = array();
+            $pages = new Collection();
             foreach ($pageitems as $pageitem)
             {
-                $pages = Page::where('id', 'LIKE', "%$pageitem->page_id%")->get();
-                // $pages[] = $page;
+                $page = Page::where('id', 'LIKE', "%$pageitem->page_id%")->first();
+                $pages->push($page);
             }
-            // dd($pages);
         }
         else{
             $pages = Page::where('title', 'LIKE', "%$request->search%")
