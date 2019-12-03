@@ -8,7 +8,7 @@
     <meta name="description" content="DRB">
     <meta name="author" content="Techynaf">
 
-    <title>Data Resource BD</title>
+    <title>Data Resources BD</title>
 
     <!-- Font Awesome -->
     <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
