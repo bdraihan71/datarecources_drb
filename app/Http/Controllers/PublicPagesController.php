@@ -12,13 +12,14 @@ use App\Mail\ContactUs;
 use App\Mail\Subscribe;
 use App\PageItem;
 use App\StaticContent;
+use Illuminate\Database\Eloquent\Collection;
 
 class PublicPagesController extends Controller
 {
     public function landing(){
         $survey_results = Survey::where('is_published', true)->get();
         $surveys = Survey::where('is_accepting_answer', true)->get();
-        $staticcontent = StaticContent::all(); 
+        $staticcontent = StaticContent::all();
         return view('front-end.home.index', compact('surveys', 'survey_results','staticcontent'));
     }
 
@@ -26,37 +27,39 @@ class PublicPagesController extends Controller
     {
         $company = Company::where('name', 'LIKE', "%$request->search%")->first();
         $ticker = Company::where('ticker', 'LIKE', "%$request->search%")->first();
-
         if($company != null)
         {
-            $finance_infos = FinanceInfo::where('company_id', 'LIKE', "%$company->id%")->get();
-        }elseif($ticker != null)
+            $finance_infos = FinanceInfo::where('company_id', 'LIKE', "$company->id")->get();
+        }
+        elseif($ticker != null)
         {
-            $finance_infos = FinanceInfo::where('company_id', 'LIKE', "%$ticker->id%")->get();
+            $finance_infos = FinanceInfo::where('company_id', 'LIKE', "$ticker->id")->get();
         }
         else{
             $finance_infos = FinanceInfo::where('year', 'LIKE', "%$request->search%")->get();
-        }  
+        }
 
         $menu = Menu::where('title', 'LIKE', "%$request->search%")->first();
-        // $pageitems = PageItem::where('particular', 'LIKE', "%$request->search%")->get();
+        $pageitems = PageItem::where('particular', 'LIKE', "%$request->search%")->get();
         if($menu != null)
         {
             $pages = Page::where('menu_id', 'LIKE', "%$menu->id%")->get();
         }
-        // elseif($pageitems != null)
-        // {
-        //     foreach ($pageitems as $pageitem)
-        //     {
-        //         $pages = Page::where('id', 'LIKE', "%$pageitem->page_id%")->get();
-        //     }    
-        // }
+        elseif( $pageitems->count() > 0)
+        {
+            $pages = new Collection();
+            foreach ($pageitems as $pageitem)
+            {
+                $page = Page::where('id', 'LIKE', "%$pageitem->page_id%")->first();
+                $pages->push($page);
+            }
+        }
         else{
             $pages = Page::where('title', 'LIKE', "%$request->search%")
             ->orWhere('description', 'LIKE', "%$request->search%")->get();
         }
 
-        
+
 
         return view('front-end.search.search', compact('finance_infos', 'pages'));
     }

@@ -10,7 +10,7 @@
             <div class="form-group">
                 <label for="exampleInputEmail1">Sector</label>
                 <select class="form-control" id="exampleFormControlSelect1" v-model="chosen_sector" @change="onChange">
-                    <option >Choose sector...</option>
+                    <option value='sector'>Choose sector...</option>
                     @foreach ($sectors as $sector)
                         <option value="{{$sector->id}}">{{$sector->name}}</option>
                     @endforeach
