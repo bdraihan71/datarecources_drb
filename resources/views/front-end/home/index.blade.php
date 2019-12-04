@@ -35,7 +35,7 @@
         <div class="row">
             <div class="header">
                 <div class="inner-header flex mt-4">
-                    <h1 class="my-md-5 main-text-color">Start Analyze With</h1>
+                    <h1 class="my-md-5 main-text-color">Start Analyzing With</h1>
                     <div class="col-12">
                         <div class="row no-gutters">
                             <div class="col-md-2">
