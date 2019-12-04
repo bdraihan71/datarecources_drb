@@ -7,11 +7,11 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 @php
-                    $menus = App\Menu::whereNull('parent_menu_id')->orderBy('title')->get();
+                    $menus = App\Menu::whereNull('parent_menu_id')->orderBy('created_at', 'DESC')->get();
                 @endphp
                 @foreach($menus as $menu)
                     @php
-                        $sub_menus = App\Menu::where('parent_menu_id', $menu->id)->orderBy('title')->get()
+                        $sub_menus = App\Menu::where('parent_menu_id', $menu->id)->orderBy('created_at', 'DESC')->get();
                     @endphp
                     @if(count($sub_menus)>0)
                     <li class="nav-item dropdown nav-custom-margin-top">
