@@ -129,7 +129,7 @@
 
                 @foreach ($survey_results as $survey)
                 <div class="col-md-12">
-                    <h5 class="main-text-color">{{$survey->title}}</h5>
+                    {{-- <h5 class="main-text-color">{{$survey->title}}</h5> --}}
                 </div>
                     @foreach($survey->surveyQuestions as $surveyQuestion)
                         <div class="col-md-12">
