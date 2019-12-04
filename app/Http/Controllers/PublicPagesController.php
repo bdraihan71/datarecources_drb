@@ -43,9 +43,7 @@ class PublicPagesController extends Controller
         $pageitems = PageItem::where('particular', 'LIKE', "%$request->search%")->get();
         if($menu != null)
         {
-
             $pages = Page::where('menu_id', 'LIKE', "%$menu->id%")->get();
-            dd($pages);
         }
         elseif( $pageitems->count() > 0)
         {

@@ -15,7 +15,7 @@
                             </button>
                         </div>
                     </div>
-                </from>
+                </form>
             </div>
             <div class="col-md-12 text-center">
                 @if($finance_infos->count() > 0)
