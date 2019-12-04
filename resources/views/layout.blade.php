@@ -25,6 +25,17 @@
     <!-- Favicon -->
     <link rel="icon" href="/img/favicon.png">
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145375324-8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-145375324-8');
+    </script>
+
+
 </head>
 
 <body id="page-top">
