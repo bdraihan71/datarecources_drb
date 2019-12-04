@@ -195,7 +195,7 @@
         <div class="row mt-5">
             <div class="col-md-6 main-text-color border-right">
                 <h1>Who We Are</h1>
-                <p class="main-text-color">DRB aims to provide accurate and workable data to help you make e best investment decision. All the data are collected from secondary source.
+                <p class="main-text-color">Data Resources BD aims to provide accurate and workable data to help you make e best investment decision. All the data are collected from secondary source.
                 </p>
             </div>
             <div class="col-md-6">

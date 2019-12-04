@@ -132,7 +132,7 @@
             </div>
             <div class="col-md-12 border-top border-light mt-5">
                 <div class="text-center mt-5 w-100">
-                    <span>Copyright © Data Resource BD 2019</span>
+                    <span>Copyright © Data Resources BD 2019</span>
                 </div>
             </div>
         </div>

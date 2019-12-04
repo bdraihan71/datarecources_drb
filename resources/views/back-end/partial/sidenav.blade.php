@@ -1,7 +1,7 @@
 <!-- Sidebar  -->
 <nav id="sidebar">
     <div class="sidebar-header">
-        <a href="{{route('home')}}"><h4>Data Resource BD</h4></a>
+        <a href="{{route('home')}}"><h4>Data Resources BD</h4></a>
     </div>
 
     <ul class="list-unstyled components">
