@@ -27,13 +27,13 @@ class PublicPagesController extends Controller
     {
         $company = Company::where('name', 'LIKE', "%$request->search%")->first();
         $ticker = Company::where('ticker', 'LIKE', "%$request->search%")->first();
-
         if($company != null)
         {
-            $finance_infos = FinanceInfo::where('company_id', 'LIKE', "%$company->id%")->get();
-        }elseif($ticker != null)
+            $finance_infos = FinanceInfo::where('company_id', 'LIKE', "$company->id")->get();
+        }
+        elseif($ticker != null)
         {
-            $finance_infos = FinanceInfo::where('company_id', 'LIKE', "%$ticker->id%")->get();
+            $finance_infos = FinanceInfo::where('company_id', 'LIKE', "$ticker->id")->get();
         }
         else{
             $finance_infos = FinanceInfo::where('year', 'LIKE', "%$request->search%")->get();
