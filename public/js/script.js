@@ -51,6 +51,10 @@
     });
   });
 
+  $('.hundred').dataTable( {
+    "pageLength": 100
+  } );
+
 })(jQuery);
 
 //Get the button
