@@ -80,14 +80,14 @@
         <div class="row align-items-center h-100">
             <div class="col-md-12 text-center">
                 @if($frequency == 'yearly')
-                    @include('front-end.finance-info.yearlydata')  
+                    @include('front-end.finance-info.yearlydata')
                 @elseif($frequency == 'quarterly')
                     @include('front-end.finance-info.quarterlydata')
                 @else
-                    @include('front-end.finance-info.datatable')     
-                       
-                @endif 
-                     
+                    @include('front-end.finance-info.datatable')
+
+                @endif
+
             </div>
         </div>
     </div>
@@ -107,12 +107,17 @@
     },
 
     mounted:function(){
-        this.chosen_sector = localStorage.getItem('chosen_sector');
+        if (localStorage.getItem('chosen_sector') == null)
+        {
+            this.chosen_sector = "sector"
+        }else{
+            this.chosen_sector = localStorage.getItem('chosen_sector');
+        }
         this.getCompany();
         this.chosen_company = localStorage.getItem('chosen_company');
     },
 
-    
+
     methods: {
 
         onChange: function(){
@@ -125,7 +130,7 @@
         },
 
 
-        
+
         getCompany:function(){
             if(this.chosen_sector!=null){
                 fetch('/api/getcompany/' + this.chosen_sector)
