@@ -25,15 +25,29 @@ class PublicPagesController extends Controller
 
     public function search(Request $request)
     {
-        $company = Company::where('name', 'LIKE', "%$request->search%")->first();
-        $ticker = Company::where('ticker', 'LIKE', "%$request->search%")->first();
-        if($company != null)
+        $companies = Company::where('name', 'LIKE', "%$request->search%")->get();
+        $tickers = Company::where('ticker', 'LIKE', "%$request->search%")->get();
+        if($companies->count() > 0)
         {
-            $finance_infos = FinanceInfo::where('company_id', 'LIKE', "$company->id")->get();
+            $finance_infos = new Collection();
+            foreach ($companies as $company)
+            {
+                $finance_info = FinanceInfo::where('company_id', 'LIKE', "$company->id")->first();
+                if ($finance_info != null) {
+                    $finance_infos->push($finance_info);
+                }
+            }
         }
-        elseif($ticker != null)
+        elseif($tickers->count() > 0)
         {
-            $finance_infos = FinanceInfo::where('company_id', 'LIKE', "$ticker->id")->get();
+            $finance_infos = new Collection();
+            foreach ($tickers as $ticker)
+            {
+                $finance_info = FinanceInfo::where('company_id', 'LIKE', "$ticker->id")->first();
+                if ($finance_info != null) {
+                    $finance_infos->push($finance_info);
+                }
+            }
         }
         else{
             $finance_infos = FinanceInfo::where('year', 'LIKE', "%$request->search%")->get();
@@ -51,7 +65,9 @@ class PublicPagesController extends Controller
             foreach ($pageitems as $pageitem)
             {
                 $page = Page::where('id', 'LIKE', "%$pageitem->page_id%")->first();
-                $pages->push($page);
+                if ($page != null) {
+                    $pages->push($page);
+                }
             }
         }
         else{
