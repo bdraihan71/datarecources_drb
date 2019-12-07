@@ -160,8 +160,8 @@
                                         @if(auth()->user()->canSubmitResponse($surveyQuestion))
                                             @include('front-end.home.survey-answer-form')
                                         @else
-                                            <p>Question: {{ $surveyQuestion->question }}</p>
-                                            <p>Thank you for taking the survey</p>
+                                            <h5 class="my-3 text-left submitted-question-answer">Question: {{ $surveyQuestion->question }}</h5>
+                                            <p class="my-3 text-left submitted-question-answer">Thank you for taking the survey</p>
                                         @endif
                                     @else
                                         @include('front-end.home.survey-answer-form')      
