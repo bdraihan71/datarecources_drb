@@ -122,8 +122,8 @@
 @if(count($survey_results)>0)
     <section class="survey" id="opinion">
         <div class="container h-100">
-            <div class="row text-center mt-md-5 align-items-center h-100">
-                <div class="col-md-12 mt-md-5">
+            <div class="row text-center align-items-center h-100">
+                <div class="col-md-12">
                     <h1 class="mt-5 survey-margin-top">Your Opinion</h1>
                 </div>
 
@@ -150,25 +150,26 @@
                     <h4 class="mt-md-5 survey-margin-top">Participate in Survey</h4>
                 </div>
                 <div class="col-md-12">
-                    @foreach ($surveys as $survey)
+                    <div class="row">
+                        @foreach ($surveys as $survey)
                             <!-- <h5 class="main-text-color">{{$survey->title}}</h5> -->
-                            <div class="row">
-                                @foreach($survey->surveyQuestions as $surveyQuestion)
-                                    <div class="col-md-6">
-                                        @if(auth()->user())
-                                            @if(auth()->user()->canSubmitResponse($surveyQuestion))
-                                                @include('front-end.home.survey-answer-form')
-                                            @else
-                                                <p>Question: {{ $surveyQuestion->question }}</p>
-                                                <p>Thank you for taking the survey</p>
-                                            @endif
+                            
+                            @foreach($survey->surveyQuestions as $surveyQuestion)
+                                <div class="col-md-6">
+                                    @if(auth()->user())
+                                        @if(auth()->user()->canSubmitResponse($surveyQuestion))
+                                            @include('front-end.home.survey-answer-form')
                                         @else
-                                            @include('front-end.home.survey-answer-form')      
-                                        @endif<br>
-                                    </div>
-                                @endforeach
-                            </div>
-                    @endforeach
+                                            <h5 class="my-3 text-left submitted-question-answer">Question: {{ $surveyQuestion->question }}</h5>
+                                            <p class="my-3 text-left submitted-question-answer">Thank you for taking the survey</p>
+                                        @endif
+                                    @else
+                                        @include('front-end.home.survey-answer-form')      
+                                    @endif<br>
+                                </div>
+                            @endforeach
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
