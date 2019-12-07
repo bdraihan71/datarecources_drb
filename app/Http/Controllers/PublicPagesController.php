@@ -25,30 +25,31 @@ class PublicPagesController extends Controller
 
     public function search(Request $request)
     {
-        $companies = Company::where('name', 'LIKE', "%$request->search%")->get();
-        $tickers = Company::where('ticker', 'LIKE', "%$request->search%")->get();
+        $companies = Company::where('name', 'LIKE', "%$request->search%")
+        ->orwhere('ticker', 'LIKE', "%$request->search%")->get();
         if($companies->count() > 0)
         {
             $finance_infos = new Collection();
             foreach ($companies as $company)
             {
-                $finance_info = FinanceInfo::where('company_id', 'LIKE', "$company->id")->first();
+                $finance_info = FinanceInfo::where('company_id', 'LIKE', "$company->id")
+                ->orwhere('company_id', 'LIKE', "$company->id")->first();
                 if ($finance_info != null) {
                     $finance_infos->push($finance_info);
                 }
             }
         }
-        elseif($tickers->count() > 0)
-        {
-            $finance_infos = new Collection();
-            foreach ($tickers as $ticker)
-            {
-                $finance_info = FinanceInfo::where('company_id', 'LIKE', "$ticker->id")->first();
-                if ($finance_info != null) {
-                    $finance_infos->push($finance_info);
-                }
-            }
-        }
+        // elseif($tickers->count() > 0)
+        // {
+        //     $finance_infos = new Collection();
+        //     foreach ($tickers as $ticker)
+        //     {
+        //         $finance_info = FinanceInfo::where('company_id', 'LIKE', "$ticker->id")->first();
+        //         if ($finance_info != null) {
+        //             $finance_infos->push($finance_info);
+        //         }
+        //     }
+        // }
         else{
             $finance_infos = FinanceInfo::where('year', 'LIKE', "%$request->search%")->get();
         }
@@ -57,7 +58,8 @@ class PublicPagesController extends Controller
         $pageitems = PageItem::where('particular', 'LIKE', "%$request->search%")->get();
         if($menu != null)
         {
-            $pages = Page::where('menu_id', 'LIKE', "%$menu->id%")->get();
+            $pages = Page::where('menu_id', 'LIKE', "%$menu->id%")
+            ->orwhere('title', 'LIKE', "%$request->search%")->get();
         }
         elseif( $pageitems->count() > 0)
         {
