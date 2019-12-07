@@ -150,25 +150,26 @@
                     <h4 class="mt-md-5 survey-margin-top">Participate in Survey</h4>
                 </div>
                 <div class="col-md-12">
-                    @foreach ($surveys as $survey)
+                    <div class="row">
+                        @foreach ($surveys as $survey)
                             <!-- <h5 class="main-text-color">{{$survey->title}}</h5> -->
-                            <div class="row">
-                                @foreach($survey->surveyQuestions as $surveyQuestion)
-                                    <div class="col-md-6">
-                                        @if(auth()->user())
-                                            @if(auth()->user()->canSubmitResponse($surveyQuestion))
-                                                @include('front-end.home.survey-answer-form')
-                                            @else
-                                                <p>Question: {{ $surveyQuestion->question }}</p>
-                                                <p>Thank you for taking the survey</p>
-                                            @endif
+                            
+                            @foreach($survey->surveyQuestions as $surveyQuestion)
+                                <div class="col-md-6">
+                                    @if(auth()->user())
+                                        @if(auth()->user()->canSubmitResponse($surveyQuestion))
+                                            @include('front-end.home.survey-answer-form')
                                         @else
-                                            @include('front-end.home.survey-answer-form')      
-                                        @endif<br>
-                                    </div>
-                                @endforeach
-                            </div>
-                    @endforeach
+                                            <p>Question: {{ $surveyQuestion->question }}</p>
+                                            <p>Thank you for taking the survey</p>
+                                        @endif
+                                    @else
+                                        @include('front-end.home.survey-answer-form')      
+                                    @endif<br>
+                                </div>
+                            @endforeach
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
