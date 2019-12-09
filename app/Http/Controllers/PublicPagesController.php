@@ -60,17 +60,17 @@ class PublicPagesController extends Controller
             $pages = Page::where('menu_id', 'LIKE', "%$menu->id%")
             ->orwhere('title', 'LIKE', "%$request->search%")->get();
         }
-        elseif( $pageitems->count() > 0)
-        {
-            $pages = new Collection();
-            foreach ($pageitems as $pageitem)
-            {
-                $page = Page::where('id', 'LIKE', "%$pageitem->page_id%")->first();
-                if ($page != null) {
-                    $pages->push($page);
-                }
-            }
-        }
+        // elseif( $pageitems->count() > 0)
+        // {
+        //     $pages = new Collection();
+        //     foreach ($pageitems as $pageitem)
+        //     {
+        //         $page = Page::where('id', 'LIKE', "%$pageitem->page_id%")->first();
+        //         if ($page != null) {
+        //             $pages->push($page);
+        //         }
+        //     }
+        // }
         else{
             $pages = Page::where('title', 'LIKE', "%$request->search%")
             ->orWhere('description', 'LIKE', "%$request->search%")->get();
@@ -78,7 +78,7 @@ class PublicPagesController extends Controller
 
 
 
-        return view('front-end.search.search', compact('finance_infos', 'pages'));
+        return view('front-end.search.search', compact('finance_infos', 'pages', 'pageitems'));
     }
 
     public function contactUs(Request $request)

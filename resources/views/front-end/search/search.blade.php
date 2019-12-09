@@ -24,7 +24,10 @@
                 @if($pages->count() > 0)
                     @include('front-end.search.page')
                 @endif
-                @if($finance_infos->count() == 0 and  $pages->count() == 0)
+                @if($pageitems->count() > 0)
+                    @include('front-end.search.particular')
+                @endif    
+                @if($finance_infos->count() == 0 and  $pages->count() == 0 and $pageitems->count() == 0)
                     <h3>Your search  did not match any documents.</h3>
                 @endif
             </div>
