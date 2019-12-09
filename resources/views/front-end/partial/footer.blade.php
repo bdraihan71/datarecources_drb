@@ -8,7 +8,7 @@
                 <ul class="list-unstyled">
                     <li>Phone: +880 1720 227189</li>
                     <li>Email: info@dataresources-bd.com</li>
-                    <li>Web: www.dataresources-bd.com/</li>
+                    <li>Web: www.dataresources-bd.com</li>
                 </ul>
             </div>
             <div class="col-md-6">
