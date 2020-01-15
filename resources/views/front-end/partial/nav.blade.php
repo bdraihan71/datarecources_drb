@@ -1,16 +1,18 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top nav-bg border-bottom mt-lg-n5">
-    <div class="container-fluid">
+    <div class="container">
         <a class="navbar-brand text-white" href="/"><h2>DRB</h2></a>
-        <form action="{{route('search')}}" method="GET">
-            <div class="input-group">
-                <input class="form-control border-secondary py-4 search-border border border-secondary" type="search" value="" name="search" placeholder=" Search by keyword">
-                <div class="input-group-append">
-                    <button type="submit" class="btn btn-warning px-5 search-btn-border border border-secondary" type="button">
-                        <i class="fa fa-search"></i>
-                    </button>
+        <div class="search-custom-margin">
+            <form action="{{route('search')}}" method="GET">
+                <div class="input-group">
+                    <input class="form-control border-secondary search-border border border-secondary" type="search" value="" name="search" placeholder=" Search by keyword">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-warning search-btn-border border border-secondary" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
         <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

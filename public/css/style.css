@@ -190,11 +190,11 @@ a.article:hover {
 }
 
 .search-border {
-    border-radius: 50px;
+    border-radius: 5px;
 }
 
 .search-btn-border {
-    border-radius: 50px;
+    border-radius: 5px;
 }
 
 .nav-bg {
@@ -471,3 +471,9 @@ a.article:hover {
     color: #999;
  }
  
+@media (min-width: 992px) {
+    .search-custom-margin {
+        position: fixed;
+        margin-left: 400px; 
+    }
+}
