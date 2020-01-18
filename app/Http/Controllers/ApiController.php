@@ -47,6 +47,33 @@ class ApiController extends Controller
                             echo("ID: " . $node->text());
                         break;
                         case 1:
+                            $company = Company::where('ticker', $node->text())->find();
+                            if($company){
+                                StockInfo::create([
+                                    'company_id' => $company->id,
+                                    'last_trading_price' => $node->eq(2),
+                                    'closing_price' => $node->eq(5),
+                                ]);
+                                // $table->string('yesterday_closing');
+                                // $table->string('price_change');
+                                // $table->string('turnover_(bdt_mn)');
+                                // $table->string('volume');
+                                // $table->string('trade');
+                                // $table->string('sponsor_or_director');
+                                // $table->string('foreign_public');
+                                // $table->string('paid_up_capital_bdt_mn');
+                                // $table->string('5_year_revenue_cagr');
+                                // $table->string('5_year_npat_cagr');
+                                // $table->string('p_or_e_audited');
+                                // $table->string('p_or_e_unaudied');
+                                // $table->string('navps');
+                                // $table->string('p_or_navps_divinded');
+                                // $table->string('dividend_yield');
+                            }
+                            else{
+                                echo("company not found in database");
+                                //TODO:: create company and sector if necessary
+                            }
                             echo("COMPANY: " . $node->text());
                         break;
                         case 2:
@@ -59,12 +86,12 @@ class ApiController extends Controller
                             echo("LOW: " . $node->text());
                         break;
                         case 5:
-                        echo("CLOSEP*: " . $node->text());
+                            echo("CLOSEP*: " . $node->text());
                         case 6:
                             echo("YCP: " . $node->text());
                         break;
                         case 7:
-                            echo("CHANGE: " . $node->text());
+                            echo("%CHANGE: " . $node->text());
                         break;
                         case 8:
                             echo("TRADE: " . $node->text());
