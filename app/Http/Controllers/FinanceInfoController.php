@@ -105,11 +105,13 @@ class FinanceInfoController extends Controller
 
     public function update(Request $request, $id){
         $financeInfo = FinanceInfo::find($id);
-        
-        $uploadUrl = $this->uploadExcel($request, 'annual_excel', $financeInfo->company);
+        //  dd($this->uploadExcel($request, 'q1_excel', $financeInfo->company));
+        $uploadUrl = $this->uploadExcel($request, 'annual_excel', $financeInfo->company)[0];
+        $uploadFileName = $this->uploadExcel($request, 'annual_excel', $financeInfo->company)[1];
 
         if($uploadUrl != "#"){
             $financeInfo->annual_excel_url = $uploadUrl;
+            $financeInfo->annual_excel_url_file_name = $uploadFileName;
         }
 
         $uploadUrl = $this->uploadPdf($request, 'annual_pdf_1', $financeInfo->company);
@@ -142,28 +144,36 @@ class FinanceInfoController extends Controller
             $financeInfo->annual_pdf_5_url = $uploadUrl;
         }
 
-        $uploadUrl = $this->uploadExcel($request, 'q1_excel', $financeInfo->company);
+        $uploadUrl = $this->uploadExcel($request, 'q1_excel', $financeInfo->company)[0];
+        $uploadFileName = $this->uploadExcel($request, 'q1_excel', $financeInfo->company)[1];
         
         if($uploadUrl != "#"){
             $financeInfo->q1_excel_url = $uploadUrl;
+            $financeInfo->q1_excel_url_file_name = $uploadFileName;;
         }
 
-        $uploadUrl = $this->uploadExcel($request, 'q2_excel', $financeInfo->company);
+        $uploadUrl = $this->uploadExcel($request, 'q2_excel', $financeInfo->company)[0];
+        $uploadFileName = $this->uploadExcel($request, 'q2_excel', $financeInfo->company)[1];
         
         if($uploadUrl != "#"){
             $financeInfo->q2_excel_url = $uploadUrl;
+            $financeInfo->q2_excel_url_file_name = $uploadFileName;
         }
 
-        $uploadUrl = $this->uploadExcel($request, 'q3_excel', $financeInfo->company);
+        $uploadUrl = $this->uploadExcel($request, 'q3_excel', $financeInfo->company)[0];
+        $uploadFileName = $this->uploadExcel($request, 'q3_excel', $financeInfo->company)[1];
         
         if($uploadUrl != "#"){
             $financeInfo->q3_excel_url = $uploadUrl;
+            $financeInfo->q3_excel_url_file_name = $uploadFileName;
         }
 
-        $uploadUrl = $this->uploadExcel($request, 'q4_excel', $financeInfo->company);
+        $uploadUrl = $this->uploadExcel($request, 'q4_excel', $financeInfo->company)[0];
+        $uploadFileName = $this->uploadExcel($request, 'q4_excel', $financeInfo->company)[1];
         
         if($uploadUrl != "#"){
             $financeInfo->q4_excel_url = $uploadUrl;
+            $financeInfo->q4_excel_url_file_name = $uploadFileName;
         }
 
         $uploadUrl = $this->uploadPdf($request, 'q1_pdf', $financeInfo->company);
@@ -211,7 +221,8 @@ class FinanceInfoController extends Controller
                 return back()->withError("There was an error with uploading your file")->withInput(); 
             }
 
-            $path = $epath;
+            $file_name = substr($request->file($name)->getClientOriginalName() , 0 , (strrpos($request->file($name)->getClientOriginalName(), ".")));
+            $path = [$epath, $file_name];
         }
         return $path;
     }
