@@ -8,6 +8,7 @@ use App\Company;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class FinanceInfoController extends Controller
 {
@@ -284,15 +285,20 @@ class FinanceInfoController extends Controller
             ]);
 
             try{
-                $epath = $request->file($name)->store(
-                    env('APP_ENV') . '/financial-info/' . $company->id . '/excel', 's3'
-                );
+                // $epath = $request->file($name)->store(
+                //     env('APP_ENV') . '/financial-info/' . $company->id . '/excel', 's3'
+                // );
+
+                $file = $request->file($name);
+                $name = $file->getClientOriginalName();
+                $epath =  env('APP_ENV') . '/financial-info/' . $company->id .'/excel/' . $name;
+                Storage::disk('s3')->put($epath, file_get_contents($file));
             }catch(\Exception $exception){
                 $exception->getMessage();
                 return back()->withError("There was an error with uploading your file")->withInput(); 
             }
 
-            $file_name = substr($request->file($name)->getClientOriginalName() , 0 , (strrpos($request->file($name)->getClientOriginalName(), ".")));
+            $file_name = substr($name , 0 , (strrpos($name, ".")));
             $path = [$epath, $file_name];
         }
         return $path;
@@ -306,15 +312,19 @@ class FinanceInfoController extends Controller
             ]);
 
             try{
-                $epath = $request->file($name)->store(
-                    env('APP_ENV') . '/financial-info/' . $company->id . '/pdf', 's3'
-                );
+                // $epath = $request->file($name)->store(
+                //     env('APP_ENV') . '/financial-info/' . $company->id . '/pdf', 's3'
+                // );
+                $file = $request->file($name);
+                $name = $file->getClientOriginalName();
+                $epath =  env('APP_ENV') . '/financial-info/' . $company->id .'/pdf/' . $name;
+                Storage::disk('s3')->put($epath, file_get_contents($file));
             }catch(\Exception $exception){
                 $exception->getMessage();
                 return back()->withError("There was an error with uploading your file")->withInput(); 
             }
 
-            $file_name = substr($request->file($name)->getClientOriginalName() , 0 , (strrpos($request->file($name)->getClientOriginalName(), ".")));
+            $file_name = substr($name , 0 , (strrpos($name, ".")));
             $path = [$epath, $file_name];
         }
         return $path;
