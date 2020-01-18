@@ -19,10 +19,36 @@
             </div>
         </div>
 
-        <div class="col-md-10">
+        <div class="col-md-12">
             <div class="form-group">
                 <label>Description</label>
                 <textarea class="form-control" rows="5" name="description" placeholder="Enter news description"></textarea>
+            </div>
+        </div>
+
+        <div class="col-md-10">
+            <label>Where to show</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                <label class="form-check-label mr-5" for="exampleRadios1">
+                  Featured
+                </label>
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                <label class="form-check-label mr-5" for="exampleRadios1">
+                  World
+                </label>
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                <label class="form-check-label mr-5" for="exampleRadios1">
+                  Country
+                </label>
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                <label class="form-check-label mr-5" for="exampleRadios1">
+                  Economy
+                </label>
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                  Company
+                </label>
             </div>
         </div>
 
