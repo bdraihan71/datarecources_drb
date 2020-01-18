@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\FinanceInfo;
 use App\Sector;
 use App\Company;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FinanceInfoController extends Controller
 {
@@ -13,12 +15,13 @@ class FinanceInfoController extends Controller
         $sectors = Sector::all();
         $companies = Company::all();
         $finance_infos = FinanceInfo::all();
+        $user = Auth::user();
         $frequency = null;
         $q1 = null;
         $q2 = null;
         $q3 = null;
         $q4 = null;
-        return view('front-end.finance-info.all', compact('finance_infos', 'sectors', 'companies','frequency','q1','q2','q3','q4'));
+        return view('front-end.finance-info.all', compact('finance_infos', 'user', 'sectors', 'companies','frequency','q1','q2','q3','q4'));
     }
 
     public function financeFilter(Request $request)
@@ -26,6 +29,7 @@ class FinanceInfoController extends Controller
         $sectors = Sector::all();
         $companies = Company::all();
         $finance_infos = FinanceInfo::where('company_id', 'LIKE', "%$request->company%")->get();
+        $user = Auth::user();
         if($request->frequency == 'yearly'){
            $frequency = 'yearly';
         }elseif($request->frequency == 'quarterly'){
@@ -38,7 +42,7 @@ class FinanceInfoController extends Controller
         $q3 = $request->q3;
         $q4 = $request->q4;
         // dd($finance_infos);
-        return view('front-end.finance-info.all', compact('finance_infos','sectors','companies','frequency','q1','q2','q3','q4'));
+        return view('front-end.finance-info.all', compact('finance_infos', 'user', 'sectors','companies','frequency','q1','q2','q3','q4'));
     }
 
     public function store(Request $request){

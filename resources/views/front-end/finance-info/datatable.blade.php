@@ -50,6 +50,7 @@
             @php
                 $i = 1;
             @endphp
+            {{-- {{dd($user->subscriptionplans)}} --}}
             @foreach ($finance_infos as $item)
                 <tr>
                     <td>{{$item->company->name}}</td>
@@ -136,61 +137,85 @@
                     @endif 
                     
                     @if(auth()->user())
-                        @if($item->annual_excel_url != '#')
-                        <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_excel_url }}" type="button" class="btn btn-outline-primary">Excel</a></td>
+                        @if($user->subscriptionplans->isEmpty())
+                           <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
                         @else
-                            <td>No Excel</td>
-                        @endif
+                            @if($item->annual_excel_url != '#')
+                            <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_excel_url }}" type="button" class="btn btn-outline-primary">Excel</a></td>
+                            @else
+                                <td>No Excel</td>
+                            @endif
+                        @endif    
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif  
 
                     @if(auth()->user())
-                        @if($item->annual_pdf_1_url != '#')
-                            <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_1_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                        @if($user->subscriptionplans->isEmpty())
+                           <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
                         @else
-                            <td>No PDF</td>
-                        @endif
+                            @if($item->annual_pdf_1_url != '#')
+                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_1_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                            @else
+                                <td>No PDF</td>
+                            @endif
+                        @endif    
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif 
 
                     @if(auth()->user())
-                        @if($item->annual_pdf_2_url != '#')
-                            <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_2_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                        @if($user->subscriptionplans->isEmpty())
+                           <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
                         @else
-                            <td>No PDF</td>
-                        @endif
+                            @if($item->annual_pdf_2_url != '#')
+                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_2_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                            @else
+                                <td>No PDF</td>
+                            @endif
+                        @endif    
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif 
 
                     @if(auth()->user())
-                        @if($item->annual_pdf_3_url != '#')
-                            <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_3_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                        @if($user->subscriptionplans->isEmpty())
+                           <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
                         @else
-                            <td>No PDF</td>
-                        @endif
+                            @if($item->annual_pdf_3_url != '#')
+                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_3_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                            @else
+                                <td>No PDF</td>
+                            @endif
+                        @endif    
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif 
 
                     @if(auth()->user())
-                        @if($item->annual_pdf_4_url != '#')
-                            <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_4_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                        @if($user->subscriptionplans->isEmpty())
+                           <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
                         @else
-                            <td>No PDF</td>
-                        @endif
+                            @if($item->annual_pdf_4_url != '#')
+                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_4_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                            @else
+                                <td>No PDF</td>
+                            @endif
+                        @endif    
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif 
 
                     @if(auth()->user())
-                        @if($item->annual_pdf_5_url != '#')
-                            <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_5_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                        @if($user->subscriptionplans->isEmpty())
+                           <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
                         @else
-                            <td>No PDF</td>
-                        @endif
+                            @if($item->annual_pdf_5_url != '#')
+                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_5_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                            @else
+                                <td>No PDF</td>
+                            @endif
+                        @endif    
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif 

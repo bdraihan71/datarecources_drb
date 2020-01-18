@@ -39,6 +39,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function subscriptionplans()
+    {
+        return $this->belongsToMany('App\SubscriptionPlan');
+    }
     public function canSubmitResponse(SurveyQuestion $question){
         $hit = SurveyHit::where('user_id', $this->id)->where('survey_question_id', $question->id)->first();
         if($hit == null){
