@@ -46,7 +46,7 @@
                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
                         @else
                             @if($item->annual_excel_url != '#')
-                            <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_excel_url }}" type="button" class="btn btn-outline-primary">Excel</a></td>
+                            <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->annual_excel_url_file_name != null ? $item->annual_excel_url_file_name : 'Excel' }}</a></td>
                             @else
                                 <td>No Excel</td>
                             @endif
@@ -60,7 +60,7 @@
                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
                         @else    
                             @if($item->annual_pdf_1_url != '#')
-                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_1_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_1_url }}" type="button" class="btn btn-outline-primary">{{ $item->annual_pdf_1_url_file_name != null ? $item->annual_pdf_1_url_file_name : 'PDF' }}</a></td>
                             @else
                                 <td>No PDF</td>
                             @endif
@@ -74,7 +74,7 @@
                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
                         @else    
                             @if($item->annual_pdf_2_url != '#')
-                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_2_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_2_url }}" type="button" class="btn btn-outline-primary">{{ $item->annual_pdf_2_url_file_name != null ? $item->annual_pdf_2_url_file_name : 'PDF' }}</a></td>
                             @else
                                 <td>No PDF</td>
                             @endif
@@ -88,7 +88,7 @@
                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
                         @else
                             @if($item->annual_pdf_3_url != '#')
-                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_3_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_3_url }}" type="button" class="btn btn-outline-primary">{{ $item->annual_pdf_3_url_file_name != null ? $item->annual_pdf_3_url_file_name : 'PDF' }}</a></td>
                             @else
                                 <td>No PDF</td>
                             @endif
@@ -102,7 +102,7 @@
                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
                         @else
                             @if($item->annual_pdf_4_url != '#')
-                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_4_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_4_url }}" type="button" class="btn btn-outline-primary">{{ $item->annual_pdf_4_url_file_name != null ? $item->annual_pdf_4_url_file_name : 'PDF' }}</a></td>
                             @else
                                 <td>No PDF</td>
                             @endif
@@ -116,7 +116,7 @@
                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
                         @else
                             @if($item->annual_pdf_5_url != '#')
-                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_5_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_5_url }}" type="button" class="btn btn-outline-primary">{{ $item->annual_pdf_5_url_file_name != null ? $item->annual_pdf_5_url_file_name : 'PDF' }}</a></td>
                             @else
                                 <td>No PDF</td>
                             @endif
