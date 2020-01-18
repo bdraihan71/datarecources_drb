@@ -106,117 +106,170 @@ class FinanceInfoController extends Controller
     public function update(Request $request, $id){
         $financeInfo = FinanceInfo::find($id);
         //  dd($this->uploadPdf($request, 'annual_pdf_1', $financeInfo->company)[0]);
-        $uploadUrl = $this->uploadExcel($request, 'annual_excel', $financeInfo->company)[0];
-        $uploadFileName = $this->uploadExcel($request, 'annual_excel', $financeInfo->company)[1];
+        if ($request->annual_excel != null)
+        {
+            $uploadUrl = $this->uploadExcel($request, 'annual_excel', $financeInfo->company)[0];
+            $uploadFileName = $this->uploadExcel($request, 'annual_excel', $financeInfo->company)[1];
 
-        if($uploadUrl != "#"){
-            $financeInfo->annual_excel_url = $uploadUrl;
-            $financeInfo->annual_excel_url_file_name = $uploadFileName;
+            if($uploadUrl != "#"){
+                $financeInfo->annual_excel_url = $uploadUrl;
+                $financeInfo->annual_excel_url_file_name = $uploadFileName;
+            }
         }
 
-        $uploadUrl = $this->uploadPdf($request, 'annual_pdf_1', $financeInfo->company)[0];
-        $uploadFileName = $this->uploadPdf($request, 'annual_pdf_1', $financeInfo->company)[1];
 
-        if($uploadUrl != "#"){
-            $financeInfo->annual_pdf_1_url = $uploadUrl;
-            $financeInfo->annual_pdf_1_url_file_name = $uploadFileName;
+        if ($request->annual_pdf_1 != null)
+        {
+            $uploadUrl = $this->uploadPdf($request, 'annual_pdf_1', $financeInfo->company)[0];
+            $uploadFileName = $this->uploadPdf($request, 'annual_pdf_1', $financeInfo->company)[1];
+
+            if($uploadUrl != "#"){
+                $financeInfo->annual_pdf_1_url = $uploadUrl;
+                $financeInfo->annual_pdf_1_url_file_name = $uploadFileName;
+            }
+        }    
+
+        if ($request->annual_pdf_2 != null)
+        {
+            $uploadUrl = $this->uploadPdf($request, 'annual_pdf_2', $financeInfo->company)[0];
+            $uploadFileName = $this->uploadPdf($request, 'annual_pdf_2', $financeInfo->company)[1];
+            
+            if($uploadUrl != "#"){
+                $financeInfo->annual_pdf_2_url = $uploadUrl;
+                $financeInfo->annual_pdf_2_url_file_name = $uploadFileName;
+            }
         }
 
-        $uploadUrl = $this->uploadPdf($request, 'annual_pdf_2', $financeInfo->company)[0];
-        $uploadFileName = $this->uploadPdf($request, 'annual_pdf_1', $financeInfo->company)[1];
+        if ($request->annual_pdf_3 != null)
+        {
+            $uploadUrl = $this->uploadPdf($request, 'annual_pdf_3', $financeInfo->company)[0];
+            $uploadFileName = $this->uploadPdf($request, 'annual_pdf_3', $financeInfo->company)[1];
+            
+            if($uploadUrl != "#"){
+                $financeInfo->annual_pdf_3_url = $uploadUrl;
+                $financeInfo->annual_pdf_3_url_file_name = $uploadFileName;
+            }
+        }   
+
+
+        if ($request->annual_pdf_4 != null)
+        {
+            $uploadUrl = $this->uploadPdf($request, 'annual_pdf_4', $financeInfo->company)[0];
+            $uploadFileName = $this->uploadPdf($request, 'annual_pdf_4', $financeInfo->company)[1];
+            
+            if($uploadUrl != "#"){
+                $financeInfo->annual_pdf_4_url = $uploadUrl;
+                $financeInfo->annual_pdf_4_url_file_name = $uploadFileName;
+            }
+        }
+
+        if ($request->annual_pdf_5 != null)
+        {
+            $uploadUrl = $this->uploadPdf($request, 'annual_pdf_5', $financeInfo->company)[0];
+            $uploadFileName = $this->uploadPdf($request, 'annual_pdf_5', $financeInfo->company)[1];
+            
+            if($uploadUrl != "#"){
+                $financeInfo->annual_pdf_5_url = $uploadUrl;
+                $financeInfo->annual_pdf_5_url_file_name = $uploadFileName;
+            }
+        }
+
+        if ($request->q1_excel != null)
+        {
+            $uploadUrl = $this->uploadExcel($request, 'q1_excel', $financeInfo->company)[0];
+            $uploadFileName = $this->uploadExcel($request, 'q1_excel', $financeInfo->company)[1];
+            
+            if($uploadUrl != "#"){
+                $financeInfo->q1_excel_url = $uploadUrl;
+                $financeInfo->q1_excel_url_file_name = $uploadFileName;;
+            }
+        }    
+
+
+        if ($request->q2_excel != null)
+        {
+            $uploadUrl = $this->uploadExcel($request, 'q2_excel', $financeInfo->company)[0];
+            $uploadFileName = $this->uploadExcel($request, 'q2_excel', $financeInfo->company)[1];
+            
+            if($uploadUrl != "#"){
+                $financeInfo->q2_excel_url = $uploadUrl;
+                $financeInfo->q2_excel_url_file_name = $uploadFileName;
+            }
+        }    
+
+
+        if ($request->q3_excel != null)
+        {
+            $uploadUrl = $this->uploadExcel($request, 'q3_excel', $financeInfo->company)[0];
+            $uploadFileName = $this->uploadExcel($request, 'q3_excel', $financeInfo->company)[1];
+            
+            if($uploadUrl != "#"){
+                $financeInfo->q3_excel_url = $uploadUrl;
+                $financeInfo->q3_excel_url_file_name = $uploadFileName;
+            }
+        }    
+
+
+        if ($request->q4_excel != null)
+        {
+            $uploadUrl = $this->uploadExcel($request, 'q4_excel', $financeInfo->company)[0];
+            $uploadFileName = $this->uploadExcel($request, 'q4_excel', $financeInfo->company)[1];
+            
+            if($uploadUrl != "#"){
+                $financeInfo->q4_excel_url = $uploadUrl;
+                $financeInfo->q4_excel_url_file_name = $uploadFileName;
+            }
+        }  
         
-        if($uploadUrl != "#"){
-            $financeInfo->annual_pdf_2_url = $uploadUrl;
-            $financeInfo->annual_pdf_2_url_file_name = $uploadFileName;
+        
+        if ($request->q1_pdf != null)
+        {
+            $uploadUrl = $this->uploadPdf($request, 'q1_pdf', $financeInfo->company)[0];
+            $uploadFileName = $this->uploadPdf($request, 'q1_pdf', $financeInfo->company)[1];
+            
+            if($uploadUrl != "#"){
+                $financeInfo->q1__pdf_url = $uploadUrl;
+                $financeInfo->q1__pdf_url_file_name = $uploadFileName;
+            }
+        }    
+
+          
+        if ($request->q2_pdf != null)
+        {
+            $uploadUrl = $this->uploadPdf($request, 'q2_pdf', $financeInfo->company)[0];
+            $uploadFileName = $this->uploadPdf($request, 'q2_pdf', $financeInfo->company)[1];
+            
+            if($uploadUrl != "#"){
+                $financeInfo->q2__pdf_url = $uploadUrl;
+                $financeInfo->q2__pdf_url_file_name = $uploadFileName;
+            }
+        }    
+
+
+        if ($request->q3_pdf != null)
+        {
+
+            $uploadUrl = $this->uploadPdf($request, 'q3_pdf', $financeInfo->company)[0];
+            $uploadFileName = $this->uploadPdf($request, 'q3_pdf', $financeInfo->company)[1];
+            
+            if($uploadUrl != "#"){
+                $financeInfo->q3__pdf_url = $uploadUrl;
+                $financeInfo->q3__pdf_url_file_name = $uploadFileName;
+            }
+
         }
 
-        $uploadUrl = $this->uploadPdf($request, 'annual_pdf_3', $financeInfo->company)[0];
-        $uploadFileName = $this->uploadPdf($request, 'annual_pdf_1', $financeInfo->company)[1];
-        
-        if($uploadUrl != "#"){
-            $financeInfo->annual_pdf_3_url = $uploadUrl;
-            $financeInfo->annual_pdf_3_url_file_name = $uploadFileName;
-        }
 
-        $uploadUrl = $this->uploadPdf($request, 'annual_pdf_4', $financeInfo->company)[0];
-        $uploadFileName = $this->uploadPdf($request, 'annual_pdf_1', $financeInfo->company)[1];
-        
-        if($uploadUrl != "#"){
-            $financeInfo->annual_pdf_4_url = $uploadUrl;
-            $financeInfo->annual_pdf_4_url_file_name = $uploadFileName;
-        }
-
-        $uploadUrl = $this->uploadPdf($request, 'annual_pdf_5', $financeInfo->company)[0];
-        $uploadFileName = $this->uploadPdf($request, 'annual_pdf_1', $financeInfo->company)[1];
-        
-        if($uploadUrl != "#"){
-            $financeInfo->annual_pdf_5_url = $uploadUrl;
-            $financeInfo->annual_pdf_5_url_file_name = $uploadFileName;
-        }
-
-        $uploadUrl = $this->uploadExcel($request, 'q1_excel', $financeInfo->company)[0];
-        $uploadFileName = $this->uploadExcel($request, 'q1_excel', $financeInfo->company)[1];
-        
-        if($uploadUrl != "#"){
-            $financeInfo->q1_excel_url = $uploadUrl;
-            $financeInfo->q1_excel_url_file_name = $uploadFileName;;
-        }
-
-        $uploadUrl = $this->uploadExcel($request, 'q2_excel', $financeInfo->company)[0];
-        $uploadFileName = $this->uploadExcel($request, 'q2_excel', $financeInfo->company)[1];
-        
-        if($uploadUrl != "#"){
-            $financeInfo->q2_excel_url = $uploadUrl;
-            $financeInfo->q2_excel_url_file_name = $uploadFileName;
-        }
-
-        $uploadUrl = $this->uploadExcel($request, 'q3_excel', $financeInfo->company)[0];
-        $uploadFileName = $this->uploadExcel($request, 'q3_excel', $financeInfo->company)[1];
-        
-        if($uploadUrl != "#"){
-            $financeInfo->q3_excel_url = $uploadUrl;
-            $financeInfo->q3_excel_url_file_name = $uploadFileName;
-        }
-
-        $uploadUrl = $this->uploadExcel($request, 'q4_excel', $financeInfo->company)[0];
-        $uploadFileName = $this->uploadExcel($request, 'q4_excel', $financeInfo->company)[1];
-        
-        if($uploadUrl != "#"){
-            $financeInfo->q4_excel_url = $uploadUrl;
-            $financeInfo->q4_excel_url_file_name = $uploadFileName;
-        }
-
-        $uploadUrl = $this->uploadPdf($request, 'q1_pdf', $financeInfo->company)[0];
-        $uploadFileName = $this->uploadPdf($request, 'annual_pdf_1', $financeInfo->company)[1];
-        
-        if($uploadUrl != "#"){
-            $financeInfo->q1__pdf_url = $uploadUrl;
-            $financeInfo->q1__pdf_url_file_name = $uploadFileName;
-        }
-
-        $uploadUrl = $this->uploadPdf($request, 'q2_pdf', $financeInfo->company)[0];
-        $uploadFileName = $this->uploadPdf($request, 'annual_pdf_1', $financeInfo->company)[1];
-        
-        if($uploadUrl != "#"){
-            $financeInfo->q2__pdf_url = $uploadUrl;
-            $financeInfo->q2__pdf_url_file_name = $uploadFileName;
-        }
-
-        $uploadUrl = $this->uploadPdf($request, 'q3_pdf', $financeInfo->company)[0];
-        $uploadFileName = $this->uploadPdf($request, 'annual_pdf_1', $financeInfo->company)[1];
-        
-        if($uploadUrl != "#"){
-            $financeInfo->q3__pdf_url = $uploadUrl;
-            $financeInfo->q3__pdf_url_file_name = $uploadFileName;
-        }
-
-        $uploadUrl = $this->uploadPdf($request, 'q4_pdf', $financeInfo->company)[0];
-        $uploadFileName = $this->uploadPdf($request, 'annual_pdf_1', $financeInfo->company)[1];
-        
-        if($uploadUrl != "#"){
-            $financeInfo->q4__pdf_url = $uploadUrl;
-            $financeInfo->q4__pdf_url_file_name = $uploadFileName;
-        }
+        if ($request->q4_pdf != null)
+        {
+            $uploadUrl = $this->uploadPdf($request, 'q4_pdf', $financeInfo->company)[0];
+            $uploadFileName = $this->uploadPdf($request, 'q4_pdf', $financeInfo->company)[1];
+            
+            if($uploadUrl != "#"){
+                $financeInfo->q4__pdf_url = $uploadUrl;
+                $financeInfo->q4__pdf_url_file_name = $uploadFileName;
+            }
+        }    
         
         $financeInfo->save();
         
