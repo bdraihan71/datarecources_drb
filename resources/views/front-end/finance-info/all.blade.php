@@ -28,30 +28,30 @@
                 <label for="frequency">Frequency:</label>
                 @if(Request::get('frequency') == 'yearly')
                 <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input"  name="frequency"  checked  value="yearly" onclick="hide()">
-                    <label class="form-check-label">Yearly</label>
-                </div>
-                <div class="form-check form-check-inline">
                     <input type="radio" class="form-check-input"  name="frequency"  value="quarterly" onclick="show()">
                     <label class="form-check-label">Quarterly</label>
                 </div>
-                @elseif (Request::get('frequency') == 'quarterly')
                 <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input"  name="frequency" value="yearly" onclick="hide()">
+                    <input type="radio" class="form-check-input"  name="frequency"  checked  value="yearly" onclick="hide()">
                     <label class="form-check-label">Yearly</label>
                 </div>
+                @elseif (Request::get('frequency') == 'quarterly')
                 <div class="form-check form-check-inline">
                     <input type="radio" class="form-check-input"  name="frequency" checked value="quarterly"  onclick="show()">
                     <label class="form-check-label">Quarterly</label>
                 </div>
-                @else
                 <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input"  name="frequency"  value="yearly" onclick="hide()">
+                    <input type="radio" class="form-check-input"  name="frequency" value="yearly" onclick="hide()">
                     <label class="form-check-label">Yearly</label>
                 </div>
+                @else
                 <div class="form-check form-check-inline">
                     <input type="radio" class="form-check-input"  name="frequency" value="quarterly"  onclick="show()">
                     <label class="form-check-label">Quarterly</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input"  name="frequency"  value="yearly" onclick="hide()">
+                    <label class="form-check-label">Yearly</label>
                 </div>
                 @endif
             </div>
