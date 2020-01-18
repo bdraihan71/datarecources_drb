@@ -7,7 +7,6 @@ use App\Company;
 use Symfony\Component\DomCrawler\Crawler;
 class ApiController extends Controller
 {
-    public $counter = 0;
     public function getCompany($sector_id)
     {
         if( $sector_id == 'sector' )
@@ -41,18 +40,50 @@ class ApiController extends Controller
         $client = new Client();
         $crawler = $client->request('GET', $request->url);
         $crawler->filter('table')->children()->each(function (Crawler $row, $i) {
-                $row->each(function (Crawler $node, $i) {
-                    // echo ($node->text());
-                    
-                    // echo($this->counter);
+            if($i != 0){
+                $row->children()->each(function (Crawler $node, $i) {
+                    switch ($i){
+                        case 0:
+                            echo("ID: " . $node->text());
+                        break;
+                        case 1:
+                            echo("COMPANY: " . $node->text());
+                        break;
+                        case 2:
+                            echo("LTP*: " . $node->text());
+                        break;
+                        case 3:
+                            echo("HIGH: " . $node->text());
+                        break;
+                        case 4:
+                            echo("LOW: " . $node->text());
+                        break;
+                        case 5:
+                        echo("CLOSEP*: " . $node->text());
+                        case 6:
+                            echo("YCP: " . $node->text());
+                        break;
+                        case 7:
+                            echo("CHANGE: " . $node->text());
+                        break;
+                        case 8:
+                            echo("TRADE: " . $node->text());
+                        break;
+                        case 9:
+                            echo("VALUE(mm): " . $node->text());
+                        break;
+                        case 10:
+                            echo("VOLUME: " . $node->text());
+                        break;
+                        default:
+                            echo("null");
+                    }
+                    // echo($node->text());
+                    echo ("<br>");
                 });
-                // $this->counter = 0;
-                $this->counter++;
-                echo($this->counter);
-                echo ("<br>");
-                echo ("====================");
-            }
-        );
+                echo ("<br>");echo ("<br>");echo ("<br>");echo ("<br>");
+            } 
+        });
 
         // dd(((string) $content->getBody()));
     }
