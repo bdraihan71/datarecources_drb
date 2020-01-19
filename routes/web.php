@@ -57,9 +57,10 @@ Route::middleware(['auth','admin'])->group(function () {
         Route::resource('surveyansweroption', 'SurveyAnswerOptionController')->except(['show', 'create']);
 
         //News
-        Route::get('/news-portal', function () {
-          return view('back-end.news.index');
-        });
+        Route::get('/news-portal', 'NewsController@newsPortal')->name('news.portal');
+        // Route::get('/news-portal', function () {
+        //   return view('back-end.news.index');
+        // });
 
           //User
         Route::get('/user', 'UserController@index')->name('user.index');
