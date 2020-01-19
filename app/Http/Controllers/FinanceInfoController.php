@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Storage;
 class FinanceInfoController extends Controller
 {
     public function all(){
-        $sectors = Sector::all();
+        $sectors = Sector::orderBy('name')->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE);
         $companies = Company::all();
         $finance_infos = FinanceInfo::all();
         $user = Auth::user();
