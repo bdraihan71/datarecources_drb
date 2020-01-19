@@ -312,9 +312,6 @@ class FinanceInfoController extends Controller
             ]);
 
             try{
-                // $epath = $request->file($name)->store(
-                //     env('APP_ENV') . '/financial-info/' . $company->id . '/pdf', 's3'
-                // );
                 $file = $request->file($name);
                 $name = $file->getClientOriginalName();
                 $epath =  env('APP_ENV') . '/financial-info/' . $company->id .'/pdf/' . $name;
