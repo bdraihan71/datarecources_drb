@@ -1,3 +1,4 @@
+<?php $i = 1 ; ?>
 <div class="card mb-3">
     <div class="card-header">
         <i class="fas fa-table"></i>
@@ -9,32 +10,50 @@
                 <thead>
                 <tr>
                     <th>Sl.</th>
+                    <th>Heading</th>
                     <th>Image</th>
                     <th>Description</th>
                     <th>Source</th>
+                    <th>Publish</th>
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tfoot>
                 <tr>
                     <th>Sl.</th>
+                    <th>Heading</th>
                     <th>Image</th>
                     <th>Description</th>
                     <th>Source</th>
+                    <th>Publish</th>
                     <th>Action</th>
                 </tr>
                 </tfoot>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td><a href="https://data-resources-bd.s3-ap-southeast-1.amazonaws.com/production/financial-info/12/pdf/ytwl735OiA5CSOTcusVpfM781UcW9GKF5pS7ggOL.pdf" target="_blank">Link</a></td>
-                        <td>Lorem Ipsum</td>
-                        <td><a href="https://data-resources-bd.s3-ap-southeast-1.amazonaws.com/production/financial-info/12/pdf/ytwl735OiA5CSOTcusVpfM781UcW9GKF5pS7ggOL.pdf" target="_blank">Link</a></td>
-                        <td>
-                            <button type="submit" class="btn btn-outline-primary">Edit</button>
-                            <button type="submit" class="btn btn-outline-danger">Delete</button>
-                        </td>
-                    </tr>
+                    @foreach($allnews as $news)
+                        <tr>
+                            <td>{{$i++}}</td>
+                            <td>{{$news->heading}}</td>
+                            <td><a href="{{$news->image}}" target="_blank">Link</a></td>
+                            <td>{{$news->body}}</td>
+                            <td><a href="{{$news->source}}" target="_blank">Link</a></td>
+                            <td>
+                                @if ( $news->is_published == 0)
+                                    No
+                                @else
+                                    Yes
+                                @endif
+                            </td>
+                            <td>
+                                <a href="{{ route('news.edit', $news->id)}}" class="btn btn-outline-primary">Edit</a>
+                                <form action="{{ route('news.destroy', $news->id)}}" onclick="return confirm('Are you sure, you want to delete this news?')" method="post" style="display: inline;">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-outline-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

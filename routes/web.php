@@ -58,6 +58,9 @@ Route::middleware(['auth','admin'])->group(function () {
 
         //News
         Route::get('/news-portal', 'NewsController@newsPortal')->name('news.portal');
+        Route::post('/news-portal', 'NewsController@newsStore')->name('news.store');
+        Route::get('/news-portal/{id}', 'NewsController@newsEdit')->name('news.edit');
+        Route::delete('/news-portal/{id}', 'NewsController@newsDestroy')->name('news.destroy');
         // Route::get('/news-portal', function () {
         //   return view('back-end.news.index');
         // });
