@@ -66,6 +66,9 @@ Route::middleware(['auth','admin'])->group(function () {
         //Finance Info
         //TODO:: constrain routes
         Route::resource('finance-info', 'FinanceInfoController');
+
+
+        Route::get('/stockinfo', 'StockInfoController@index')->name('stockinfo.index');
     });
 
     //Page

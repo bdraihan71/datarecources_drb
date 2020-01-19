@@ -20,19 +20,20 @@ class CreateStockInfosTable extends Migration
             $table->string('closing_price')->nullable();
             $table->string('yesterday_closing')->nullable();
             $table->string('price_change')->nullable();
-            $table->string('turnover_(bdt_mn)')->nullable();
+            $table->string('turnover_bdt_mn')->nullable();
             $table->string('volume')->nullable();
             $table->string('trade')->nullable();
             $table->string('sponsor_or_director')->nullable();
             $table->string('foreign_public')->nullable();
             $table->string('paid_up_capital_bdt_mn')->nullable();
-            $table->string('5_year_revenue_cagr')->nullable();
-            $table->string('5_year_npat_cagr')->nullable();
+            $table->string('five_year_revenue_cagr')->nullable();
+            $table->string('five_year_npat_cagr')->nullable();
             $table->string('p_or_e_audited')->nullable();
             $table->string('p_or_e_unaudied')->nullable();
             $table->string('navps')->nullable();
             $table->string('p_or_navps_divinded')->nullable();
             $table->string('dividend_yield')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

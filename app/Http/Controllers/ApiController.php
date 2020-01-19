@@ -5,6 +5,8 @@ use Goutte\Client;
 use Illuminate\Http\Request;
 use App\Company;
 use Symfony\Component\DomCrawler\Crawler;
+use App\StockInfo;
+use App\Sector;
 class ApiController extends Controller
 {
     public function getCompany($sector_id)
@@ -20,98 +22,52 @@ class ApiController extends Controller
         return response()->json($companies);
     }
 
+    //http://127.0.0.1:8001/api/fetch/dse?url=http://dsebd.org/latest_share_price_all_by_change.php
     public function fetchDSE(Request $request){
-        // $endpoint = $request->url;
-        // $client = new \GuzzleHttp\Client();
-        // $id = 5;
-        // $value = "ABC";
-
-        // $response = $client->request('GET', $endpoint, ['query' => [
-        //     'key1' => $id, 
-        //     'key2' => $value,
-        // ]]);
-
-        // // url will be: http://my.domain.com/test.php?key1=5&key2=ABC;
-
-        // $statusCode = $response->getStatusCode();
-        // $content = $response;
-
-
         $client = new Client();
         $crawler = $client->request('GET', $request->url);
         $crawler->filter('table')->children()->each(function (Crawler $row, $i) {
             if($i != 0){
-                $row->children()->each(function (Crawler $node, $i) {
-                    switch ($i){
-                        case 0:
-                            echo("ID: " . $node->text());
-                        break;
-                        case 1:
-                            $company = Company::where('ticker', $node->text())->find();
-                            if($company){
-                                StockInfo::create([
-                                    'company_id' => $company->id,
-                                    'last_trading_price' => $node->eq(2),
-                                    'closing_price' => $node->eq(5),
-                                ]);
-                                // $table->string('yesterday_closing');
-                                // $table->string('price_change');
-                                // $table->string('turnover_(bdt_mn)');
-                                // $table->string('volume');
-                                // $table->string('trade');
-                                // $table->string('sponsor_or_director');
-                                // $table->string('foreign_public');
-                                // $table->string('paid_up_capital_bdt_mn');
-                                // $table->string('5_year_revenue_cagr');
-                                // $table->string('5_year_npat_cagr');
-                                // $table->string('p_or_e_audited');
-                                // $table->string('p_or_e_unaudied');
-                                // $table->string('navps');
-                                // $table->string('p_or_navps_divinded');
-                                // $table->string('dividend_yield');
-                            }
-                            else{
-                                echo("company not found in database");
-                                //TODO:: create company and sector if necessary
-                            }
-                            echo("COMPANY: " . $node->text());
-                        break;
-                        case 2:
-                            echo("LTP*: " . $node->text());
-                        break;
-                        case 3:
-                            echo("HIGH: " . $node->text());
-                        break;
-                        case 4:
-                            echo("LOW: " . $node->text());
-                        break;
-                        case 5:
-                            echo("CLOSEP*: " . $node->text());
-                        case 6:
-                            echo("YCP: " . $node->text());
-                        break;
-                        case 7:
-                            echo("%CHANGE: " . $node->text());
-                        break;
-                        case 8:
-                            echo("TRADE: " . $node->text());
-                        break;
-                        case 9:
-                            echo("VALUE(mm): " . $node->text());
-                        break;
-                        case 10:
-                            echo("VOLUME: " . $node->text());
-                        break;
-                        default:
-                            echo("null");
-                    }
-                    // echo($node->text());
-                    echo ("<br>");
-                });
-                echo ("<br>");echo ("<br>");echo ("<br>");echo ("<br>");
+                $company = Company::where('ticker', $row->children()->eq(1)->text())->first();
+                if(!$company){
+                    $sector = Sector::firstOrcreate([
+                            'name' => 'Unassigned'
+                        ]);
+                    $company = Company::create([
+                            'name' => $row->children()->eq(1)->text(),
+                            'ticker' => $row->children()->eq(1)->text(),
+                            'sector_id' => $sector->id
+                    ]);
+                }
+
+                $stockinfo = StockInfo::firstOrcreate([
+                    'company_id' => $company->id,
+                    'last_trading_price' => $row->children()->eq(2)->text(),
+                    'closing_price' => $row->children()->eq(5)->text(),
+                    'yesterday_closing' => $row->children()->eq(6)->text(),
+                    'price_change' => $row->children()->eq(7)->text(),
+                    'turnover_bdt_mn' => $row->children()->eq(9)->text(),
+                    'volume' => $row->children()->eq(10)->text(),
+                    'trade' => $row->children()->eq(8)->text(),
+                    'sponsor_or_director'=> '',
+                    'foreign_public' => '',
+                    'paid_up_capital_bdt_mn' => '',
+                    'five_year_revenue_cagr' => '',
+                    'five_year_npat_cagr'  => '',
+                    'p_or_e_audited'  => '',
+                    'p_or_e_unaudied'   => '',
+                    'navps'   => '',
+                    'p_or_navps_divinded' => '',
+                    'dividend_yield' => ''
+                ]);
+
+                $stockinfo->touch();
+
             } 
         });
 
-        // dd(((string) $content->getBody()));
+        return response()->json([
+            'success' => true
+        ]);
     }
 }
