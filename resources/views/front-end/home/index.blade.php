@@ -16,7 +16,7 @@
                                     <h5 class="card-title text-white">{{$featured->heading}}</h5>
                                     {{-- <p class="card-text text-white">{{$featured->body}}</p> --}}
                                     <p class="card-text text-white">{{implode(' ', array_slice(explode(' ', $featured->body), 0, 20))}}</p>
-                                    <p class="card-text"><small class="text-muted">{{$featured->updated_at}}</small></p>
+                                    <p class="card-text"><small class="text-muted">{{$featured->updated_at->diffForHumans()}}</small></p>
                                 </div>
                             </div>
                         @else
@@ -33,11 +33,14 @@
                         @endif    
                     </div>
                 </div>
-                <div class="card-deck">
+
+                <div class="row"> 
                     @foreach ($allnews as $news)
-                        <div class="card border-0">
-                        <img src="{{ env('S3_URL') }}{{ $news->image }}" class="card-img-top" alt="...">
-                            <p class="card-text"><small>{{ $news->heading }}</small></p>
+                        <div class="col-md-3">
+                            <div class="card border-0">
+                                <img src="{{ env('S3_URL') }}{{ $news->image }}" class="card-img-top" alt="...">
+                                <p class="card-text"><small>{{ $news->heading }}</small></p>
+                            </div>
                         </div>
                     @endforeach
                 </div>
