@@ -27,7 +27,7 @@ class NewsController extends Controller
         if($request->file('image')){
             try{
                 $epath = $request->file('image')->store(
-                    env('APP_ENV') . '/news/images/' . 's3'
+                    env('APP_ENV') . '/news/images' , 's3'
                 );
             }catch(\Exception $exception){
                 $exception->getMessage();
@@ -76,7 +76,7 @@ class NewsController extends Controller
         if($request->file('image')){
             try{
                 $epath = $request->file('image')->store(
-                    env('APP_ENV') . '/news/images/' . 's3'
+                    env('APP_ENV') . '/news/images' , 's3'
                 );
             }catch(\Exception $exception){
                 $exception->getMessage();

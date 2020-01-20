@@ -6,7 +6,12 @@
     @csrf
     @method('patch')
     <div class="row bg-white my-4 mx-1 p-3 shadow-sm">
+
         <div class="col-md-4">
+            <img class="img-fluid" src="{{$news->image}}">
+        </div>
+
+        <div class="col-md-2">
             <div class="form-group">
                 <label>Image</label>
                 <input class="form-control" name="image"  type="file" >
@@ -15,17 +20,17 @@
 
         <input type="hidden"  name="img" value="{{$news->image}}">
 
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="form-group">
             <label>Heading</label>
-            <textarea class="form-control" rows="1" name="heading"  placeholder="Enter news heading">{{ $news->heading }}</textarea>
+            <textarea class="form-control" rows="3" name="heading"  placeholder="Enter news heading">{{ $news->heading }}</textarea>
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="form-group">
             <label>Source</label>
-            <textarea class="form-control" rows="1" name="source"  placeholder="Enter news source">{{ $news->source }}</textarea>
+            <textarea class="form-control" rows="3" name="source"  placeholder="Enter news source">{{ $news->source }}</textarea>
             </div>
         </div>
 
