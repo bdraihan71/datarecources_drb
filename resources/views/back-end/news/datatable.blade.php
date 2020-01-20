@@ -34,7 +34,7 @@
                         <tr>
                             <td>{{$i++}}</td>
                             <td>{{$news->heading}}</td>
-                            <td><a href="{{$news->image}}" target="_blank">Link</a></td>
+                            <td><a href="{{ env('S3_URL') }}{{$news->image}}" target="_blank">Link</a></td>
                             <td>{{$news->body}}</td>
                             <td><a href="{{$news->source}}" target="_blank">Link</a></td>
                             <td>

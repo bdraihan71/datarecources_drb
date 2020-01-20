@@ -9,7 +9,7 @@
                     <div class="row no-gutters news-background">
                         @if($featured)
                             <div class="col-md-8">
-                                <img src="{{$featured->image}}" class="card-img news-card-img rounded-0" alt="...">
+                                <img src="{{ env('S3_URL') }}{{$featured->image}}" class="card-img news-card-img rounded-0" alt="...">
                             </div>
                             <div class="col-md-4">
                                 <div class="card-body text-right">
@@ -36,7 +36,7 @@
                 <div class="card-deck">
                     @foreach ($allnews as $news)
                         <div class="card border-0">
-                        <img src="{{ $news->image }}" class="card-img-top" alt="...">
+                        <img src="{{ env('S3_URL') }}{{ $news->image }}" class="card-img-top" alt="...">
                             <p class="card-text"><small>{{ $news->heading }}</small></p>
                         </div>
                     @endforeach
@@ -46,7 +46,7 @@
                     <div class="card border-0">
                         <h4 class="main-text-color">World</h4>
                         @if($world)
-                            <img src="{{$world->image}}" class="card-img-top" alt="...">
+                            <img src="{{ env('S3_URL') }}{{$world->image}}" class="card-img-top" alt="...">
                             <p class="card-text"><small>{{$world->heading}}</small></p>
                         @else 
                             <img src="img/blur.jpg" class="card-img-top" alt="...">
@@ -57,7 +57,7 @@
                     <div class="card border-0">
                         <h4 class="main-text-color">Country</h4>
                         @if($country)
-                            <img src="{{$country->image}}" class="card-img-top" alt="...">
+                            <img src="{{ env('S3_URL') }}{{$country->image}}" class="card-img-top" alt="...">
                             <p class="card-text"><small>{{$country->heading}}</small></p>
                         @else 
                             <img src="img/blur.jpg" class="card-img-top" alt="...">
@@ -68,7 +68,7 @@
                     <div class="card border-0">
                         <h4 class="main-text-color">Economy</h4>
                         @if($economy)
-                            <img src="{{$economy->image}}" class="card-img-top" alt="...">
+                            <img src="{{ env('S3_URL') }}{{$economy->image}}" class="card-img-top" alt="...">
                             <p class="card-text"><small>{{$economy->heading}}</small></p>
                         @else 
                             <img src="img/blur.jpg" class="card-img-top" alt="...">
@@ -79,7 +79,7 @@
                     <div class="card border-0">
                         <h4 class="main-text-color">Company</h4>
                         @if($company)
-                            <img src="{{$company->image}}" class="card-img-top" alt="...">
+                            <img src="{{ env('S3_URL') }}{{$company->image}}" class="card-img-top" alt="...">
                             <p class="card-text"><small>{{$company->heading}}</small></p>
                         @else 
                             <img src="img/blur.jpg" class="card-img-top" alt="...">

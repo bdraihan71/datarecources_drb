@@ -8,7 +8,7 @@
     <div class="row bg-white my-4 mx-1 p-3 shadow-sm">
 
         <div class="col-md-4">
-            <img class="img-fluid" src="{{$news->image}}">
+            <img class="img-fluid" src="{{ env('S3_URL') }}{{$news->image}}">
         </div>
 
         <div class="col-md-2">
