@@ -8,6 +8,18 @@ use Auth;
 
 class NewsController extends Controller
 {
+    public function index()
+    {
+        $allnews = News::where('is_published', 1)->latest()->paginate(10);
+        return view('front-end.news.index', compact('allnews'));
+    }
+
+    public function singleNews($id)
+    {
+        $news = News::find($id);
+        return view('front-end.news.single-news', compact('news'));
+    }
+
     public function newsPortal()
     {
         $allnews = News::orderBy('id', 'DESC')->get();
@@ -20,7 +32,7 @@ class NewsController extends Controller
             'image' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
             'heading' => 'required|min:3|max:255',
             'source' => 'required|max:255',
-            'body' => 'required|min:10|max:2000',
+            'body' => 'required|min:10|max:20000',
             'showing_area' => 'required',
         ]);
 
@@ -31,7 +43,7 @@ class NewsController extends Controller
                 );
             }catch(\Exception $exception){
                 $exception->getMessage();
-                return back()->withError("There was an error with uploading your file")->withInput(); 
+                return back()->withError("There was an error with uploading your file")->withInput();
             }
 
             $path = $epath;
@@ -69,7 +81,7 @@ class NewsController extends Controller
             'image' => 'mimes:jpeg,jpg,png,gif|max:10000',
             'heading' => 'required|min:3|max:255',
             'source' => 'required|max:255',
-            'body' => 'required|min:10|max:2000',
+            'body' => 'required|min:10|max:20000',
             'showing_area' => 'required',
         ]);
 
@@ -80,7 +92,7 @@ class NewsController extends Controller
                 );
             }catch(\Exception $exception){
                 $exception->getMessage();
-                return back()->withError("There was an error with uploading your file")->withInput(); 
+                return back()->withError("There was an error with uploading your file")->withInput();
             }
 
             $path = $epath;

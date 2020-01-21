@@ -23,73 +23,39 @@
             </div>
             <div class="col-md-12">
                 <ul class="list-unstyled">
-                    <a href="/single-news">
-                        <li class="media">
-                        <img src="img/hero.jpg" class="mr-3 img-fluid news-list-img" alt="...">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1">News - 1</h5>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            <br>
-                            <a href="/single-news">See More ></a>
-                            <br>
-                            <div class="text-right">
-                                <h6>Share</h6>
-                                <i class="fab fa-facebook-square fa-2x"></i>
-                                <i class="fab fa-twitter-square fa-2x"></i>
-                                <i class="fab fa-linkedin fa-2x"></i>
+                    @foreach($allnews as $news)
+                        <a href="/single-news">
+                            <li class="media">
+                            <img src="{{ env('S3_URL') }}{{$news->image}}" class="mr-3 img-fluid news-list-img" alt="...">
+                            <div class="media-body">
+                                <h5 class="mt-0 mb-1">{{ $news->heading }}</h5>
+                                    {{ implode(' ', array_slice(explode(' ', $news->body ), 0, 70))}}
+                                <br>
+                                <a href="{{route('news.single',$news->id)}}">See More ></a>
+                                <br>
+                                {{-- <div class="text-right">
+                                    <h6>Share</h6>
+                                    <div class="addthis_inline_share_toolbox mx-auto"></div>
+                                    <i class="fab fa-facebook-square fa-2x"></i>
+                                    <i class="fab fa-twitter-square fa-2x"></i>
+                                    <i class="fab fa-linkedin fa-2x"></i>
+                                </div> --}}
                             </div>
-                        </div>
-                        </li>
-                    </a>
-                    <hr>
-                    <a href="/single-news">
-                        <li class="media">
-                        <img src="img/hero.jpg" class="mr-3 img-fluid news-list-img" alt="...">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1">News - 2</h5>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            <br>
-                            <a href="/single-news">See More ></a>
-                            <br>
-                            <div class="text-right">
-                                <h6>Share</h6>
-                                <i class="fab fa-facebook-square fa-2x"></i>
-                                <i class="fab fa-twitter-square fa-2x"></i>
-                                <i class="fab fa-linkedin fa-2x"></i>
-                            </div>
-                        </div>
-                        </li>
-                    </a>
-                    <hr>
-                    <a href="/single-news">
-                        <li class="media">
-                        <img src="img/hero.jpg" class="mr-3 img-fluid news-list-img" alt="...">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1">News - 3</h5>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            <br>
-                            <a href="/single-news">See More ></a>
-                            <br>
-                            <div class="text-right">
-                                <h6>Share</h6>
-                                <i class="fab fa-facebook-square fa-2x"></i>
-                                <i class="fab fa-twitter-square fa-2x"></i>
-                                <i class="fab fa-linkedin fa-2x"></i>
-                            </div>
-                        </div>
-                        </li>
-                    </a>
-                    <hr>
+                            </li>
+                        </a>
+                        <hr>
+                    @endforeach
                 </ul>
             </div>
             <div class="col-md-12 my-5">
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        {{ $allnews->links() }}
+                    {{-- <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                     <li class="page-item"><a class="page-link" href="#">1</a></li>
                     <li class="page-item"><a class="page-link" href="#">2</a></li>
                     <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li> --}}
                     </ul>
                 </nav>
             </div>

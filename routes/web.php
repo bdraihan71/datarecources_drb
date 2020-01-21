@@ -43,7 +43,7 @@ Route::middleware(['auth','admin'])->group(function () {
          //Survey
         Route::resource('survey', 'SurveyController')->except(['create']);
 
-        
+
 
         //SurveyQuestion
         Route::resource('surveyquestion', 'SurveyQuestionController')->except(['create']);
@@ -108,12 +108,14 @@ Route::post('/contact-us', 'PublicPagesController@contactUs')->name('contactus')
 Route::post('/subscribe', 'PublicPagesController@subscribe')->name('subscribe');
 
 //News
-Route::get('/news', function () {
-  return view('front-end.news.index');
-});
-Route::get('/single-news', function () {
-  return view('front-end.news.single-news');
-});
+Route::get('/news', 'NewsController@index')->name('news.index');
+Route::get('/single-news/{id}', 'NewsController@singleNews')->name('news.single');
+// Route::get('/news', function () {
+//   return view('front-end.news.index');
+// });
+// Route::get('/single-news', function () {
+//   return view('front-end.news.single-news');
+// });
 
 //Page
 Route::get('{slug}', 'PageController@page')->name('page');
