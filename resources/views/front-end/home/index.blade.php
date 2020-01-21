@@ -197,6 +197,86 @@
 </section>
 
 
+<section class="pricing py-5 bg-light">
+    <div class="container">
+      <div class="row no-gutters">
+        <!-- Free Tier -->
+        <div class="col-lg-4">
+          <div class="card mb-5 mb-lg-0 border-top border-warning pb-4">
+            <div class="card-body pb-5">
+              <h5 class="card-title text-muted text-uppercase text-center">Available</h5>
+              <h6 class="card-price text-center">Features</h6>
+              <h6 class="card-title text-dark text-uppercase text-center">&nbsp;</h6>
+              <hr>
+              <ul class="fa-ul">
+                <li>News Aggregator</li>
+                <li>Data Matrix</li>
+                <li>Economy Data</li>
+                <li>Commodity Data</li>
+                <li>Industry Data</li>
+                <li>Publication</li>
+                <li>Quarterly Finance Statement</li>
+                <li>Annual Finance Statement</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Plus Tier -->
+        <div class="col-lg-4">
+          <div class="card mb-5 mb-lg-0 border-top border-warning">
+            <div class="card-body">
+              <h5 class="card-title text-muted text-uppercase text-center">Basic Account</h5>
+              <h6 class="card-price text-center">0 bdt<span class="period">/month</span></h6>
+              <h6 class="card-title text-dark text-uppercase text-center">&nbsp;</h6>
+              <hr>
+              <ul class="fa-ul text-center mr-5">
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li class="text-muted"><i class="fas fa-times"></i></li>
+              </ul>
+              <a href="#" class="btn btn-block btn-warning">Register Now</a>
+            </div>
+          </div>
+        </div>
+        <!-- Pro Tier -->
+        <div class="col-lg-4">
+          <div class="card border-top border-warning">
+            <div class="card-body">
+              <h5 class="card-title text-muted text-uppercase text-center">Premium Account</h5>
+              <div class="row custom-price-card-margin">
+                <div class="col-lg-6 border-right">
+                    <h6 class="card-price text-center">200bdt<span class="period">/month</span></h6>
+                </div>
+                <div class="col-lg-6">
+                    <h6 class="card-price text-center">1200bdt<span class="period">/year</span></h6>
+                    <h6 class="card-title text-dark border border-warning text-uppercase text-center">50% discount</h6>
+                </div>
+              </div>
+              <hr>
+              <ul class="fa-ul text-center mr-5">
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+              </ul>
+              <a href="#" class="btn btn-block btn-warning">Register Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+
 <section class="contact-us pb-5">
     <div class="container">
         <div class="row mt-5">
