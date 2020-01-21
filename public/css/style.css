@@ -491,3 +491,11 @@ a.article:hover {
     background-size:cover;
     background-image:url('../img/blur.jpg');
 }
+
+.morecontent span {
+    display: none;
+}
+
+.morelink {
+    display: block;
+}
