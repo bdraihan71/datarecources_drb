@@ -52,6 +52,11 @@
                         <a class="dropdown-item" href="{{route('finance-info-all')}}">Financial Statement</a>
                     </div>
                 </li>
+                <li class="nav-item nav-custom-margin-top">
+                    <a class="nav-link font-weight-bold text-white" href="/news" >
+                        NEWS
+                    </a>
+                </li>
                 <form class="form-inline my-2 my-lg-0">
                     @if(Auth::check())
                         @if(Auth::user()->type == 'admin')
