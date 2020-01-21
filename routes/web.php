@@ -111,6 +111,9 @@ Route::post('/subscribe', 'PublicPagesController@subscribe')->name('subscribe');
 Route::get('/news', function () {
   return view('front-end.news.index');
 });
+Route::get('/single-news', function () {
+  return view('front-end.news.single-news');
+});
 
 //Page
 Route::get('{slug}', 'PageController@page')->name('page');

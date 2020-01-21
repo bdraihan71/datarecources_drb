@@ -23,7 +23,7 @@
             </div>
             <div class="col-md-12">
                 <ul class="list-unstyled">
-                    <a href="#">
+                    <a href="/single-news">
                         <li class="media">
                         <img src="img/hero.jpg" class="mr-3 img-fluid news-list-img" alt="...">
                         <div class="media-body">
@@ -33,7 +33,7 @@
                         </li>
                     </a>
                     <hr>
-                    <a href="#">
+                    <a href="/single-news">
                         <li class="media">
                         <img src="img/hero.jpg" class="mr-3 img-fluid news-list-img" alt="...">
                         <div class="media-body">
@@ -43,7 +43,7 @@
                         </li>
                     </a>
                     <hr>
-                    <a href="#">
+                    <a href="/single-news">
                         <li class="media">
                         <img src="img/hero.jpg" class="mr-3 img-fluid news-list-img" alt="...">
                         <div class="media-body">
