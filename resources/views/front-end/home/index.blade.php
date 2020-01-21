@@ -3,9 +3,9 @@
 @section('content')
 <header id="home">
     <div class="container-fluid">
-        <div class="row">
+        <div class="row custom-header-top">
             <div class="col-md-8">
-                <div class="card mb-3 custom-header-top">
+                <div class="card mb-3">
                     <div class="row no-gutters news-background">
                       <div class="col-md-8">
                         <img src="img/hero.jpg" class="card-img news-card-img rounded-0" alt="...">
@@ -68,6 +68,74 @@
             <div class="col-md-4">
                 <div id="target-div" height="400" width="400"></div>
                 <iframe class="custom-header-top" src="https://www.dsebd.org/" width="400" height="400"></iframe>
+                <div class="alert alert-primary">
+                    <div class="table-responsive">
+                        <table class="table table-sm">
+                            <thead>
+                            <tr>
+                                <th scope="col">Index</th>
+                                <th scope="col">Point</th>
+                                <th scope="col">Change(%)</th>
+                                <th scope="col">Change()</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">DSEX</th>
+                                <td>3425</td>
+                                <td>543</td>
+                                <td>-0.2345</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">DSES</th>
+                                <td>878</td>
+                                <td>-0.1234</td>
+                                <td>0.1343</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">DS30</th>
+                                <td>3425</td>
+                                <td>543</td>
+                                <td>-0.2345</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-responsive mt-5">
+                        <strong class="text-dark border-top">Sectoral Turnover</strong>
+                        <table class="table table-sm">
+                            <thead>
+                            <tr>
+                                <th scope="col">Sector</th>
+                                <th scope="col">Market Cap(BDT mn)</th>
+                                <th scope="col">Sector Return(%)</th>
+                                <th scope="col">Turnover(BDT mn)</th>
+                                <th scope="col">Change(%)</th>
+                                <th scope="col">% of Total Turnover</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">Insurance</th>
+                                <td>265</td>
+                                <td>270</td>
+                                <td>-</td>
+                                <td></td>
+                                <td>11</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Bank</th>
+                                <td>100</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
