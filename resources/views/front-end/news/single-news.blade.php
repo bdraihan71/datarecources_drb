@@ -23,7 +23,13 @@
                     <br>
                     The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
                 </p>
-                <a href="#">Source</a>
+                <a href="#" class="h6">Source</a>
+                <div class="text-right">
+                    <h6>Share</h6>
+                    <i class="fab fa-facebook-square fa-2x"></i>
+                    <i class="fab fa-twitter-square fa-2x"></i>
+                    <i class="fab fa-linkedin fa-2x"></i>
+                </div>
             </div>
         </div>
     </div>

@@ -29,6 +29,15 @@
                         <div class="media-body">
                             <h5 class="mt-0 mb-1">News - 1</h5>
                             Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                            <br>
+                            <a href="/single-news">See More ></a>
+                            <br>
+                            <div class="text-right">
+                                <h6>Share</h6>
+                                <i class="fab fa-facebook-square fa-2x"></i>
+                                <i class="fab fa-twitter-square fa-2x"></i>
+                                <i class="fab fa-linkedin fa-2x"></i>
+                            </div>
                         </div>
                         </li>
                     </a>
@@ -39,6 +48,15 @@
                         <div class="media-body">
                             <h5 class="mt-0 mb-1">News - 2</h5>
                             Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                            <br>
+                            <a href="/single-news">See More ></a>
+                            <br>
+                            <div class="text-right">
+                                <h6>Share</h6>
+                                <i class="fab fa-facebook-square fa-2x"></i>
+                                <i class="fab fa-twitter-square fa-2x"></i>
+                                <i class="fab fa-linkedin fa-2x"></i>
+                            </div>
                         </div>
                         </li>
                     </a>
@@ -49,6 +67,15 @@
                         <div class="media-body">
                             <h5 class="mt-0 mb-1">News - 3</h5>
                             Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                            <br>
+                            <a href="/single-news">See More ></a>
+                            <br>
+                            <div class="text-right">
+                                <h6>Share</h6>
+                                <i class="fab fa-facebook-square fa-2x"></i>
+                                <i class="fab fa-twitter-square fa-2x"></i>
+                                <i class="fab fa-linkedin fa-2x"></i>
+                            </div>
                         </div>
                         </li>
                     </a>
