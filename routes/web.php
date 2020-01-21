@@ -107,9 +107,11 @@ Route::get('/search', 'PublicPagesController@search')->name('search');
 Route::post('/contact-us', 'PublicPagesController@contactUs')->name('contactus');
 Route::post('/subscribe', 'PublicPagesController@subscribe')->name('subscribe');
 
+//News
+Route::get('/news', function () {
+  return view('front-end.news.index');
+});
 
 //Page
 Route::get('{slug}', 'PageController@page')->name('page');
-
-
 

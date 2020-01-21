@@ -499,3 +499,7 @@ a.article:hover {
 .morelink {
     display: block;
 }
+
+.news-list-img {
+    width: 200px;
+}
