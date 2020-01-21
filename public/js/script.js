@@ -55,6 +55,10 @@
     "pageLength": 100
   } );
 
+
+
+  $('#target-div').load('http://www.mywebsite.com/portfolio.php #portfolio-sports');
+
 })(jQuery);
 
 //Get the button

@@ -66,6 +66,7 @@
                 </div>
             </div>
             <div class="col-md-4">
+                <div id="target-div" height="400" width="400"></div>
                 <iframe class="custom-header-top" src="https://www.dsebd.org/" width="400" height="400"></iframe>
             </div>
         </div>
@@ -263,4 +264,8 @@
         </div>
     </div>
 </section>
+
+<script>
+   
+</script>
 @endsection
