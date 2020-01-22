@@ -52,7 +52,7 @@
     </button>
 
     <!-- JQuery and Bootstrap -->
-    <script src="/vendor/jquery/jquery.slim.min.js"></script>
+    <script src="/vendor/jquery/jquery.min.js"></script>
     <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- JQuery Easing -->
@@ -62,6 +62,8 @@
     <script src="/vendor/chart.js/Chart.min.js"></script>
     <script src="/vendor/datatables/jquery.dataTables.js"></script>
     <script src="/vendor/datatables/dataTables.bootstrap4.js"></script>
+
+    <script src="/js/x-frame-bypass.js"></script>
 
     <!-- Custom scripts -->
     <script src="/js/script.js"></script>
