@@ -25,13 +25,13 @@
                             </div>
                         @else
                             <div class="col-md-8">
-                                <img src="img/hero.jpg" class="card-img news-card-img rounded-0" alt="...">
+                                <img src="img/blur.jpg" class="card-img news-card-img rounded-0" alt="...">
                             </div>
                             <div class="col-md-4">
                                 <div class="card-body text-right">
-                                    <h5 class="card-title text-white">News title</h5>
-                                    <p class="card-text text-white">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                    <h5 class="card-title text-white">No news available</h5>
+                                    <p class="card-text text-white">--</p>
+                                    <p class="card-text"><small class="text-muted">--</small></p>
                                 </div>
                             </div>
                         @endif    
@@ -60,8 +60,7 @@
                             <p class="card-text"><small>{{$world->heading}}</small></p>
                         </a> 
                         @else 
-                            <img src="img/blur.jpg" class="card-img-top" alt="...">
-                            <p class="card-text"><small>This is a longer card with supporting text below longer.</small></p>
+                            <p class="card-text"><small>No news available</small></p>
                         @endif    
                     </div>
 
@@ -73,8 +72,7 @@
                             <p class="card-text"><small>{{$country->heading}}</small></p>
                         </a>
                         @else 
-                            <img src="img/blur.jpg" class="card-img-top" alt="...">
-                            <p class="card-text"><small>This is a longer card with supporting text below longer.</small></p>
+                            <p class="card-text"><small>No news available</small></p>
                         @endif   
                     </div>
 
@@ -86,8 +84,7 @@
                             <p class="card-text"><small>{{$economy->heading}}</small></p>
                         </a>
                         @else 
-                            <img src="img/blur.jpg" class="card-img-top" alt="...">
-                            <p class="card-text"><small>This is a longer card with supporting text below longer.</small></p>
+                            <p class="card-text"><small>No news available</small></p>
                         @endif  
                     </div>
 
@@ -99,8 +96,7 @@
                             <p class="card-text"><small>{{$company->heading}}</small></p>
                         </a>
                         @else 
-                            <img src="img/blur.jpg" class="card-img-top" alt="...">
-                            <p class="card-text"><small>This is a longer card with supporting text below longer.</small></p>
+                            <p class="card-text"><small>No news available</small></p>
                         @endif   
                     </div>
                 </div>
