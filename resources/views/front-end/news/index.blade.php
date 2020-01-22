@@ -24,7 +24,7 @@
             <div class="col-md-12">
                 <ul class="list-unstyled">
                     @foreach($allnews as $news)
-                        <a href="/single-news">
+                        <a href="{{route('news.single',$news->id)}}">
                             <li class="media">
                             <img src="{{ env('S3_URL') }}{{$news->image}}" class="mr-3 img-fluid news-list-img" alt="...">
                             <div class="media-body">
