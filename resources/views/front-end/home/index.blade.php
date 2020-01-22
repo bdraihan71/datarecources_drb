@@ -2,29 +2,97 @@
 
 @section('content')
 <header id="home">
-    <div class="hero-background">
-        <div class="container-fluid h-100">
-            <div class="row align-items-center h-100">
-                <div class="col-md-12 text-center text-white mt-5">
-                    <h1 class="mb-3 mt-5">Bangladesh's First Aggregate Data Platform</h1>
-                    <h4 class="my-4">More than 1000 Contents</h4>
-                    <div class="row">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-6">
-                            <form action="{{route('search')}}" method="GET">
-                                <div class="input-group">
-                                    <input class="form-control border-secondary py-4 search-border border border-secondary" type="search" value="" name="search" placeholder=" Search by keyword">
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-warning px-5 search-btn-border border border-secondary" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card mb-3 custom-header-top">
+                    <div class="row no-gutters news-background">
+                        @if($featured)
+                            <div class="col-md-8">
+                                <img src="{{ env('S3_URL') }}{{$featured->image}}" class="card-img news-card-img rounded-0" alt="...">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card-body text-right">
+                                    <h5 class="card-title text-white">{{$featured->heading}}</h5>
+                                    {{-- <p class="card-text text-white">{{$featured->body}}</p> --}}
+                                    <p class="card-text text-white">{{implode(' ', array_slice(explode(' ', $featured->body), 0, 20))}}</p>
+                                    <p class="card-text"><small class="text-muted">{{$featured->updated_at->diffForHumans()}}</small></p>
                                 </div>
-                            </form>
-                        </div>
-                        <div class="col-md-3"></div>
+                            </div>
+                        @else
+                            <div class="col-md-8">
+                                <img src="img/hero.jpg" class="card-img news-card-img rounded-0" alt="...">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card-body text-right">
+                                    <h5 class="card-title text-white">News title</h5>
+                                    <p class="card-text text-white">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        @endif    
                     </div>
                 </div>
+
+                <div class="row"> 
+                    @foreach ($allnews as $news)
+                        <div class="col-md-3">
+                            <div class="card border-0">
+                                <img src="{{ env('S3_URL') }}{{ $news->image }}" class="card-img-top" alt="...">
+                                <p class="card-text"><small>{{ $news->heading }}</small></p>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+
+                <div class="card-deck mt-5">
+                    <div class="card border-0">
+                        <h4 class="main-text-color">World</h4>
+                        @if($world)
+                            <img src="{{ env('S3_URL') }}{{$world->image}}" class="card-img-top" alt="...">
+                            <p class="card-text"><small>{{$world->heading}}</small></p>
+                        @else 
+                            <img src="img/blur.jpg" class="card-img-top" alt="...">
+                            <p class="card-text"><small>This is a longer card with supporting text below longer.</small></p>
+                        @endif    
+                    </div>
+
+                    <div class="card border-0">
+                        <h4 class="main-text-color">Country</h4>
+                        @if($country)
+                            <img src="{{ env('S3_URL') }}{{$country->image}}" class="card-img-top" alt="...">
+                            <p class="card-text"><small>{{$country->heading}}</small></p>
+                        @else 
+                            <img src="img/blur.jpg" class="card-img-top" alt="...">
+                            <p class="card-text"><small>This is a longer card with supporting text below longer.</small></p>
+                        @endif   
+                    </div>
+
+                    <div class="card border-0">
+                        <h4 class="main-text-color">Economy</h4>
+                        @if($economy)
+                            <img src="{{ env('S3_URL') }}{{$economy->image}}" class="card-img-top" alt="...">
+                            <p class="card-text"><small>{{$economy->heading}}</small></p>
+                        @else 
+                            <img src="img/blur.jpg" class="card-img-top" alt="...">
+                            <p class="card-text"><small>This is a longer card with supporting text below longer.</small></p>
+                        @endif  
+                    </div>
+
+                    <div class="card border-0">
+                        <h4 class="main-text-color">Company</h4>
+                        @if($company)
+                            <img src="{{ env('S3_URL') }}{{$company->image}}" class="card-img-top" alt="...">
+                            <p class="card-text"><small>{{$company->heading}}</small></p>
+                        @else 
+                            <img src="img/blur.jpg" class="card-img-top" alt="...">
+                            <p class="card-text"><small>This is a longer card with supporting text below longer.</small></p>
+                        @endif   
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <iframe class="custom-header-top" src="https://www.dsebd.org/" width="400" height="400"></iframe>
             </div>
         </div>
     </div>

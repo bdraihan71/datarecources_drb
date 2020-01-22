@@ -43,7 +43,7 @@ Route::middleware(['auth','admin'])->group(function () {
          //Survey
         Route::resource('survey', 'SurveyController')->except(['create']);
 
-        
+
 
         //SurveyQuestion
         Route::resource('surveyquestion', 'SurveyQuestionController')->except(['create']);
@@ -55,6 +55,16 @@ Route::middleware(['auth','admin'])->group(function () {
 
         //SurveyAnswerOption
         Route::resource('surveyansweroption', 'SurveyAnswerOptionController')->except(['show', 'create']);
+
+        //News
+        Route::get('/news-portal', 'NewsController@newsPortal')->name('news.portal');
+        Route::post('/news-portal', 'NewsController@newsStore')->name('news.store');
+        Route::get('/news-portal/{id}/edit', 'NewsController@newsEdit')->name('news.edit');
+        Route::patch('/news-portal/{id}', 'NewsController@newsUpdate')->name('news.update');
+        Route::delete('/news-portal/{id}', 'NewsController@newsDestroy')->name('news.destroy');
+        // Route::get('/news-portal', function () {
+        //   return view('back-end.news.index');
+        // });
 
           //User
         Route::get('/user', 'UserController@index')->name('user.index');
@@ -97,9 +107,16 @@ Route::get('/search', 'PublicPagesController@search')->name('search');
 Route::post('/contact-us', 'PublicPagesController@contactUs')->name('contactus');
 Route::post('/subscribe', 'PublicPagesController@subscribe')->name('subscribe');
 
+//News
+Route::get('/news', 'NewsController@index')->name('news.index');
+Route::get('/single-news/{id}', 'NewsController@singleNews')->name('news.single');
+// Route::get('/news', function () {
+//   return view('front-end.news.index');
+// });
+// Route::get('/single-news', function () {
+//   return view('front-end.news.single-news');
+// });
 
 //Page
 Route::get('{slug}', 'PageController@page')->name('page');
-
-
 
