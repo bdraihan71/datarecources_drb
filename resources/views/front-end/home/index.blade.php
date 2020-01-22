@@ -92,8 +92,12 @@
                 </div>
             </div>
             <div class="col-md-4">
-                {{-- <iframe class="custom-header-top" src="https://www.dsebd.org/" width="400" height="400"></iframe> --}}
-                <iframe is="x-frame-bypass" class="custom-header-top" src="https://www.dsebd.org/"></iframe>
+                <div class="iframe-div-1">
+                    <iframe is="x-frame-bypass" class="custom-header-top iframe-1" src="https://www.dsebd.org/"></iframe>
+                </div>
+                <div class="iframe-div-2">
+                    <iframe is="x-frame-bypass" class="iframe-2" src="https://www.dsebd.org/" scrolling="yes"></iframe>
+                </div>
             </div>
         </div>
     </div>
