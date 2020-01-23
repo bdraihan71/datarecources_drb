@@ -58,6 +58,7 @@
                         <a href="{{route('news.single',$world->id)}}">
                             <img src="{{ env('S3_URL') }}{{$world->image}}" class="card-img-top" alt="...">
                             <p class="card-text"><small>{{$world->heading}}</small></p>
+                            <p class="card-text "><small>{{implode(' ', array_slice(explode(' ', $world->body), 0, 15))}}</small></p>
                         </a> 
                         @else 
                             <p class="card-text"><small>No news available</small></p>
@@ -70,6 +71,7 @@
                         <a href="{{route('news.single',$country->id)}}">
                             <img src="{{ env('S3_URL') }}{{$country->image}}" class="card-img-top" alt="...">
                             <p class="card-text"><small>{{$country->heading}}</small></p>
+                            <p class="card-text "><small>{{implode(' ', array_slice(explode(' ', $country->body), 0, 15))}}</small></p>
                         </a>
                         @else 
                             <p class="card-text"><small>No news available</small></p>
@@ -82,6 +84,7 @@
                         <a href="{{route('news.single',$economy->id)}}">
                             <img src="{{ env('S3_URL') }}{{$economy->image}}" class="card-img-top" alt="...">
                             <p class="card-text"><small>{{$economy->heading}}</small></p>
+                            <p class="card-text "><small>{{implode(' ', array_slice(explode(' ', $economy->body), 0, 15))}}</small></p>
                         </a>
                         @else 
                             <p class="card-text"><small>No news available</small></p>
@@ -94,6 +97,7 @@
                         <a href="{{route('news.single',$company->id)}}">
                             <img src="{{ env('S3_URL') }}{{$company->image}}" class="card-img-top" alt="...">
                             <p class="card-text"><small>{{$company->heading}}</small></p>
+                            <p class="card-text "><small>{{implode(' ', array_slice(explode(' ', $company->body), 0, 15))}}</small></p>
                         </a>
                         @else 
                             <p class="card-text"><small>No news available</small></p>
