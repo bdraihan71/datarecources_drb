@@ -470,6 +470,14 @@ a.article:hover {
 .submitted-question-answer {
     color: #999;
 }
+
+.price-text {
+    font-size: 16px;
+}
+
+.price-text-2 {
+    font-size: 13px;
+}
  
 .pricing .card {
     border: none;

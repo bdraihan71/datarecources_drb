@@ -197,7 +197,134 @@
 </section>
 
 
-<section class="pricing py-5 bg-light">
+<section class="price py-5 main-color">
+    <h1 class="text-center text-warning display-4 font-weight-bold">Our Pricing</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-group">
+                    <div class="card bg-transparent border-0">
+                        <div class="card-body">
+                        <h6 class="text-warning my-4 font-weight-bold">Features</h6>
+                        <p class="text-white price-text pt-4">News Aggregator</p>
+                        <p class="text-white price-text">Data Matrix</p>
+                        <p class="text-white price-text">Economy Data</p>
+                        <p class="text-white price-text">Commodity Data</p>
+                        <p class="text-white price-text">Industry Data</p>
+                        <p class="text-white price-text">Publication</p>
+                        <p class="text-white price-text">Quarterly Finance Statement</p>
+                        <p class="text-white price-text">Annual Finance Statement</p>
+                        </div>
+                    </div>
+                    <div class="card bg-transparent border border-warning">
+                        <div class="card-body text-center">
+                            <h6 class="text-warning font-weight-bold">Basic Account</h6>
+                            <p class="text-white font-weight-bold price-text-2">(0 BDT)</p>
+                            <p class="text-white price-text pt-4">Y</p>
+                            <p class="text-white price-text">Y</p>
+                            <p class="text-white price-text">Y</p>
+                            <p class="text-white price-text">Y</p>
+                            <p class="text-white price-text">Y</p>
+                            <p class="text-white price-text">Y</p>
+                            <p class="text-white price-text">Y</p>
+                            <p class="text-warning price-text">N</p>
+                        </div>
+                    </div>
+                    <div class="card bg-transparent border border-warning">
+                        <div class="card-body text-center">
+                            <h6 class="text-warning font-weight-bold">Premium Account</h6>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="text-white font-weight-bold price-text-2">BDT 500/<br>month</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                </div>
+                                <div class="col-6">
+                                    <p class="text-white font-weight-bold price-text-2">BDT 2,400/year<br><span class="text-warning">60% Discount</span></p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-transparent border border-warning">
+                        <div class="card-body text-center">
+                            <h6 class="text-warning font-weight-bold">Company Offer (5 Users)</h6>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="text-white font-weight-bold price-text-2">BDT 500/<br>month</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                </div>
+                                <div class="col-6">
+                                    <p class="text-white font-weight-bold price-text-2">BDT 7,500/year<br><span class="text-warning">75% Discount</span></p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-transparent border border-warning rounded-0">
+                        <div class="card-body text-center">
+                            <h6 class="text-warning font-weight-bold">Bundle Offer (20 Users)</h6>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="text-white font-weight-bold price-text-2">BDT 500/<br>month</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                </div>
+                                <div class="col-6">
+                                    <p class="text-white font-weight-bold price-text-2">BDT 12,000/year<br><span class="text-warning">80% Discount</span></p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{{-- <section class="pricing py-5 main-color">
     <div class="container">
       <div class="row no-gutters">
         <!-- Free Tier -->
@@ -274,7 +401,7 @@
         </div>
       </div>
     </div>
-</section>
+</section> --}}
 
 
 <section class="contact-us pb-5">
