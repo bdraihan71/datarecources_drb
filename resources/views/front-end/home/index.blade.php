@@ -93,8 +93,12 @@
             </div>
             <div class="col-md-4">
                 <div class="iframe-div-1">
-                    <iframe is="x-frame-bypass" class="custom-header-top iframe-1" src="https://www.dsebd.org/"></iframe>
+                    <iframe id="myIframe" is="x-frame-bypass" class="custom-header-top iframe-1" src="https://www.dsebd.org/"></iframe>
                 </div>
+                <script>
+                    var iframe = document.getElementById("myIframe");
+                    iframe.contentWindow.scrollTo(400,400);
+                </script>
                 <div class="iframe-div-2">
                     <iframe is="x-frame-bypass" class="iframe-2" src="https://www.dsebd.org/" scrolling="yes"></iframe>
                 </div>
