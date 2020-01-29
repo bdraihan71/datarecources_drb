@@ -5,11 +5,11 @@
 <section class="news">
     <div class="container">
         <div class="row custom-header-top">
-            <div class="col-md-8 my-5">
+            <div class="col-md-12 mt-5">
                 <h3>News</h3>
-                <p>All the news are listed here.</p>
             </div>
-            <div class="col-md-4 my-5">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 mb-5">
                 <form action="{{route('search')}}" method="GET">
                     <div class="input-group mt-2">
                         <input class="form-control border-secondary search-border border border-secondary" type="search" value="" name="search" placeholder=" Search by keyword">
@@ -21,6 +21,7 @@
                     </div>
                 </form>
             </div>
+            <div class="col-md-2"></div>
             <div class="col-md-12">
                 <ul class="list-unstyled">
                     @foreach($allnews as $news)
