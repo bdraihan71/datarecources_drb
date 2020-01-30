@@ -478,15 +478,11 @@ a.article:hover {
 @media (min-width: 992px) {
     .search-custom-margin {
         position: fixed;
-        margin-left: 300px; 
+        margin-left: 20%; 
     }
 }
 
 @media (max-width: 992px) {
-    .search-custom-margin {
-        position: fixed;
-        margin-left: 100px; 
-    }
     .search-width {
         padding: 0px 0px 0px 0px; 
     }
