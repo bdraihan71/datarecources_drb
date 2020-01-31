@@ -14,26 +14,7 @@
 <script>
     var chart = LightweightCharts.createChart(document.body, {
 	width: 1400,
-    height: 600,
-	priceScale: {
-		scaleMargins: {
-			top: 0.3,
-			bottom: 0.25,
-		},
-		borderVisible: false,
-	},
-	layout: {
-		backgroundColor: '#131722',
-		textColor: '#d1d4dc',
-	},
-	grid: {
-		vertLines: {
-			color: 'rgba(42, 46, 57, 0)',
-		},
-		horzLines: {
-			color: 'rgba(42, 46, 57, 0.6)',
-		},
-	},
+    height: 600,	
 });
 
 var candleSeries = chart.addCandlestickSeries();
