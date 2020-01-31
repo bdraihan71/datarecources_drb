@@ -234,7 +234,7 @@
                         <div class="card-body text-center">
                             <h6 class="text-warning font-weight-bold">Premium Account</h6>
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-5">
                                     <p class="text-white font-weight-bold price-text-2">BDT 500/<br>month</p>
                                     <p class="text-white price-text">Y</p>
                                     <p class="text-white price-text">Y</p>
@@ -245,7 +245,7 @@
                                     <p class="text-white price-text">Y</p>
                                     <p class="text-white price-text">Y</p>
                                 </div>
-                                <div class="col-8">
+                                <div class="col-7">
                                     <p class="text-white font-weight-bold price-text-2">BDT 2,400/year<br><span class="text-warning">60% Discount</span></p>
                                     <p class="text-white price-text">Y</p>
                                     <p class="text-white price-text">Y</p>
@@ -268,7 +268,7 @@
                         <div class="card-body text-center">
                             <h6 class="text-warning font-weight-bold">Company Offer (5 Users)</h6>
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-5">
                                     <p class="text-white font-weight-bold price-text-2">BDT 500/<br>month</p>
                                     <p class="text-white price-text">Y</p>
                                     <p class="text-white price-text">Y</p>
@@ -279,7 +279,7 @@
                                     <p class="text-white price-text">Y</p>
                                     <p class="text-white price-text">Y</p>
                                 </div>
-                                <div class="col-8">
+                                <div class="col-7">
                                     <p class="text-white font-weight-bold price-text-2">BDT 7,500/year<br><span class="text-warning">75% Discount</span></p>
                                     <p class="text-white price-text">Y</p>
                                     <p class="text-white price-text">Y</p>
@@ -297,7 +297,7 @@
                         <div class="card-body text-center">
                             <h6 class="text-warning font-weight-bold">Bundle Offer (20 Users)</h6>
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-5">
                                     <p class="text-white font-weight-bold price-text-2">BDT 500/<br>month</p>
                                     <p class="text-white price-text">Y</p>
                                     <p class="text-white price-text">Y</p>
@@ -308,7 +308,7 @@
                                     <p class="text-white price-text">Y</p>
                                     <p class="text-white price-text">Y</p>
                                 </div>
-                                <div class="col-8">
+                                <div class="col-7">
                                     <p class="text-white font-weight-bold price-text-2">BDT 12,000/year<br><span class="text-warning">80% Discount</span></p>
                                     <p class="text-white price-text">Y</p>
                                     <p class="text-white price-text">Y</p>
