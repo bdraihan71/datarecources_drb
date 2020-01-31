@@ -80,7 +80,6 @@ class SubscriptionPlanController extends Controller
 
     public function subscribePlan(Request $request)
     {
-        dd( Auth::user()->email);
         $appURl = config('app.url');
         $store_id = env('SSL_STORE_ID', false);
         $store_pass =  env('SSL_STORE_PASS', false);
@@ -91,10 +90,9 @@ class SubscriptionPlanController extends Controller
         $success_url = $appURl;
         $fail_url = $appURl;
         $cancel_url = $appURl;
-        $emi_potion = '0';
-        // $cus_name = Auth::user()->full_name;
-        // $cus_email = Auth::user()->email;
-        // $cus_phone = Auth::user()->contact_number;
+        $customer_name = Auth::user()->full_name;
+        $customer_email = Auth::user()->email;
+        $customer_phone = Auth::user()->contact_number;
         $client = new Client();
         $response = $client->request('POST', 'https://sandbox.sslcommerz.com/gwprocess/v3/api.php', [
             'form_params' => [
@@ -106,10 +104,9 @@ class SubscriptionPlanController extends Controller
                 'success_url' => $success_url,
                 'fail_url' => $fail_url,
                 'cancel_url' => $cancel_url,
-                'emi_potion' => $emi_potion,
-                // 'cus_name' => $cus_name,
-                // 'cus_email' => $cus_email,
-                // 'cus_phone' => $cus_phone,
+                'customer_name' => $customer_name,
+                'customer_email' => $customer_email,
+                'customer_phone' => $customer_phone,
             ]
         ]);
         return redirect(json_decode($response->getBody())->redirectGatewayURL);
