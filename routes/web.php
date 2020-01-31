@@ -43,7 +43,7 @@ Route::middleware(['auth','admin'])->group(function () {
          //Survey
         Route::resource('survey', 'SurveyController')->except(['create']);
 
-        
+
 
         //SurveyQuestion
         Route::resource('surveyquestion', 'SurveyQuestionController')->except(['create']);
@@ -96,6 +96,9 @@ Route::get('/search', 'PublicPagesController@search')->name('search');
 //mail
 Route::post('/contact-us', 'PublicPagesController@contactUs')->name('contactus');
 Route::post('/subscribe', 'PublicPagesController@subscribe')->name('subscribe');
+
+
+Route::post('/subscribe-plan', 'SubscriptionPlanController@subscribePlan')->name('subscribe.plan');
 
 
 //Page

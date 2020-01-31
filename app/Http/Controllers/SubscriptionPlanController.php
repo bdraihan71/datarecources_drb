@@ -74,4 +74,9 @@ class SubscriptionPlanController extends Controller
         $subscriptionplan->delete();
         return redirect()->route('subscriptionplan.index')->with('success', 'Subscription Plan has been deleted successfully');
     }
+
+    public function subscribePlan()
+    {
+        dd('hello');
+    }
 }

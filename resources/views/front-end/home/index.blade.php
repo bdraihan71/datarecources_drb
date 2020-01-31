@@ -56,7 +56,7 @@
                             <div class="col-md-2">
                                 <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/Mobile%20Subscriber" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Mobile Subscriber</a>
                             </div>
-    
+
                             <div class="col-md-2">
                                 <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/finance-info" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Grameenphone</a>
                             </div>
@@ -134,10 +134,10 @@
                     @foreach($survey->surveyQuestions as $surveyQuestion)
                         <div class="col-md-12">
                             @include('front-end.home.survey-answer')
-                        </div>     
+                        </div>
                     @endforeach
                 @endforeach
-                
+
             </div>
         </div>
     </section>
@@ -153,7 +153,7 @@
                     <div class="row">
                         @foreach ($surveys as $survey)
                             <!-- <h5 class="main-text-color">{{$survey->title}}</h5> -->
-                            
+
                             @foreach($survey->surveyQuestions as $surveyQuestion)
                                 <div class="col-md-6">
                                     @if(auth()->user())
@@ -164,7 +164,7 @@
                                             <p class="my-3 text-left submitted-question-answer">Thank you for taking the survey</p>
                                         @endif
                                     @else
-                                        @include('front-end.home.survey-answer-form')      
+                                        @include('front-end.home.survey-answer-form')
                                     @endif<br>
                                 </div>
                             @endforeach
@@ -257,6 +257,11 @@
                                     <p class="text-white price-text">Y</p>
                                 </div>
                             </div>
+                            <form  method="post" action="{{ route('subscribe.plan') }}">
+                                @csrf
+                                <input type="hidden" name="price" value="2400">
+                                <button type="submit" class="btn btn-secondary">Select </button>
+                            </form>
                         </div>
                     </div>
                     <div class="card bg-transparent border border-warning">
@@ -423,7 +428,7 @@
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Message" name="body"></textarea>
                     </div>
                     <button class="btn btn-dark py-2 w-100 main-color" type="submit">Submit</button>
-                </form>    
+                </form>
             </div>
         </div>
     </div>
