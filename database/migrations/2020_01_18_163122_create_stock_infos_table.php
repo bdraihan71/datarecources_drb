@@ -33,6 +33,14 @@ class CreateStockInfosTable extends Migration
             $table->string('navps')->nullable();
             $table->string('p_or_navps_divinded')->nullable();
             $table->string('dividend_yield')->nullable();
+            $table->string('close_price_from_pe')->nullable();
+            $table->string('ycp')->nullable();
+            $table->string('pe_1_basic')->nullable();
+            $table->string('pe_2_diluted')->nullable();
+            $table->string('pe_3_basic')->nullable();
+            $table->string('pe_4_diluted')->nullable();
+            $table->string('pe_5')->nullable();
+            $table->string('pe_6')->nullable();            
             $table->softDeletes();
             $table->timestamps();
         });

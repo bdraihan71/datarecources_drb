@@ -3,7 +3,7 @@
         <div class="card-header">
             <i class="fas fa-table"></i>
             Stock Info List
-            <a class="btn btn-danger" target="_blank" href="http://127.0.0.1:8001/api/fetch/dse?url=http://dsebd.org/latest_share_price_all_by_change.php" >Sync from: http://dsebd.org/latest_share_price_all_by_change.php</a>    
+            <a class="btn btn-danger" target="_blank" href="/api/fetch/dse?url=http://dsebd.org/latest_share_price_all_by_change.php" >Sync from: http://dsebd.org/latest_share_price_all_by_change.php</a>    
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -26,6 +26,13 @@
                         <th>navps</th>
                         <th>p_or_navps_divinded</th>
                         <th>dividend_yield</th>
+                        <th>close_price_from_pe</th>
+                        <th>ycp</th>
+                        <th>pe_1_basic</th>
+                        <th>pe_2_diluted</th>
+                        <th>pe_3_basic</th>
+                        <th>pe_5</th>
+                        <th>pe_6</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -46,7 +53,13 @@
                         <th>navps</th>
                         <th>p_or_navps_divinded</th>
                         <th>dividend_yield</th>
-                    </tr>
+                        <th>close_price_from_pe</th>
+                        <th>ycp</th>
+                        <th>pe_1_basic</th>
+                        <th>pe_2_diluted</th>
+                        <th>pe_3_basic</th>
+                        <th>pe_5</th>
+                        <th>pe_6</th>
                 </tfoot>
                 <tbody>
                 @foreach ($stockinfos as $item)
@@ -67,6 +80,13 @@
                         <td>{{ $item->navps }}</td>
                         <td>{{ $item->p_or_navps_divinded }}</td>
                         <td>{{ $item->dividend_yield }}</td>
+                        <td>{{ $item->close_price_from_pe }}</td>
+                        <td>{{ $item->ycp }}</td>
+                        <td>{{ $item->pe_1_basic }}</td>
+                        <td>{{ $item->pe_2_diluted }}</td>
+                        <td>{{ $item->pe_3_basic }}</td>
+                        <td>{{ $item->pe_5 }}</td>
+                        <td>{{ $item->pe_6 }}</td>
                     </tr>
                 @endforeach
                 </tbody>
