@@ -101,6 +101,7 @@ Route::post('/contact-us', 'PublicPagesController@contactUs')->name('contactus')
 Route::post('/subscribe', 'PublicPagesController@subscribe')->name('subscribe');
 
 
+Route::get('/visualize', 'VisualizeController@index')->name('visualize.index');
 //Page
 Route::get('{slug}', 'PageController@page')->name('page');
 
