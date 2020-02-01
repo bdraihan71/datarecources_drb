@@ -89,8 +89,8 @@ class SubscriptionPlanController extends Controller
         $currency = 'BDT';
         $tran_id = new Carbon;
         $tran_id = $tran_id->format('Y-m-d::H:i:s.u');
-        $success_url = $appURl;
-        $fail_url = $appURl;
+        $success_url = $appURl.'admin/subscriptionplan/success';
+        $fail_url = $appURl.'admin/subscriptionplan/fail';
         $cancel_url = $appURl;
         $customer_name = Auth::user()->full_name;
         $customer_email = Auth::user()->email;
@@ -112,5 +112,15 @@ class SubscriptionPlanController extends Controller
             ]
         ]);
         return redirect(json_decode($response->getBody())->redirectGatewayURL);
+    }
+
+    public function success()
+    {
+        return view('back-end.subscription-plan.success');
+    }
+
+    public function fail()
+    {
+        return view('back-end.subscription-plan.fail');
     }
 }
