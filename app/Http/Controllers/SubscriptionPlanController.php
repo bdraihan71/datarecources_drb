@@ -20,8 +20,8 @@ class SubscriptionPlanController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'price' => 'required',
-            'duration_in_days' => 'required'
+            'price_per_month' => 'required',
+            'price_per_year' => 'required'
         ]);
 
         if($request->get('is_visible') == null){
@@ -33,8 +33,9 @@ class SubscriptionPlanController extends Controller
 
         $subscriptionplan = new SubscriptionPlan([
             'name' => $request->get('name'),
-            'price' => $request->get('price'),
-            'duration_in_days' => $request->get('duration_in_days'),
+            'price_per_month' => $request->get('price_per_month'),
+            'price_per_year' => $request->get('price_per_year'),
+            'user_limit' => $request->get('user_limit'),
             'is_visible' => $is_visible,
         ]);
         $subscriptionplan->save();
