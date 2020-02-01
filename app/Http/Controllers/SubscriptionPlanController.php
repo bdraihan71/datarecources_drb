@@ -53,8 +53,8 @@ class SubscriptionPlanController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'price' => 'required',
-            'duration_in_days' => 'required'
+            'price_per_month' => 'required',
+            'price_per_year' => 'required'
         ]);
 
         if($request->get('is_visible') == null){
@@ -65,8 +65,9 @@ class SubscriptionPlanController extends Controller
 
         $subscriptionplan = SubscriptionPlan::find($id);
         $subscriptionplan->name = $request->get('name');
-        $subscriptionplan->price = $request->get('price');
-        $subscriptionplan->duration_in_days = $request->get('duration_in_days');
+        $subscriptionplan->price_per_month = $request->get('price_per_month');
+        $subscriptionplan->price_per_year = $request->get('price_per_year');
+        $subscriptionplan->user_limit = $request->get('user_limit');
         $subscriptionplan->is_visible = $is_visible;
         $subscriptionplan->save();
         return redirect()->route('subscriptionplan.index')->with('success', 'Subscription Plan has been updated successfully');
