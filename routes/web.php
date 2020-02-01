@@ -39,6 +39,8 @@ Route::middleware(['auth','admin'])->group(function () {
 
         //SubscriptionPlan
         Route::resource('subscriptionplan', 'SubscriptionPlanController')->except(['show','create']);
+        Route::get('subscriptionplan/success', 'SubscriptionPlanController@success')->name('subscriptionplan.success');
+        Route::get('subscriptionplan/fail', 'SubscriptionPlanController@fail')->name('subscriptionplan.fail');
 
          //Survey
         Route::resource('survey', 'SurveyController')->except(['create']);
