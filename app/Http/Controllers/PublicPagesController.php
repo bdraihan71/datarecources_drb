@@ -12,6 +12,7 @@ use App\Mail\ContactUs;
 use App\Mail\Subscribe;
 use App\PageItem;
 use App\StaticContent;
+use App\SubscriptionPlan;
 use Illuminate\Database\Eloquent\Collection;
 
 class PublicPagesController extends Controller
@@ -20,7 +21,8 @@ class PublicPagesController extends Controller
         $survey_results = Survey::where('is_published', true)->get();
         $surveys = Survey::where('is_accepting_answer', true)->get();
         $staticcontent = StaticContent::all();
-        return view('front-end.home.index', compact('surveys', 'survey_results','staticcontent'));
+        $subscriptionplans = SubscriptionPlan::where('is_visible', 1)->get();
+        return view('front-end.home.index', compact('surveys', 'survey_results','staticcontent', 'subscriptionplans'));
     }
 
     public function search(Request $request)

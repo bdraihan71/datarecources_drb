@@ -230,12 +230,13 @@
                             <p class="text-warning price-text">N</p>
                         </div>
                     </div>
+                    @foreach ($subscriptionplans as $subscriptionplan)
                     <div class="card bg-transparent border border-warning">
                         <div class="card-body text-center">
-                            <h6 class="text-warning font-weight-bold">Premium Account</h6>
+                            <h6 class="text-warning font-weight-bold">{{ $subscriptionplan->name}} ({{ $subscriptionplan->user_limit }} Users)</h6>
                             <div class="row">
                                 <div class="col-5">
-                                    <p class="text-white font-weight-bold price-text-2">BDT 500/<br>month</p>
+                                    <p class="text-white font-weight-bold price-text-2">BDT {{ $subscriptionplan->price_per_month }}/<br>month</p>
                                     <p class="text-white price-text">Y</p>
                                     <p class="text-white price-text">Y</p>
                                     <p class="text-white price-text">Y</p>
@@ -244,9 +245,14 @@
                                     <p class="text-white price-text">Y</p>
                                     <p class="text-white price-text">Y</p>
                                     <p class="text-white price-text">Y</p>
+                                    <form  method="post" action="{{ route('subscribe.plan') }}">
+                                        @csrf
+                                        <input type="hidden" name="price" value="{{ $subscriptionplan->price_per_month }}">
+                                        <button type="submit" class="btn btn-secondary">Get Started</button>
+                                    </form>
                                 </div>
                                 <div class="col-7">
-                                    <p class="text-white font-weight-bold price-text-2">BDT 2,400/year<br><span class="text-warning">60% Discount</span></p>
+                                    <p class="text-white font-weight-bold price-text-2">BDT {{ $subscriptionplan->price_per_year }}/year<br><span class="text-warning">50% Discount</span></p>
                                     <p class="text-white price-text">Y</p>
                                     <p class="text-white price-text">Y</p>
                                     <p class="text-white price-text">Y</p>
@@ -255,73 +261,16 @@
                                     <p class="text-white price-text">Y</p>
                                     <p class="text-white price-text">Y</p>
                                     <p class="text-white price-text">Y</p>
-                                </div>
-                            </div>
-                            <form  method="post" action="{{ route('subscribe.plan') }}">
-                                @csrf
-                                <input type="hidden" name="price" value="2400">
-                                <button type="submit" class="btn btn-secondary">Select </button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="card bg-transparent border border-warning">
-                        <div class="card-body text-center">
-                            <h6 class="text-warning font-weight-bold">Company Offer (5 Users)</h6>
-                            <div class="row">
-                                <div class="col-5">
-                                    <p class="text-white font-weight-bold price-text-2">BDT 500/<br>month</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                </div>
-                                <div class="col-7">
-                                    <p class="text-white font-weight-bold price-text-2">BDT 7,500/year<br><span class="text-warning">75% Discount</span></p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
+                                    <form  method="post" action="{{ route('subscribe.plan') }}">
+                                        @csrf
+                                        <input type="hidden" name="price" value="{{ $subscriptionplan->price_per_year }}">
+                                        <button type="submit" class="btn btn-secondary">Get Started </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card bg-transparent border border-warning rounded-0">
-                        <div class="card-body text-center">
-                            <h6 class="text-warning font-weight-bold">Bundle Offer (20 Users)</h6>
-                            <div class="row">
-                                <div class="col-5">
-                                    <p class="text-white font-weight-bold price-text-2">BDT 500/<br>month</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                </div>
-                                <div class="col-7">
-                                    <p class="text-white font-weight-bold price-text-2">BDT 12,000/year<br><span class="text-warning">80% Discount</span></p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
