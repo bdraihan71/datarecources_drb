@@ -10,8 +10,9 @@
             <tr>
                 <th>Sl.</th>
                 <th>Plan Name</th>
-                <th>Price</th>
-                <th>Duration</th>
+                <th>price_per_month</th>
+                <th>price_per_year</th>
+                <th>user_limit</th>
                 <th>Visible</th>
                 <th>Action</th>
             </tr>
@@ -20,8 +21,9 @@
             <tr>
                 <th>Sl.</th>
                 <th>Plan Name</th>
-                <th>Price</th>
-                <th>Duration</th>
+                <th>price_per_month</th>
+                <th>price_per_year</th>
+                <th>user_limit</th>
                 <th>Visible</th>
                 <th>Action</th>
             </tr>
@@ -31,8 +33,9 @@
                     <tr>
                         <td>{{$i++}}</td>
                         <td>{{ $subscriptionplan->name }}</td>
-                        <td>{{ $subscriptionplan->price }}</td>
-                        <td>{{ $subscriptionplan->duration_in_days }}</td>
+                        <td>{{ $subscriptionplan->price_per_month }}</td>
+                        <td>{{ $subscriptionplan->price_per_year }}</td>
+                        <td>{{ $subscriptionplan->user_limit }}</td>
                         <td>
                             @if ( $subscriptionplan->is_visible == 0)
                                 No
