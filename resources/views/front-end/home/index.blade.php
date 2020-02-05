@@ -245,11 +245,15 @@
                                     <p class="text-white price-text">Y</p>
                                     <p class="text-white price-text">Y</p>
                                     <p class="text-white price-text">Y</p>
-                                    <form  method="post" action="{{ route('subscribe.plan') }}">
-                                        @csrf
-                                        <input type="hidden" name="price" value="{{ $subscriptionplan->price_per_month }}">
-                                        <button type="submit" class="btn btn-secondary">Get Started</button>
-                                    </form>
+                                    @if(auth()->user())
+                                        <form  method="post" action="{{ route('subscribe.plan') }}">
+                                            @csrf
+                                            <input type="hidden" name="price" value="{{ $subscriptionplan->price_per_month }}">
+                                            <button type="submit" class="btn btn-secondary">Get Started</button>
+                                        </form>
+                                    @else
+                                        <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                                    @endif 
                                 </div>
                                 <div class="col-7">
                                     <p class="text-white font-weight-bold price-text-2">BDT {{ $subscriptionplan->price_per_year }}/year<br><span class="text-warning">{{ intval($subscriptionplan->discount($subscriptionplan->price_per_month , $subscriptionplan->price_per_year)) }}% Discount</span></p>
@@ -261,11 +265,15 @@
                                     <p class="text-white price-text">Y</p>
                                     <p class="text-white price-text">Y</p>
                                     <p class="text-white price-text">Y</p>
-                                    <form  method="post" action="{{ route('subscribe.plan') }}">
-                                        @csrf
-                                        <input type="hidden" name="price" value="{{ $subscriptionplan->price_per_year }}">
-                                        <button type="submit" class="btn btn-secondary">Get Started </button>
-                                    </form>
+                                    @if(auth()->user())
+                                        <form  method="post" action="{{ route('subscribe.plan') }}">
+                                            @csrf
+                                            <input type="hidden" name="price" value="{{ $subscriptionplan->price_per_year }}">
+                                            <button type="submit" class="btn btn-secondary">Get Started </button>
+                                        </form>
+                                    @else
+                                        <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                                    @endif     
                                 </div>
                             </div>
                         </div>
