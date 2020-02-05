@@ -102,6 +102,8 @@ Route::post('/subscribe', 'PublicPagesController@subscribe')->name('subscribe');
 
 
 Route::get('/visualize', 'VisualizeController@index')->name('visualize.index');
+
+Route::get('/visualize/data-matrix', 'VisualizeController@dataMatrix')->name('visualize.data-matrix');
 //Page
 Route::get('{slug}', 'PageController@page')->name('page');
 

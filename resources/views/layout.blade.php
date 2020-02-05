@@ -52,7 +52,9 @@
     </button>
 
     <!-- JQuery and Bootstrap -->
-    <script src="/vendor/jquery/jquery.min.js"></script>
+    @if(\Request::path() != 'visualize/data-matrix')
+        <script src="/vendor/jquery/jquery.min.js"></script>
+    @endif
     <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- JQuery Easing -->
