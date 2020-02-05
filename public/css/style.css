@@ -539,3 +539,7 @@ a.article:hover {
 .custom-price-card-margin {
     margin-bottom: -10px;
 }
+
+.success-failure-card-top {
+    margin-top: 100px;
+}
