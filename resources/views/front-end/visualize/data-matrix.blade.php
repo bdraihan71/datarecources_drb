@@ -27,7 +27,7 @@
 <div class="the-data-grid" style="position:relative">
   <div style="width:100%;">
     <div class="grid-header" style="width:100%">
-      <label>SlickGrid</label>
+      <label>Data Matrix</label>
     </div>
     <div id="myGrid" style="width:100%;height:500px;"></div>
     <div id="pager" style="width:100%;height:20px;"></div>
@@ -61,14 +61,26 @@ var dataView;
 var grid;
 var data = [];
 var columns = [
-  {id: "sel", name: "#", field: "num", cssClass: "cell-selection", width: 40, resizable: false, selectable: false, focusable: false },
-  {id: "title", name: "Title", field: "title", width: 70, minWidth: 50, cssClass: "cell-title", sortable: true, editor: Slick.Editors.Text},
-  {id: "duration", name: "Duration", field: "duration", width: 70, sortable: true, groupTotalsFormatter: sumTotalsFormatter},
-  {id: "%", name: "% Complete", field: "percentComplete", width: 80, formatter: Slick.Formatters.PercentCompleteBar, sortable: true, groupTotalsFormatter: avgTotalsFormatter},
-  {id: "start", name: "Start", field: "start", minWidth: 60, sortable: true},
-  {id: "finish", name: "Finish", field: "finish", minWidth: 60, sortable: true},
-  {id: "cost", name: "Cost", field: "cost", width: 90, sortable: true, groupTotalsFormatter: sumTotalsFormatter},
-  {id: "effort-driven", name: "Effort Driven", width: 80, minWidth: 20, maxWidth: 80, cssClass: "cell-effort-driven", field: "effortDriven", formatter: Slick.Formatters.Checkmark, sortable: true}
+  // {id: "sel", name: "", field: "num", cssClass: "cell-selection", width: 40, resizable: false, selectable: false, focusable: false },
+  {id: "title", name: "Title", field: "title", width: 200, minWidth: 50, cssClass: "cell-title", sortable: true, editor: Slick.Editors.Text},
+  {id: "duration", name: "LTP", field: "duration", width: 70, sortable: true},
+  {id: "duration", name: "YCP", field: "duration", width: 70, sortable: true},
+  {id: "cost", name: "Pub%", field: "cost", width: 90, sortable: true},
+  {id: "start", name: "Volume", field: "cost", width: 90, sortable: true},
+  {id: "finish", name: "Value", field: "cost", width: 90, sortable: true},
+  {id: "cost", name: "Trade", field: "cost", width: 90, sortable: true},
+  {id: "cost", name: "P/E", field: "cost", width: 90, sortable: true},
+  {id: "cost", name: "EPS", field: "cost", width: 90, sortable: true},
+  {id: "cost", name: "P/E", field: "cost", width: 90, sortable: true},
+  {id: "cost", name: "EPS", field: "cost", width: 90, sortable: true},
+  {id: "cost", name: "Paid Up", field: "cost", width: 90, sortable: true},
+  {id: "cost", name: "Dir%", field: "cost", width: 90, sortable: true},
+  {id: "cost", name: "Pub%", field: "cost", width: 90, sortable: true},
+  {id: "cost", name: "Inst%", field: "cost", width: 90, sortable: true},
+  {id: "cost", name: "For%", field: "cost", width: 90, sortable: true},
+  {id: "cost", name: "Gov%", field: "cost", width: 90, sortable: true},
+  {id: "cost", name: "NAV", field: "cost", width: 90, sortable: true},
+ 
 ];
 
 var options = {
@@ -114,7 +126,7 @@ function groupByDuration() {
   dataView.setGrouping({
     getter: "duration",
     formatter: function (g) {
-      return "Duration:  " + g.value + "  <span style='color:green'>(" + g.count + " items)</span>";
+      return "Sector:  " + g.value + "  <span style='color:green'>(" + g.count + " items)</span>";
     },
     aggregators: [
       new Slick.Data.Aggregators.Avg("percentComplete"),
@@ -221,7 +233,7 @@ function loadData(count) {
 
     d["id"] = "id_" + i;
     d["num"] = i;
-    d["title"] = "Task " + i;
+    d["title"] = "Company " + i;
     d["duration"] = Math.round(Math.random() * 30);
     d["percentComplete"] = Math.round(Math.random() * 100);
     d["start"] = someDates[ Math.floor((Math.random()*2)) ];
