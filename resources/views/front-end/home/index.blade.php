@@ -252,7 +252,7 @@
                                     </form>
                                 </div>
                                 <div class="col-7">
-                                    <p class="text-white font-weight-bold price-text-2">BDT {{ $subscriptionplan->price_per_year }}/year<br><span class="text-warning">{{ intval($subscriptionplan->discount($subscriptionplan->price_per_month, $subscriptionplan->price_per_year)) }}% Discount</span></p>
+                                    <p class="text-white font-weight-bold price-text-2">BDT {{ $subscriptionplan->price_per_year }}/year<br><span class="text-warning">{{ intval($subscriptionplan->discount(null , null)) }}% Discount</span></p>
                                     <p class="text-white price-text">Y</p>
                                     <p class="text-white price-text">Y</p>
                                     <p class="text-white price-text">Y</p>
