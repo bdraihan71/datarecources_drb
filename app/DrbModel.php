@@ -13,7 +13,7 @@ class DrbModel extends Model
 
     public function discount( $monthly, $yearly )
     {
-        if ($monthly or $yearly ==  0){
+        if ($monthly ==  0){
             return 0;
         }else {
             $discount = (($monthly - ($yearly / 12)) * 100) / $monthly;
