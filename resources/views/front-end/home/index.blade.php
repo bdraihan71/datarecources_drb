@@ -233,7 +233,7 @@
                     @foreach ($subscriptionplans as $subscriptionplan)
                     <div class="card bg-transparent border border-warning">
                         <div class="card-body text-center">
-                            <h6 class="text-warning font-weight-bold">{{ $subscriptionplan->name}} ({{ $subscriptionplan->user_limit }} Users)</h6>
+                            <h6 class="text-warning font-weight-bold">{{ $subscriptionplan->name}} <small>({{ $subscriptionplan->user_limit }} Users)</small></h6>
                             <div class="row">
                                 <div class="col-5">
                                     <p class="text-white font-weight-bold price-text-2">BDT {{ $subscriptionplan->price_per_month }}/<br>month</p>
