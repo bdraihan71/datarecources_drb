@@ -5,7 +5,7 @@
 <form  method="post" action="{{ route('subscriptionplan.store') }}">
     @csrf
     <div class="row bg-white my-4 mx-1 p-3 shadow-sm">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="form-group">
             <label>Plan Name</label>
             <input class="form-control" name="name"  value="{{ old('name') }}" type="text" placeholder="Enter Plan Name">
@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <div class="col-md-1 text-md-center ml-4 ml-md-0 sub-plan-check-top">
+        <div class="col-md-2 text-md-center ml-4 ml-md-0 sub-plan-check-top">
             <input class="form-check-input" type="checkbox" name="is_visible" value=1 id="defaultCheck1">
             <label class="form-check-label h5" for="defaultCheck1">
                 Visible
