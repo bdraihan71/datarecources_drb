@@ -39,8 +39,7 @@ Route::middleware(['auth','admin'])->group(function () {
 
         //SubscriptionPlan
         Route::resource('subscriptionplan', 'SubscriptionPlanController')->except(['show','create']);
-        Route::get('subscriptionplan/success', 'SubscriptionPlanController@success')->name('subscriptionplan.success');
-        Route::get('subscriptionplan/fail', 'SubscriptionPlanController@fail')->name('subscriptionplan.fail');
+       
 
          //Survey
         Route::resource('survey', 'SurveyController')->except(['create']);
@@ -81,6 +80,12 @@ Route::middleware(['auth'])->group(function () {
       Route::post('survey/{surveyQuestion}', 'SurveyController@saveResponse')->name('save-response');
   });
 });
+
+Route::middleware(['auth'])->group(function () {
+    Route::post('subscriptionplan/success', 'SubscriptionPlanController@success')->name('subscriptionplan.success');
+    Route::post('subscriptionplan/fail', 'SubscriptionPlanController@fail')->name('subscriptionplan.fail');
+});
+
 
 Route::get('/', 'PublicPagesController@landing')->name('home');
 Route::view('/sub', 'sub-layout')->name('sub');
