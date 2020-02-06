@@ -10,6 +10,7 @@ use App\Menu;
 use Mail;
 use App\Mail\ContactUs;
 use App\Mail\Subscribe;
+use App\News;
 use App\PageItem;
 use App\StaticContent;
 use App\SubscriptionPlan;
@@ -22,7 +23,13 @@ class PublicPagesController extends Controller
         $surveys = Survey::where('is_accepting_answer', true)->get();
         $staticcontent = StaticContent::all();
         $subscriptionplans = SubscriptionPlan::where('is_visible', 1)->get();
-        return view('front-end.home.index', compact('surveys', 'survey_results','staticcontent', 'subscriptionplans'));
+        $featured = News::where('is_published', 1)->where('showing_area', 'featured')->latest()->first();
+        $world = News::where('is_published', 1)->where('showing_area', 'world')->latest()->first();
+        $country = News::where('is_published', 1)->where('showing_area', 'country')->latest()->first();
+        $economy = News::where('is_published', 1)->where('showing_area', 'economy')->latest()->first();
+        $company = News::where('is_published', 1)->where('showing_area', 'company')->latest()->first();
+        $allnews = News::where('is_published', 1)->where('showing_area', '<>',  'featured')->latest()->take(4)->get();
+        return view('front-end.home.index', compact('surveys', 'survey_results','staticcontent','featured','world','country','economy','company', 'allnews'));
     }
 
     public function search(Request $request)

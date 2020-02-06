@@ -189,6 +189,10 @@ a.article:hover {
     background-image:linear-gradient(rgba(29, 30, 114, 0.4), rgba(4, 3, 102, 0.4)),url('../img/hero.jpg');
 }
 
+.search-width {
+    padding: 0px 150px 0px 150px; 
+}
+
 .search-border {
     border-radius: 5px;
 }
@@ -474,9 +478,21 @@ a.article:hover {
 @media (min-width: 992px) {
     .search-custom-margin {
         position: fixed;
-        margin-left: 400px; 
+        margin-left: 20%; 
     }
 }
+
+@media (max-width: 992px) {
+    .search-width {
+        padding: 0px 0px 0px 0px; 
+    }
+}
+
+input[type="search"]::placeholder {  
+                  
+    /* Firefox, Chrome, Opera */ 
+    text-align: center; 
+} 
 
 .custom-header-top {
     margin-top: 112px;
@@ -563,4 +579,14 @@ a.article:hover {
 
 .success-failure-card-top {
     margin-top: 100px;
+.morecontent span {
+    display: none;
+}
+
+.morelink {
+    display: block;
+}
+
+.news-list-img {
+    width: 200px;
 }

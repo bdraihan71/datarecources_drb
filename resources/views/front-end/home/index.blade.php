@@ -7,61 +7,97 @@
             <div class="col-md-8">
                 <div class="card mb-3 custom-header-top">
                     <div class="row no-gutters news-background">
-                      <div class="col-md-8">
-                        <img src="img/hero.jpg" class="card-img news-card-img rounded-0" alt="...">
-                      </div>
-                      <div class="col-md-4">
-                        <div class="card-body text-right">
-                          <h5 class="card-title text-white">News title</h5>
-                          <p class="card-text text-white">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                      </div>
+                        @if($featured)
+                            <div class="col-md-8">
+                                <a href="{{route('news.single',$featured->id)}}">
+                                    <img src="{{ env('S3_URL') }}{{$featured->image}}" class="card-img news-card-img rounded-0" alt="...">
+                                </a>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card-body text-right">
+                                    <a href="{{route('news.single',$featured->id)}}">
+                                        <h5 class="card-title text-white">{{$featured->heading}}</h5>
+                                        {{-- <p class="card-text text-white">{{$featured->body}}</p> --}}
+                                        <p class="card-text text-white">{{implode(' ', array_slice(explode(' ', $featured->body), 0, 20))}}</p>
+                                        <p class="card-text"><small class="text-muted">{{$featured->updated_at->diffForHumans()}}</small></p>
+                                    </a>
+                                </div>
+                            </div>
+                        @else
+                            <div class="col-md-8">
+                                <img src="img/blur.jpg" class="card-img news-card-img rounded-0" alt="...">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card-body text-right">
+                                    <h5 class="card-title text-white">No news available</h5>
+                                    <p class="card-text text-white">--</p>
+                                    <p class="card-text"><small class="text-muted">--</small></p>
+                                </div>
+                            </div>
+                        @endif    
                     </div>
                 </div>
-                <div class="card-deck">
-                    <div class="card border-0">
-                      <img src="img/blur.jpg" class="card-img-top" alt="...">
-                        <p class="card-text"><small>This is a longer card with supporting text below longer.</small></p>
-                    </div>
-                    <div class="card border-0">
-                        <img src="img/blur.jpg" class="card-img-top" alt="...">
-                        <p class="card-text"><small>This is a longer card with supporting text below longer.</small></p>
-                    </div>
-                    <div class="card border-0">
-                        <img src="img/blur.jpg" class="card-img-top" alt="...">
-                        <p class="card-text"><small>This is a longer card with supporting text below longer.</small></p>
-                    </div>
-                    <div class="card border-0">
-                        <img src="img/blur.jpg" class="card-img-top" alt="...">
-                        <p class="card-text"><small>This is a longer card with supporting text below longer.</small></p>
-                    </div>
-                    <div class="card border-0">
-                        <img src="img/blur.jpg" class="card-img-top" alt="...">
-                        <p class="card-text"><small>This is a longer card with supporting text below longer.</small></p>
-                    </div>
+
+                <div class="row"> 
+                    @foreach ($allnews as $news)
+                        <div class="col-md-3">
+                            <a href="{{route('news.single',$news->id)}}">
+                                <div class="card border-0">
+                                    <img src="{{ env('S3_URL') }}{{ $news->image }}" class="card-img-top" alt="...">
+                                    <p class="card-text"><small>{{ $news->heading }}</small></p>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
 
                 <div class="card-deck mt-5">
                     <div class="card border-0">
                         <h4 class="main-text-color">World</h4>
-                        <img src="img/blur.jpg" class="card-img-top" alt="...">
-                        <p class="card-text"><small>This is a longer card with supporting text below longer.</small></p>
+                        @if($world)
+                        <a href="{{route('news.single',$world->id)}}">
+                            <img src="{{ env('S3_URL') }}{{$world->image}}" class="card-img-top" alt="...">
+                            <p class="card-text"><small>{{$world->heading}}</small></p>
+                        </a> 
+                        @else 
+                            <p class="card-text"><small>No news available</small></p>
+                        @endif    
                     </div>
+
                     <div class="card border-0">
                         <h4 class="main-text-color">Country</h4>
-                        <img src="img/blur.jpg" class="card-img-top" alt="...">
-                        <p class="card-text"><small>This is a longer card with supporting text below longer.</small></p>
+                        @if($country)
+                        <a href="{{route('news.single',$country->id)}}">
+                            <img src="{{ env('S3_URL') }}{{$country->image}}" class="card-img-top" alt="...">
+                            <p class="card-text"><small>{{$country->heading}}</small></p>
+                        </a>
+                        @else 
+                            <p class="card-text"><small>No news available</small></p>
+                        @endif   
                     </div>
+
                     <div class="card border-0">
                         <h4 class="main-text-color">Economy</h4>
-                        <img src="img/blur.jpg" class="card-img-top" alt="...">
-                        <p class="card-text"><small>This is a longer card with supporting text below longer.</small></p>
+                        @if($economy)
+                        <a href="{{route('news.single',$economy->id)}}">
+                            <img src="{{ env('S3_URL') }}{{$economy->image}}" class="card-img-top" alt="...">
+                            <p class="card-text"><small>{{$economy->heading}}</small></p>
+                        </a>
+                        @else 
+                            <p class="card-text"><small>No news available</small></p>
+                        @endif  
                     </div>
+
                     <div class="card border-0">
                         <h4 class="main-text-color">Company</h4>
-                        <img src="img/blur.jpg" class="card-img-top" alt="...">
-                        <p class="card-text"><small>This is a longer card with supporting text below longer.</small></p>
+                        @if($company)
+                        <a href="{{route('news.single',$company->id)}}">
+                            <img src="{{ env('S3_URL') }}{{$company->image}}" class="card-img-top" alt="...">
+                            <p class="card-text"><small>{{$company->heading}}</small></p>
+                        </a>
+                        @else 
+                            <p class="card-text"><small>No news available</small></p>
+                        @endif   
                     </div>
                 </div>
             </div>

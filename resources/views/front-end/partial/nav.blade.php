@@ -4,7 +4,7 @@
         <div class="search-custom-margin">
             <form action="{{route('search')}}" method="GET">
                 <div class="input-group">
-                    <input class="form-control border-secondary search-border border border-secondary" type="search" value="" name="search" placeholder=" Search by keyword">
+                    <input class="form-control border-secondary search-border border border-secondary search-width" type="search" value="" name="search" placeholder=" Search by keyword">
                     <div class="input-group-append">
                         <button type="submit" class="btn btn-warning search-btn-border border border-secondary" type="button">
                             <i class="fa fa-search"></i>
@@ -52,6 +52,14 @@
                         <a class="dropdown-item" href="{{route('finance-info-all')}}">Financial Statement</a>
                     </div>
                 </li>
+
+                <li class="nav-item nav-custom-margin-top">
+                    <a class="nav-link font-weight-bold text-white" href="/news" >
+                        NEWS
+                    </a>
+                </li>
+
+
                 <li class="nav-item dropdown nav-custom-margin-top">
                     <a class="nav-link font-weight-bold text-white" href="{{route('visualize.index')}}">
                     VISUALIZE
@@ -62,6 +70,9 @@
                     DATA MATRIX
                     </a>
                 </li>
+
+                
+               
                 <form class="form-inline my-2 my-lg-0">
                     @if(Auth::check())
                         @if(Auth::user()->type == 'admin')
