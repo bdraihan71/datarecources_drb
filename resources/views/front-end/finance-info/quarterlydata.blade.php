@@ -85,7 +85,7 @@
                     @if ($frequency == 'quarterly' and $q1 == null and $q2 == null and $q3 == null and $q4 == null)
                         @if(auth()->user())
                             @if($item->q1__pdf_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q1__pdf_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q1__pdf_url }}" type="button" class="btn btn-outline-primary">{{ $item->q1__pdf_url_file_name != null ? $item->q1__pdf_url_file_name : 'PDF' }}</a></td>
                             @else
                                 <td>No PDF</td>
                             @endif
@@ -95,7 +95,7 @@
 
                         @if(auth()->user())    
                             @if($item->q1_excel_url != '#')
-                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q1_excel_url }}" type="button" class="btn btn-outline-primary">Excel</a></td>
+                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q1_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->q1_excel_url_file_name != null ? $item->q1_excel_url_file_name : 'Excel' }}</a></td>
                             @else
                                 <td>No Excel</td>
                             @endif
@@ -105,7 +105,7 @@
 
                         @if(auth()->user())
                             @if($item->q2__pdf_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q2__pdf_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q2__pdf_url }}" type="button" class="btn btn-outline-primary">{{ $item->q2__pdf_url_file_name != null ? $item->q2__pdf_url_file_name : 'PDF' }}</a></td>
                             @else
                                 <td>No PDF</td>
                             @endif
@@ -115,7 +115,7 @@
 
                         @if(auth()->user())    
                             @if($item->q2_excel_url != '#')
-                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q2_excel_url }}" type="button" class="btn btn-outline-primary">Excel</a></td>
+                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q2_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->q2_excel_url_file_name != null ? $item->q2_excel_url_file_name : 'Excel' }}</a></td>
                             @else
                                 <td>No Excel</td>
                             @endif
@@ -125,7 +125,7 @@
 
                         @if(auth()->user())
                             @if($item->q3__pdf_url != '#')
-                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q3__pdf_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q3__pdf_url }}" type="button" class="btn btn-outline-primary">{{ $item->q3__pdf_url_file_name != null ? $item->q3__pdf_url_file_name : 'PDF' }}</a></td>
                             @else
                                 <td>No PDF</td>
                             @endif
@@ -135,7 +135,7 @@
 
                         @if(auth()->user())    
                             @if($item->q3_excel_url != '#')
-                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q3_excel_url }}" type="button" class="btn btn-outline-primary">Excel</a></td>
+                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q3_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->q3_excel_url_file_name != null ? $item->q3_excel_url_file_name : 'Excel' }}</a></td>
                             @else
                                 <td>No Excel</td>
                             @endif
@@ -145,7 +145,7 @@
                         
                         @if(auth()->user())
                             @if($item->q4__pdf_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q4__pdf_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q4__pdf_url }}" type="button" class="btn btn-outline-primary">{{ $item->q4__pdf_url_file_name != null ? $item->q4__pdf_url_file_name : 'PDF' }}</a></td>
                             @else
                                 <td>No PDF</td>
                             @endif
@@ -155,7 +155,7 @@
                             
                         @if(auth()->user())    
                             @if($item->q4_excel_url != '#')
-                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q4_excel_url }}" type="button" class="btn btn-outline-primary">Excel</a></td>
+                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q4_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->q4_excel_url_file_name != null ? $item->q4_excel_url_file_name : 'Excel' }}</a></td>
                             @else
                                 <td>No Excel</td>
                             @endif
@@ -167,7 +167,7 @@
                         @isset($q1)
                             @if(auth()->user())
                                 @if($item->q1__pdf_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q1__pdf_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q1__pdf_url }}" type="button" class="btn btn-outline-primary">{{ $item->q1__pdf_url_file_name != null ? $item->q1__pdf_url_file_name : 'PDF' }}</a></td>
                                 @else
                                     <td>No PDF</td>
                                 @endif
@@ -177,7 +177,7 @@
 
                             @if(auth()->user())
                             @if($item->q1_excel_url != '#')
-                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q1_excel_url }}" type="button" class="btn btn-outline-primary">Excel</a></td>
+                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q1_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->q1_excel_url_file_name != null ? $item->q1_excel_url_file_name : 'Excel' }}</a></td>
                             @else
                                 <td>No Excel</td>
                             @endif
@@ -189,7 +189,7 @@
                         @isset($q2)
                             @if(auth()->user())
                                 @if($item->q2__pdf_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q2__pdf_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q2__pdf_url }}" type="button" class="btn btn-outline-primary">{{ $item->q2__pdf_url_file_name != null ? $item->q2__pdf_url_file_name : 'PDF' }}</a></td>
                                 @else
                                     <td>No PDF</td>
                                 @endif
@@ -199,7 +199,7 @@
 
                             @if(auth()->user())
                                 @if($item->q2_excel_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q2_excel_url }}" type="button" class="btn btn-outline-primary">Excel</a></td>
+                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q2_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->q2_excel_url_file_name != null ? $item->q2_excel_url_file_name : 'Excel' }}</a></td>
                                 @else
                                     <td>No Excel</td>
                                 @endif
@@ -212,7 +212,7 @@
                         @isset($q3)
                             @if(auth()->user())
                                 @if($item->q3__pdf_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q3__pdf_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q3__pdf_url }}" type="button" class="btn btn-outline-primary">{{ $item->q3__pdf_url_file_name != null ? $item->q3__pdf_url_file_name : 'PDF' }}</a></td>
                                 @else
                                     <td>No PDF</td>
                                 @endif
@@ -222,7 +222,7 @@
 
                             @if(auth()->user())
                                 @if($item->q3_excel_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q3_excel_url }}" type="button" class="btn btn-outline-primary">Excel</a></td>
+                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q3_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->q3_excel_url_file_name != null ? $item->q3_excel_url_file_name : 'Excel' }}</a></td>
                                 @else
                                     <td>No Excel</td>
                                 @endif
@@ -235,7 +235,7 @@
                         @isset($q4)
                             @if(auth()->user())
                                 @if($item->q4__pdf_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q4__pdf_url }}" type="button" class="btn btn-outline-primary">PDF</a></td>
+                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q4__pdf_url }}" type="button" class="btn btn-outline-primary">{{ $item->q4__pdf_url_file_name != null ? $item->q4__pdf_url_file_name : 'PDF' }}</a></td>
                                 @else
                                     <td>No PDF</td>
                                 @endif
@@ -245,7 +245,7 @@
 
                             @if(auth()->user())
                                 @if($item->q4_excel_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q4_excel_url }}" type="button" class="btn btn-outline-primary">Excel</a></td>
+                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q4_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->q4_excel_url_file_name != null ? $item->q4_excel_url_file_name : 'Excel' }}</a></td>
                                 @else
                                     <td>No Excel</td>
                                 @endif

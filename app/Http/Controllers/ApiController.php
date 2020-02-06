@@ -17,7 +17,7 @@ class ApiController extends Controller
         }
         else
         {
-            $companies = Company::where('sector_id',$sector_id)->get();
+            $companies = Company::where('sector_id',$sector_id)->orderBy('name')->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE);
         }
         return response()->json($companies);
     }

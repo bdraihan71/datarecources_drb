@@ -39,11 +39,12 @@ Route::middleware(['auth','admin'])->group(function () {
 
         //SubscriptionPlan
         Route::resource('subscriptionplan', 'SubscriptionPlanController')->except(['show','create']);
+       
 
          //Survey
         Route::resource('survey', 'SurveyController')->except(['create']);
 
-        
+
 
         //SurveyQuestion
         Route::resource('surveyquestion', 'SurveyQuestionController')->except(['create']);
@@ -83,6 +84,12 @@ Route::middleware(['auth'])->group(function () {
   });
 });
 
+Route::middleware(['auth'])->group(function () {
+    Route::post('subscriptionplan/success', 'SubscriptionPlanController@success')->name('subscriptionplan.success');
+    Route::post('subscriptionplan/fail', 'SubscriptionPlanController@fail')->name('subscriptionplan.fail');
+});
+
+
 Route::get('/', 'PublicPagesController@landing')->name('home');
 Route::view('/sub', 'sub-layout')->name('sub');
 
@@ -104,6 +111,9 @@ Route::post('/subscribe', 'PublicPagesController@subscribe')->name('subscribe');
 Route::get('/visualize', 'VisualizeController@index')->name('visualize.index');
 
 Route::get('/visualize/data-matrix', 'VisualizeController@dataMatrix')->name('visualize.data-matrix');
+Route::post('/subscribe-plan', 'SubscriptionPlanController@subscribePlan')->name('subscribe.plan');
+
+
 //Page
 Route::get('{slug}', 'PageController@page')->name('page');
 

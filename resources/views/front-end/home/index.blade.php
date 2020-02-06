@@ -98,7 +98,7 @@
                             <div class="col-md-2">
                                 <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/Mobile%20Subscriber" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Mobile Subscriber</a>
                             </div>
-    
+
                             <div class="col-md-2">
                                 <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/finance-info" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Grameenphone</a>
                             </div>
@@ -176,10 +176,10 @@
                     @foreach($survey->surveyQuestions as $surveyQuestion)
                         <div class="col-md-12">
                             @include('front-end.home.survey-answer')
-                        </div>     
+                        </div>
                     @endforeach
                 @endforeach
-                
+
             </div>
         </div>
     </section>
@@ -195,7 +195,7 @@
                     <div class="row">
                         @foreach ($surveys as $survey)
                             <!-- <h5 class="main-text-color">{{$survey->title}}</h5> -->
-                            
+
                             @foreach($survey->surveyQuestions as $surveyQuestion)
                                 <div class="col-md-6">
                                     @if(auth()->user())
@@ -206,7 +206,7 @@
                                             <p class="my-3 text-left submitted-question-answer">Thank you for taking the survey</p>
                                         @endif
                                     @else
-                                        @include('front-end.home.survey-answer-form')      
+                                        @include('front-end.home.survey-answer-form')
                                     @endif<br>
                                 </div>
                             @endforeach
@@ -239,6 +239,175 @@
 </section>
 
 
+<section class="price py-5 main-color">
+    <h1 class="text-center text-warning display-4 font-weight-bold">Our Pricing</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-group">
+                    <div class="card bg-transparent border-0">
+                        <div class="card-body">
+                        <h6 class="text-warning my-4 font-weight-bold">Features</h6>
+                        <p class="text-white price-text pt-4">News Aggregator</p>
+                        <p class="text-white price-text">Data Matrix</p>
+                        <p class="text-white price-text">Economy Data</p>
+                        <p class="text-white price-text">Commodity Data</p>
+                        <p class="text-white price-text">Industry Data</p>
+                        <p class="text-white price-text">Publication</p>
+                        <p class="text-white price-text">Quarterly Finance Statement</p>
+                        <p class="text-white price-text">Annual Finance Statement</p>
+                        </div>
+                    </div>
+                    <div class="card bg-transparent border border-warning">
+                        <div class="card-body text-center">
+                            <h6 class="text-warning font-weight-bold">Basic Account</h6>
+                            <p class="text-white font-weight-bold price-text-2">(0 BDT)</p>
+                            <p class="text-white price-text pt-4">Y</p>
+                            <p class="text-white price-text">Y</p>
+                            <p class="text-white price-text">Y</p>
+                            <p class="text-white price-text">Y</p>
+                            <p class="text-white price-text">Y</p>
+                            <p class="text-white price-text">Y</p>
+                            <p class="text-white price-text">Y</p>
+                            <p class="text-warning price-text">N</p>
+                        </div>
+                    </div>
+                    @foreach ($subscriptionplans as $subscriptionplan)
+                    <div class="card bg-transparent border border-warning">
+                        <div class="card-body text-center">
+                            <h6 class="text-warning font-weight-bold">{{ $subscriptionplan->name}} <small>({{ $subscriptionplan->user_limit }} Users)</small></h6>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="text-white font-weight-bold price-text-2">BDT {{ $subscriptionplan->price_per_month }}/<br>month</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    @if(auth()->user())
+                                        <form  method="post" action="{{ route('subscribe.plan') }}">
+                                            @csrf
+                                            <input type="hidden" name="price" value="{{ $subscriptionplan->price_per_month }}">
+                                            <button type="submit" class="btn btn-outline-warning btn-sm">Get Started</button>
+                                        </form>
+                                    @else
+                                        <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                                    @endif 
+                                </div>
+                                <div class="col-6">
+                                    <p class="text-white font-weight-bold price-text-2">BDT {{ $subscriptionplan->price_per_year }}/year<br><span class="text-warning">{{ intval($subscriptionplan->discount($subscriptionplan->price_per_month , $subscriptionplan->price_per_year)) }}% Discount</span></p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    <p class="text-white price-text">Y</p>
+                                    @if(auth()->user())
+                                        <form  method="post" action="{{ route('subscribe.plan') }}">
+                                            @csrf
+                                            <input type="hidden" name="price" value="{{ $subscriptionplan->price_per_year }}">
+                                            <button type="submit" class="btn btn-outline-warning btn-sm">Get Started </button>
+                                        </form>
+                                    @else
+                                        <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                                    @endif     
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{{-- <section class="pricing py-5 main-color">
+    <div class="container">
+      <div class="row no-gutters">
+        <!-- Free Tier -->
+        <div class="col-lg-4">
+          <div class="card mb-5 mb-lg-0 border-top border-warning pb-4">
+            <div class="card-body pb-5">
+              <h5 class="card-title text-muted text-uppercase text-center">Available</h5>
+              <h6 class="card-price text-center">Features</h6>
+              <h6 class="card-title text-dark text-uppercase text-center">&nbsp;</h6>
+              <hr>
+              <ul class="fa-ul">
+                <li>News Aggregator</li>
+                <li>Data Matrix</li>
+                <li>Economy Data</li>
+                <li>Commodity Data</li>
+                <li>Industry Data</li>
+                <li>Publication</li>
+                <li>Quarterly Finance Statement</li>
+                <li>Annual Finance Statement</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Plus Tier -->
+        <div class="col-lg-4">
+          <div class="card mb-5 mb-lg-0 border-top border-warning">
+            <div class="card-body">
+              <h5 class="card-title text-muted text-uppercase text-center">Basic Account</h5>
+              <h6 class="card-price text-center">0 bdt<span class="period">/month</span></h6>
+              <h6 class="card-title text-dark text-uppercase text-center">&nbsp;</h6>
+              <hr>
+              <ul class="fa-ul text-center mr-5">
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li class="text-muted"><i class="fas fa-times"></i></li>
+              </ul>
+              <a href="#" class="btn btn-block btn-warning">Register Now</a>
+            </div>
+          </div>
+        </div>
+        <!-- Pro Tier -->
+        <div class="col-lg-4">
+          <div class="card border-top border-warning">
+            <div class="card-body">
+              <h5 class="card-title text-muted text-uppercase text-center">Premium Account</h5>
+              <div class="row custom-price-card-margin">
+                <div class="col-lg-6 border-right">
+                    <h6 class="card-price text-center">200bdt<span class="period">/month</span></h6>
+                </div>
+                <div class="col-lg-6">
+                    <h6 class="card-price text-center">1200bdt<span class="period">/year</span></h6>
+                    <h6 class="card-title text-dark border border-warning text-uppercase text-center">50% discount</h6>
+                </div>
+              </div>
+              <hr>
+              <ul class="fa-ul text-center mr-5">
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+                <li><i class="fas fa-check"></i></li>
+              </ul>
+              <a href="#" class="btn btn-block btn-warning">Register Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section> --}}
+
+
 <section class="contact-us pb-5">
     <div class="container">
         <div class="row mt-5">
@@ -258,7 +427,7 @@
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Message" name="body"></textarea>
                     </div>
                     <button class="btn btn-dark py-2 w-100 main-color" type="submit">Submit</button>
-                </form>    
+                </form>
             </div>
         </div>
     </div>
