@@ -12,7 +12,7 @@ class StockInfoController extends Controller
 
 
        $url = "https://www.dsebd.org/";
-       $ch1= \curl_init();
+       $ch1= curl_init();
        curl_setopt ($ch1, CURLOPT_URL, $url );
        curl_setopt($ch1, CURLOPT_HEADER, 0);
        curl_setopt($ch1,CURLOPT_VERBOSE,1);
