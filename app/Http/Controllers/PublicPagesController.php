@@ -29,7 +29,7 @@ class PublicPagesController extends Controller
         $economy = News::where('is_published', 1)->where('showing_area', 'economy')->latest()->first();
         $company = News::where('is_published', 1)->where('showing_area', 'company')->latest()->first();
         $allnews = News::where('is_published', 1)->where('showing_area', '<>',  'featured')->latest()->take(4)->get();
-        return view('front-end.home.index', compact('surveys', 'survey_results','staticcontent','featured','world','country','economy','company', 'allnews'));
+        return view('front-end.home.index', compact('subscriptionplans','surveys', 'survey_results','staticcontent','featured','world','country','economy','company', 'allnews'));
     }
 
     public function search(Request $request)
