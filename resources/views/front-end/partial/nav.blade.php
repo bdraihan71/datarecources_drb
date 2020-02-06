@@ -57,6 +57,11 @@
                     Visualize
                     </a>
                 </li>
+                <li class="nav-item dropdown nav-custom-margin-top">
+                    <a class="nav-link font-weight-bold text-white" href="{{route('visualize.data-matrix')}}">
+                    Data Matrix
+                    </a>
+                </li>
                 <form class="form-inline my-2 my-lg-0">
                     @if(Auth::check())
                         @if(Auth::user()->type == 'admin')
