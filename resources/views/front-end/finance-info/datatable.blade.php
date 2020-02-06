@@ -53,8 +53,13 @@
             {{-- {{dd($user->subscriptionplans)}} --}}
             @foreach ($finance_infos as $item)
                 <tr>
+                    @if($item->company!=null)
                     <td>{{$item->company->name}}</td>
                     <td>{{$item->company->ticker}}</td>
+                    @else
+                    <td>No Company Available</td>
+                    <td>No Company Available</td>
+                    @endif
                     <td>{{$item->year}}</td>
                     @if(auth()->user())
                         @if($item->q1__pdf_url != '#')
