@@ -54,12 +54,12 @@
                 </li>
                 <li class="nav-item dropdown nav-custom-margin-top">
                     <a class="nav-link font-weight-bold text-white" href="{{route('visualize.index')}}">
-                    Visualize
+                    VISUALIZE
                     </a>
                 </li>
                 <li class="nav-item dropdown nav-custom-margin-top">
                     <a class="nav-link font-weight-bold text-white" href="{{route('visualize.data-matrix')}}">
-                    Data Matrix
+                    DATA MATRIX
                     </a>
                 </li>
                 <form class="form-inline my-2 my-lg-0">
