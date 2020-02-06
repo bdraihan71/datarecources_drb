@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\SubscriptionPlan;
+use App\User;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Auth;
 
 class SubscriptionPlanController extends Controller
@@ -82,6 +84,11 @@ class SubscriptionPlanController extends Controller
 
     public function subscribePlan(Request $request)
     {
+
+        DB::table('subscription_plan_user')->insert(
+            array('user_id' => Auth::user()->id , 'subscription_plan_id' => $request->plan_id)
+        );
+
         $appURl = config('app.url');
         $store_id = env('SSL_STORE_ID', false);
         $store_pass =  env('SSL_STORE_PASS', false);
@@ -111,6 +118,16 @@ class SubscriptionPlanController extends Controller
                 'customer_phone' => $customer_phone,
             ]
         ]);
+
+        // if (json_decode($response->getBody())->status == 'FAILED') {
+        //     $url = '/';
+        //     DB::table('subscription_plan_user')->truncate();
+        //     DB::table('subscription_plan_user')->where('user_id', '=', Auth::user()->id )->delete();
+
+        //     flash(json_decode($response->getBody())->failedreason)->error();
+
+        //     return redirect($url);
+        // }
         return redirect(json_decode($response->getBody())->redirectGatewayURL);
     }
 

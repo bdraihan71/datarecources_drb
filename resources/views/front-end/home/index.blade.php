@@ -249,6 +249,7 @@
                                         <form  method="post" action="{{ route('subscribe.plan') }}">
                                             @csrf
                                             <input type="hidden" name="price" value="{{ $subscriptionplan->price_per_month }}">
+                                            <input type="hidden" name="plan_id" value="{{ $subscriptionplan->id }}">
                                             <button type="submit" class="btn btn-outline-warning btn-sm">Get Started</button>
                                         </form>
                                     @else
@@ -269,6 +270,7 @@
                                         <form  method="post" action="{{ route('subscribe.plan') }}">
                                             @csrf
                                             <input type="hidden" name="price" value="{{ $subscriptionplan->price_per_year }}">
+                                            <input type="hidden" name="pplan_idrice" value="{{ $subscriptionplan->id }}">
                                             <button type="submit" class="btn btn-outline-warning btn-sm">Get Started </button>
                                         </form>
                                     @else
