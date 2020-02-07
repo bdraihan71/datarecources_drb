@@ -5,12 +5,16 @@
 <section class="news">
     <div class="container">
         <div class="row custom-header-top">
-            <div class="col-md-12 my-5">
+            <div class="col-md-12 mt-5">
                 <h3>{{$news->heading}}</h3>
                 <p class="card-text"><small class="text-muted">Posted on {{Carbon\Carbon::parse($news->created_at)->format('d F Y')}}</small></p>
-                <img src="{{ env('S3_URL') }}{{$news->image}}" class="img-fluid" alt="...">
+            </div>
+            <div class="col-md-12">
+                <img src="{{ env('S3_URL') }}{{$news->image}}" class="img-fluid w-50 float-right" alt="...">
                 <p>{{$news->body}}</p>
-                <a href="{{$news->source}}" target="_blank">Source</a>
+            </div>
+            <div class="col-md-12">
+                <a href="{{$news->source}}" target="_blank" class="h6">Source</a>
                 <div class="text-right">
                     <h6>Share</h6>
                     <div class="addthis_inline_share_toolbox mx-auto"></div>
