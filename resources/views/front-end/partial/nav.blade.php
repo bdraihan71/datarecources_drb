@@ -28,46 +28,50 @@
                     @if(count($sub_menus)>0)
                     <li class="nav-item dropdown nav-custom-margin-top">
                         <a class="nav-link dropdown-toggle font-weight-bold text-white" href="{{ $menu->page ? $menu->page->slug : "#" }}"  id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{$menu->title}}
+                            <small class="font-weight-bold">{{$menu->title}}</small>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             @foreach($sub_menus as $menu)
-                                <a class="dropdown-item" href="{{ $menu->page ? $menu->page->slug : "#" }}">{{$menu->title}}</a>
+                                <a class="dropdown-item" href="{{ $menu->page ? $menu->page->slug : "#" }}">
+                                    <small class="font-weight-bold">{{$menu->title}}</small>
+                                </a>
                             @endforeach
                         </div>
                     </li>
                     @else
                         <li class="nav-item nav-custom-margin-top">
                             <a class="nav-link font-weight-bold text-white" href="{{ $menu->page ? $menu->page->slug : "#" }}" >
-                                {{$menu->title}}
+                                <small class="font-weight-bold">{{$menu->title}}</small>
                             </a>
                         </li>
                     @endif
                 @endforeach
                 <li class="nav-item dropdown nav-custom-margin-top">
-                    <a class="nav-link dropdown-toggle font-weight-bold text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        COMPANY
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <small class="font-weight-bold">COMPANY</small>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{route('finance-info-all')}}">Financial Statement</a>
+                        <a class="dropdown-item" href="{{route('finance-info-all')}}">
+                            <small class="font-weight-bold">Financial Statement</small>
+                        </a>
                     </div>
                 </li>
 
                 <li class="nav-item nav-custom-margin-top">
                     <a class="nav-link font-weight-bold text-white" href="/news" >
-                        NEWS
+                        <small class="font-weight-bold">NEWS</small>
                     </a>
                 </li>
 
 
                 <li class="nav-item dropdown nav-custom-margin-top">
                     <a class="nav-link font-weight-bold text-white" href="{{route('visualize.index')}}">
-                    VISUALIZE
+                        <small class="font-weight-bold">VISUALIZE</small>
                     </a>
                 </li>
                 <li class="nav-item dropdown nav-custom-margin-top">
                     <a class="nav-link font-weight-bold text-white" href="{{route('visualize.data-matrix')}}">
-                    DATA MATRIX
+                        <small class="font-weight-bold">DATA MATRIX</small>
                     </a>
                 </li>
 
@@ -76,12 +80,12 @@
                 <form class="form-inline my-2 my-lg-0">
                     @if(Auth::check())
                         @if(Auth::user()->type == 'admin')
-                        <button class="btn btn-warning my-2 my-sm-0 mx-1" type="submit"><a href="/admin/menu">Admin Panel</a></button>
+                        <button class="btn btn-warning btn-sm my-2 my-sm-0 mx-1" type="submit"><a href="/admin/menu">Admin Panel</a></button>
                         @endif
-                        <button class="btn btn-warning my-2 my-sm-0 mx-1" type="submit"><a href="{{route('logout')}}"> Sign Out</a></button>
+                        <button class="btn btn-warning btn-sm my-2 my-sm-0 mx-1" type="submit"><a href="{{route('logout')}}"> Sign Out</a></button>
                     @else
-                        <button class="btn btn-warning my-2 my-sm-0 mx-1" type="submit"><a href="{{route('register')}}"> Sign Up</a></button>
-                        <button class="btn btn-outline-warning my-2 my-sm-0 text-white mx-1" type="submit"><a href="{{route('login')}}"> Sign In</a></button>
+                        <button class="btn btn-warning btn-sm my-2 my-sm-0 mx-1" type="submit"><a href="{{route('register')}}"> Sign Up</a></button>
+                        <button class="btn btn-outline-warning btn-sm my-2 my-sm-0 text-white mx-1" type="submit"><a href="{{route('login')}}"> Sign In</a></button>
                     @endif
                 </form>
             </ul>
