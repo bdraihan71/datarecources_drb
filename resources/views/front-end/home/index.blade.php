@@ -40,7 +40,7 @@
 
                 <div class="row"> 
                     @foreach ($allnews as $news)
-                        <div class="col-md-3">
+                        <div class="col-4 col-sm">
                             <a href="{{route('news.single',$news->id)}}">
                                 <div class="card border-0">
                                     <img src="{{ env('S3_URL') }}{{ $news->image }}" class="card-img-top" alt="...">
