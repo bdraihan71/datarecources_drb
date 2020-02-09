@@ -10,8 +10,8 @@
                 <p class="card-text"><small class="text-muted">Posted on {{Carbon\Carbon::parse($news->created_at)->format('d F Y')}}</small></p>
             </div>
             <div class="col-md-12">
-                <img src="{{ env('S3_URL') }}{{$news->image}}" class="img-fluid w-50 float-right" alt="...">
-                <p>{{$news->body}}</p>
+                <img src="{{ env('S3_URL') }}{{$news->image}}" class="img-fluid w-50 float-right pl-4" alt="...">
+                <p class="text-justify">{{$news->body}}</p>
             </div>
             <div class="col-md-12">
                 <a href="{{$news->source}}" target="_blank" class="h6">Source</a>

@@ -32,7 +32,7 @@
                         </div>
                         <div class="col-md-10">
                             <a href="{{route('news.single',$news->id)}}"><h5>{{ $news->heading }}</h5></a>
-                            <a href="{{route('news.single',$news->id)}}"><p>{{ implode(' ', array_slice(explode(' ', $news->body ), 0, 70))}}</p></a>
+                            <a href="{{route('news.single',$news->id)}}"><p class="text-justify">{{ implode(' ', array_slice(explode(' ', $news->body ), 0, 70))}}</p></a>
                             <a href="{{route('news.single',$news->id)}}">See More ></a>
                         </div>
                     </div>
