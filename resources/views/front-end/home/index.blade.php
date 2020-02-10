@@ -56,11 +56,12 @@
                         <h4 class="main-text-color">World</h4>
                         @if($world)
                         <a href="{{route('news.single',$world->id)}}">
-                            <img src="{{ env('S3_URL') }}{{$world->image}}" class="card-img-top" alt="...">
-                            <p class="card-text"><small>{{$world->heading}}</small></p>
+                            <img src="{{ env('S3_URL') }}{{$world->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
+                            <p class="card-text main-text-color category-news-heading-border py-2">{{$world->heading}}</p>
+                            <small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', $world->body), 0, 20))}}</small>
                         </a> 
                         @else 
-                            <p class="card-text"><small>No news available</small></p>
+                            <p class="card-text main-text-color"><small>No news available</small></p>
                         @endif    
                     </div>
 
@@ -68,11 +69,12 @@
                         <h4 class="main-text-color">Country</h4>
                         @if($country)
                         <a href="{{route('news.single',$country->id)}}">
-                            <img src="{{ env('S3_URL') }}{{$country->image}}" class="card-img-top" alt="...">
-                            <p class="card-text"><small>{{$country->heading}}</small></p>
+                            <img src="{{ env('S3_URL') }}{{$country->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
+                            <p class="card-text main-text-color category-news-heading-border py-2">{{$country->heading}}</p>
+                            <small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', $country->body), 0, 20))}}</small>
                         </a>
                         @else 
-                            <p class="card-text"><small>No news available</small></p>
+                            <p class="card-text main-text-color"><small>No news available</small></p>
                         @endif   
                     </div>
 
@@ -80,11 +82,12 @@
                         <h4 class="main-text-color">Economy</h4>
                         @if($economy)
                         <a href="{{route('news.single',$economy->id)}}">
-                            <img src="{{ env('S3_URL') }}{{$economy->image}}" class="card-img-top" alt="...">
-                            <p class="card-text"><small>{{$economy->heading}}</small></p>
+                            <img src="{{ env('S3_URL') }}{{$economy->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
+                            <p class="card-text main-text-color category-news-heading-border py-2">{{$economy->heading}}</p>
+                            <small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', $economy->body), 0, 20))}}</small>
                         </a>
                         @else 
-                            <p class="card-text"><small>No news available</small></p>
+                            <p class="card-text main-text-color"><small>No news available</small></p>
                         @endif  
                     </div>
 
@@ -92,11 +95,12 @@
                         <h4 class="main-text-color">Company</h4>
                         @if($company)
                         <a href="{{route('news.single',$company->id)}}">
-                            <img src="{{ env('S3_URL') }}{{$company->image}}" class="card-img-top" alt="...">
-                            <p class="card-text"><small>{{$company->heading}}</small></p>
+                            <img src="{{ env('S3_URL') }}{{$company->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
+                            <p class="card-text main-text-color category-news-heading-border py-2">{{$company->heading}}</p>
+                            <small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', $company->body), 0, 20))}}</small>
                         </a>
                         @else 
-                            <p class="card-text"><small>No news available</small></p>
+                            <p class="card-text main-text-color"><small>No news available</small></p>
                         @endif   
                     </div>
                 </div>

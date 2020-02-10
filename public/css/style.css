@@ -594,7 +594,17 @@ input[type="search"]::placeholder {
 }
 
 .top5-news-img {
-    width:100%;
-    height:100px;
-    object-fit:cover;
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+}
+
+.category-news-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.category-news-heading-border {
+    border-bottom: 1px dashed grey;
 }
