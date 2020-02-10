@@ -43,8 +43,8 @@
                         <div class="col-4 col-sm">
                             <a href="{{route('news.single',$news->id)}}">
                                 <div class="card border-0">
-                                    <img src="{{ env('S3_URL') }}{{ $news->image }}" class="card-img-top" alt="...">
-                                    <p class="card-text"><small>{{ $news->heading }}</small></p>
+                                    <img src="{{ env('S3_URL') }}{{ $news->image }}" class="card-img-top top5-news-img rounded-0" alt="...">
+                                    <p class="card-text main-text-color py-1"><small class="font-weight-bold">{{ $news->heading }}</small></p>
                                 </div>
                             </a>
                         </div>
