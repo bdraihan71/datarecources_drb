@@ -498,10 +498,6 @@ input[type="search"]::placeholder {
     margin-top: 112px;
 }
 
-.news-card-img {
-    height: 300px;
-}
-
 .news-background {
     min-height:300px;
     background-size:cover;
@@ -607,4 +603,10 @@ input[type="search"]::placeholder {
 
 .category-news-heading-border {
     border-bottom: 1px dashed grey;
+}
+
+.featured-news-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
 }

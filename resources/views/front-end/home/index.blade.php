@@ -10,7 +10,7 @@
                         @if($featured)
                             <div class="col-md-8">
                                 <a href="{{route('news.single',$featured->id)}}">
-                                    <img src="{{ env('S3_URL') }}{{$featured->image}}" class="card-img news-card-img rounded-0" alt="...">
+                                    <img src="{{ env('S3_URL') }}{{$featured->image}}" class="featured-news-img rounded-0" alt="...">
                                 </a>
                             </div>
                             <div class="col-md-4">
