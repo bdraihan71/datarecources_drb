@@ -6,23 +6,34 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="card mb-3 custom-header-top">
-                    <div class="row no-gutters news-background">
+                    <div class="row no-gutters">
                         @if($featured)
-                            <div class="col-md-8">
-                                <a href="{{route('news.single',$featured->id)}}">
-                                    <img src="{{ env('S3_URL') }}{{$featured->image}}" class="featured-news-img rounded-0" alt="...">
-                                </a>
+                            <div class="col-md-12">
+                                <div class="featured-img">
+                                    <a href="{{route('news.single',$featured->id)}}">
+                                        <img src="{{ env('S3_URL') }}{{$featured->image}}" class="featured-news-img rounded-0" alt="...">
+                                    </a>
+                                
+                                    <div class="card-body text-left featured-img-text pl-4 pt-5">
+                                        <a href="{{route('news.single',$featured->id)}}">
+                                            <h5 class="card-title text-white">{{$featured->heading}}</h5>
+                                            {{-- <p class="card-text text-white">{{$featured->body}}</p> --}}
+                                            <p class="card-text text-white">{{implode(' ', array_slice(explode(' ', $featured->body), 0, 20))}}</p>
+                                            <p class="card-text"><small class="text-white">{{$featured->updated_at->diffForHumans()}}</small></p>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-md-4">
+                            {{-- <div class="col-md-4">
                                 <div class="card-body text-right">
                                     <a href="{{route('news.single',$featured->id)}}">
                                         <h5 class="card-title text-white">{{$featured->heading}}</h5>
                                         {{-- <p class="card-text text-white">{{$featured->body}}</p> --}}
-                                        <p class="card-text text-white">{{implode(' ', array_slice(explode(' ', $featured->body), 0, 20))}}</p>
+                                        {{-- <p class="card-text text-white">{{implode(' ', array_slice(explode(' ', $featured->body), 0, 20))}}</p>
                                         <p class="card-text"><small class="text-muted">{{$featured->updated_at->diffForHumans()}}</small></p>
                                     </a>
                                 </div>
-                            </div>
+                            </div> --}}
                         @else
                             <div class="col-md-8">
                                 <img src="img/blur.jpg" class="card-img news-card-img rounded-0" alt="...">
