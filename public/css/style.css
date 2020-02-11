@@ -632,7 +632,7 @@ input[type="search"]::placeholder {
         height: 100%;
         -webkit-backdrop-filter: blur(3px);
         backdrop-filter: blur(3px);
-        background-color: rgba(0, 0, 0, 0.5); 
+        background-color: rgba(0, 0, 0, 0.8); 
         color: white;
     }
 }
