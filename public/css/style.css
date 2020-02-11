@@ -595,6 +595,12 @@ input[type="search"]::placeholder {
     object-fit: cover;
 }
 
+.news-index-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
 .category-news-heading-border {
     border-bottom: 1px dashed grey;
 }

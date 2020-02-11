@@ -27,7 +27,7 @@
                     <div class="row">
                         <div class="col-md-2">
                             <a href="{{route('news.single',$news->id)}}">
-                                <img src="{{ env('S3_URL') }}{{$news->image}}" class="mr-3 img-fluid" alt="...">
+                                <img src="{{ env('S3_URL') }}{{$news->image}}" class="mr-3 img-fluid news-index-img" alt="...">
                             </a>
                         </div>
                         <div class="col-md-10">
