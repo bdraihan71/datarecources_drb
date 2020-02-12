@@ -92,14 +92,6 @@
     });
   });
 
-  $('#myIframe').hide("fast",function(){
-    $("#myIframe").show(5000);
-  });
-
-  $('#myIframe2').hide("fast",function(){
-    $("#myIframe2").show(5000);
-  });
-
 })(jQuery);
 
 //Get the button
