@@ -642,3 +642,14 @@ input[type="search"]::placeholder {
         color: white;
     }
 }
+
+.iframe-1 {
+    height: 220px;
+    width: 100%;
+    margin-top: 170px;
+}
+
+.iframe-2 {
+    height: 90px;
+    width: 100%;
+}

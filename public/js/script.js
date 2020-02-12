@@ -113,3 +113,14 @@ function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+
+
+var myIframe = document.getElementById('myIframe');
+myIframe.onload = function () {
+      myIframe.contentWindow.scrollTo(9,512);
+}
+
+var myIframe2 = document.getElementById('myIframe2');
+    myIframe2.onload = function () {
+        myIframe2.contentWindow.scrollTo(9,301);
+    }

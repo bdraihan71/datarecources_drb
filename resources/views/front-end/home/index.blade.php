@@ -117,7 +117,12 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <iframe class="custom-header-top" src="https://www.dsebd.org/" width="400" height="400"></iframe>
+                <div class="iframe-div-1">
+                    <iframe id="myIframe" is="x-frame-bypass" class="custom-header-top iframe-1" src="https://www.dsebd.org/" scrolling="no"></iframe>
+                </div>
+                <div class="iframe-div-2">
+                    <iframe id="myIframe2" is="x-frame-bypass" class="iframe-2" src="https://www.dsebd.org/" scrolling="no"></iframe>
+                </div>
             </div>
         </div>
     </div>
@@ -484,3 +489,17 @@
     </div>
 </section>
 @endsection
+
+{{-- <script>
+    var myIframe = document.getElementById('myIframe');
+    myIframe.onload = function () {
+         myIframe.contentWindow.scrollTo(9,512);
+    }
+</script>
+
+<script>
+    var myIframe2 = document.getElementById('myIframe2');
+    myIframe2.onload = function () {
+        myIframe2.contentWindow.scrollTo(9,212);
+    }
+</script> --}}
