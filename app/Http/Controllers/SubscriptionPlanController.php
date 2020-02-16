@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Invoice;
 use App\SubscriptionPlan;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
@@ -80,14 +81,31 @@ class SubscriptionPlanController extends Controller
         return redirect()->route('subscriptionplan.index')->with('success', 'Subscription Plan has been deleted successfully');
     }
 
+    function original(){ 
+        return new Carbon; 
+    }
+
     public function subscribePlan(Request $request)
     {
+        $tran_id = new Carbon;
+
+
+        $invoice = new Invoice;
+        $invoice->user_id = auth()->user()->id;
+        $invoice->plan_id = $request->plan_id;
+        if ($request->type == 'monthly')
+        {
+            $invoice->expiry_date =  $this->original()->addMonths(1);
+        }else {
+            $invoice->expiry_date =  $this->original()->addMonths(12);
+        }
+       
+        
         $appURl = config('app.url');
         $store_id = env('SSL_STORE_ID', false);
         $store_pass =  env('SSL_STORE_PASS', false);
         $total_amount = $request->price;
         $currency = 'BDT';
-        $tran_id = new Carbon;
         $tran_id = $tran_id->format('Y-m-d::H:i:s.u');
         $success_url = $appURl.'/subscriptionplan/success';
         $fail_url = $appURl.'/subscriptionplan/fail';
@@ -111,6 +129,8 @@ class SubscriptionPlanController extends Controller
                 'customer_phone' => $customer_phone,
             ]
         ]);
+
+        $invoice->save();
         return redirect(json_decode($response->getBody())->redirectGatewayURL);
     }
 
