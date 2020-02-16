@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row custom-header-top">
             <div class="col-md-12 mt-5">
-                <h3>News</h3>
+                <h3>NEWS</h3>
             </div>
             <div class="col-md-3"></div>
             <div class="col-md-6 mb-5">
