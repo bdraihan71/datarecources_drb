@@ -190,7 +190,12 @@ a.article:hover {
 }
 
 .search-width {
-    padding: 0px 150px 0px 150px; 
+    padding: 0px 150px 0px 150px;
+    font-size: 13px;
+}
+
+.search-btn-width {
+    font-size: 13px;
 }
 
 .search-border {
@@ -652,4 +657,9 @@ input[type="search"]::placeholder {
 .iframe-2 {
     height: 90px;
     width: 100%;
+}
+
+.nav-item-custom-size {
+    font-size: 15px;
+    font-weight: 600 !important;
 }
