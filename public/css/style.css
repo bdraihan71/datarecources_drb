@@ -650,4 +650,5 @@ input[type="search"]::placeholder {
 
 .nav-item-custom-size {
     font-size: 15px;
+    font-weight: 600 !important;
 }
