@@ -28,12 +28,12 @@
                     @if(count($sub_menus)>0)
                     <li class="nav-item dropdown nav-custom-margin-top">
                         <a class="nav-link dropdown-toggle font-weight-bold text-white" href="{{ $menu->page ? $menu->page->slug : "#" }}"  id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <small class="font-weight-bold">{{$menu->title}}</small>
+                            <small class="font-weight-bold nav-item-custom-size">{{$menu->title}}</small>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             @foreach($sub_menus as $menu)
                                 <a class="dropdown-item" href="{{ $menu->page ? $menu->page->slug : "#" }}">
-                                    <small class="font-weight-bold">{{$menu->title}}</small>
+                                    <small class="font-weight-bold nav-item-custom-size">{{$menu->title}}</small>
                                 </a>
                             @endforeach
                         </div>
@@ -41,37 +41,37 @@
                     @else
                         <li class="nav-item nav-custom-margin-top">
                             <a class="nav-link font-weight-bold text-white" href="{{ $menu->page ? $menu->page->slug : "#" }}" >
-                                <small class="font-weight-bold">{{$menu->title}}</small>
+                                <small class="font-weight-bold nav-item-custom-size">{{$menu->title}}</small>
                             </a>
                         </li>
                     @endif
                 @endforeach
                 <li class="nav-item dropdown nav-custom-margin-top">
                     <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <small class="font-weight-bold">COMPANY</small>
+                        <small class="font-weight-bold nav-item-custom-size">COMPANY</small>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="{{route('finance-info-all')}}">
-                            <small class="font-weight-bold">Financial Statement</small>
+                            <small class="font-weight-bold nav-item-custom-size">Financial Statement</small>
                         </a>
                     </div>
                 </li>
 
                 <li class="nav-item nav-custom-margin-top">
                     <a class="nav-link font-weight-bold text-white" href="/news" >
-                        <small class="font-weight-bold">NEWS</small>
+                        <small class="font-weight-bold nav-item-custom-size">NEWS</small>
                     </a>
                 </li>
 
 
                 <li class="nav-item dropdown nav-custom-margin-top">
                     <a class="nav-link font-weight-bold text-white" href="{{route('visualize.index')}}">
-                        <small class="font-weight-bold">VISUALIZE</small>
+                        <small class="font-weight-bold nav-item-custom-size">VISUALIZE</small>
                     </a>
                 </li>
                 <li class="nav-item dropdown nav-custom-margin-top">
                     <a class="nav-link font-weight-bold text-white" href="{{route('visualize.data-matrix')}}">
-                        <small class="font-weight-bold">DATA MATRIX</small>
+                        <small class="font-weight-bold nav-item-custom-size">DATA MATRIX</small>
                     </a>
                 </li>
 
