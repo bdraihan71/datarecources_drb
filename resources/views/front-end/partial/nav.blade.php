@@ -80,7 +80,9 @@
                 <form class="form-inline my-2 my-lg-0">
                     @if(Auth::check())
                         @if(Auth::user()->type == 'admin')
-                        <button class="btn btn-warning btn-sm my-2 my-sm-0 mx-1" type="submit"><a href="/admin/menu">Admin Panel</a></button>
+                            <button class="btn btn-warning btn-sm my-2 my-sm-0 mx-1" type="submit"><a href="/admin/menu">Admin Panel</a></button>
+                        @else
+                            <button class="btn btn-warning btn-sm my-2 my-sm-0 mx-1" type="submit"><a href="/invoice-user">Admin Panel</a></button>
                         @endif
                         <button class="btn btn-warning btn-sm my-2 my-sm-0 mx-1" type="submit"><a href="{{route('logout')}}"> Sign Out</a></button>
                     @else
