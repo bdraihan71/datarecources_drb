@@ -190,7 +190,12 @@ a.article:hover {
 }
 
 .search-width {
-    padding: 0px 150px 0px 150px; 
+    padding: 0px 150px 0px 150px;
+    font-size: 13px;
+}
+
+.search-btn-width {
+    font-size: 13px;
 }
 
 .search-border {

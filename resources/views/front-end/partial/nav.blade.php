@@ -6,7 +6,7 @@
                 <div class="input-group">
                     <input class="form-control border-secondary search-border border border-secondary search-width" type="search" value="" name="search" placeholder=" Search by keyword">
                     <div class="input-group-append">
-                        <button type="submit" class="btn btn-warning search-btn-border border border-secondary" type="button">
+                        <button type="submit" class="btn btn-warning search-btn-border border border-secondary search-btn-width" type="button">
                             <i class="fa fa-search"></i>
                         </button>
                     </div>
