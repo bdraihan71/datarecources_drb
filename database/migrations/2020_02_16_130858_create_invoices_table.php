@@ -18,6 +18,8 @@ class CreateInvoicesTable extends Migration
             $table->softDeletes();
             $table->bigInteger('user_id');
             $table->bigInteger('plan_id');
+            $table->integer('price');
+            $table->string('type');
             $table->date('expiry_date');
             $table->timestamps();
         });

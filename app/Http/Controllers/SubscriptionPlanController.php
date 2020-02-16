@@ -93,6 +93,8 @@ class SubscriptionPlanController extends Controller
         $invoice = new Invoice;
         $invoice->user_id = auth()->user()->id;
         $invoice->plan_id = $request->plan_id;
+        $invoice->price = $request->price;
+        $invoice->type = $request->type;
         if ($request->type == 'monthly')
         {
             $invoice->expiry_date =  $this->original()->addMonths(1);
@@ -100,7 +102,7 @@ class SubscriptionPlanController extends Controller
             $invoice->expiry_date =  $this->original()->addMonths(12);
         }
        
-        
+
         $appURl = config('app.url');
         $store_id = env('SSL_STORE_ID', false);
         $store_pass =  env('SSL_STORE_PASS', false);
