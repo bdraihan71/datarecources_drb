@@ -28,7 +28,7 @@
                         <td>{{ $invoice->subscriptionplan->name }}</td>
                         <td>{{ $invoice->price }}</td>
                         <td>{{ $invoice->expiry_date }}</td>
-                        <td>delete</td>
+                        <td>view</td>
                         {{-- @if($menu->parent)
                             <td>{{ $menu->parent->title }}</td>
                         @else

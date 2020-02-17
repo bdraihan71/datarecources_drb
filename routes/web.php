@@ -103,6 +103,8 @@ Route::middleware(['auth'])->group(function () {
 
     //invoice
     Route::get('/invoice-user', 'InvoiceController@invoiceUser')->name('invoice.user');
+    Route::get('/invoice/getuser', 'InvoiceController@getUser')->name('invoice.getuser');
+    Route::post('/invoice/postuser', 'InvoiceController@postUser')->name('invoice.postuser');
 });
 
 

@@ -18,4 +18,14 @@ class InvoiceController extends Controller
         $invoices = Invoice::where('user_id', auth()->user()->id)->orderBy('created_at', 'DESC')->get();
         return view('back-end.user-dashboard.invoice.index', compact('invoices'));
     }
+
+    public function getUser()
+    {
+        return view('back-end.user-dashboard.subscriber.index');
+    }
+
+    public function postUser(Request $request)
+    {
+        dd($request->email);
+    }
 }

@@ -9,6 +9,9 @@
             <li class="{{ request()->url() == route('invoice.user') ? 'sidebar-active' : '' }}">
                 <a href="{{route('invoice.user')}}">Invoice</a>
             </li>
+             <li class="{{ request()->url() == route('invoice.getuser') ? 'sidebar-active' : '' }}">
+                <a href="{{route('invoice.getuser')}}">Subscriber</a>
+            </li>
         @else
             <li class="{{ request()->url() == route('menu.index') ? 'sidebar-active' : '' }}">
                 <a href="{{route('menu.index')}}">Menu</a>
