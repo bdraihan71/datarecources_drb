@@ -109,7 +109,7 @@ class SubscriptionPlanController extends Controller
         $subscriber = new Subscriber;
         $subscriber->Invoice_id = $invoice->id;
         $subscriber->creator = auth()->user()->id;
-        $subscriber->user_id =auth()->user()->id;
+        $subscriber->user_id = auth()->user()->id;
         if ($request->type == 'monthly')
         {
             $subscriber->expiry_date =  $this->original()->addMonths(1);
