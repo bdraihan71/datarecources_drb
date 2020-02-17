@@ -10,4 +10,9 @@ class Invoice extends DrbModel
     {
         return $this->belongsTo('App\SubscriptionPlan','id');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

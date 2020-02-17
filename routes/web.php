@@ -80,6 +80,9 @@ Route::middleware(['auth','admin'])->group(function () {
 
 
         Route::get('/stockinfo', 'StockInfoController@index')->name('stockinfo.index');
+
+        //invoice
+        Route::get('/invoice', 'InvoiceController@index')->name('invoice.index');
     });
 
     //Page

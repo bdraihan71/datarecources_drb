@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
 {
+    public function index()
+    {
+        $invoices = Invoice::orderBy('created_at', 'DESC')->get();
+        return view('back-end.invoice.index', compact('invoices'));
+    }
+
     public function invoiceUser()
     {
         $invoices = Invoice::where('user_id', auth()->user()->id)->orderBy('created_at', 'DESC')->get();

@@ -49,6 +49,9 @@
             <li class="{{ request()->url() == route('stockinfo.index') ? 'sidebar-active' : '' }}">
                 <a href="{{route('stockinfo.index')}}">Stock Info</a>
             </li>
+            <li class="{{ request()->url() == route('invoice.index') ? 'sidebar-active' : '' }}">
+                <a href="{{route('invoice.index')}}">Invoice</a>
+            </li>
             {{-- <li >
                 <a href="#">About</a>
             </li>
