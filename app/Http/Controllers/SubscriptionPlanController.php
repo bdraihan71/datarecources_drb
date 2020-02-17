@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Invoice;
+use App\Mail\Subscribe;
+use App\Subscriber;
 use App\SubscriptionPlan;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
@@ -95,13 +97,27 @@ class SubscriptionPlanController extends Controller
         $invoice->plan_id = $request->plan_id;
         $invoice->price = $request->price;
         $invoice->type = $request->type;
+        $invoice->user_limit = $request->user_limit;
         if ($request->type == 'monthly')
         {
             $invoice->expiry_date =  $this->original()->addMonths(1);
         }else {
             $invoice->expiry_date =  $this->original()->addMonths(12);
         }
-       
+        $invoice->save();
+
+        $subscriber = new Subscriber;
+        $subscriber->Invoice_id = $invoice->id;
+        $subscriber->creator = auth()->user()->id;
+        $subscriber->user_id =auth()->user()->id;
+        if ($request->type == 'monthly')
+        {
+            $subscriber->expiry_date =  $this->original()->addMonths(1);
+        }else {
+            $subscriber->expiry_date =  $this->original()->addMonths(12);
+        }
+        $subscriber->save();
+        
 
         $appURl = config('app.url');
         $store_id = env('SSL_STORE_ID', false);
@@ -132,7 +148,8 @@ class SubscriptionPlanController extends Controller
             ]
         ]);
 
-        $invoice->save();
+       
+        
         return redirect(json_decode($response->getBody())->redirectGatewayURL);
     }
 

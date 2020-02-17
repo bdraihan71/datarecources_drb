@@ -15,6 +15,7 @@ class CreateSubscribersTable extends Migration
     {
         Schema::create('subscribers', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->softDeletes();
             $table->bigInteger('Invoice_id');
             $table->bigInteger('creator');
             $table->bigInteger('user_id');
