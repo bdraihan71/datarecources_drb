@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInvoicesTable extends Migration
+class CreateSubscribersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class CreateInvoicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('invoices', function (Blueprint $table) {
+        Schema::create('subscribers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->softDeletes();
+            $table->bigInteger('Invoice_id');
+            $table->bigInteger('creator');
             $table->bigInteger('user_id');
-            $table->bigInteger('plan_id');
-            $table->integer('price');
-            $table->string('type');
             $table->date('expiry_date');
             $table->boolean('is_expire')->nullable();
-            $table->integer('user_limit');
             $table->timestamps();
         });
     }
@@ -34,6 +31,6 @@ class CreateInvoicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('invoices');
+        Schema::dropIfExists('subscribers');
     }
 }
