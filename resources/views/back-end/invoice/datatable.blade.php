@@ -30,7 +30,7 @@
                         <td>{{ $invoice->subscriptionplan->name }}</td>
                         <td>{{ $invoice->user->full_name }}</td>
                         <td>{{ $invoice->price }}</td>
-                        <td>{{ $invoice->expiry_date }}</td>
+                        <td>{{ $invoice->expire_date }}</td>
                         <td>view</td>
                         {{-- @if($menu->parent)
                             <td>{{ $menu->parent->title }}</td>

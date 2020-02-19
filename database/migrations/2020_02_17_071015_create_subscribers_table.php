@@ -19,7 +19,7 @@ class CreateSubscribersTable extends Migration
             $table->bigInteger('invoice_id');
             $table->bigInteger('creator');
             $table->bigInteger('user_id');
-            $table->date('expiry_date');
+            $table->date('expire_date');
             $table->boolean('is_expire')->nullable();
             $table->timestamps();
         });

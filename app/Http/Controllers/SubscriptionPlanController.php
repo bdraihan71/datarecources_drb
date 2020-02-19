@@ -102,9 +102,9 @@ class SubscriptionPlanController extends Controller
         $invoice->user_limit = $request->user_limit;
         if ($request->type == 'monthly')
         {
-            $invoice->expiry_date =  $this->original()->addMonths(1);
+            $invoice->expire_date =  $this->original()->addMonths(1);
         }else {
-            $invoice->expiry_date =  $this->original()->addMonths(12);
+            $invoice->expire_date =  $this->original()->addMonths(12);
         }
         $invoice->save();
 
@@ -114,9 +114,9 @@ class SubscriptionPlanController extends Controller
         $subscriber->user_id = auth()->user()->id;
         if ($request->type == 'monthly')
         {
-            $subscriber->expiry_date =  $this->original()->addMonths(1);
+            $subscriber->expire_date =  $this->original()->addMonths(1);
         }else {
-            $subscriber->expiry_date =  $this->original()->addMonths(12);
+            $subscriber->expire_date =  $this->original()->addMonths(12);
         }
         $subscriber->save();
         

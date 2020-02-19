@@ -42,7 +42,7 @@ class InvoiceController extends Controller
                 $subscriber->invoice_id = $invoice->id;
                 $subscriber->creator = auth()->user()->id;
                 $subscriber->user_id = $user->id;
-                $subscriber->expiry_date =  $invoice->expiry_date;
+                $subscriber->expire_date =  $invoice->expire_date;
                 $subscriber->save();
             }else{
                 // dd('User limit exceeded');

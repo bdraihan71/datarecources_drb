@@ -27,7 +27,7 @@
                     <tr>
                         <td>{{ $invoice->subscriptionplan->name }}</td>
                         <td>{{ $invoice->price }}</td>
-                        <td>{{ $invoice->expiry_date }}</td>
+                        <td>{{ $invoice->expire_date }}</td>
                         <td>
                             <a href="{{ route('invoice.show', $invoice->id)}}" class="btn btn-outline-primary">view</a>
                         </td>

@@ -21,7 +21,7 @@ class CreateInvoicesTable extends Migration
             $table->bigInteger('plan_id');
             $table->integer('price');
             $table->string('type');
-            $table->date('expiry_date');
+            $table->date('expire_date');
             $table->boolean('is_expire')->nullable();
             $table->integer('user_limit');
             $table->timestamps();
