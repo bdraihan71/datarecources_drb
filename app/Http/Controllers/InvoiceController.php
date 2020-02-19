@@ -23,7 +23,9 @@ class InvoiceController extends Controller
 
     public function getUser()
     {
-        return view('back-end.user-dashboard.subscriber.index');
+        $subscriber = Subscriber::where('creator', auth()->user()->id)->latest()->first();
+        $subscribers =Subscriber::where('invoice_id', $subscriber->invoice_id)->get();
+        return view('back-end.user-dashboard.subscriber.index', compact('subscribers'));
     }
 
     public function postUser(Request $request)
@@ -31,10 +33,10 @@ class InvoiceController extends Controller
         $user = User::where('email', $request->email)->first();
         if ($user != null){
             $invoice = Invoice::where('user_id', auth()->user()->id)->latest()->first();
-            $subscriber = Subscriber::where('Invoice_id', $invoice->id)->get();
+            $subscriber = Subscriber::where('invoice_id', $invoice->id)->get();
             if($subscriber->count() <= $invoice->user_limit){
                 $subscriber = new Subscriber;
-                $subscriber->Invoice_id = $invoice->id;
+                $subscriber->invoice_id = $invoice->id;
                 $subscriber->creator = auth()->user()->id;
                 $subscriber->user_id = $user->id;
                 $subscriber->expiry_date =  $invoice->expiry_date;

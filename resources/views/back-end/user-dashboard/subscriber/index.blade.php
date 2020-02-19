@@ -18,6 +18,6 @@
         </div>
     </div>
 </form>
-{{-- @include('back-end.user-dashboard.subscriber.datatable') --}}
+@include('back-end.user-dashboard.subscriber.datatable')
 
 @endsection

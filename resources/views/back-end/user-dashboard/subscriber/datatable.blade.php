@@ -1,4 +1,3 @@
-<?php $i = 1 ; ?>
 <div class="card mb-3">
     <div class="card-header">
         <i class="fas fa-table"></i>
@@ -8,53 +7,24 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
             <tr>
-                <th>Sl.</th>
-                <th>Survey Name</th>
-                <th>Survey Description</th>
-                <th>Publish</th>
-                <th>Accepting Answer</th>
+                <th>Name</th>
+                <th>Email</th>
                 <th>Action</th>
             </tr>
             </thead>
             <tfoot>
             <tr>
-                <th>Sl.</th>
-                <th>Survey Name</th>
-                <th>Survey Description</th>
-                <th>Publish</th>
-                <th>Accepting Answer</th>
+                <th>Name</th>
+                <th>Email</th>
                 <th>Action</th>
             </tr>
             </tfoot>
             <tbody>
-                @foreach ($surveys as $survey)
+                @foreach ($subscribers as $subscriber)
                     <tr>
-                        <td>{{$i++}}</td>
-                        <td>{{ $survey->title }}</td>
-                        <td>{{ $survey->description }}</td>
-                        <td>
-                            @if ( $survey->is_published == 0)
-                                No
-                            @else
-                                Yes
-                            @endif
-                        </td>
-                        <td>
-                            @if ( $survey->is_accepting_answer == 0)
-                                No
-                            @else
-                                Yes
-                            @endif
-                        </td>
-                        <td>
-                            <a href="{{ route('survey.show', $survey->id)}}" class="btn btn-outline-primary">View</a>
-                            <a href="{{ route('survey.edit', $survey->id)}}" class="btn btn-outline-primary">Edit</a>
-                            <form action="{{ route('survey.destroy', $survey->id)}}" onclick="return confirm('Are you sure, you want to delete this survey?')" method="post" style="display: inline;">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-outline-danger">Delete</button>
-                            </form>
-                        </td>
+                        <td>{{ $subscriber->user->full_name }}</td>
+                        <td>{{ $subscriber->user->email }}</td>
+                        <td>delete</td>
                     </tr>
                 @endforeach
             </tbody>
