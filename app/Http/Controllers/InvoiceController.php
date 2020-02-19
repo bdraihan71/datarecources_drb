@@ -24,8 +24,13 @@ class InvoiceController extends Controller
     public function getUser()
     {
         $subscriber = Subscriber::where('creator', auth()->user()->id)->latest()->first();
-        $subscribers =Subscriber::where('invoice_id', $subscriber->invoice_id)->get();
-        return view('back-end.user-dashboard.subscriber.index', compact('subscribers'));
+       if( $subscriber != null){
+            $subscribers =Subscriber::where('invoice_id', $subscriber->invoice_id)->get();
+            return view('back-end.user-dashboard.subscriber.index', compact('subscribers'));
+       }else{
+        return redirect()->back()->with('error', 'Please purchase any package');
+       }
+        
     }
 
     public function postUser(Request $request)
