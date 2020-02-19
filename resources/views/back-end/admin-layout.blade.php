@@ -22,6 +22,15 @@
                 </ul>
             </div>
         @endif
+        @if(session('error'))
+            <div class="row text-center alert alert-danger push-down">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    {{session('error')}}
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        @endif
         <div id="content-wrapper">
 
             <div class="container-fluid">

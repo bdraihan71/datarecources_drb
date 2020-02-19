@@ -30,11 +30,14 @@ class InvoiceController extends Controller
 
     public function postUser(Request $request)
     {
+        $this->validate($request, [
+            'email' => 'required',
+        ]);
         $user = User::where('email', $request->email)->first();
         if ($user != null){
             $invoice = Invoice::where('user_id', auth()->user()->id)->latest()->first();
             $subscriber = Subscriber::where('invoice_id', $invoice->id)->get();
-            if($subscriber->count() <= $invoice->user_limit){
+            if($subscriber->count() < $invoice->user_limit){
                 $subscriber = new Subscriber;
                 $subscriber->invoice_id = $invoice->id;
                 $subscriber->creator = auth()->user()->id;
@@ -42,11 +45,12 @@ class InvoiceController extends Controller
                 $subscriber->expiry_date =  $invoice->expiry_date;
                 $subscriber->save();
             }else{
-                dd('User limit exceeded');
-                // return redirect()->back()->with('success', 'User limit exceeded');
+                // dd('User limit exceeded');
+                return redirect()->back()->with('error', 'User limit exceeded');
             }
         }else {
-            dd('User not found');
+            // dd('User not found');
+            return redirect()->back()->with('error', 'User not found');
         }
 
         return redirect()->back();
