@@ -24,7 +24,13 @@
                     <tr>
                         <td>{{ $subscriber->user->full_name }}</td>
                         <td>{{ $subscriber->user->email }}</td>
-                        <td>delete</td>
+                        <td>
+                            <form action="{{ route('subscriber.destroy', $subscriber->id)}}" onclick="return confirm('Are you sure, you want to unsubscriber this user?')" method="post" style="display: inline;">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-outline-danger">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

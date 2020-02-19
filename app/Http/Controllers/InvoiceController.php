@@ -42,13 +42,21 @@ class InvoiceController extends Controller
                 $subscriber->expiry_date =  $invoice->expiry_date;
                 $subscriber->save();
             }else{
-                dd('user limit exceeded');
+                dd('User limit exceeded');
+                // return redirect()->back()->with('success', 'User limit exceeded');
             }
-            // dd($subscriber->count());
-            // dd($invoice->user_limit);
         }else {
-            dd('not found');
+            dd('User not found');
         }
+
+        return redirect()->back();
         
+    }
+
+    public function destroy($id)
+    {
+        $subscriber = Subscriber::find($id);
+        $subscriber->delete();
+        return redirect()->back();
     }
 }
