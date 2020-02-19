@@ -89,12 +89,14 @@ class SubscriptionPlanController extends Controller
 
     public function subscribePlan(Request $request)
     {
+        $invoice = Invoice::all();
         $tran_id = new Carbon;
-
+        $uniqueid =  '#'.'DRB'.date("Y").(count($invoice)+1);
 
         $invoice = new Invoice;
         $invoice->user_id = auth()->user()->id;
         $invoice->plan_id = $request->plan_id;
+        $invoice->unique_id = $uniqueid;
         $invoice->price = $request->price;
         $invoice->type = $request->type;
         $invoice->user_limit = $request->user_limit;

@@ -7,8 +7,8 @@
         <div class="card-header p-4">
             <a class="pt-2 d-inline-block main-text-color" href="#" data-abc="true"><h2>DRB</h2></a>
             <div class="float-right">
-                <h4 class="mb-0">Invoice #BBB10234</h4>
-                Date: 19 Feb,2020
+                <h4 class="mb-0">Invoice {{$invoice->unique_id}}</h4>
+                Date: {{$invoice->created_at->format('d/m/Y')}}
             </div>
         </div>
         <div class="card-body">
@@ -24,10 +24,9 @@
                 <div class="col-sm-6 ">
                     <h5 class="mb-3">To:</h5>
                     <h4 class="text-dark mb-1">Client Name</h4>
-                    <div>29, Uttara</div>
-                    <div>Dhaka-1209</div>
-                    <div>Email: contact@drb.com</div>
-                    <div>Phone: +88 017 55 837774</div>
+                    <div>{{$invoice->user->full_name}}</div>
+                    <div>Email: {{$invoice->user->email}}</div>
+                    <div>Phone: {{$invoice->user->contact_number}}</div>
                 </div>
             </div>
             <div class="table-responsive-sm">
@@ -45,11 +44,11 @@
                     <tbody>
                         <tr>
                             <td class="center">1</td>
-                            <td class="left strong">Basic</td>
-                            <td class="left">Basic Package for 5 user</td>
-                            <td class="right">bdt 500</td>
+                            <td class="left strong">{{$invoice->plan->name}}</td>
+                            <td class="left">{{$invoice->plan->name}} Package for {{$invoice->user_limit}} user</td>
+                            <td class="right">bdt {{$invoice->price}}</td>
                             <td class="center">1</td>
-                            <td class="right">bdt 500</td>
+                            <td class="right">bdt {{$invoice->price}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -64,7 +63,7 @@
                                 <td class="left">
                                     <strong class="text-dark">Total</strong> </td>
                                 <td class="right">
-                                    <strong class="text-dark">bdt 500</strong>
+                                    <strong class="text-dark">bdt {{$invoice->price}}</strong>
                                 </td>
                             </tr>
                         </tbody>

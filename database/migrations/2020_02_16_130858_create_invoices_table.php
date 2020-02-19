@@ -17,6 +17,7 @@ class CreateInvoicesTable extends Migration
             $table->bigIncrements('id');
             $table->softDeletes();
             $table->bigInteger('user_id');
+            $table->string('unique_id');
             $table->bigInteger('plan_id');
             $table->integer('price');
             $table->string('type');
