@@ -142,7 +142,7 @@
                     @endif 
                     
                     @if(auth()->user())
-                        @if($user->subscriptionplans->isEmpty())
+                        @if($user->subscribers->last()->is_expire != null)
                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
                         @else
                             @if($item->annual_excel_url != '#')
@@ -156,7 +156,7 @@
                     @endif  
 
                     @if(auth()->user())
-                        @if($user->subscriptionplans->isEmpty())
+                        @if($user->subscribers->last()->is_expire != null)
                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
                         @else
                             @if($item->annual_pdf_1_url != '#')
@@ -170,7 +170,7 @@
                     @endif 
 
                     @if(auth()->user())
-                        @if($user->subscriptionplans->isEmpty())
+                        @if($user->subscribers->last()->is_expire != null)
                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
                         @else
                             @if($item->annual_pdf_2_url != '#')
@@ -184,7 +184,7 @@
                     @endif 
 
                     @if(auth()->user())
-                        @if($user->subscriptionplans->isEmpty())
+                        @if($user->subscribers->last()->is_expire != null)
                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
                         @else
                             @if($item->annual_pdf_3_url != '#')
@@ -198,7 +198,7 @@
                     @endif 
 
                     @if(auth()->user())
-                        @if($user->subscriptionplans->isEmpty())
+                        @if($user->subscribers->last()->is_expire != null)
                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
                         @else
                             @if($item->annual_pdf_4_url != '#')
@@ -212,7 +212,7 @@
                     @endif 
 
                     @if(auth()->user())
-                        @if($user->subscriptionplans->isEmpty())
+                        @if($user->subscribers->last()->is_expire != null)
                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
                         @else
                             @if($item->annual_pdf_5_url != '#')

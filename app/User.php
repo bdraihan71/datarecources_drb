@@ -51,4 +51,8 @@ class User extends Authenticatable
             return false;
         }
     }
+    public function subscribers()
+    {
+        return $this->hasMany('App\Subscriber');
+    }
 }
