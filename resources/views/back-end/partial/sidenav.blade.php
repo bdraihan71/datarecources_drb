@@ -44,6 +44,10 @@
         <li class="{{ request()->url() == route('stockinfo.index') ? 'sidebar-active' : '' }}">
             <a href="{{route('stockinfo.index')}}">Stock Info</a>
         </li>
+
+        <li class="{{ request()->url() == route('stockinfo.data-matrix') ? 'sidebar-active' : '' }}">
+            <a href="{{route('stockinfo.data-matrix')}}">Data Matrix</a>
+        </li>
         {{-- <li >
             <a href="#">About</a>
         </li>

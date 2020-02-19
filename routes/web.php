@@ -80,6 +80,8 @@ Route::middleware(['auth','admin'])->group(function () {
 
 
         Route::get('/stockinfo', 'StockInfoController@index')->name('stockinfo.index');
+        Route::get('/stockinfo/data-matrix', 'StockInfoController@dataMatrix')->name('stockinfo.data-matrix');
+        Route::post('/stockinfo', 'StockInfoController@process')->name('stockinfo.process');
     });
 
     //Page

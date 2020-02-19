@@ -26,4 +26,20 @@ class StockInfoController extends Controller
        
        return view('back-end.stockinfo.index', compact('stockinfos', 'htmlContent'));
    }
+
+   public function dataMatrix(){
+        $stockInfos = StockInfo::all();
+       return view('back-end.stockinfo.data-matrix', compact('stockInfos'));
+   }
+
+   public function process(Request $request){
+       foreach($request->data as $key=>$value){
+           $stockInfo = StockInfo::find($key);
+           foreach($value as $key2=>$value2){
+                $stockInfo[$key2] = $value[$key2];
+           }
+           $stockInfo->save();
+       }
+       return redirect()->back();
+   }
 }

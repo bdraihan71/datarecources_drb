@@ -48,17 +48,7 @@ class ApiController extends Controller
                     'price_change' => $row->children()->eq(7)->text(),
                     'turnover_bdt_mn' => $row->children()->eq(9)->text(),
                     'volume' => $row->children()->eq(10)->text(),
-                    'trade' => $row->children()->eq(8)->text(),
-                    'sponsor_or_director'=> '',
-                    'foreign_public' => '',
-                    'paid_up_capital_bdt_mn' => '',
-                    'five_year_revenue_cagr' => '',
-                    'five_year_npat_cagr'  => '',
-                    'p_or_e_audited'  => '',
-                    'p_or_e_unaudied'   => '',
-                    'navps'   => '',
-                    'p_or_navps_divinded' => '',
-                    'dividend_yield' => ''
+                    'trade' => $row->children()->eq(8)->text()
                 ]);
 
                 $stockinfo->touch();
