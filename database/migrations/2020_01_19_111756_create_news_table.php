@@ -18,7 +18,7 @@ class CreateNewsTable extends Migration
             $table->biginteger('user_id');
             $table->string('heading');
             $table->string('source');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->text('body');
             $table->string('showing_area');
             $table->boolean('is_published');

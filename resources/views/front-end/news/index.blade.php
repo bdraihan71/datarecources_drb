@@ -26,13 +26,15 @@
                 @foreach($allnews as $news)
                     <div class="row">
                         <div class="col-md-2">
-                            <a href="{{route('news.single',$news->id)}}">
-                                <img src="{{ env('S3_URL') }}{{$news->image}}" class="mr-3 img-fluid news-index-img" alt="...">
-                            </a>
+                            @if($news->image)
+                                <a href="{{route('news.single',$news->id)}}">
+                                    <img src="{{ env('S3_URL') }}{{$news->image}}" class="mr-3 img-fluid news-index-img" alt="...">
+                                </a>
+                            @endif
                         </div>
                         <div class="col-md-10">
                             <a href="{{route('news.single',$news->id)}}"><h5 class="pt-3 pt-md-0">{{ $news->heading }}</h5></a>
-                            <a href="{{route('news.single',$news->id)}}"><p class="text-justify">{{ implode(' ', array_slice(explode(' ', $news->body ), 0, 70))}}</p></a>
+                            <a href="{{route('news.single',$news->id)}}"><p class="text-justify">{{ implode(' ', array_slice(explode(' ', strip_tags($news->body) ), 0, 70))}}</p></a>
                             <a href="{{route('news.single',$news->id)}}">See More ></a>
                         </div>
                     </div>

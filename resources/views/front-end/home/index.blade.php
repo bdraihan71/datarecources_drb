@@ -10,9 +10,11 @@
                         @if($featured)
                             <div class="col-md-12">
                                 <div class="featured-img">
-                                    <a href="{{route('news.single',$featured->id)}}">
-                                        <img src="{{ env('S3_URL') }}{{$featured->image}}" class="featured-news-img rounded-0" alt="...">
-                                    </a>
+                                    @if($featured->image)
+                                        <a href="{{route('news.single',$featured->id)}}">
+                                            <img src="{{ env('S3_URL') }}{{$featured->image}}" class="featured-news-img rounded-0" alt="...">
+                                        </a>
+                                    @endif
                                 
                                     <div class="card-body text-left featured-img-text pl-4 pt-5">
                                         <a href="{{route('news.single',$featured->id)}}">
@@ -54,7 +56,9 @@
                         <div class="col-4 col-sm">
                             <a href="{{route('news.single',$news->id)}}">
                                 <div class="card border-0">
-                                    <img src="{{ env('S3_URL') }}{{ $news->image }}" class="card-img-top top5-news-img rounded-0" alt="...">
+                                    @if($news->image)
+                                        <img src="{{ env('S3_URL') }}{{ $news->image }}" class="card-img-top top5-news-img rounded-0" alt="...">
+                                    @endif
                                     <p class="card-text main-text-color py-1"><small class="font-weight-bold">{{ $news->heading }}</small></p>
                                 </div>
                             </a>
@@ -67,52 +71,81 @@
                         <h4 class="main-text-color">World</h4>
                         @if($world)
                         <a href="{{route('news.single',$world->id)}}">
+                            @if($world->image)
                             <img src="{{ env('S3_URL') }}{{$world->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
+                            @endif
                             <p class="card-text main-text-color category-news-heading-border py-2">{{$world->heading}}</p>
-                            <small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', $world->body), 0, 20))}}</small>
                         </a> 
                         @else 
                             <p class="card-text main-text-color"><small>No news available</small></p>
-                        @endif    
+                        @endif
+                        <a href="{{route('news.single',App\News::where('showing_area', 'world')->orderBy('created_at')->skip(3)->take(1)->get()->first()->id)}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'world')->orderBy('created_at')->skip(3)->take(1)->get()->first()->heading), 0, 20))}}</small></a>
+                        <a href="{{route('news.single',App\News::where('showing_area', 'world')->orderBy('created_at')->skip(2)->take(1)->get()->first()->id)}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'world')->orderBy('created_at')->skip(2)->take(1)->get()->first()->heading), 0, 20))}}</small></a>
+                        <a href="{{route('news.single',App\News::where('showing_area', 'world')->orderBy('created_at')->skip(1)->take(1)->get()->first()->id)}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'world')->orderBy('created_at')->skip(1)->take(1)->get()->first()->heading), 0, 20))}}</small></a>
+                        <a href="{{route('news.single', App\News::where('showing_area', 'world')->orderBy('created_at')->skip(0)->take(1)->get()->first()->id)}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'world')->orderBy('created_at')->skip(0)->take(1)->get()->first()->heading), 0, 20))}}</small></a>
+                      
+                       
+                        
+                
                     </div>
 
                     <div class="card border-0">
                         <h4 class="main-text-color">Country</h4>
                         @if($country)
                         <a href="{{route('news.single',$country->id)}}">
+                            @if($country->image)
                             <img src="{{ env('S3_URL') }}{{$country->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
+                            @endif
                             <p class="card-text main-text-color category-news-heading-border py-2">{{$country->heading}}</p>
-                            <small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', $country->body), 0, 20))}}</small>
                         </a>
                         @else 
                             <p class="card-text main-text-color"><small>No news available</small></p>
-                        @endif   
+                        @endif
+                        <a href="{{route('news.single',App\News::where('showing_area', 'country')->orderBy('created_at')->skip(3)->take(1)->get()->first()->id)}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'country')->orderBy('created_at')->skip(3)->take(1)->get()->first()->heading), 0, 20))}}</small></a>  
+                        <a href="{{route('news.single',App\News::where('showing_area', 'country')->orderBy('created_at')->skip(2)->take(1)->get()->first()->id)}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'country')->orderBy('created_at')->skip(2)->take(1)->get()->first()->heading), 0, 20))}}</small></a>
+                        <a href="{{route('news.single',App\News::where('showing_area', 'country')->orderBy('created_at')->skip(1)->take(1)->get()->first()->id)}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'country')->orderBy('created_at')->skip(1)->take(1)->get()->first()->heading), 0, 20))}}</small></a>
+                        <a href="{{route('news.single', App\News::where('showing_area', 'country')->orderBy('created_at')->skip(0)->take(1)->get()->first()->id)}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'country')->orderBy('created_at')->skip(0)->take(1)->get()->first()->heading), 0, 20))}}</small></a>
+                        
+                        
+                         
+                        
                     </div>
 
                     <div class="card border-0">
                         <h4 class="main-text-color">Economy</h4>
                         @if($economy)
                         <a href="{{route('news.single',$economy->id)}}">
+
+                            @if($economy->image)
                             <img src="{{ env('S3_URL') }}{{$economy->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
+                            @endif
                             <p class="card-text main-text-color category-news-heading-border py-2">{{$economy->heading}}</p>
-                            <small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', $economy->body), 0, 20))}}</small>
                         </a>
                         @else 
                             <p class="card-text main-text-color"><small>No news available</small></p>
-                        @endif  
+                        @endif
+                        <a href="{{route('news.single',App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(3)->take(1)->get()->first()->id)}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(3)->take(1)->get()->first()->heading), 0, 20))}}</small></a>  
+                        <a href="{{route('news.single',App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(2)->take(1)->get()->first()->id)}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(2)->take(1)->get()->first()->heading), 0, 20))}}</small></a>
+                        <a href="{{route('news.single',App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(1)->take(1)->get()->first()->id)}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(1)->take(1)->get()->first()->heading), 0, 20))}}</small></a>
+                        <a href="{{route('news.single', App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(0)->take(1)->get()->first()->id)}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(0)->take(1)->get()->first()->heading), 0, 20))}}</small></a>  
                     </div>
 
                     <div class="card border-0">
                         <h4 class="main-text-color">Company</h4>
                         @if($company)
                         <a href="{{route('news.single',$company->id)}}">
-                            <img src="{{ env('S3_URL') }}{{$company->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
+                            @if($company->image)
+                             <img src="{{ env('S3_URL') }}{{$company->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
+                            @endif
                             <p class="card-text main-text-color category-news-heading-border py-2">{{$company->heading}}</p>
-                            <small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', $company->body), 0, 20))}}</small>
                         </a>
                         @else 
                             <p class="card-text main-text-color"><small>No news available</small></p>
                         @endif   
+                        <a href="{{route('news.single',App\News::where('showing_area', 'company')->orderBy('created_at')->skip(3)->take(1)->get()->first()->id)}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'company')->orderBy('created_at')->skip(3)->take(1)->get()->first()->heading), 0, 20))}}</small></a>  
+                        <a href="{{route('news.single',App\News::where('showing_area', 'company')->orderBy('created_at')->skip(2)->take(1)->get()->first()->id)}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'company')->orderBy('created_at')->skip(2)->take(1)->get()->first()->heading), 0, 20))}}</small></a>
+                        <a href="{{route('news.single',App\News::where('showing_area', 'company')->orderBy('created_at')->skip(1)->take(1)->get()->first()->id)}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'company')->orderBy('created_at')->skip(1)->take(1)->get()->first()->heading), 0, 20))}}</small></a>
+                        <a href="{{route('news.single', App\News::where('showing_area', 'company')->orderBy('created_at')->skip(0)->take(1)->get()->first()->id)}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'company')->orderBy('created_at')->skip(0)->take(1)->get()->first()->heading), 0, 20))}}</small></a>
                     </div>
                 </div>
             </div>

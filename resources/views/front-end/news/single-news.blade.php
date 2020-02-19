@@ -10,11 +10,13 @@
                 <p class="card-text"><small class="text-muted">Posted on {{Carbon\Carbon::parse($news->created_at)->format('d F Y')}}</small></p>
             </div>
             <div class="col-md-12">
-                <img src="{{ env('S3_URL') }}{{$news->image}}" class="img-fluid w-50 float-right pl-4" alt="...">
-                <p class="text-justify">{{$news->body}}</p>
+                @if($news->image)
+                    <img src="{{ env('S3_URL') }}{{$news->image}}" class="img-fluid w-50 float-right pl-4" alt="...">
+                @endif
+                <p class="text-justify">{!! html_entity_decode($news->body) !!}</p>
             </div>
             <div class="col-md-12">
-                <a href="{{$news->source}}" target="_blank" class="h6">Source</a>
+                <p>Source: {{$news->source}}</p>
                 <div class="text-right">
                     <h6>Share</h6>
                     <div class="addthis_inline_share_toolbox mx-auto"></div>

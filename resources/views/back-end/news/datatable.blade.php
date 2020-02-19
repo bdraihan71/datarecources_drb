@@ -35,7 +35,7 @@
                             <td>{{$i++}}</td>
                             <td>{{$news->heading}}</td>
                             <td><a href="{{ env('S3_URL') }}{{$news->image}}" target="_blank">Link</a></td>
-                            <td class="more">{{$news->body}}</td>
+                            <td class="more">{!! html_entity_decode($news->body) !!}</td>
                             <td><a href="{{$news->source}}" target="_blank">Link</a></td>
                             <td>
                                 @if ( $news->is_published == 0)
