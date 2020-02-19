@@ -117,7 +117,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <iframe class="custom-header-top" src="https://www.dsebd.org/" width="400" height="400"></iframe>
+                <img class="img-fluid custom-header-top aside-img" src="img/aside.jpg">
             </div>
         </div>
     </div>
