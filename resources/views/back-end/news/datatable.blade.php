@@ -34,9 +34,15 @@
                         <tr>
                             <td>{{$i++}}</td>
                             <td>{{$news->heading}}</td>
-                            <td><a href="{{ env('S3_URL') }}{{$news->image}}" target="_blank">Link</a></td>
+                            <td>
+                                @if($news->image)
+                                    <a href="{{ env('S3_URL') }}{{$news->image}}" target="_blank">Link</a>
+                                @else
+                                    No image found
+                                @endif
+                            </td>
                             <td class="more">{!! nl2br($news->body) !!}</td>
-                            <td><a href="{{$news->source}}" target="_blank">Link</a></td>
+                            <td>{{$news->source}}</td>
                             <td>
                                 @if ( $news->is_published == 0)
                                     No
@@ -58,5 +64,5 @@
             </table>
         </div>
     </div>
-    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+    {{-- <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> --}}
 </div>

@@ -64,11 +64,11 @@
                 </li>
 
 
-                <li class="nav-item dropdown nav-custom-margin-top">
+                {{-- <li class="nav-item dropdown nav-custom-margin-top">
                     <a class="nav-link font-weight-bold text-white" href="{{route('visualize.index')}}">
                         <small class="font-weight-bold nav-item-custom-size">CHART</small>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item dropdown nav-custom-margin-top">
                     <a class="nav-link font-weight-bold text-white" href="{{route('visualize.data-matrix')}}">
                         <small class="font-weight-bold nav-item-custom-size">DATA MATRIX</small>

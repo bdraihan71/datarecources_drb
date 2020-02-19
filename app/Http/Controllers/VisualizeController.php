@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\StockInfo;
 use Illuminate\Http\Request;
 
 class VisualizeController extends Controller
@@ -11,6 +12,7 @@ class VisualizeController extends Controller
     }
 
     public function dataMatrix(){
-        return view('front-end.visualize.data-matrix');
+        $stockinfos = StockInfo::all();
+        return view('front-end.visualize.data-matrix', compact('stockinfos'));
     }
 }

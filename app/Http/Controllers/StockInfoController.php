@@ -9,8 +9,6 @@ class StockInfoController extends Controller
     public function index()
    {
        $stockinfos = StockInfo::all();
-
-
        $url = "https://www.dsebd.org/";
        $ch1= curl_init();
        curl_setopt ($ch1, CURLOPT_URL, $url );
