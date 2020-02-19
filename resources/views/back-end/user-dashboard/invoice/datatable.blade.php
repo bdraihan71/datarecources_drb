@@ -28,7 +28,9 @@
                         <td>{{ $invoice->subscriptionplan->name }}</td>
                         <td>{{ $invoice->price }}</td>
                         <td>{{ $invoice->expiry_date }}</td>
-                        <td>view</td>
+                        <td>
+                            <a href="{{ route('invoice.show', $invoice->id)}}" class="btn btn-outline-primary">view</a>
+                        </td>
                         {{-- @if($menu->parent)
                             <td>{{ $menu->parent->title }}</td>
                         @else

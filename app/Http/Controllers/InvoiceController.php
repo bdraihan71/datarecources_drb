@@ -53,6 +53,13 @@ class InvoiceController extends Controller
         
     }
 
+    public function invoiceShow($id)
+    {
+        $invoice = Invoice::find($id);
+        dd($invoice);
+        return view('back-end.user-dashboard.subscriber.index', compact('invoice'));
+    }
+
     public function destroy($id)
     {
         $subscriber = Subscriber::find($id);

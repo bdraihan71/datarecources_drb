@@ -104,6 +104,7 @@ Route::middleware(['auth'])->group(function () {
     //invoice
     Route::get('/invoice-user', 'InvoiceController@invoiceUser')->name('invoice.user');
     Route::get('/invoice/getuser', 'InvoiceController@getUser')->name('invoice.getuser');
+    Route::get('/invoice/{id}', 'InvoiceController@invoiceShow')->name('invoice.show');
     Route::post('/invoice/postuser', 'InvoiceController@postUser')->name('invoice.postuser');
 
     Route::delete('/subscriber/{id}', 'InvoiceController@destroy')->name('subscriber.destroy');
