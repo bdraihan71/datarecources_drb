@@ -36,8 +36,8 @@ class InvoiceController extends Controller
         $user = User::where('email', $request->email)->first();
         if ($user != null){
             $invoice = Invoice::where('user_id', auth()->user()->id)->latest()->first();
-            $subscriber = Subscriber::where('invoice_id', $invoice->id)->get();
-            if($subscriber->count() < $invoice->user_limit){
+            $subscribers = Subscriber::where('invoice_id', $invoice->id)->get();
+            if($subscribers->count() < $invoice->user_limit){
                 $subscriber = new Subscriber;
                 $subscriber->invoice_id = $invoice->id;
                 $subscriber->creator = auth()->user()->id;
