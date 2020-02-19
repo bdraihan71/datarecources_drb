@@ -44,8 +44,8 @@
                     <tbody>
                         <tr>
                             <td class="center">1</td>
-                            <td class="left strong">{{$invoice->plan->name}}</td>
-                            <td class="left">{{$invoice->plan->name}} Package for {{$invoice->user_limit}} user</td>
+                            <td class="left strong">{{$invoice->subscriptionplan->name}}</td>
+                            <td class="left">{{$invoice->subscriptionplan->name}} Package for {{$invoice->user_limit}} user</td>
                             <td class="right">bdt {{$invoice->price}}</td>
                             <td class="center">1</td>
                             <td class="right">bdt {{$invoice->price}}</td>
