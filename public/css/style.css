@@ -190,7 +190,7 @@ a.article:hover {
 }
 
 .search-width {
-    padding: 0px 150px 0px 150px;
+    padding: 0px 0px 0px 0px;
     font-size: 13px;
 }
 
@@ -483,13 +483,19 @@ a.article:hover {
 @media (min-width: 992px) {
     .search-custom-margin {
         position: fixed;
-        margin-left: 20%; 
+        margin-left: 17%;
+        width: 500px; 
     }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 345px) {
     .search-width {
         padding: 0px 0px 0px 0px; 
+    }
+
+    .search-custom-margin {
+        margin-left: -5%;
+        width: 176px; 
     }
 }
 
