@@ -39,20 +39,21 @@ class ApiController extends Controller
                             'sector_id' => $sector->id
                     ]);
                 }
-
                 $stockinfo = StockInfo::firstOrcreate([
                     'company_id' => $company->id,
-                    'last_trading_price' => $row->children()->eq(2)->text(),
-                    'closing_price' => $row->children()->eq(5)->text(),
-                    'yesterday_closing' => $row->children()->eq(6)->text(),
-                    'price_change' => $row->children()->eq(7)->text(),
-                    'turnover_bdt_mn' => $row->children()->eq(9)->text(),
-                    'volume' => $row->children()->eq(10)->text(),
-                    'trade' => $row->children()->eq(8)->text()
                 ]);
 
-                $stockinfo->touch();
+                $stockinfo->company_id = $company->id;
+                $stockinfo->last_trading_price = $row->children()->eq(2)->text();
+                $stockinfo->closing_price = $row->children()->eq(5)->text();
+                $stockinfo->yesterday_closing = $row->children()->eq(6)->text();
+                $stockinfo->price_change = $row->children()->eq(7)->text();
+                $stockinfo->turnover_bdt_mn = $row->children()->eq(9)->text();
+                $stockinfo->volume = $row->children()->eq(10)->text();
+                $stockinfo->trade = $row->children()->eq(8)->text();
 
+                $stockinfo->touch();
+                $stockinfo->save();
             } 
         });
 
@@ -95,6 +96,7 @@ class ApiController extends Controller
                 $stockinfo->pe_6 = $row->children()->eq(9)->text();
 
                 $stockinfo->touch();
+                $stockinfo->save();
 
             } 
         });
