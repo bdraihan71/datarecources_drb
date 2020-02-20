@@ -664,3 +664,7 @@ input[type="search"]::placeholder {
     height: 100vh;
     object-fit: cover;
 }
+
+.top5-line-height {
+    line-height: 1;
+}

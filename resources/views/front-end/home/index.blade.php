@@ -62,7 +62,7 @@
                                         @if($news->image)
                                             <img src="{{ env('S3_URL') }}{{ $news->image }}" class="card-img-top top5-news-img rounded-0" alt="...">
                                         @endif
-                                        <p class="card-text main-text-color py-1"><small class="font-weight-bold">{{ $news->heading }}</small></p>
+                                        <p class="card-text main-text-color py-1 top5-line-height"><small class="font-weight-bold">{{ $news->heading }}</small></p>
                                     </div>
                                 </a>
                             </div>
