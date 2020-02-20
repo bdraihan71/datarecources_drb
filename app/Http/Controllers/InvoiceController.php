@@ -42,24 +42,25 @@ class InvoiceController extends Controller
         if ($user != null){
             $invoice = Invoice::where('user_id', auth()->user()->id)->latest()->first();
             $subscribers = Subscriber::where('invoice_id', $invoice->id)->get();
+            $subscriber_id = $subscribers->pluck('user_id')->toArray();
             if($subscribers->count() < $invoice->user_limit){
-                $subscriber = new Subscriber;
-                $subscriber->invoice_id = $invoice->id;
-                $subscriber->creator = auth()->user()->id;
-                $subscriber->user_id = $user->id;
-                $subscriber->expire_date =  $invoice->expire_date;
-                $subscriber->save();
+                if(in_array($user->id, $subscriber_id)){
+                    return redirect()->back()->with('error', 'This user already exists');
+                }else{
+                    $subscriber = new Subscriber;
+                    $subscriber->invoice_id = $invoice->id;
+                    $subscriber->creator = auth()->user()->id;
+                    $subscriber->user_id = $user->id;
+                    $subscriber->expire_date =  $invoice->expire_date;
+                    $subscriber->save();
+                }
             }else{
-                // dd('User limit exceeded');
                 return redirect()->back()->with('error', 'User limit exceeded');
             }
         }else {
-            // dd('User not found');
             return redirect()->back()->with('error', 'User not found');
         }
-
         return redirect()->back();
-        
     }
 
     public function invoiceShow($id)
