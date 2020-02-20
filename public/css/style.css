@@ -665,6 +665,6 @@ input[type="search"]::placeholder {
     object-fit: cover;
 }
 
-.top5-line-height {
-    line-height: 1;
+.news-line-height {
+    line-height: 1.2;
 }
