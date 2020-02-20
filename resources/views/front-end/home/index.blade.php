@@ -53,7 +53,7 @@
 
                 <div class="row"> 
                     @if($top5s->isEmpty())
-                        <div class="text-center">
+                        <div class="col-4 col-sm text-center">
                             <h4 class="card-text main-text-color"><small>No news available</small></h4>
                         </div>
                     @else  
