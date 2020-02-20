@@ -613,7 +613,7 @@ input[type="search"]::placeholder {
 }
 
 .category-news-heading-border {
-    border-bottom: 1px dashed grey;
+    border-bottom: 1px dashed rgb(230, 230, 230);
 }
 
 .featured-news-img {

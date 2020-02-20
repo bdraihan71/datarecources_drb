@@ -83,14 +83,10 @@
                         @else 
                             <p class="card-text main-text-color"><small>No news available</small></p>
                         @endif
-                        <a href="{{route('news.single',App\News::where('showing_area', 'world')->orderBy('created_at')->skip(3)->take(1)->get()->first()->id ?? '#')}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'world')->orderBy('created_at')->skip(3)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
-                        <a href="{{route('news.single',App\News::where('showing_area', 'world')->orderBy('created_at')->skip(2)->take(1)->get()->first()->id ?? '#')}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'world')->orderBy('created_at')->skip(2)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
-                        <a href="{{route('news.single',App\News::where('showing_area', 'world')->orderBy('created_at')->skip(1)->take(1)->get()->first()->id ?? '#')}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'world')->orderBy('created_at')->skip(1)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
-                        <a href="{{route('news.single', App\News::where('showing_area', 'world')->orderBy('created_at')->skip(0)->take(1)->get()->first()->id ?? '#')}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'world')->orderBy('created_at')->skip(0)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
-                      
-                       
-                        
-                
+                        <a href="{{route('news.single',App\News::where('showing_area', 'world')->orderBy('created_at')->skip(3)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'world')->orderBy('created_at')->skip(3)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
+                        <a href="{{route('news.single',App\News::where('showing_area', 'world')->orderBy('created_at')->skip(2)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'world')->orderBy('created_at')->skip(2)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
+                        <a href="{{route('news.single',App\News::where('showing_area', 'world')->orderBy('created_at')->skip(1)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'world')->orderBy('created_at')->skip(1)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
+                        <a href="{{route('news.single', App\News::where('showing_area', 'world')->orderBy('created_at')->skip(0)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'world')->orderBy('created_at')->skip(0)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
                     </div>
 
                     <div class="card border-0">
@@ -105,14 +101,10 @@
                         @else 
                             <p class="card-text main-text-color"><small>No news available</small></p>
                         @endif
-                        <a href="{{route('news.single',App\News::where('showing_area', 'country')->orderBy('created_at')->skip(3)->take(1)->get()->first()->id ?? '#')}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'country')->orderBy('created_at')->skip(3)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>  
-                        <a href="{{route('news.single',App\News::where('showing_area', 'country')->orderBy('created_at')->skip(2)->take(1)->get()->first()->id ?? '#')}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'country')->orderBy('created_at')->skip(2)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
-                        <a href="{{route('news.single',App\News::where('showing_area', 'country')->orderBy('created_at')->skip(1)->take(1)->get()->first()->id ?? '#')}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'country')->orderBy('created_at')->skip(1)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
-                        <a href="{{route('news.single', App\News::where('showing_area', 'country')->orderBy('created_at')->skip(0)->take(1)->get()->first()->id ?? '#')}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'country')->orderBy('created_at')->skip(0)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
-                        
-                        
-                         
-                        
+                        <a href="{{route('news.single',App\News::where('showing_area', 'country')->orderBy('created_at')->skip(3)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'country')->orderBy('created_at')->skip(3)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>  
+                        <a href="{{route('news.single',App\News::where('showing_area', 'country')->orderBy('created_at')->skip(2)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'country')->orderBy('created_at')->skip(2)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
+                        <a href="{{route('news.single',App\News::where('showing_area', 'country')->orderBy('created_at')->skip(1)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'country')->orderBy('created_at')->skip(1)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
+                        <a href="{{route('news.single', App\News::where('showing_area', 'country')->orderBy('created_at')->skip(0)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'country')->orderBy('created_at')->skip(0)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
                     </div>
 
                     <div class="card border-0">
@@ -128,10 +120,10 @@
                         @else 
                             <p class="card-text main-text-color"><small>No news available</small></p>
                         @endif
-                        <a href="{{route('news.single',App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(3)->take(1)->get()->first()->id ?? '#')}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(3)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>  
-                        <a href="{{route('news.single',App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(2)->take(1)->get()->first()->id ?? '#')}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(2)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
-                        <a href="{{route('news.single',App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(1)->take(1)->get()->first()->id ?? '#')}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(1)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
-                        <a href="{{route('news.single', App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(0)->take(1)->get()->first()->id ?? '#')}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(0)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>  
+                        <a href="{{route('news.single',App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(3)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(3)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>  
+                        <a href="{{route('news.single',App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(2)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(2)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
+                        <a href="{{route('news.single',App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(1)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(1)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
+                        <a href="{{route('news.single', App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(0)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'economy')->orderBy('created_at')->skip(0)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>  
                     </div>
 
                     <div class="card border-0">
@@ -159,7 +151,7 @@
                         <h4 class="card-text main-text-color text-center"><small>No news available</small></h4>
                     @else  
                         @foreach ($sides as $side) 
-                            <h5 class="category-news-heading-border pb-2">
+                            <h5 class="category-news-heading-border pb-3 pt-2">
                                 <a href="{{route('news.single',$side->id)}}">{{$side->heading}}</a>
                             </h5>
                         @endforeach
