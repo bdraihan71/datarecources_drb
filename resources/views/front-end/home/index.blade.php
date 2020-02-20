@@ -53,7 +53,9 @@
 
                 <div class="row"> 
                     @if($top5s->isEmpty())
-                        <h4 class="card-text main-text-color text-center"><small>No news available</small></h4>
+                        <div class="text-center"></div>
+                            <h4 class="card-text main-text-color"><small>No news available</small></h4>
+                        </div>
                     @else  
                         @foreach ($top5s as $news)
                             <div class="col-4 col-sm">
