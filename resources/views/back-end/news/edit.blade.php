@@ -47,24 +47,32 @@
             <label>Where to show</label>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="showing_area" id="exampleRadios1" value="featured" {{$news->showing_area == 'featured' ?'checked':''}}>
-                <label class="form-check-label mr-5" for="exampleRadios1">
+                <label class="form-check-label mr-4" for="exampleRadios1">
                   Featured
                 </label>
                 <input class="form-check-input" type="radio" name="showing_area" id="exampleRadios2" value="world" {{$news->showing_area == 'world' ?'checked':''}}>
-                <label class="form-check-label mr-5" for="exampleRadios2">
+                <label class="form-check-label mr-4" for="exampleRadios2">
                   World
                 </label>
                 <input class="form-check-input" type="radio" name="showing_area" id="exampleRadios3" value="country" {{$news->showing_area == 'country' ?'checked':''}}>
-                <label class="form-check-label mr-5" for="exampleRadios3">
+                <label class="form-check-label mr-4" for="exampleRadios3">
                   Country
                 </label>
                 <input class="form-check-input" type="radio" name="showing_area" id="exampleRadios4" value="economy" {{$news->showing_area == 'economy' ?'checked':''}}>
-                <label class="form-check-label mr-5" for="exampleRadios4">
+                <label class="form-check-label mr-4" for="exampleRadios4">
                   Economy
                 </label>
                 <input class="form-check-input" type="radio" name="showing_area" id="exampleRadios5" value="company" {{$news->showing_area == 'company' ?'checked':''}}>
-                <label class="form-check-label" for="exampleRadios5">
+                <label class="form-check-label mr-4" for="exampleRadios5">
                   Company
+                </label>
+                <input class="form-check-input" type="radio" name="showing_area" id="exampleRadios6" value="top5" >
+                <label class="form-check-label mr-4" for="exampleRadios6">
+                  Top 5
+                </label>
+                <input class="form-check-input" type="radio" name="showing_area" id="exampleRadios7" value="side" >
+                <label class="form-check-label" for="exampleRadios7">
+                  Side
                 </label>
             </div>
         </div>

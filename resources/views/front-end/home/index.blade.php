@@ -52,18 +52,22 @@
                 </div>
 
                 <div class="row"> 
-                    @foreach ($allnews as $news)
-                        <div class="col-4 col-sm">
-                            <a href="{{route('news.single',$news->id)}}">
-                                <div class="card border-0">
-                                    @if($news->image)
-                                        <img src="{{ env('S3_URL') }}{{ $news->image }}" class="card-img-top top5-news-img rounded-0" alt="...">
-                                    @endif
-                                    <p class="card-text main-text-color py-1"><small class="font-weight-bold">{{ $news->heading }}</small></p>
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
+                    @if($top5s->isEmpty())
+                        <h4 class="card-text main-text-color text-center"><small>No news available</small></h4>
+                    @else  
+                        @foreach ($top5s as $news)
+                            <div class="col-4 col-sm">
+                                <a href="{{route('news.single',$news->id)}}">
+                                    <div class="card border-0">
+                                        @if($news->image)
+                                            <img src="{{ env('S3_URL') }}{{ $news->image }}" class="card-img-top top5-news-img rounded-0" alt="...">
+                                        @endif
+                                        <p class="card-text main-text-color py-1"><small class="font-weight-bold">{{ $news->heading }}</small></p>
+                                    </div>
+                                </a>
+                            </div>
+                        @endforeach
+                    @endif 
                 </div>
 
                 <div class="card-deck mt-5">
@@ -142,15 +146,25 @@
                         @else 
                             <p class="card-text main-text-color"><small>No news available</small></p>
                         @endif   
-                        <a href="{{route('news.single',App\News::where('showing_area', 'company')->orderBy('created_at')->skip(3)->take(1)->get()->first()->id ?? '#')}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'company')->orderBy('created_at')->skip(3)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>  
-                        <a href="{{route('news.single',App\News::where('showing_area', 'company')->orderBy('created_at')->skip(2)->take(1)->get()->first()->id ?? '#')}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'company')->orderBy('created_at')->skip(2)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
-                        <a href="{{route('news.single',App\News::where('showing_area', 'company')->orderBy('created_at')->skip(1)->take(1)->get()->first()->id ?? '#')}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'company')->orderBy('created_at')->skip(1)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
-                        <a href="{{route('news.single', App\News::where('showing_area', 'company')->orderBy('created_at')->skip(0)->take(1)->get()->first()->id ?? '#')}}"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'company')->orderBy('created_at')->skip(0)->take(1)->get()->first()->heading  ?? '#'), 0, 20))}}</small></a>
+                        <a href="{{route('news.single',App\News::where('showing_area', 'company')->orderBy('created_at')->skip(3)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'company')->orderBy('created_at')->skip(3)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>  
+                        <a href="{{route('news.single',App\News::where('showing_area', 'company')->orderBy('created_at')->skip(2)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'company')->orderBy('created_at')->skip(2)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
+                        <a href="{{route('news.single',App\News::where('showing_area', 'company')->orderBy('created_at')->skip(1)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'company')->orderBy('created_at')->skip(1)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
+                        <a href="{{route('news.single', App\News::where('showing_area', 'company')->orderBy('created_at')->skip(0)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'company')->orderBy('created_at')->skip(0)->take(1)->get()->first()->heading  ?? '#'), 0, 20))}}</small></a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <img class="img-fluid custom-header-top aside-img" src="img/aside.jpg">
+                <div class="custom-header-top">
+                    @if($sides->isEmpty())
+                        <h4 class="card-text main-text-color text-center"><small>No news available</small></h4>
+                    @else  
+                        @foreach ($sides as $side) 
+                            <h5 class="category-news-heading-border pb-2">
+                                <a href="{{route('news.single',$side->id)}}">{{$side->heading}}</a>
+                            </h5>
+                        @endforeach
+                    @endif  
+                </div>
             </div>
         </div>
     </div>
