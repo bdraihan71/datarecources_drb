@@ -549,10 +549,10 @@ input[type="search"]::placeholder {
 }
   
 .pricing .text-muted {
-    opacity: 0.7;
+    opacity: 0.9;
 }
   
-.pricing .btn {
+/* .pricing .btn {
     font-size: 80%;
     border-radius: 5rem;
     letter-spacing: .1rem;
@@ -560,7 +560,7 @@ input[type="search"]::placeholder {
     padding: 1rem;
     opacity: 0.7;
     transition: all 0.2s;
-}
+} */
   
 /* Hover Effects on Card */
 @media (min-width: 992px) {
@@ -667,4 +667,8 @@ input[type="search"]::placeholder {
 
 .news-line-height {
     line-height: 1.2;
+}
+
+.pricing-card-border-radius {
+    border-radius: 15px !important;
 }
