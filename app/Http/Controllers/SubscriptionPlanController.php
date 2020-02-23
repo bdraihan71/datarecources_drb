@@ -83,8 +83,8 @@ class SubscriptionPlanController extends Controller
         return redirect()->route('subscriptionplan.index')->with('success', 'Subscription Plan has been deleted successfully');
     }
 
-    function original(){ 
-        return new Carbon; 
+    function original(){
+        return new Carbon;
     }
 
     public function subscribePlan(Request $request)
@@ -119,7 +119,7 @@ class SubscriptionPlanController extends Controller
             $subscriber->expire_date =  $this->original()->addMonths(12);
         }
         $subscriber->save();
-        
+
 
         $appURl = config('app.url');
         $store_id = env('SSL_STORE_ID', false);
@@ -150,8 +150,8 @@ class SubscriptionPlanController extends Controller
             ]
         ]);
 
-       
-        
+
+
         return redirect(json_decode($response->getBody())->redirectGatewayURL);
     }
 
@@ -162,6 +162,10 @@ class SubscriptionPlanController extends Controller
 
     public function fail()
     {
+        $invoice = Invoice::where('user_id', auth()->user()->id)->latest()->first();
+        $invoice->delete();
+        $subscriber = Subscriber::where('creator', auth()->user()->id)->latest()->first();
+        $subscriber->delete();
         return view('back-end.subscription-plan.fail');
     }
 }
