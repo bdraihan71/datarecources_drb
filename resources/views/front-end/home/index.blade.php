@@ -98,7 +98,7 @@
                             @if($country->image)
                             <img src="{{ env('S3_URL') }}{{$country->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
                             @endif
-                            <p class="card-text main-text-color category-news-heading-border py-2">{{$country->heading}}</p>
+                            <p class="card-text main-text-color category-news-heading-border py-2 news-line-height">{{$country->heading}}</p>
                         </a>
                         @else 
                             <p class="card-text main-text-color"><small>No news available</small></p>
@@ -117,7 +117,7 @@
                             @if($economy->image)
                             <img src="{{ env('S3_URL') }}{{$economy->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
                             @endif
-                            <p class="card-text main-text-color category-news-heading-border py-2">{{$economy->heading}}</p>
+                            <p class="card-text main-text-color category-news-heading-border py-2 news-line-height">{{$economy->heading}}</p>
                         </a>
                         @else 
                             <p class="card-text main-text-color"><small>No news available</small></p>
@@ -135,7 +135,7 @@
                             @if($company->image)
                              <img src="{{ env('S3_URL') }}{{$company->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
                             @endif
-                            <p class="card-text main-text-color category-news-heading-border py-2">{{$company->heading}}</p>
+                            <p class="card-text main-text-color category-news-heading-border py-2 news-line-height">{{$company->heading}}</p>
                         </a>
                         @else 
                             <p class="card-text main-text-color"><small>No news available</small></p>
