@@ -30,7 +30,7 @@ class InvoiceController extends Controller
        }else{
         return redirect()->back()->with('error', 'Please purchase any package');
        }
-        
+
     }
 
     public function postUser(Request $request)
