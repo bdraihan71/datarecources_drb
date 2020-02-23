@@ -10,9 +10,9 @@
             <tr>
                 <th>Sl.</th>
                 <th>Plan Name</th>
-                <th>price_per_month</th>
-                <th>price_per_year</th>
-                <th>user_limit</th>
+                <th>Price Per Month</th>
+                <th>Price Per Year</th>
+                <th>User Limit</th>
                 <th>Visible</th>
                 <th>Action</th>
             </tr>
@@ -21,9 +21,9 @@
             <tr>
                 <th>Sl.</th>
                 <th>Plan Name</th>
-                <th>price_per_month</th>
-                <th>price_per_year</th>
-                <th>user_limit</th>
+                <th>Price Per Month</th>
+                <th>Price Per Year</th>
+                <th>User Limit</th>
                 <th>Visible</th>
                 <th>Action</th>
             </tr>
