@@ -29,7 +29,7 @@ class NewsController extends Controller
     public function newsStore (Request $request)
     {
         $this->validate($request, [
-            'image' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
+            'image' => 'mimes:jpeg,jpg,png,gif|max:10000',
             'heading' => 'required|min:3|max:255',
             'source' => 'required|max:255',
             'body' => 'required|min:10|max:20000',
@@ -47,6 +47,8 @@ class NewsController extends Controller
             }
 
             $path = $epath;
+        }else{
+            $path = "";
         }
 
         if($request->get('is_published') == null){

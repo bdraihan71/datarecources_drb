@@ -15,4 +15,9 @@ class Company extends DrbModel
     {
         return $this->hasMany('App\FinanceInfo');
     }
+
+    public function stockInfo()
+    {
+        return $this->hasOne('App\StockInfo');
+    }
 }

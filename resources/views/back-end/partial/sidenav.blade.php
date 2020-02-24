@@ -49,35 +49,14 @@
             <li class="{{ request()->url() == route('user.index') ? 'sidebar-active' : '' }}">
                 <a href="{{route('user.index')}}">User</a>
             </li>
-            <li class="{{ request()->url() == route('stockinfo.index') ? 'sidebar-active' : '' }}">
+            {{-- <li class="{{ request()->url() == route('stockinfo.index') ? 'sidebar-active' : '' }}">
                 <a href="{{route('stockinfo.index')}}">Stock Info</a>
-            </li>
+            </li> --}}
             <li class="{{ request()->url() == route('invoice.index') ? 'sidebar-active' : '' }}">
                 <a href="{{route('invoice.index')}}">Invoice</a>
             </li>
-            {{-- <li >
-                <a href="#">About</a>
+
+            <li class="{{ request()->url() == route('stockinfo.data-matrix') ? 'sidebar-active' : '' }}">
+                <a href="{{route('stockinfo.data-matrix')}}">Data Matrix</a>
             </li>
-            <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
-                        <a href="#">Page 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 3</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">Portfolio</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
-            </li> --}}
-        @endif
-    </ul>
 </nav>

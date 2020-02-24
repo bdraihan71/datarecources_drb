@@ -9,8 +9,6 @@ class StockInfoController extends Controller
     public function index()
    {
        $stockinfos = StockInfo::all();
-
-
        $url = "https://www.dsebd.org/";
        $ch1= curl_init();
        curl_setopt ($ch1, CURLOPT_URL, $url );
@@ -25,5 +23,21 @@ class StockInfoController extends Controller
        $htmlContent= curl_exec($ch1);
        
        return view('back-end.stockinfo.index', compact('stockinfos', 'htmlContent'));
+   }
+
+   public function dataMatrix(){
+        $stockInfos = StockInfo::all();
+       return view('back-end.stockinfo.data-matrix', compact('stockInfos'));
+   }
+
+   public function process(Request $request){
+       foreach($request->data as $key=>$value){
+           $stockInfo = StockInfo::find($key);
+           foreach($value as $key2=>$value2){
+                $stockInfo[$key2] = $value[$key2];
+           }
+           $stockInfo->save();
+       }
+       return redirect()->back();
    }
 }

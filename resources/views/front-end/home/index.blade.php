@@ -10,9 +10,11 @@
                         @if($featured)
                             <div class="col-md-12">
                                 <div class="featured-img">
-                                    <a href="{{route('news.single',$featured->id)}}">
-                                        <img src="{{ env('S3_URL') }}{{$featured->image}}" class="featured-news-img rounded-0" alt="...">
-                                    </a>
+                                    @if($featured->image)
+                                        <a href="{{route('news.single',$featured->id)}}">
+                                            <img src="{{ env('S3_URL') }}{{$featured->image}}" class="featured-news-img rounded-0" alt="...">
+                                        </a>
+                                    @endif
                                 
                                     <div class="card-body text-left featured-img-text pl-4 pt-5">
                                         <a href="{{route('news.single',$featured->id)}}">
@@ -50,16 +52,24 @@
                 </div>
 
                 <div class="row"> 
-                    @foreach ($allnews as $news)
-                        <div class="col-4 col-sm">
-                            <a href="{{route('news.single',$news->id)}}">
-                                <div class="card border-0">
-                                    <img src="{{ env('S3_URL') }}{{ $news->image }}" class="card-img-top top5-news-img rounded-0" alt="...">
-                                    <p class="card-text main-text-color py-1"><small class="font-weight-bold">{{ $news->heading }}</small></p>
-                                </div>
-                            </a>
+                    @if($top5s->isEmpty())
+                        <div class="col-4 col-sm text-center">
+                            <h4 class="card-text main-text-color"><small>No news available</small></h4>
                         </div>
-                    @endforeach
+                    @else  
+                        @foreach ($top5s as $news)
+                            <div class="col-4 col-sm">
+                                <a href="{{route('news.single',$news->id)}}">
+                                    <div class="card border-0">
+                                        @if($news->image)
+                                            <img src="{{ env('S3_URL') }}{{ $news->image }}" class="card-img-top top5-news-img rounded-0" alt="...">
+                                        @endif
+                                        <p class="card-text main-text-color py-1 news-line-height"><small class="font-weight-bold">{{ $news->heading }}</small></p>
+                                    </div>
+                                </a>
+                            </div>
+                        @endforeach
+                    @endif 
                 </div>
 
                 <div class="card-deck mt-5">
@@ -67,57 +77,88 @@
                         <h4 class="main-text-color">World</h4>
                         @if($world)
                         <a href="{{route('news.single',$world->id)}}">
+                            @if($world->image)
                             <img src="{{ env('S3_URL') }}{{$world->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
-                            <p class="card-text main-text-color category-news-heading-border py-2">{{$world->heading}}</p>
-                            <small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', $world->body), 0, 20))}}</small>
+                            @endif
+                            <p class="card-text main-text-color category-news-heading-border py-2 news-line-height">{{$world->heading}}</p>
                         </a> 
                         @else 
                             <p class="card-text main-text-color"><small>No news available</small></p>
-                        @endif    
+                        @endif
+                        <a href="{{route('news.single',App\News::where('showing_area', 'world')->orderBy('created_at', 'desc')->skip(1)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'world')->orderBy('created_at', 'desc')->skip(1)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
+                        <a href="{{route('news.single',App\News::where('showing_area', 'world')->orderBy('created_at', 'desc')->skip(2)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'world')->orderBy('created_at', 'desc')->skip(2)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
+                        <a href="{{route('news.single',App\News::where('showing_area', 'world')->orderBy('created_at', 'desc')->skip(3)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'world')->orderBy('created_at', 'desc')->skip(3)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
+                        <a href="{{route('news.single', App\News::where('showing_area', 'world')->orderBy('created_at', 'desc')->skip(4)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'world')->orderBy('created_at', 'desc')->skip(4)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
                     </div>
 
                     <div class="card border-0">
                         <h4 class="main-text-color">Country</h4>
                         @if($country)
                         <a href="{{route('news.single',$country->id)}}">
+                            @if($country->image)
                             <img src="{{ env('S3_URL') }}{{$country->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
-                            <p class="card-text main-text-color category-news-heading-border py-2">{{$country->heading}}</p>
-                            <small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', $country->body), 0, 20))}}</small>
+                            @endif
+                            <p class="card-text main-text-color category-news-heading-border py-2 news-line-height">{{$country->heading}}</p>
                         </a>
                         @else 
                             <p class="card-text main-text-color"><small>No news available</small></p>
-                        @endif   
+                        @endif
+                        <a href="{{route('news.single',App\News::where('showing_area', 'country')->orderBy('created_at', 'desc')->skip(1)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'country')->orderBy('created_at', 'desc')->skip(1)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>  
+                        <a href="{{route('news.single',App\News::where('showing_area', 'country')->orderBy('created_at', 'desc')->skip(2)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'country')->orderBy('created_at', 'desc')->skip(2)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
+                        <a href="{{route('news.single',App\News::where('showing_area', 'country')->orderBy('created_at', 'desc')->skip(3)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'country')->orderBy('created_at', 'desc')->skip(3)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
+                        <a href="{{route('news.single', App\News::where('showing_area', 'country')->orderBy('created_at', 'desc')->skip(4)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'country')->orderBy('created_at', 'desc')->skip(4)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
                     </div>
 
                     <div class="card border-0">
                         <h4 class="main-text-color">Economy</h4>
                         @if($economy)
                         <a href="{{route('news.single',$economy->id)}}">
+
+                            @if($economy->image)
                             <img src="{{ env('S3_URL') }}{{$economy->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
-                            <p class="card-text main-text-color category-news-heading-border py-2">{{$economy->heading}}</p>
-                            <small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', $economy->body), 0, 20))}}</small>
+                            @endif
+                            <p class="card-text main-text-color category-news-heading-border py-2 news-line-height">{{$economy->heading}}</p>
                         </a>
                         @else 
                             <p class="card-text main-text-color"><small>No news available</small></p>
-                        @endif  
+                        @endif
+                        <a href="{{route('news.single',App\News::where('showing_area', 'economy')->orderBy('created_at', 'desc')->skip(1)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'economy')->orderBy('created_at', 'desc')->skip(1)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>  
+                        <a href="{{route('news.single',App\News::where('showing_area', 'economy')->orderBy('created_at', 'desc')->skip(2)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'economy')->orderBy('created_at', 'desc')->skip(2)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
+                        <a href="{{route('news.single',App\News::where('showing_area', 'economy')->orderBy('created_at', 'desc')->skip(3)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'economy')->orderBy('created_at', 'desc')->skip(3)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
+                        <a href="{{route('news.single', App\News::where('showing_area', 'economy')->orderBy('created_at', 'desc')->skip(4)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'economy')->orderBy('created_at', 'desc')->skip(4)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>  
                     </div>
 
                     <div class="card border-0">
                         <h4 class="main-text-color">Company</h4>
                         @if($company)
                         <a href="{{route('news.single',$company->id)}}">
-                            <img src="{{ env('S3_URL') }}{{$company->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
-                            <p class="card-text main-text-color category-news-heading-border py-2">{{$company->heading}}</p>
-                            <small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', $company->body), 0, 20))}}</small>
+                            @if($company->image)
+                             <img src="{{ env('S3_URL') }}{{$company->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
+                            @endif
+                            <p class="card-text main-text-color category-news-heading-border py-2 news-line-height">{{$company->heading}}</p>
                         </a>
                         @else 
                             <p class="card-text main-text-color"><small>No news available</small></p>
                         @endif   
+                        <a href="{{route('news.single',App\News::where('showing_area', 'company')->orderBy('created_at', 'desc')->skip(1)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'company')->orderBy('created_at', 'desc')->skip(1)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>  
+                        <a href="{{route('news.single',App\News::where('showing_area', 'company')->orderBy('created_at', 'desc')->skip(2)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'company')->orderBy('created_at', 'desc')->skip(2)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
+                        <a href="{{route('news.single',App\News::where('showing_area', 'company')->orderBy('created_at', 'desc')->skip(3)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'company')->orderBy('created_at', 'desc')->skip(3)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
+                        <a href="{{route('news.single', App\News::where('showing_area', 'company')->orderBy('created_at', 'desc')->skip(4)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'company')->orderBy('created_at', 'desc')->skip(4)->take(1)->get()->first()->heading  ?? '#'), 0, 20))}}</small></a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <iframe class="custom-header-top" src="https://www.dsebd.org/" width="400" height="400"></iframe>
+                <div class="custom-header-top">
+                    @if($sides->isEmpty())
+                        <h4 class="card-text main-text-color text-center"><small>No news available</small></h4>
+                    @else  
+                        @foreach ($sides as $side) 
+                            <h5 class="category-news-heading-border pb-3 pt-2">
+                                <a href="{{route('news.single',$side->id)}}">{{$side->heading}}</a>
+                            </h5>
+                        @endforeach
+                    @endif  
+                </div>
             </div>
         </div>
     </div>
@@ -290,38 +331,37 @@
 </section>
 
 
-<section class="price py-5 main-color">
+<section class="pricing py-5 main-color">
     <h1 class="text-center text-warning display-4 font-weight-bold">Our Pricing</h1>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card-group">
-                    <div class="card bg-transparent border-0">
-                        <div class="card-body">
-                        <h6 class="text-warning my-4 font-weight-bold">Features</h6>
-                        <p class="text-white price-text pt-4">News Aggregator</p>
-                        <p class="text-white price-text">Data Matrix</p>
-                        <p class="text-white price-text">Economy Data</p>
-                        <p class="text-white price-text">Commodity Data</p>
-                        <p class="text-white price-text">Industry Data</p>
-                        <p class="text-white price-text">Publication</p>
-                        <p class="text-white price-text">Quarterly Finance Statement</p>
-                        <p class="text-white price-text">Annual Finance Statement</p>
-                        </div>
+      <div class="row">
+        <div class="col-md-12">
+            <div class="card-group">
+                <div class="card mr-1 pricing-card-border-radius">
+                    <div class="card-body">
+                    <h6 class="my-4 card-title text-muted text-uppercase">Features</h6>
+                    <p class="price-text pt-4">News Aggregator</p>
+                    <p class="price-text">Data Matrix</p>
+                    <p class="price-text">Economy Data</p>
+                    <p class="price-text">Commodity Data</p>
+                    <p class="price-text">Industry Data</p>
+                    <p class="price-text">Publication</p>
+                    <p class="price-text">Quarterly Finance Statement</p>
+                    <p class="price-text">Annual Finance Statement</p>
                     </div>
-                    <div class="card bg-transparent border border-warning">
-                        <div class="card-body text-center">
-                            <h6 class="text-warning font-weight-bold">Basic Account</h6>
-                            <p class="text-white font-weight-bold price-text-2">(0 BDT)</p>
-                            <p class="text-white price-text pt-4">Y</p>
-                            <p class="text-white price-text">Y</p>
-                            <p class="text-white price-text">Y</p>
-                            <p class="text-white price-text">Y</p>
-                            <p class="text-white price-text">Y</p>
-                            <p class="text-white price-text">Y</p>
-                            <p class="text-white price-text">Y</p>
-                            <p class="text-warning price-text">N</p>
-                        </div>
+                </div>
+                <div class="card mr-1 pricing-card-border-radius">
+                    <div class="card-body text-center">
+                        <h6 class="card-title text-muted text-uppercase">Basic Account</h6>
+                        <p class="font-weight-bold price-text-2">(0 BDT)</p>
+                        <p class="price-text pt-4"><i class="fas fa-check"></i></p>
+                        <p class="price-text"><i class="fas fa-check"></i></p>
+                        <p class="price-text"><i class="fas fa-check"></i></p>
+                        <p class="price-text"><i class="fas fa-check"></i></p>
+                        <p class="price-text"><i class="fas fa-check"></i></p>
+                        <p class="price-text"><i class="fas fa-check"></i></p>
+                        <p class="price-text"><i class="fas fa-check"></i></p>
+                        <p class="text-warning price-text"><i class="fas fa-times"></i></p>
                     </div>
                     @foreach ($subscriptionplans as $subscriptionplan)
                     <div class="card bg-transparent border border-warning">
@@ -377,92 +417,13 @@
                             </div>
                         </div>
                     </div>
-                    @endforeach
                 </div>
+                @endforeach
             </div>
-        </div>
-    </div>
-</section>
-
-
-{{-- <section class="pricing py-5 main-color">
-    <div class="container">
-      <div class="row no-gutters">
-        <!-- Free Tier -->
-        <div class="col-lg-4">
-          <div class="card mb-5 mb-lg-0 border-top border-warning pb-4">
-            <div class="card-body pb-5">
-              <h5 class="card-title text-muted text-uppercase text-center">Available</h5>
-              <h6 class="card-price text-center">Features</h6>
-              <h6 class="card-title text-dark text-uppercase text-center">&nbsp;</h6>
-              <hr>
-              <ul class="fa-ul">
-                <li>News Aggregator</li>
-                <li>Data Matrix</li>
-                <li>Economy Data</li>
-                <li>Commodity Data</li>
-                <li>Industry Data</li>
-                <li>Publication</li>
-                <li>Quarterly Finance Statement</li>
-                <li>Annual Finance Statement</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <!-- Plus Tier -->
-        <div class="col-lg-4">
-          <div class="card mb-5 mb-lg-0 border-top border-warning">
-            <div class="card-body">
-              <h5 class="card-title text-muted text-uppercase text-center">Basic Account</h5>
-              <h6 class="card-price text-center">0 bdt<span class="period">/month</span></h6>
-              <h6 class="card-title text-dark text-uppercase text-center">&nbsp;</h6>
-              <hr>
-              <ul class="fa-ul text-center mr-5">
-                <li><i class="fas fa-check"></i></li>
-                <li><i class="fas fa-check"></i></li>
-                <li><i class="fas fa-check"></i></li>
-                <li><i class="fas fa-check"></i></li>
-                <li><i class="fas fa-check"></i></li>
-                <li><i class="fas fa-check"></i></li>
-                <li><i class="fas fa-check"></i></li>
-                <li class="text-muted"><i class="fas fa-times"></i></li>
-              </ul>
-              <a href="#" class="btn btn-block btn-warning">Register Now</a>
-            </div>
-          </div>
-        </div>
-        <!-- Pro Tier -->
-        <div class="col-lg-4">
-          <div class="card border-top border-warning">
-            <div class="card-body">
-              <h5 class="card-title text-muted text-uppercase text-center">Premium Account</h5>
-              <div class="row custom-price-card-margin">
-                <div class="col-lg-6 border-right">
-                    <h6 class="card-price text-center">200bdt<span class="period">/month</span></h6>
-                </div>
-                <div class="col-lg-6">
-                    <h6 class="card-price text-center">1200bdt<span class="period">/year</span></h6>
-                    <h6 class="card-title text-dark border border-warning text-uppercase text-center">50% discount</h6>
-                </div>
-              </div>
-              <hr>
-              <ul class="fa-ul text-center mr-5">
-                <li><i class="fas fa-check"></i></li>
-                <li><i class="fas fa-check"></i></li>
-                <li><i class="fas fa-check"></i></li>
-                <li><i class="fas fa-check"></i></li>
-                <li><i class="fas fa-check"></i></li>
-                <li><i class="fas fa-check"></i></li>
-                <li><i class="fas fa-check"></i></li>
-                <li><i class="fas fa-check"></i></li>
-              </ul>
-              <a href="#" class="btn btn-block btn-warning">Register Now</a>
-            </div>
-          </div>
         </div>
       </div>
     </div>
-</section> --}}
+</section>
 
 
 <section class="contact-us pb-5">
