@@ -18,7 +18,7 @@ class DownloadController extends Controller
                     $download = Download::find($download->id);
                     $download->how_many_left =   $download->how_many_left - 1;
                     $download->save();
-                    return response()->download( $request->file_path );
+                    return redirect()->away($request->file_path);
                 }else{
                     return redirect()->back()->with('error', 'Download limit exceeded');
                 }
@@ -27,7 +27,7 @@ class DownloadController extends Controller
                 $download->current_month =  date("Y-m-d");
                 $download->how_many_left =  9;
                 $download->save();
-                return response()->download( $request->file_path  );
+                return redirect()->away($request->file_path);
             }
         }else{
             $download = new Download([
@@ -36,7 +36,7 @@ class DownloadController extends Controller
                 'user_id' => auth()->user()->id,
             ]);
             $download->save();
-            return response()->download( $request->file_path );
+            return redirect()->away($request->file_path);
         }
         return redirect()->back();
     }
