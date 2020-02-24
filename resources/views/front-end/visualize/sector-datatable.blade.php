@@ -4,7 +4,7 @@
         <div class="card-body">
             <h4>{{$sector->name}}<i class="fas fa-arrow-right float-right"></i></h4>
             <div class="table-responsive">
-                <table class="table table-bordered hundred" id="myTable" width="100%" cellspacing="0">
+                <table class="table table-bordered hundred table-custom-font-size" id="myTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
                         <th>Sl.</th>
