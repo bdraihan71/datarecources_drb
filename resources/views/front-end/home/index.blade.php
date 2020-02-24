@@ -363,57 +363,57 @@
                         <p class="price-text"><i class="fas fa-check"></i></p>
                         <p class="text-warning price-text"><i class="fas fa-times"></i></p>
                     </div>
-                    @foreach ($subscriptionplans as $subscriptionplan)
-                    <div class="card bg-transparent border border-warning">
-                        <div class="card-body text-center">
-                            <h6 class="text-warning font-weight-bold">{{ $subscriptionplan->name}} <small>({{ $subscriptionplan->user_limit }} Users)</small></h6>
-                            <div class="row">
-                                <div class="col-6">
-                                    <p class="text-white font-weight-bold price-text-2">BDT {{ $subscriptionplan->price_per_month }}/<br>month</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    @if(auth()->user())
-                                        <form  method="post" action="{{ route('subscribe.plan') }}">
-                                            @csrf
-                                            <input type="hidden" name="price" value="{{ $subscriptionplan->price_per_month }}">
-                                            <input type="hidden" name="plan_id" value="{{ $subscriptionplan->id }}">
-                                            <input type="hidden" name="type" value="monthly">
-                                            <input type="hidden" name="user_limit" value="{{ $subscriptionplan->user_limit }}">
-                                            <button type="submit" class="btn btn-outline-warning btn-sm">Get Started</button>
-                                        </form>
-                                    @else
-                                        <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                                    @endif 
-                                </div>
-                                <div class="col-6">
-                                    <p class="text-white font-weight-bold price-text-2">BDT {{ $subscriptionplan->price_per_year }}/year<br><span class="text-warning">{{ intval($subscriptionplan->discount($subscriptionplan->price_per_month , $subscriptionplan->price_per_year)) }}% Discount</span></p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    <p class="text-white price-text">Y</p>
-                                    @if(auth()->user())
-                                        <form  method="post" action="{{ route('subscribe.plan') }}">
-                                            @csrf
-                                            <input type="hidden" name="price" value="{{ $subscriptionplan->price_per_year }}">
-                                            <input type="hidden" name="plan_id" value="{{ $subscriptionplan->id }}">
-                                            <input type="hidden" name="type" value="yearly">
-                                            <input type="hidden" name="user_limit" value="{{ $subscriptionplan->user_limit }}">
-                                            <button type="submit" class="btn btn-outline-warning btn-sm">Get Started </button>
-                                        </form>
-                                    @else
-                                        <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                                    @endif     
-                                </div>
+                </div>
+                @foreach ($subscriptionplans as $subscriptionplan)
+                <div class="card mr-1 pricing-card-border-radius">
+                    <div class="card-body text-center">
+                        <h6 class="card-title text-muted text-uppercase">{{ $subscriptionplan->name}} <small>({{ $subscriptionplan->user_limit }} Users)</small></h6>
+                        <div class="row">
+                            <div class="col-6">
+                                <p class="font-weight-bold price-text-2">BDT {{ $subscriptionplan->price_per_month }}/<br>month</p>
+                                <p class="price-text"><i class="fas fa-check"></i></p>
+                                <p class="price-text"><i class="fas fa-check"></i></p>
+                                <p class="price-text"><i class="fas fa-check"></i></p>
+                                <p class="price-text"><i class="fas fa-check"></i></p>
+                                <p class="price-text"><i class="fas fa-check"></i></p>
+                                <p class="price-text"><i class="fas fa-check"></i></p>
+                                <p class="price-text"><i class="fas fa-check"></i></p>
+                                <p class="price-text"><i class="fas fa-check"></i></p>
+                                @if(auth()->user())
+                                    <form  method="post" action="{{ route('subscribe.plan') }}">
+                                        @csrf
+                                        <input type="hidden" name="price" value="{{ $subscriptionplan->price_per_month }}">
+                                        <input type="hidden" name="plan_id" value="{{ $subscriptionplan->id }}">
+                                        <input type="hidden" name="type" value="monthly">
+                                        <input type="hidden" name="user_limit" value="{{ $subscriptionplan->user_limit }}">
+                                        <button type="submit" class="btn btn-outline-warning btn-sm">Get Started</button>
+                                    </form>
+                                @else
+                                    <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                                @endif 
+                            </div>
+                            <div class="col-6">
+                                <p class="font-weight-bold price-text-2">BDT {{ $subscriptionplan->price_per_year }}/year<br><span class="text-warning">{{ intval($subscriptionplan->discount($subscriptionplan->price_per_month , $subscriptionplan->price_per_year)) }}% Discount</span></p>
+                                <p class="price-text"><i class="fas fa-check"></i></p>
+                                <p class="price-text"><i class="fas fa-check"></i></p>
+                                <p class="price-text"><i class="fas fa-check"></i></p>
+                                <p class="price-text"><i class="fas fa-check"></i></p>
+                                <p class="price-text"><i class="fas fa-check"></i></p>
+                                <p class="price-text"><i class="fas fa-check"></i></p>
+                                <p class="price-text"><i class="fas fa-check"></i></p>
+                                <p class="price-text"><i class="fas fa-check"></i></p>
+                                @if(auth()->user())
+                                    <form  method="post" action="{{ route('subscribe.plan') }}">
+                                        @csrf
+                                        <input type="hidden" name="price" value="{{ $subscriptionplan->price_per_year }}">
+                                        <input type="hidden" name="plan_id" value="{{ $subscriptionplan->id }}">
+                                        <input type="hidden" name="type" value="yearly">
+                                        <input type="hidden" name="user_limit" value="{{ $subscriptionplan->user_limit }}">
+                                        <button type="submit" class="btn btn-outline-warning btn-sm">Get Started </button>
+                                    </form>
+                                @else
+                                    <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                                @endif     
                             </div>
                         </div>
                     </div>
