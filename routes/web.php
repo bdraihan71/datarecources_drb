@@ -110,6 +110,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/invoice/postuser', 'InvoiceController@postUser')->name('invoice.postuser');
 
     Route::delete('/subscriber/{id}', 'InvoiceController@destroy')->name('subscriber.destroy');
+
+    //download
+    Route::post('download', 'DownloadController@store')->name('download.store');
 });
 
 
