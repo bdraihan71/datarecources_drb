@@ -55,4 +55,21 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Subscriber');
     }
+
+    public function download()
+    {
+        return $this->belongsTo('App\Download');
+    }
+
+    public function canDownload(){
+        if($this->download != null && $this->download->how_many_left == 0)
+            if($this->subscribers->last() != null && $this->subscribers->last()->is_expire == null){
+                return true;
+            }else{
+                return false;
+            }
+        else{
+            return true;
+        }    
+    }
 }
