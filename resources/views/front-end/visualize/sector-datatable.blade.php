@@ -4,7 +4,7 @@
         <div class="card-body">
             <h4>{{$sector->name}}<i class="fas fa-arrow-right float-right"></i></h4>
             <div class="table-responsive">
-                <table class="table table-bordered hundred" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered hundred" id="myTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
                         <th>Sl.</th>
@@ -80,29 +80,29 @@
                         <tr>
                             <td>{{++$i}}</td>
                             <td>{{$item->company->name}}</td>
-                            <td>{{$item->last_trading_price}}</td>
-                            <td>{{$item->yesterday_closing}}</td>
-                            <td>{{$item->price_change}}</td>
-                            <td>{{$item->trade}}</td>
-                            <td>{{$item->turnover_bdt_mn}}</td>
-                            <td>{{$item->volume}}</td>
-                            <td>{{$item->sponsor_or_director}}</td>
-                            <td>{{$item->government}}</td>
-                            <td>{{$item->institute}}</td>
-                            <td>{{$item->foreign}}</td>
-                            <td>{{$item->public}}</td>
-                            <td>{{$item->paid_up_capital_bdt_mn}}</td>
-                            <td>{{$item->three_year_revenue_cagr}}</td>
-                            <td>{{$item->three_year_npat_cagr}}</td>
-                            <td>{{$item->roa}}</td>
-                            <td>{{$item->roe}}</td>
-                            <td>{{$item->audited_eps}}</td>
-                            <td>{{$item->pe_1_basic}}</td>
-                            <td>{{$item->pe_5}}</td>
-                            <td>{{$item->navps}}</td>
-                            <td>{{$item->p_navps_x}}</td>
-                            <td>{{$item->dps}}</td>
-                            <td>{{$item->dividend_yield}}</td>
+                            <td>{{sprintf("%01.2f",$item->last_trading_price)}}</td>
+                            <td>{{sprintf("%01.2f",$item->yesterday_closing)}}</td>
+                            <td>{{sprintf("%01.2f", $item->price_change)}}</td>
+                            <td>{{sprintf("%01.2f",$item->trade)}}</td>
+                            <td>{{sprintf("%01.2f", $item->turnover_bdt_mn)}}</td>
+                            <td>{{sprintf("%01.2f",$item->volume)}}</td>
+                            <td>{{sprintf("%01.2f",$item->sponsor_or_director)}}</td>
+                            <td>{{sprintf("%01.2f",$item->government)}}</td>
+                            <td>{{sprintf("%01.2f",$item->institute)}}</td>
+                            <td>{{sprintf("%01.2f",$item->foreign)}}</td>
+                            <td>{{sprintf("%01.2f",$item->public)}}</td>
+                            <td>{{sprintf("%01.2f",$item->paid_up_capital_bdt_mn)}}</td>
+                            <td>{{sprintf("%01.2f",$item->three_year_revenue_cagr)}}</td>
+                            <td>{{sprintf("%01.2f",$item->three_year_npat_cagr)}}</td>
+                            <td>{{sprintf("%01.2f",$item->roa)}}</td>
+                            <td>{{sprintf("%01.2f",$item->roe)}}</td>
+                            <td>{{sprintf("%01.2f",$item->audited_eps)}}</td>
+                            <td>{{sprintf("%01.2f",$item->pe_1_basic)}}</td>
+                            <td>{{sprintf("%01.2f",$item->pe_5)}}</td>
+                            <td>{{sprintf("%01.2f",$item->navps)}}</td>
+                            <td>{{sprintf("%01.2f",$item->p_navps_x)}}</td>
+                            <td>{{sprintf("%01.2f",$item->dps)}}</td>
+                            <td>{{sprintf("%01.2f",$item->dividend_yield)}}</td>
                         </tr>
                         @endif
                     @endforeach
