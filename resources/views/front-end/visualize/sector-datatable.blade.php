@@ -80,29 +80,29 @@
                         <tr>
                             <td>{{++$i}}</td>
                             <td>{{$item->company->name}}</td>
-                            <td>{{sprintf("%01.2f",$item->last_trading_price)}}</td>
-                            <td>{{sprintf("%01.2f",$item->yesterday_closing)}}</td>
+                            <td>{{sprintf("%01.2f", $item->last_trading_price)}}</td>
+                            <td>{{sprintf("%01.2f", $item->yesterday_closing)}}</td>
                             <td>{{sprintf("%01.2f", $item->price_change)}}</td>
-                            <td>{{sprintf("%01.2f",$item->trade)}}</td>
+                            <td>{{sprintf("%01.2f", $item->trade)}}</td>
                             <td>{{sprintf("%01.2f", $item->turnover_bdt_mn)}}</td>
-                            <td>{{sprintf("%01.2f",$item->volume)}}</td>
-                            <td>{{sprintf("%01.2f",$item->sponsor_or_director)}}</td>
-                            <td>{{sprintf("%01.2f",$item->government)}}</td>
-                            <td>{{sprintf("%01.2f",$item->institute)}}</td>
-                            <td>{{sprintf("%01.2f",$item->foreign)}}</td>
-                            <td>{{sprintf("%01.2f",$item->public)}}</td>
-                            <td>{{sprintf("%01.2f",$item->paid_up_capital_bdt_mn)}}</td>
-                            <td>{{sprintf("%01.2f",$item->three_year_revenue_cagr)}}</td>
-                            <td>{{sprintf("%01.2f",$item->three_year_npat_cagr)}}</td>
-                            <td>{{sprintf("%01.2f",$item->roa)}}</td>
-                            <td>{{sprintf("%01.2f",$item->roe)}}</td>
-                            <td>{{sprintf("%01.2f",$item->audited_eps)}}</td>
-                            <td>{{sprintf("%01.2f",$item->pe_1_basic)}}</td>
-                            <td>{{sprintf("%01.2f",$item->pe_5)}}</td>
-                            <td>{{sprintf("%01.2f",$item->navps)}}</td>
-                            <td>{{sprintf("%01.2f",$item->p_navps_x)}}</td>
-                            <td>{{sprintf("%01.2f",$item->dps)}}</td>
-                            <td>{{sprintf("%01.2f",$item->dividend_yield)}}</td>
+                            <td>{{sprintf("%01.2f", $item->volume)}}</td>
+                            <td>{{sprintf("%01.2f", $item->sponsor_or_director)}}</td>
+                            <td>{{sprintf("%01.2f", $item->government)}}</td>
+                            <td>{{sprintf("%01.2f", $item->institute)}}</td>
+                            <td>{{sprintf("%01.2f", $item->foreign)}}</td>
+                            <td>{{sprintf("%01.2f", $item->public)}}</td>
+                            <td>{{sprintf("%01.2f", $item->paid_up_capital_bdt_mn)}}</td>
+                            <td>{{sprintf("%01.2f", $item->three_year_revenue_cagr)}}</td>
+                            <td>{{sprintf("%01.2f", $item->three_year_npat_cagr)}}</td>
+                            <td>{{sprintf("%01.2f", $item->roa)}}</td>
+                            <td>{{sprintf("%01.2f", $item->roe)}}</td>
+                            <td>{{sprintf("%01.2f", $item->audited_eps)}}</td>
+                            <td>{{sprintf("%01.2f", $item->pe_1_basic)}}</td>
+                            <td>{{sprintf("%01.2f", $item->pe_5)}}</td>
+                            <td>{{sprintf("%01.2f", $item->navps)}}</td>
+                            <td>{{sprintf("%01.2f", $item->p_navps_x)}}</td>
+                            <td>{{sprintf("%01.2f", $item->dps)}}</td>
+                            <td>{{sprintf("%01.2f", $item->dividend_yield)}}</td>
                         </tr>
                         @endif
                     @endforeach
