@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top nav-bg border-bottom mt-lg-n5">
     <div class="container">
         <a class="navbar-brand text-white" href="/"><h2>DRB</h2></a>
-        {{-- <div class="search-custom-margin">
+        @if (!Request::is('/'))
+        <div class="search-custom-margin">
             <form action="{{route('search')}}" method="GET">
                 <div class="input-group">
                     <input class="form-control border-secondary search-border border border-secondary search-width" type="search" value="" name="search" placeholder=" Search by keyword">
@@ -12,7 +13,8 @@
                     </div>
                 </div>
             </form>
-        </div> --}}
+        </div>
+        @endif
         <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
