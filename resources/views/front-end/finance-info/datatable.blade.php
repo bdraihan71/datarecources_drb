@@ -80,31 +80,19 @@
                     @endif 
 
                     @if(auth()->user())
-                        @if($item->q2_excel_url != '#')
-                            <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q2_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->q2_excel_url_file_name != null ? $item->q2_excel_url_file_name : 'Excel' }}</a></td>
-                        @else
-                            <td>No Excel</td>
-                        @endif
+                       @include('front-end.partial.q2_excel_url', compact('item'))
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif 
 
                     @if(auth()->user())
-                        @if($item->q3__pdf_url != '#')
-                            <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q3__pdf_url }}" type="button" class="btn btn-outline-primary">{{ $item->q3__pdf_url_file_name != null ? $item->q3__pdf_url_file_name : 'PDF' }}</a></td>
-                        @else
-                            <td>No PDF</td>
-                        @endif
+                        @include('front-end.partial.q3__pdf_url', compact('item'))
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif 
 
                     @if(auth()->user())
-                        @if($item->q3_excel_url != '#')
-                            <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q3_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->q3_excel_url_file_name != null ? $item->q3_excel_url_file_name : 'Excel' }}</a></td>
-                        @else
-                            <td>No Excel</td>
-                        @endif
+                       @include('front-end.partial.q3_excel_url', compact('item'))
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif 
