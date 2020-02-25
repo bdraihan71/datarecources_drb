@@ -62,189 +62,86 @@
                     @endif
                     <td>{{$item->year}}</td>
                     @if(auth()->user())
-                        @if($item->q1__pdf_url != '#')
-                            <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q1__pdf_url }}" type="button" class="btn btn-outline-primary">{{ $item->q1__pdf_url_file_name != null ? $item->q1__pdf_url_file_name : 'PDF' }}</a></td>
-                        @else
-                            <td>No PDF</td>
-                        @endif
+                       @include('front-end.partial.q1__pdf_url', compact('item'))
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif 
 
                     @if(auth()->user())
-                        @if($item->q1_excel_url != '#')
-                            <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q1_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->q1_excel_url_file_name != null ? $item->q1_excel_url_file_name : 'Excel' }}</a></td>
-                        @else
-                            <td>No Excel</td>
-                        @endif
+                       @include('front-end.partial.q1_excel_url', compact('item'))
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif 
 
                     @if(auth()->user())
-                        @if($item->q2__pdf_url != '#')
-                            <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q2__pdf_url }}" type="button" class="btn btn-outline-primary">{{ $item->q2__pdf_url_file_name != null ? $item->q2__pdf_url_file_name : 'PDF' }}</a></td>
-                        @else
-                            <td>No PDF</td>
-                        @endif
+                        @include('front-end.partial.q2__pdf_url', compact('item'))
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif 
 
                     @if(auth()->user())
-                        @if($item->q2_excel_url != '#')
-                            <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q2_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->q2_excel_url_file_name != null ? $item->q2_excel_url_file_name : 'Excel' }}</a></td>
-                        @else
-                            <td>No Excel</td>
-                        @endif
+                       @include('front-end.partial.q2_excel_url', compact('item'))
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif 
 
                     @if(auth()->user())
-                        @if($item->q3__pdf_url != '#')
-                            <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q3__pdf_url }}" type="button" class="btn btn-outline-primary">{{ $item->q3__pdf_url_file_name != null ? $item->q3__pdf_url_file_name : 'PDF' }}</a></td>
-                        @else
-                            <td>No PDF</td>
-                        @endif
+                        @include('front-end.partial.q3__pdf_url', compact('item'))
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif 
 
                     @if(auth()->user())
-                        @if($item->q3_excel_url != '#')
-                            <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q3_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->q3_excel_url_file_name != null ? $item->q3_excel_url_file_name : 'Excel' }}</a></td>
-                        @else
-                            <td>No Excel</td>
-                        @endif
+                       @include('front-end.partial.q3_excel_url', compact('item'))
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif 
 
                     @if(auth()->user())
-                        @if($item->q4__pdf_url != '#')
-                            <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q4__pdf_url }}" type="button" class="btn btn-outline-primary">{{ $item->q4__pdf_url_file_name != null ? $item->q4__pdf_url_file_name : 'PDF' }}</a></td>
-                        @else
-                            <td>No PDF</td>
-                        @endif
+                       @include('front-end.partial.q4__pdf_url', compact('item'))
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif 
 
                     @if(auth()->user())
-                        @if($item->q4_excel_url != '#')
-                            <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q4_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->q4_excel_url_file_name != null ? $item->q4_excel_url_file_name : 'Excel' }}</a></td>
-                        @else
-                            <td>No Excel</td>
-                        @endif
+                      @include('front-end.partial.q4_excel_url', compact('item'))
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif 
                     
+                
                     @if(auth()->user())
-                        @if($user->subscribers->last() != null)
-                            @if($user->subscribers->last()->is_expire != null)
-                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
-                            @else
-                                @if($item->annual_excel_url != '#')
-                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->annual_excel_url_file_name != null ? $item->annual_excel_url_file_name : 'Excel' }}</a></td>
-                                @else
-                                    <td>No Excel</td>
-                                @endif
-                            @endif
-                        @else
-                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
-                        @endif    
+                        @include('front-end.partial.annual_excel_url', compact('item'))
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif  
 
                     @if(auth()->user())
-                        @if($user->subscribers->last() != null)
-                            @if($user->subscribers->last()->is_expire != null)
-                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
-                            @else
-                                @if($item->annual_pdf_1_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_1_url }}" type="button" class="btn btn-outline-primary">{{ $item->annual_pdf_1_url_file_name != null ? $item->annual_pdf_1_url_file_name : 'PDF' }}</a></td>
-                                @else
-                                    <td>No PDF</td>
-                                @endif
-                            @endif
-                        @else
-                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
-                        @endif    
+                        @include('front-end.partial.annual_pdf_1_url', compact('item'))
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif 
 
                     @if(auth()->user())
-                        @if($user->subscribers->last() != null)
-                            @if($user->subscribers->last()->is_expire != null)
-                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
-                            @else
-                                @if($item->annual_pdf_2_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_2_url }}" type="button" class="btn btn-outline-primary">{{ $item->annual_pdf_2_url_file_name != null ? $item->annual_pdf_2_url_file_name : 'PDF' }}</a></td>
-                                @else
-                                    <td>No PDF</td>
-                                @endif
-                            @endif
-                        @else
-                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
-                        @endif         
+                        @include('front-end.partial.annual_pdf_2_url', compact('item'))
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif 
 
                     @if(auth()->user())
-                        @if($user->subscribers->last() != null)
-                            @if($user->subscribers->last()->is_expire != null)
-                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
-                            @else
-                                @if($item->annual_pdf_3_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_3_url }}" type="button" class="btn btn-outline-primary">{{ $item->annual_pdf_3_url_file_name != null ? $item->annual_pdf_3_url_file_name : 'PDF' }}</a></td>
-                                @else
-                                    <td>No PDF</td>
-                                @endif
-                            @endif
-                        @else
-                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
-                        @endif         
+                        @include('front-end.partial.annual_pdf_3_url', compact('item'))
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif 
 
                     @if(auth()->user())
-                        @if($user->subscribers->last() != null)
-                            @if($user->subscribers->last()->is_expire != null)
-                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
-                            @else
-                                @if($item->annual_pdf_4_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_4_url }}" type="button" class="btn btn-outline-primary">{{ $item->annual_pdf_4_url_file_name != null ? $item->annual_pdf_4_url_file_name : 'PDF' }}</a></td>
-                                @else
-                                    <td>No PDF</td>
-                                @endif
-                            @endif
-                        @else
-                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
-                        @endif      
+                         @include('front-end.partial.annual_pdf_4_url', compact('item'))
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif 
 
                     @if(auth()->user())
-                        @if($user->subscribers->last() != null)
-                            @if($user->subscribers->last()->is_expire != null)
-                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
-                            @else
-                                @if($item->annual_pdf_5_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->annual_pdf_5_url }}" type="button" class="btn btn-outline-primary">{{ $item->annual_pdf_5_url_file_name != null ? $item->annual_pdf_5_url_file_name : 'PDF' }}</a></td>
-                                @else
-                                    <td>No PDF</td>
-                                @endif
-                            @endif
-                        @else
-                            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
-                        @endif      
+                       @include('front-end.partial.annual_pdf_5_url', compact('item'))     
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif 
