@@ -28,10 +28,10 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
-            <div class="col-md-8">
-                <div class="card mb-3 custom-header-top">
+            <div class="col-md-12">
+                {{-- <div class="card mb-3 custom-header-top">
                     <div class="row no-gutters">
                         @if($featured)
                             <div class="col-md-12">
@@ -46,12 +46,12 @@
                                         <a href="{{route('news.single',$featured->id)}}">
                                             <h5 class="card-title text-white">{{$featured->heading}}</h5>
                                             {{-- <p class="card-text text-white">{{$featured->body}}</p> --}}
-                                            <p class="card-text text-white">{{implode(' ', array_slice(explode(' ', $featured->body), 0, 20))}}</p>
+                                            {{-- <p class="card-text text-white">{{implode(' ', array_slice(explode(' ', $featured->body), 0, 20))}}</p>
                                             <p class="card-text"><small class="text-white">{{$featured->updated_at->diffForHumans()}}</small></p>
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             {{-- <div class="col-md-4">
                                 <div class="card-body text-right">
                                     <a href="{{route('news.single',$featured->id)}}">
@@ -62,7 +62,7 @@
                                     </a>
                                 </div>
                             </div> --}}
-                        @else
+                        {{-- @else
                             <div class="col-md-8">
                                 <img src="img/blur.jpg" class="card-img news-card-img rounded-0" alt="...">
                             </div>
@@ -75,7 +75,7 @@
                             </div>
                         @endif    
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="row"> 
                     @if($top5s->isEmpty())
@@ -173,7 +173,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            {{-- <div class="col-md-4">
                 <div class="custom-header-top">
                     @if($sides->isEmpty())
                         <h4 class="card-text main-text-color text-center"><small>No news available</small></h4>
@@ -185,7 +185,7 @@
                         @endforeach
                     @endif  
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </header>
