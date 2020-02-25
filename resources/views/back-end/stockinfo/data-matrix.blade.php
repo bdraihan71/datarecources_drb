@@ -21,7 +21,7 @@
 <form action="{{ route('stockinfo.process') }}" method="post">
     @csrf
     <button class="fat-button">Save</button>
-    <div class="table-responsive">
+    <div class="table-responsive data-matrix-admin-panel-table">
     <table border="1">
         <tr>
             <td>Company Name</td>
