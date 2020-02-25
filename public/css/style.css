@@ -510,11 +510,13 @@ input[type="search"]::placeholder {
 }
 
 .price-text {
-    font-size: 85%;
+    font-size: 100%;
+    color: black;
 }
 
 .price-text-2 {
     font-size: 12px;
+    color: black;
 }
  
 .pricing .card {
@@ -530,9 +532,10 @@ input[type="search"]::placeholder {
   
 .pricing .card-title {
     margin: 0.5rem 0;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     letter-spacing: .1rem;
     font-weight: bold;
+    color: #101c53;
 }
   
 .pricing .card-price {
@@ -671,6 +674,11 @@ input[type="search"]::placeholder {
 
 .pricing-card-border-radius {
     border-radius: 15px !important;
+}
+
+.pricing-card-border-top {
+    border-top: 2px solid #FFC107 !important;
+    border-bottom: 2px solid #FFC107 !important;
 }
 
 .table-custom-font-size {
