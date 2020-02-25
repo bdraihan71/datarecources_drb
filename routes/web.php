@@ -142,7 +142,7 @@ Route::get('/single-news/{id}', 'NewsController@singleNews')->name('news.single'
 
 Route::get('/visualize', 'VisualizeController@index')->name('visualize.index');
 
-Route::get('/visualize/data-matrix', 'VisualizeController@dataMatrix')->name('visualize.data-matrix');
+Route::get('/data-matrix', 'VisualizeController@dataMatrix')->name('visualize.data-matrix');
 Route::post('/subscribe-plan', 'SubscriptionPlanController@subscribePlan')->name('subscribe.plan');
 
 

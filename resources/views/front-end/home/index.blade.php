@@ -335,26 +335,6 @@
         </div>
     </section>
 @endif
-<section class="call-to-action bg-warning">
-    <div class="container-fluid h-100">
-        <div class="row text-center align-items-center h-100 mt-5">
-            @if (Auth::user())
-                <div class="col-md-12">
-                    <h1 class="main-text-color">Data Resources BD</h1>
-                </div>
-            @else
-                <div class="col-md-2"></div>
-                <div class="col-md-4">
-                    <h1 class="main-text-color">Sign Up for Free</h1>
-                </div>
-                <div class="col-md-4">
-                    <a href="{{ route('register') }}" class="btn btn-dark rounded-pill py-2 w-100 main-color">Sign Up</a>
-                </div>
-                <div class="col-md-2"></div>
-            @endif
-        </div>
-    </div>
-</section>
 
 
 <section class="pricing py-5 bg-light">
@@ -366,30 +346,30 @@
                 <div class="card mr-sm-3 pricing-card-border-radius pricing-card-border-top">
                     <div class="card-body text-center">
                         <h5 class="mt-4 card-title text-uppercase">Features</h5>
-                        <p class="price-text mt-5">Access Data</p>
                         <p class="price-text mt-5">News Aggregator</p>
                         <p class="price-text">Data Matrix</p>
+                        <p class="price-text">Download Data</p>
                     </div>
                 </div>
                 <div class="card mr-sm-3 pricing-card-border-radius pricing-card-border-top">
                     <div class="card-body text-center">
                         <h6 class="card-title text-uppercase">Basic</h6>
-                        <p class="font-weight-bold price-text-2">BDT 0/month</p>
-                        <p class="price-text pt-4">10 Dwonloads free<br> every month</i></p>
+                        <p class="font-weight-bold price-text-2">BDT 0/<br>month</p>
                         <p class="price-text"><i class="fas fa-check"></i></p>
                         <p class="price-text"><i class="fas fa-check"></i></p>
+                        <p class="price-text"><b>10</b></i></p>
                     </div>
                 </div>
                 @foreach ($subscriptionplans as $subscriptionplan)
                 <div class="card mr-sm-3 pricing-card-border-radius pricing-card-border-top">
                     <div class="card-body text-center">
-                        <h6 class="card-title text-uppercase">{{ $subscriptionplan->name}} <small>({{ $subscriptionplan->user_limit }} Users)</small></h6>
+                        <h6 class="card-title text-uppercase">{{ $subscriptionplan->name}} <small>({{ $subscriptionplan->user_limit }} User)</small></h6>
                         <div class="row">
                             <div class="col-6">
                                 <p class="font-weight-bold price-text-2">BDT {{ $subscriptionplan->price_per_month }}/<br>month</p>
-                                <p class="price-text">Unlimited<br> Download</i></p>
                                 <p class="price-text"><i class="fas fa-check"></i></p>
                                 <p class="price-text"><i class="fas fa-check"></i></p>
+                                <p class="price-text"><b>Unlimited</b></i></p>
                                 @if(auth()->user())
                                     <form  method="post" action="{{ route('subscribe.plan') }}">
                                         @csrf
@@ -405,9 +385,10 @@
                             </div>
                             <div class="col-6">
                                 <p class="font-weight-bold price-text-2">BDT {{ $subscriptionplan->price_per_year }}/year<br><span class="text-warning">{{ intval($subscriptionplan->discount($subscriptionplan->price_per_month , $subscriptionplan->price_per_year)) }}% Discount</span></p>
-                                <p class="price-text">Unlimited<br> Download</i></p>
+                               
                                 <p class="price-text"><i class="fas fa-check"></i></p>
                                 <p class="price-text"><i class="fas fa-check"></i></p>
+                                <p class="price-text"><b>Unlimited</b></i></p>
                                 @if(auth()->user())
                                     <form  method="post" action="{{ route('subscribe.plan') }}">
                                         @csrf
@@ -431,6 +412,27 @@
     </div>
 </section>
 
+
+<section class="call-to-action bg-warning">
+    <div class="container-fluid h-100">
+        <div class="row text-center align-items-center h-100 mt-5">
+            @if (Auth::user())
+                <div class="col-md-12">
+                    <h1 class="main-text-color">Data Resources BD</h1>
+                </div>
+            @else
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                    <h1 class="main-text-color">Sign Up for Free</h1>
+                </div>
+                <div class="col-md-4">
+                    <a href="{{ route('register') }}" class="btn btn-dark rounded-pill py-2 w-100 main-color">Sign Up</a>
+                </div>
+                <div class="col-md-2"></div>
+            @endif
+        </div>
+    </div>
+</section>
 
 <section class="contact-us pb-5">
     <div class="container">

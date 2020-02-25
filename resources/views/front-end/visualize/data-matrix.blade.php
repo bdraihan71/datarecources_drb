@@ -1,13 +1,13 @@
 @extends('front-end.main-layout')
-
 @section('content')
-<div class="container-fluid">
-  <div class="row custom-header-top">
-      <div class="col-md-12 mt-5">
-        @foreach($sectors as $sector)
-          @include('front-end.visualize.sector-datatable', compact('sector'))
-        @endforeach
+<!-- Navigation -->
+
+<section class="financial-statement" id="mainApp">
+    <div class="container-fluid h-100 ">
+        @include('front-end.visualize/company-datatable')
     </div>
-  </div>
-</div>
+</section>
+@endsection
+@section('scripts')
+
 @endsection
