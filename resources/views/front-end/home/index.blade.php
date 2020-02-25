@@ -6,16 +6,16 @@
         <div class="container-fluid h-100">
             <div class="row align-items-center h-100">
                 <div class="col-md-12 text-center text-white mt-5">
-                    <h1 class="mb-3 mt-5">Bangladesh's First Aggregate Data Platform</h1>
-                    <h4 class="my-4">More than 1000 Contents</h4>
+                    <h5 class="mb-3 mt-5">1st Aggregate Data Platform of Bangladesh</h5>
+                    <h1 class="my-4">1000+ curated contents</h1>
                     <div class="row">
                         <div class="col-md-3"></div>
                         <div class="col-md-6">
                             <form action="{{route('search')}}" method="GET">
-                                <div class="input-group">
-                                    <input class="form-control border-secondary py-4 search-border border border-secondary" type="search" value="" name="search" placeholder=" Search by keyword">
+                                <div class="input-group search-bar-index">
+                                    <input class="form-control py-4 " type="search" value="" name="search" placeholder="type a company name">
                                     <div class="input-group-append">
-                                        <button type="submit" class="btn btn-warning px-5 search-btn-border border border-secondary" type="button">
+                                        <button type="submit" class="btn btn-warning px-5  " type="button">
                                             <i class="fa fa-search"></i>
                                         </button>
                                     </div>
@@ -28,56 +28,9 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
-                {{-- <div class="card mb-3 custom-header-top">
-                    <div class="row no-gutters">
-                        @if($featured)
-                            <div class="col-md-12">
-                                <div class="featured-img">
-                                    @if($featured->image)
-                                        <a href="{{route('news.single',$featured->id)}}">
-                                            <img src="{{ env('S3_URL') }}{{$featured->image}}" class="featured-news-img rounded-0" alt="...">
-                                        </a>
-                                    @endif
-                                
-                                    <div class="card-body text-left featured-img-text pl-4 pt-5">
-                                        <a href="{{route('news.single',$featured->id)}}">
-                                            <h5 class="card-title text-white">{{$featured->heading}}</h5>
-                                            {{-- <p class="card-text text-white">{{$featured->body}}</p> --}}
-                                            {{-- <p class="card-text text-white">{{implode(' ', array_slice(explode(' ', $featured->body), 0, 20))}}</p>
-                                            <p class="card-text"><small class="text-white">{{$featured->updated_at->diffForHumans()}}</small></p>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div> --}}
-                            {{-- <div class="col-md-4">
-                                <div class="card-body text-right">
-                                    <a href="{{route('news.single',$featured->id)}}">
-                                        <h5 class="card-title text-white">{{$featured->heading}}</h5>
-                                        {{-- <p class="card-text text-white">{{$featured->body}}</p> --}}
-                                        {{-- <p class="card-text text-white">{{implode(' ', array_slice(explode(' ', $featured->body), 0, 20))}}</p>
-                                        <p class="card-text"><small class="text-muted">{{$featured->updated_at->diffForHumans()}}</small></p>
-                                    </a>
-                                </div>
-                            </div> --}}
-                        {{-- @else
-                            <div class="col-md-8">
-                                <img src="img/blur.jpg" class="card-img news-card-img rounded-0" alt="...">
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card-body text-right">
-                                    <h5 class="card-title text-white">No news available</h5>
-                                    <p class="card-text text-white">--</p>
-                                    <p class="card-text"><small class="text-muted">--</small></p>
-                                </div>
-                            </div>
-                        @endif    
-                    </div>
-                </div> --}}
-
-                <div class="row"> 
+        <div class="row sliding-news"> 
                     @if($top5s->isEmpty())
                         <div class="col-4 col-sm text-center">
                             <h4 class="card-text main-text-color"><small>No news available</small></h4>
@@ -87,31 +40,26 @@
                             @foreach ($top5s as $news)
                             <div>
                                 <a href="{{route('news.single',$news->id)}}">
-                                    <div class="card border-0">
+                                    <div class="card border-0 black-card">
                                         @if($news->image)
                                             <img src="{{ env('S3_URL') }}{{ $news->image }}" class="card-img-top top5-news-img rounded-0" alt="...">
                                         @endif
-                                        <p class="card-text main-text-color py-1 news-line-height"><small class="font-weight-bold">{{ $news->heading }}</small></p>
+                                        <p class="py-1 news-line-height"><small>{{ $news->heading }}</small></p>
                                     </div>
                                 </a>
                             </div>
                             @endforeach
                         </div>  
-                        {{-- @foreach ($top5s as $news)
-                            <div class="col-4 col-sm">
-                                <a href="{{route('news.single',$news->id)}}">
-                                    <div class="card border-0">
-                                        @if($news->image)
-                                            <img src="{{ env('S3_URL') }}{{ $news->image }}" class="card-img-top top5-news-img rounded-0" alt="...">
-                                        @endif
-                                        <p class="card-text main-text-color py-1 news-line-height"><small class="font-weight-bold">{{ $news->heading }}</small></p>
-                                    </div>
-                                </a>
-                            </div>
-                        @endforeach --}}
                     @endif 
                 </div>
 
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+             
+               
                 <div class="card-deck mt-5">
                     <div class="card border-0">
                         <h4 class="main-text-color">World</h4>
@@ -190,6 +138,7 @@
                     <a href="/news" class="btn btn-warning my-5 rounded-pill px-5 mx-auto">Read More News</a>
                 </div>
             </div>
+            
             {{-- <div class="col-md-4">
                 <div class="custom-header-top">
                     @if($sides->isEmpty())
@@ -206,6 +155,28 @@
         </div>
     </div>
 </header>
+
+
+<section class="call-to-action bg-warning">
+    <div class="container-fluid h-100">
+        <div class="row text-center align-items-center h-100">
+            @if (Auth::user())
+                <div class="col-md-12">
+                    <h1 class="main-text-color">Data Resources BD</h1>
+                </div>
+            @else
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                    <p class="main-text-color">Become a member &amp get <br> <strong>10 free downloads </strong> every month</p>
+                </div>
+                <div class="col-md-4">
+                    <a href="{{ route('register') }}" class="btn btn-dark rounded-pill py-2 w-100 main-color">Sign Up</a>
+                </div>
+                <div class="col-md-2"></div>
+            @endif
+        </div>
+    </div>
+</section>
 
 <section class="analyze">
     <div class="container-fluid">
