@@ -126,4 +126,10 @@ class NewsController extends Controller
         $news->delete();
         return redirect()->back()->with('success', 'News has been deleted successfully');
     }
+
+    public function newsSearch(Request $request)
+    {
+        $allnews = News::where('is_published', 1)->where('heading', 'LIKE', "%$request->search%")->latest()->paginate(10);
+        return view('front-end.news.index', compact('allnews'));
+    }
 }

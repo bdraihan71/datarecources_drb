@@ -128,6 +128,7 @@ Route::get('/filter', 'FinanceInfoController@financeFilter')->name('financefilte
 
 //search
 Route::get('/search', 'PublicPagesController@search')->name('search');
+Route::get('/newssearch', 'NewsController@newsSearch')->name('newssearch');
 
 //mail
 Route::post('/contact-us', 'PublicPagesController@contactUs')->name('contactus');
