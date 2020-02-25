@@ -186,6 +186,9 @@
                         <a href="{{route('news.single', App\News::where('showing_area', 'company')->orderBy('created_at', 'desc')->skip(4)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'company')->orderBy('created_at', 'desc')->skip(4)->take(1)->get()->first()->heading  ?? '#'), 0, 20))}}</small></a>
                     </div>
                 </div>
+                <div class="text-center">
+                    <a href="/news" class="btn btn-warning my-5 rounded-pill px-5 mx-auto">Read More News</a>
+                </div>
             </div>
             {{-- <div class="col-md-4">
                 <div class="custom-header-top">
