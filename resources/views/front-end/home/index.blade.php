@@ -82,8 +82,22 @@
                         <div class="col-4 col-sm text-center">
                             <h4 class="card-text main-text-color"><small>No news available</small></h4>
                         </div>
-                    @else  
-                        @foreach ($top5s as $news)
+                    @else
+                        <div class="owl-carousel mt-4 px-3">
+                            @foreach ($top5s as $news)
+                            <div>
+                                <a href="{{route('news.single',$news->id)}}">
+                                    <div class="card border-0">
+                                        @if($news->image)
+                                            <img src="{{ env('S3_URL') }}{{ $news->image }}" class="card-img-top top5-news-img rounded-0" alt="...">
+                                        @endif
+                                        <p class="card-text main-text-color py-1 news-line-height"><small class="font-weight-bold">{{ $news->heading }}</small></p>
+                                    </div>
+                                </a>
+                            </div>
+                            @endforeach
+                        </div>  
+                        {{-- @foreach ($top5s as $news)
                             <div class="col-4 col-sm">
                                 <a href="{{route('news.single',$news->id)}}">
                                     <div class="card border-0">
@@ -94,7 +108,7 @@
                                     </div>
                                 </a>
                             </div>
-                        @endforeach
+                        @endforeach --}}
                     @endif 
                 </div>
 

@@ -1,7 +1,5 @@
 @extends('front-end.main-layout')
 @section('content')
-<!-- Navigation -->
-
 <section class="news">
     <div class="container">
         <div class="row custom-header-top">

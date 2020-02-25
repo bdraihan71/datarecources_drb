@@ -92,6 +92,32 @@
     });
   });
 
+  $('.owl-carousel').owlCarousel({
+    loop:true,
+    center:false,
+    margin:20,
+    responsiveClass:true,
+    autoplay:true,
+    navText: [
+      "<i class='fa fa-chevron-left text-warning'></i>",
+      "<i class='fa fa-chevron-right text-warning'></i>"
+    ],
+    responsive:{
+        0:{
+            items:1,
+            nav:false
+        },
+        600:{
+            items:3,
+            nav:true
+        },
+        1000:{
+            items:6,
+            nav:true
+        }
+    }
+  });
+
 })(jQuery);
 
 //Get the button

@@ -16,6 +16,9 @@
     <!-- Bootstrap CSS -->
     <link href="/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
+    <!-- Owl CSS -->
+    <link href="/vendor/owl/owl.carousel.min.css" rel="stylesheet">
+
     <!-- Data Tables CSS -->
     <link href="/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
@@ -59,6 +62,9 @@
 
     <!-- JQuery Easing -->
     <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Owl -->
+    <script src="/vendor/owl/owl.carousel.min.js"></script>
 
     <!-- Plugin JavaScripts -->
     <script src="/vendor/chart.js/Chart.min.js"></script>
