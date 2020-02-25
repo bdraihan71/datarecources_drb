@@ -143,11 +143,11 @@
                     
                 
                     @if(auth()->user())
-                        @if(auth()->user()->canDownload())
+                        {{-- @if(auth()->user()->canDownload()) --}}
                             @include('front-end.partial.annual_excel_url', compact('item'))
-                        @else
+                        {{-- @else
                             <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
-                        @endif    
+                        @endif     --}}
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif  

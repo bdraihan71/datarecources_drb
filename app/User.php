@@ -58,18 +58,40 @@ class User extends Authenticatable
 
     public function download()
     {
-        return $this->belongsTo('App\Download');
+        return $this->hasOne('App\Download','user_id');
     }
 
     public function canDownload(){
-        if($this->download != null && $this->download->how_many_left == 0)
-            if($this->subscribers->last() != null && $this->subscribers->last()->is_expire == null){
+        if($this->download == null){
+            return true;
+        }else{
+           if($this->download->how_many_left != 0){
+               return true;
+           }else{
+               return false;
+            //    if($this->subscribers->last() != null){
+            //         if($this->subscribers->last()->is_expire == null){
+            //             return true;
+            //         }else{
+            //             return false;
+            //         }
+            //    }else{
+            //        return false;
+            //    }
+           }
+        }
+    }
+
+    public function isSubscriber()
+    {
+        if($this->subscribers->last() != null){
+            if($this->subscribers->last()->is_expire == null){
                 return true;
             }else{
                 return false;
             }
-        else{
-            return true;
-        }    
+       }else{
+           return false;
+       }
     }
 }
