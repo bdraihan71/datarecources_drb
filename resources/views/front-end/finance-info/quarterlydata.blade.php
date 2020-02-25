@@ -84,174 +84,110 @@
                     <td>{{$item->year}}</td>
                     @if ($frequency == 'quarterly' and $q1 == null and $q2 == null and $q3 == null and $q4 == null)
                         @if(auth()->user())
-                            @if($item->q1__pdf_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q1__pdf_url }}" type="button" class="btn btn-outline-primary">{{ $item->q1__pdf_url_file_name != null ? $item->q1__pdf_url_file_name : 'PDF' }}</a></td>
-                            @else
-                                <td>No PDF</td>
-                            @endif
+                            @include('front-end.partial.q1__pdf_url', compact('item'))
                         @else
                             <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                        @endif    
+                        @endif 
 
-                        @if(auth()->user())    
-                            @if($item->q1_excel_url != '#')
-                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q1_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->q1_excel_url_file_name != null ? $item->q1_excel_url_file_name : 'Excel' }}</a></td>
-                            @else
-                                <td>No Excel</td>
-                            @endif
+                        @if(auth()->user())
+                            @include('front-end.partial.q1_excel_url', compact('item'))
+                        @else
+                            <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                        @endif 
+
+                        @if(auth()->user())
+                            @include('front-end.partial.q2__pdf_url', compact('item'))
+                        @else
+                            <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                        @endif 
+
+                        @if(auth()->user())
+                            @include('front-end.partial.q2_excel_url', compact('item'))
+                        @else
+                            <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                        @endif 
+
+                        @if(auth()->user())
+                            @include('front-end.partial.q3__pdf_url', compact('item'))
+                        @else
+                            <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                        @endif 
+
+                        @if(auth()->user())
+                            @include('front-end.partial.q3_excel_url', compact('item'))
+                        @else
+                            <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                        @endif 
+
+                        @if(auth()->user())
+                            @include('front-end.partial.q4__pdf_url', compact('item'))
+                        @else
+                            <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                        @endif 
+
+                        @if(auth()->user())
+                            @include('front-end.partial.q4_excel_url', compact('item'))
                         @else
                             <td><a href="/login" class="btn btn-warning">Login</a></td>   
                         @endif
 
-                        @if(auth()->user())
-                            @if($item->q2__pdf_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q2__pdf_url }}" type="button" class="btn btn-outline-primary">{{ $item->q2__pdf_url_file_name != null ? $item->q2__pdf_url_file_name : 'PDF' }}</a></td>
-                            @else
-                                <td>No PDF</td>
-                            @endif
-                            @else
-                                <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                            @endif
-
-                        @if(auth()->user())    
-                            @if($item->q2_excel_url != '#')
-                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q2_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->q2_excel_url_file_name != null ? $item->q2_excel_url_file_name : 'Excel' }}</a></td>
-                            @else
-                                <td>No Excel</td>
-                            @endif
-                            @else
-                                <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                            @endif
-
-                        @if(auth()->user())
-                            @if($item->q3__pdf_url != '#')
-                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q3__pdf_url }}" type="button" class="btn btn-outline-primary">{{ $item->q3__pdf_url_file_name != null ? $item->q3__pdf_url_file_name : 'PDF' }}</a></td>
-                            @else
-                                <td>No PDF</td>
-                            @endif
-                            @else
-                                <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                            @endif
-
-                        @if(auth()->user())    
-                            @if($item->q3_excel_url != '#')
-                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q3_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->q3_excel_url_file_name != null ? $item->q3_excel_url_file_name : 'Excel' }}</a></td>
-                            @else
-                                <td>No Excel</td>
-                            @endif
-                            @else
-                                <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                            @endif
-                        
-                        @if(auth()->user())
-                            @if($item->q4__pdf_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q4__pdf_url }}" type="button" class="btn btn-outline-primary">{{ $item->q4__pdf_url_file_name != null ? $item->q4__pdf_url_file_name : 'PDF' }}</a></td>
-                            @else
-                                <td>No PDF</td>
-                            @endif
-                            @else
-                                <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                            @endif
-                            
-                        @if(auth()->user())    
-                            @if($item->q4_excel_url != '#')
-                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q4_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->q4_excel_url_file_name != null ? $item->q4_excel_url_file_name : 'Excel' }}</a></td>
-                            @else
-                                <td>No Excel</td>
-                            @endif
-                            @else
-                                <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                            @endif
-
                     @else  
                         @isset($q1)
                             @if(auth()->user())
-                                @if($item->q1__pdf_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q1__pdf_url }}" type="button" class="btn btn-outline-primary">{{ $item->q1__pdf_url_file_name != null ? $item->q1__pdf_url_file_name : 'PDF' }}</a></td>
-                                @else
-                                    <td>No PDF</td>
-                                @endif
+                                @include('front-end.partial.q1__pdf_url', compact('item'))
                             @else
                                 <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                            @endif
+                            @endif 
 
                             @if(auth()->user())
-                            @if($item->q1_excel_url != '#')
-                                <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q1_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->q1_excel_url_file_name != null ? $item->q1_excel_url_file_name : 'Excel' }}</a></td>
-                            @else
-                                <td>No Excel</td>
-                            @endif
+                                @include('front-end.partial.q1_excel_url', compact('item'))
                             @else
                                 <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                            @endif
+                            @endif 
                         @endisset
 
                         @isset($q2)
                             @if(auth()->user())
-                                @if($item->q2__pdf_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q2__pdf_url }}" type="button" class="btn btn-outline-primary">{{ $item->q2__pdf_url_file_name != null ? $item->q2__pdf_url_file_name : 'PDF' }}</a></td>
-                                @else
-                                    <td>No PDF</td>
-                                @endif
+                                @include('front-end.partial.q2__pdf_url', compact('item'))
                             @else
                                 <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                            @endif
+                            @endif 
 
                             @if(auth()->user())
-                                @if($item->q2_excel_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q2_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->q2_excel_url_file_name != null ? $item->q2_excel_url_file_name : 'Excel' }}</a></td>
-                                @else
-                                    <td>No Excel</td>
-                                @endif
+                                @include('front-end.partial.q2_excel_url', compact('item'))
                             @else
                                 <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                            @endif
+                            @endif 
                         @endisset
 
                         
                         @isset($q3)
                             @if(auth()->user())
-                                @if($item->q3__pdf_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q3__pdf_url }}" type="button" class="btn btn-outline-primary">{{ $item->q3__pdf_url_file_name != null ? $item->q3__pdf_url_file_name : 'PDF' }}</a></td>
-                                @else
-                                    <td>No PDF</td>
-                                @endif
+                                @include('front-end.partial.q3__pdf_url', compact('item'))
                             @else
                                 <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                            @endif
+                            @endif 
 
                             @if(auth()->user())
-                                @if($item->q3_excel_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q3_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->q3_excel_url_file_name != null ? $item->q3_excel_url_file_name : 'Excel' }}</a></td>
-                                @else
-                                    <td>No Excel</td>
-                                @endif
+                                @include('front-end.partial.q3_excel_url', compact('item'))
                             @else
                                 <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                            @endif    
+                            @endif  
                         @endisset
 
 
                         @isset($q4)
                             @if(auth()->user())
-                                @if($item->q4__pdf_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q4__pdf_url }}" type="button" class="btn btn-outline-primary">{{ $item->q4__pdf_url_file_name != null ? $item->q4__pdf_url_file_name : 'PDF' }}</a></td>
-                                @else
-                                    <td>No PDF</td>
-                                @endif
+                                @include('front-end.partial.q4__pdf_url', compact('item'))
                             @else
                                 <td><a href="/login" class="btn btn-warning">Login</a></td>   
                             @endif 
 
                             @if(auth()->user())
-                                @if($item->q4_excel_url != '#')
-                                    <td><a target="_blank" href="{{ env('S3_URL') }}{{ $item->q4_excel_url }}" type="button" class="btn btn-outline-primary">{{ $item->q4_excel_url_file_name != null ? $item->q4_excel_url_file_name : 'Excel' }}</a></td>
-                                @else
-                                    <td>No Excel</td>
-                                @endif
+                                @include('front-end.partial.q4_excel_url', compact('item'))
                             @else
                                 <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                            @endif 
+                            @endif
                         @endisset
                     @endif        
                 </tr>
