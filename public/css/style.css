@@ -672,3 +672,26 @@ input[type="search"]::placeholder {
 .pricing-card-border-radius {
     border-radius: 15px !important;
 }
+
+.table-custom-font-size {
+    font-size: 14px;
+}
+
+.data-matrix th{
+    text-align: center;
+    vertical-align: top;
+}
+
+
+.data-matrix{
+    font-size: .8em;
+}
+
+.legend{
+    float: right;
+    width: 15%;
+    padding: 5px;
+    color: #888;
+    background-color: #e6e6e6;
+    font-size: .8em;
+}

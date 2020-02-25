@@ -3,7 +3,7 @@
 @section('content')
 <style>
     .fat-button{
-        width: 200%;
+        width: 100%;
         height: 50px;
     }
     input{
@@ -21,7 +21,7 @@
 <form action="{{ route('stockinfo.process') }}" method="post">
     @csrf
     <button class="fat-button">Save</button>
-    
+    <div class="table-responsive">
     <table border="1">
         <tr>
             <td>Company Name</td>
@@ -99,5 +99,6 @@
     @endforeach
     </form>
 </table>
+</div>
 <br><br><br><br><br><br>
 @endsection
