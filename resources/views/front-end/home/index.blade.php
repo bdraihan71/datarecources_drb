@@ -432,7 +432,7 @@
 
 <section class="call-to-action bg-warning">
     <div class="container-fluid h-100">
-        <div class="row text-center align-items-center h-100 mt-5">
+        <div class="row text-center align-items-center h-100">
             @if (Auth::user())
                 <div class="col-md-12">
                     <h1 class="main-text-color">Data Resources BD</h1>
