@@ -366,28 +366,19 @@
                 <div class="card mr-1 pricing-card-border-radius">
                     <div class="card-body">
                     <h6 class="my-4 card-title text-muted text-uppercase">Features</h6>
-                    <p class="price-text pt-4">News Aggregator</p>
+                    <p class="price-text">Access Data</p>
+                    <p class="price-text">News Aggregator</p>
                     <p class="price-text">Data Matrix</p>
-                    <p class="price-text">Economy Data</p>
-                    <p class="price-text">Commodity Data</p>
-                    <p class="price-text">Industry Data</p>
-                    <p class="price-text">Publication</p>
-                    <p class="price-text">Quarterly Finance Statement</p>
-                    <p class="price-text">Annual Finance Statement</p>
+                    
                     </div>
                 </div>
                 <div class="card mr-1 pricing-card-border-radius">
                     <div class="card-body text-center">
-                        <h6 class="card-title text-muted text-uppercase">Basic Account</h6>
-                        <p class="font-weight-bold price-text-2">(0 BDT)</p>
-                        <p class="price-text pt-4"><i class="fas fa-check"></i></p>
+                        <h6 class="card-title text-muted text-uppercase">Basic</h6>
+                        <p class="font-weight-bold price-text-2">BDT 0/month</p>
+                        <p class="price-text pt-4">10 Dwonloads free every month</i></p>
                         <p class="price-text"><i class="fas fa-check"></i></p>
                         <p class="price-text"><i class="fas fa-check"></i></p>
-                        <p class="price-text"><i class="fas fa-check"></i></p>
-                        <p class="price-text"><i class="fas fa-check"></i></p>
-                        <p class="price-text"><i class="fas fa-check"></i></p>
-                        <p class="price-text"><i class="fas fa-check"></i></p>
-                        <p class="text-warning price-text"><i class="fas fa-times"></i></p>
                     </div>
                 </div>
                 @foreach ($subscriptionplans as $subscriptionplan)
@@ -397,12 +388,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <p class="font-weight-bold price-text-2">BDT {{ $subscriptionplan->price_per_month }}/<br>month</p>
-                                <p class="price-text"><i class="fas fa-check"></i></p>
-                                <p class="price-text"><i class="fas fa-check"></i></p>
-                                <p class="price-text"><i class="fas fa-check"></i></p>
-                                <p class="price-text"><i class="fas fa-check"></i></p>
-                                <p class="price-text"><i class="fas fa-check"></i></p>
-                                <p class="price-text"><i class="fas fa-check"></i></p>
+                                <p class="price-text">Unlimited Download</i></p>
                                 <p class="price-text"><i class="fas fa-check"></i></p>
                                 <p class="price-text"><i class="fas fa-check"></i></p>
                                 @if(auth()->user())
@@ -420,12 +406,7 @@
                             </div>
                             <div class="col-6">
                                 <p class="font-weight-bold price-text-2">BDT {{ $subscriptionplan->price_per_year }}/year<br><span class="text-warning">{{ intval($subscriptionplan->discount($subscriptionplan->price_per_month , $subscriptionplan->price_per_year)) }}% Discount</span></p>
-                                <p class="price-text"><i class="fas fa-check"></i></p>
-                                <p class="price-text"><i class="fas fa-check"></i></p>
-                                <p class="price-text"><i class="fas fa-check"></i></p>
-                                <p class="price-text"><i class="fas fa-check"></i></p>
-                                <p class="price-text"><i class="fas fa-check"></i></p>
-                                <p class="price-text"><i class="fas fa-check"></i></p>
+                                <p class="price-text">Unlimited Download</i></p>
                                 <p class="price-text"><i class="fas fa-check"></i></p>
                                 <p class="price-text"><i class="fas fa-check"></i></p>
                                 @if(auth()->user())
