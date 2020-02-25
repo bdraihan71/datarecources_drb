@@ -2,10 +2,36 @@
 
 @section('content')
 <header id="home">
-    <div class="container-fluid">
+    <div class="hero-background">
+        <div class="container-fluid h-100">
+            <div class="row align-items-center h-100">
+                <div class="col-md-12 text-center text-white mt-5">
+                    <h1 class="mb-3 mt-5">Bangladesh's First Aggregate Data Platform</h1>
+                    <h4 class="my-4">More than 1000 Contents</h4>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <form action="{{route('search')}}" method="GET">
+                                <div class="input-group">
+                                    <input class="form-control border-secondary py-4 search-border border border-secondary" type="search" value="" name="search" placeholder=" Search by keyword">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-warning px-5 search-btn-border border border-secondary" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
         <div class="row">
-            <div class="col-md-8">
-                <div class="card mb-3 custom-header-top">
+            <div class="col-md-12">
+                {{-- <div class="card mb-3 custom-header-top">
                     <div class="row no-gutters">
                         @if($featured)
                             <div class="col-md-12">
@@ -20,12 +46,12 @@
                                         <a href="{{route('news.single',$featured->id)}}">
                                             <h5 class="card-title text-white">{{$featured->heading}}</h5>
                                             {{-- <p class="card-text text-white">{{$featured->body}}</p> --}}
-                                            <p class="card-text text-white">{{implode(' ', array_slice(explode(' ', $featured->body), 0, 20))}}</p>
+                                            {{-- <p class="card-text text-white">{{implode(' ', array_slice(explode(' ', $featured->body), 0, 20))}}</p>
                                             <p class="card-text"><small class="text-white">{{$featured->updated_at->diffForHumans()}}</small></p>
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             {{-- <div class="col-md-4">
                                 <div class="card-body text-right">
                                     <a href="{{route('news.single',$featured->id)}}">
@@ -36,7 +62,7 @@
                                     </a>
                                 </div>
                             </div> --}}
-                        @else
+                        {{-- @else
                             <div class="col-md-8">
                                 <img src="img/blur.jpg" class="card-img news-card-img rounded-0" alt="...">
                             </div>
@@ -49,7 +75,7 @@
                             </div>
                         @endif    
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="row"> 
                     @if($top5s->isEmpty())
@@ -147,7 +173,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            {{-- <div class="col-md-4">
                 <div class="custom-header-top">
                     @if($sides->isEmpty())
                         <h4 class="card-text main-text-color text-center"><small>No news available</small></h4>
@@ -159,7 +185,7 @@
                         @endforeach
                     @endif  
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </header>
@@ -331,38 +357,37 @@
 </section>
 
 
-<section class="pricing py-5 main-color">
-    <h1 class="text-center text-warning display-4 font-weight-bold">Our Pricing</h1>
+<section class="pricing py-5 bg-light">
+    <h1 class="text-center main-text-color mb-md-5">Our Pricing</h1>
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
             <div class="card-group">
-                <div class="card mr-1 pricing-card-border-radius">
-                    <div class="card-body">
-                    <h6 class="my-4 card-title text-muted text-uppercase">Features</h6>
-                    <p class="price-text">Access Data</p>
-                    <p class="price-text">News Aggregator</p>
-                    <p class="price-text">Data Matrix</p>
-                    
+                <div class="card mr-sm-3 pricing-card-border-radius pricing-card-border-top">
+                    <div class="card-body text-center">
+                        <h5 class="mt-4 card-title text-uppercase">Features</h5>
+                        <p class="price-text mt-5">Access Data</p>
+                        <p class="price-text mt-5">News Aggregator</p>
+                        <p class="price-text">Data Matrix</p>
                     </div>
                 </div>
-                <div class="card mr-1 pricing-card-border-radius">
+                <div class="card mr-sm-3 pricing-card-border-radius pricing-card-border-top">
                     <div class="card-body text-center">
-                        <h6 class="card-title text-muted text-uppercase">Basic</h6>
+                        <h6 class="card-title text-uppercase">Basic</h6>
                         <p class="font-weight-bold price-text-2">BDT 0/month</p>
-                        <p class="price-text pt-4">10 Dwonloads free every month</i></p>
+                        <p class="price-text pt-4">10 Dwonloads free<br> every month</i></p>
                         <p class="price-text"><i class="fas fa-check"></i></p>
                         <p class="price-text"><i class="fas fa-check"></i></p>
                     </div>
                 </div>
                 @foreach ($subscriptionplans as $subscriptionplan)
-                <div class="card mr-1 pricing-card-border-radius">
+                <div class="card mr-sm-3 pricing-card-border-radius pricing-card-border-top">
                     <div class="card-body text-center">
-                        <h6 class="card-title text-muted text-uppercase">{{ $subscriptionplan->name}} <small>({{ $subscriptionplan->user_limit }} Users)</small></h6>
+                        <h6 class="card-title text-uppercase">{{ $subscriptionplan->name}} <small>({{ $subscriptionplan->user_limit }} Users)</small></h6>
                         <div class="row">
                             <div class="col-6">
                                 <p class="font-weight-bold price-text-2">BDT {{ $subscriptionplan->price_per_month }}/<br>month</p>
-                                <p class="price-text">Unlimited Download</i></p>
+                                <p class="price-text">Unlimited<br> Download</i></p>
                                 <p class="price-text"><i class="fas fa-check"></i></p>
                                 <p class="price-text"><i class="fas fa-check"></i></p>
                                 @if(auth()->user())
@@ -380,7 +405,7 @@
                             </div>
                             <div class="col-6">
                                 <p class="font-weight-bold price-text-2">BDT {{ $subscriptionplan->price_per_year }}/year<br><span class="text-warning">{{ intval($subscriptionplan->discount($subscriptionplan->price_per_month , $subscriptionplan->price_per_year)) }}% Discount</span></p>
-                                <p class="price-text">Unlimited Download</i></p>
+                                <p class="price-text">Unlimited<br> Download</i></p>
                                 <p class="price-text"><i class="fas fa-check"></i></p>
                                 <p class="price-text"><i class="fas fa-check"></i></p>
                                 @if(auth()->user())

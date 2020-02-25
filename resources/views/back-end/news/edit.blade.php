@@ -44,11 +44,15 @@
         </div>
 
         <div class="col-md-8">
-            <label>Where to show</label>
+            <h6>Where to show</h6>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="showing_area" id="exampleRadios1" value="featured" {{$news->showing_area == 'featured' ?'checked':''}}>
+                {{-- <input class="form-check-input" type="radio" name="showing_area" id="exampleRadios1" value="featured" {{$news->showing_area == 'featured' ?'checked':''}}>
                 <label class="form-check-label mr-4" for="exampleRadios1">
                   Featured
+                </label> --}}
+                <input class="form-check-input" type="radio" name="showing_area" id="exampleRadios6" value="top5" >
+                <label class="form-check-label mr-4" for="exampleRadios6">
+                  Top News
                 </label>
                 <input class="form-check-input" type="radio" name="showing_area" id="exampleRadios2" value="world" {{$news->showing_area == 'world' ?'checked':''}}>
                 <label class="form-check-label mr-4" for="exampleRadios2">
@@ -66,14 +70,10 @@
                 <label class="form-check-label mr-4" for="exampleRadios5">
                   Company
                 </label>
-                <input class="form-check-input" type="radio" name="showing_area" id="exampleRadios6" value="top5" >
-                <label class="form-check-label mr-4" for="exampleRadios6">
-                  Top 5
-                </label>
-                <input class="form-check-input" type="radio" name="showing_area" id="exampleRadios7" value="side" >
+                {{-- <input class="form-check-input" type="radio" name="showing_area" id="exampleRadios7" value="side" >
                 <label class="form-check-label" for="exampleRadios7">
                   Side
-                </label>
+                </label> --}}
             </div>
         </div>
 
