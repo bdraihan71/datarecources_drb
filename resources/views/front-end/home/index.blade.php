@@ -2,6 +2,32 @@
 
 @section('content')
 <header id="home">
+    <div class="hero-background">
+        <div class="container-fluid h-100">
+            <div class="row align-items-center h-100">
+                <div class="col-md-12 text-center text-white mt-5">
+                    <h1 class="mb-3 mt-5">Bangladesh's First Aggregate Data Platform</h1>
+                    <h4 class="my-4">More than 1000 Contents</h4>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <form action="{{route('search')}}" method="GET">
+                                <div class="input-group">
+                                    <input class="form-control border-secondary py-4 search-border border border-secondary" type="search" value="" name="search" placeholder=" Search by keyword">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-warning px-5 search-btn-border border border-secondary" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8">

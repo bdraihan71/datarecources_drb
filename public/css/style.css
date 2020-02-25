@@ -199,11 +199,11 @@ a.article:hover {
 }
 
 .search-border {
-    border-radius: 5px;
+    border-radius: 25px;
 }
 
 .search-btn-border {
-    border-radius: 5px;
+    border-radius: 25px;
 }
 
 .nav-bg {
