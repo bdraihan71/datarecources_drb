@@ -13,7 +13,7 @@ class VisualizeController extends Controller
     }
 
     public function dataMatrix(){
-        $sectors = Sector::where('name', '!=', 'Unassigned')->get();
+        $sectors = Sector::all();
         return view('front-end.visualize.data-matrix', compact('sectors'));
     }
 }

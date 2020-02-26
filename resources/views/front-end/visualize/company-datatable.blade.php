@@ -8,65 +8,33 @@
                     <th rowspan="2">Sl.</th>
                     <th rowspan="2">Company</th>
                     <th rowspan="2">Sector</th>
-                    <th rowspan="2">LTP<br>(BDT)</th>
-                    <th rowspan="2">YCP<br>(BDT)</th>
-                    <th rowspan="2">Change<br>(%)</th>
-                    <th rowspan="2">Turnover<br>(BDT mn)</th>
+                    <th rowspan="2">LTP<br><small>(BDT)</small></th>
+                    <th rowspan="2">YCP<br><small>(BDT)</small></th>
+                    <th rowspan="2">Change<br><small>(%)</small></th>
+                    <th rowspan="2">Turnover<br><small>(BDT mn)</small></th>
                     <th rowspan="2">Volume</th>
-                    <th rowspan="2">Audited<br>EPS(BDT)</th>
-                    <th rowspan="2">Audited<br>P/E(x)</th>
-                    <th rowspan="2">Forward<br>P/E(x)</th>
+                    <th rowspan="2">Audited<br><small>EPS(BDT)</small></th>
+                    <th rowspan="2">Audited<br><small>P/E(x)</small></th>
+                    <th rowspan="2">Forward<br><small>P/E(x)</small></th>
                     <th rowspan="2">NAVPS</th>
-                    <th rowspan="2">P/NAVPS<br>(x)</th>
+                    <th rowspan="2">P/NAVPS<br><small>(x)</small></th>
                     <th rowspan="2">DPS</th>
-                    <th rowspan="2">Dividend<br>Yield(%)</th>
-                    <th rowspan="2">ROAE<br>(%)</th>
-                    <th rowspan="2">ROAA<br>(%)</th>
-                    <th rowspan="2">3 Year NPAT<br>CAGR(%)</th>
-                    <th rowspan="2">3 Year Revenue<br>CAGR(%)</th>
+                    <th rowspan="2">Dividend<br><small>Yield(%)</small></th>
+                    <th rowspan="2">ROAE<br><small>(%)</small></th>
+                    <th rowspan="2">ROAA<br><small>(%)</small></th>
+                    <th rowspan="2">3 Year NPAT<br><small>CAGR(%)</small></th>
+                    <th rowspan="2">3 Year Revenue<br><small>CAGR(%)</small></th>
                     <th rowspan="2">PaidUp Capital<br><small>(BDT mn)</small></th>
                     <th rowspan="1" colspan="4">Ownership</th>
                 </tr>
                 <tr>
-                    <th>Sponsor/Director<br>(%)</th>
-                    <th>Foreign<br>(%)</th>
-                    <th>Institute<br>(%)</th>
-                    <th>Public<br>(%)</th>        
+                    <th><small>Sponsor/Director(%)</small></th>
+                    <th><small>Foreign(%)</small></th>
+                    <th><small>Institute(%)</small></th>
+                    <th><small>Public(%)</small></th>        
                 </tr>
             </thead>
-            <tfoot>
-                    
-                    
-                <tr>
-                    <th rowspan="2">Sl.</th>
-                    <th rowspan="2">Company</th>
-                    <th rowspan="2">Sector</th>
-                    <th rowspan="2">LTP<br>(BDT)</th>
-                    <th rowspan="2">YCP<br>(BDT)</th>
-                    <th rowspan="2">Change<br>(%)</th>
-                    <th rowspan="2">Turnover<br>(BDT mn)</th>
-                    <th rowspan="2">Volume</th>
-                    <th rowspan="2">Audited<br>EPS(BDT)</th>
-                    <th rowspan="2">Audited<br>P/E(x)</th>
-                    <th rowspan="2">Forward<br>P/E(x)</th>
-                    <th rowspan="2">NAVPS</th>
-                    <th rowspan="2">P/NAVPS<br>(x)</th>
-                    <th rowspan="2">DPS</th>
-                    <th rowspan="2">Dividend<br>Yield(%)</th>
-                    <th rowspan="2">ROAE<br>(%)</th>
-                    <th rowspan="2">ROAA<br>(%)</th>
-                    <th rowspan="2">3 Year NPAT<br>CAGR(%)</th>
-                    <th rowspan="2">3 Year Revenue<br>CAGR(%)</th>
-                    <th rowspan="2">PaidUp Capital<br><small>(BDT mn)</small></th>
-                    <th>Sponsor/Director<br>(%)</th>
-                    <th>Foreign<br>(%)</th>
-                    <th>Institute<br>(%)</th>
-                    <th>Public<br>(%)</th>        
-                </tr>
-                <tr>
-                    <th rowspan="1" colspan="4">Ownership</th>
-                </tr>
-            </tfoot>
+            
             <tbody>
                 @php
                     $i = 0;
@@ -114,7 +82,7 @@
                 @endforeach
             </tbody>
         </table>
-    
+    <br><br>
         <p class="legend"> 
             N/A= Not applicable ,
              LTP= Last Traded Price ,
@@ -143,7 +111,8 @@
         $("#example").dataTable().fnDestroy();
         var table = $('#example').DataTable( {
             info:           false,
-            scrollX:        true,
+            scrollY:        "400px",
+            scrollX:        "100%",
             scrollCollapse: true,
             paging:         false,
             fixedColumns:   {
@@ -163,6 +132,9 @@
     div.dataTables_wrapper {
         width: 100%;
         margin: 0 auto;
+    }
+    .DTFC_LeftBodyWrapper{
+        top: -12px !important;
     }
  </style>
 @endsection
