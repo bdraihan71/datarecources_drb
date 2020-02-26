@@ -20,13 +20,16 @@
             <div class="col-md-12 text-center mt-3">
                 <ul class="nav nav-tabs justify-content-center mb-4 mt-md-n5" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a onclick="clearParamsAndReload()" class="nav-link bg-transparent text-secondary" id="home-tab" data-toggle="tab" href="#financial-info" role="tab" aria-controls="financial-info" aria-selected="true">Financial Information</a>
+                        <a class="nav-link bg-transparent text-secondary" id="financial-info-tab" data-toggle="tab" href="#financial-info" role="tab" aria-controls="financial-info" aria-selected="true">Financial Information</a>
                     </li>
                     <li class="nav-item">
-                        <a onclick="clearParamsAndReload()" class="nav-link bg-transparent text-secondary" id="home-tab2" data-toggle="tab" href="#page" role="tab" aria-controls="page" aria-selected="false">Page</a>
+                        <a  class="nav-link bg-transparent text-secondary" id="page-tab" data-toggle="tab" href="#page" role="tab" aria-controls="page" aria-selected="false">Page</a>
                     </li>
                     <li class="nav-item">
-                        <a onclick="clearParamsAndReload()" class="nav-link bg-transparent text-secondary" id="home-tab3" data-toggle="tab" href="#Particular" role="tab" aria-controls="Particular" aria-selected="false">Particular</a>
+                        <a class="nav-link bg-transparent text-secondary" id="Particular-tab" data-toggle="tab" href="#Particular" role="tab" aria-controls="Particular" aria-selected="false">Particular</a>
+                    </li>
+                     <li class="nav-item">
+                        <a  class="nav-link bg-transparent text-secondary" id="news-tab" data-toggle="tab" href="#news" role="tab" aria-controls="news" aria-selected="false">News</a>
                     </li>
                 </ul>
 
@@ -40,19 +43,10 @@
                     <div class="tab-pane fade" id="Particular" role="tabpanel" aria-labelledby="Particular-tab">
                         @include('front-end.search.particular')
                     </div>
+                    <div class="tab-pane fade" id="news" role="tabpanel" aria-labelledby="news-tab">
+                        @include('front-end.search.news')
+                    </div>
                 </div>
-                {{-- @if($finance_infos->count() > 0)
-                    @include('front-end.search.financial')
-                @endif
-                @if($pages->count() > 0)
-                    @include('front-end.search.page')
-                @endif
-                @if($pageitems->count() > 0)
-                    @include('front-end.search.particular')
-                @endif    
-                @if($finance_infos->count() == 0 and  $pages->count() == 0 and $pageitems->count() == 0)
-                    <h3>Your search  did not match any documents.</h3>
-                @endif --}}
             </div>
         </div>
     </div>

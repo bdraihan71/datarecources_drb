@@ -87,9 +87,9 @@ class PublicPagesController extends Controller
             ->orWhere('description', 'LIKE', "%$request->search%")->get();
         }
 
+        $allnews = News::where('is_published', 1)->where('heading', 'LIKE', "%$request->search%")->latest()->paginate(10);
 
-
-        return view('front-end.search.search', compact('finance_infos', 'pages', 'pageitems'));
+        return view('front-end.search.search', compact('finance_infos', 'pages', 'pageitems','allnews'));
     }
 
     public function contactUs(Request $request)
