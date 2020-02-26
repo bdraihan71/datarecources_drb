@@ -12,6 +12,20 @@
     td{
         width: 100px;
     }
+    th:first-child, td:first-child
+    {
+        position:sticky;
+        left:0px;
+        background-color: white;
+    }
+    table{
+        font-size: .8em;
+    }
+    .table th, .table td {
+        padding: .2rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+}
 </style>
 <div class="card-header">
     <i class="fas fa-table"></i>
@@ -21,8 +35,8 @@
 <form action="{{ route('stockinfo.process') }}" method="post">
     @csrf
     <button class="fat-button">Save</button>
-    <div class="table-responsive data-matrix-admin-panel-table">
-    <table border="1">
+    <div class="table-responsive ">
+    <table class="table table-bordered" border="1">
         <tr>
             <td>Company Name</td>
             <td>LTP (BDT)</td>
@@ -59,46 +73,47 @@
             <td>DPS</td>
             <td>Dividend Yield</td>
         </tr>
-    @foreach($stockInfos as $stockInfo)
+    @foreach($stockInfos as $company)
         <tr>
-            <td>{{ $stockInfo->company->name}}</td>
-            <td>{{ $stockInfo->last_trading_price}}</td>
-            <td>{{ $stockInfo->yesterday_closing}}</td>
-            <td>{{ $stockInfo->price_change}}</td>
-            <td>{{ $stockInfo->trade}}</td>
-            <td>{{ $stockInfo->turnover_bdt_mn}}</td>
-            <td>{{ $stockInfo->volume}}</td>
-            <td><input name="data[{{$stockInfo->id}}][sponsor_or_director]" value="{{ $stockInfo->sponsor_or_director}}"></td>
-            <td><input name="data[{{$stockInfo->id}}][government]"  value="{{ $stockInfo->government}}"></td>
-            <td><input name="data[{{$stockInfo->id}}][institute]"  value="{{ $stockInfo->institute}}"></td>
-            <td><input name="data[{{$stockInfo->id}}][foreign]"  value="{{ $stockInfo->foreign}}"></td>
-            <td><input name="data[{{$stockInfo->id}}][public]"  value="{{ $stockInfo->public}}"></td>
-            <td><input name="data[{{$stockInfo->id}}][paid_up_capital_bdt_mn]"  value="{{ $stockInfo->paid_up_capital_bdt_mn}}"></td>
-            <td><input name="data[{{$stockInfo->id}}][beginning_revenue]"  value="{{ $stockInfo->beginning_revenue}}"></td>
-            <td><input name="data[{{$stockInfo->id}}][ending_revenue]"  value="{{ $stockInfo->ending_revenue}}"></td>
-            <td>{{ $stockInfo->three_year_revenue_cagr}}</td>
-            <td><input name="data[{{$stockInfo->id}}][beginning_npat]"  value="{{ $stockInfo->beginning_npat}}"></td>
-            <td><input name="data[{{$stockInfo->id}}][ending_npat]"  value="{{ $stockInfo->ending_npat}}"></td>
-            <td>{{ $stockInfo->three_year_npat_cagr}}</td>
-            <td><input name="data[{{$stockInfo->id}}][npat]"  value="{{ $stockInfo->npat}}"></td>
-            <td><input name="data[{{$stockInfo->id}}][beginning_asset]"  value="{{ $stockInfo->beginning_asset}}"></td>
-            <td><input name="data[{{$stockInfo->id}}][ending_asset]"  value="{{ $stockInfo->ending_asset}}"></td>
-            <td>{{ $stockInfo->roa}}</td>
-            <td><input name="data[{{$stockInfo->id}}][npat_non_controlling_interest]"  value="{{ $stockInfo->npat_non_controlling_interest}}"></td>
-            <td><input name="data[{{$stockInfo->id}}][beginning_equity]"  value="{{ $stockInfo->beginning_equity}}"></td>
-            <td><input name="data[{{$stockInfo->id}}][ending_equity]"  value="{{ $stockInfo->ending_equity}}"></td>
-            <td>{{ $stockInfo->roe}}</td>
-            <td>{{ $stockInfo->audited_eps}}</td>
-            <td>{{ $stockInfo->pe_5}}</td>
-            <td>{{ $stockInfo->pe_1_basic}}</td>
-            <td><input name="data[{{$stockInfo->id}}][navps]"  value="{{ $stockInfo->navps}}"></td>
-            <td>{{ $stockInfo->p_navps_x}}</td>
-            <td><input name="data[{{$stockInfo->id}}][dps]"  value="{{ $stockInfo->dps}}"></td>
-            <td>{{ $stockInfo->dividend_yield}}</td>
+            <td>{{ $company->stockInfo->company->name}}</td>
+            <td>{{ $company->stockInfo->last_trading_price}}</td>
+            <td>{{ $company->stockInfo->yesterday_closing}}</td>
+            <td>{{ $company->stockInfo->price_change}}</td>
+            <td>{{ $company->stockInfo->trade}}</td>
+            <td>{{ $company->stockInfo->turnover_bdt_mn}}</td>
+            <td>{{ $company->stockInfo->volume}}</td>
+            <td><input name="data[{{$company->stockInfo->id}}][sponsor_or_director]" value="{{ $company->stockInfo->sponsor_or_director}}"></td>
+            <td><input name="data[{{$company->stockInfo->id}}][government]"  value="{{ $company->stockInfo->government}}"></td>
+            <td><input name="data[{{$company->stockInfo->id}}][institute]"  value="{{ $company->stockInfo->institute}}"></td>
+            <td><input name="data[{{$company->stockInfo->id}}][foreign]"  value="{{ $company->stockInfo->foreign}}"></td>
+            <td><input name="data[{{$company->stockInfo->id}}][public]"  value="{{ $company->stockInfo->public}}"></td>
+            <td><input name="data[{{$company->stockInfo->id}}][paid_up_capital_bdt_mn]"  value="{{ $company->stockInfo->paid_up_capital_bdt_mn}}"></td>
+            <td><input name="data[{{$company->stockInfo->id}}][beginning_revenue]"  value="{{ $company->stockInfo->beginning_revenue}}"></td>
+            <td><input name="data[{{$company->stockInfo->id}}][ending_revenue]"  value="{{ $company->stockInfo->ending_revenue}}"></td>
+            <td>{{ $company->stockInfo->three_year_revenue_cagr}}</td>
+            <td><input name="data[{{$company->stockInfo->id}}][beginning_npat]"  value="{{ $company->stockInfo->beginning_npat}}"></td>
+            <td><input name="data[{{$company->stockInfo->id}}][ending_npat]"  value="{{ $company->stockInfo->ending_npat}}"></td>
+            <td>{{ $company->stockInfo->three_year_npat_cagr}}</td>
+            <td><input name="data[{{$company->stockInfo->id}}][npat]"  value="{{ $company->stockInfo->npat}}"></td>
+            <td><input name="data[{{$company->stockInfo->id}}][beginning_asset]"  value="{{ $company->stockInfo->beginning_asset}}"></td>
+            <td><input name="data[{{$company->stockInfo->id}}][ending_asset]"  value="{{ $company->stockInfo->ending_asset}}"></td>
+            <td>{{ $company->stockInfo->roa}}</td>
+            <td><input name="data[{{$company->stockInfo->id}}][npat_non_controlling_interest]"  value="{{ $company->stockInfo->npat_non_controlling_interest}}"></td>
+            <td><input name="data[{{$company->stockInfo->id}}][beginning_equity]"  value="{{ $company->stockInfo->beginning_equity}}"></td>
+            <td><input name="data[{{$company->stockInfo->id}}][ending_equity]"  value="{{ $company->stockInfo->ending_equity}}"></td>
+            <td>{{ $company->stockInfo->roe}}</td>
+            <td>{{ $company->stockInfo->audited_eps}}</td>
+            <td>{{ $company->stockInfo->pe_5}}</td>
+            <td>{{ $company->stockInfo->pe_1_basic}}</td>
+            <td><input name="data[{{$company->stockInfo->id}}][navps]"  value="{{ $company->stockInfo->navps}}"></td>
+            <td>{{ $company->stockInfo->p_navps_x}}</td>
+            <td><input name="data[{{$company->stockInfo->id}}][dps]"  value="{{ $company->stockInfo->dps}}"></td>
+            <td>{{ $company->stockInfo->dividend_yield}}</td>
         </tr>
     @endforeach
     </form>
 </table>
 </div>
+{{$stockInfos->links()}}
 <br><br><br><br><br><br>
 @endsection

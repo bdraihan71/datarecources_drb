@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Company;
 use App\StockInfo;
 class StockInfoController extends Controller
 {
@@ -26,7 +27,7 @@ class StockInfoController extends Controller
    }
 
    public function dataMatrix(){
-        $stockInfos = StockInfo::all();
+        $stockInfos = Company::has('stockInfo')->orderBy('name')->paginate(10);
        return view('back-end.stockinfo.data-matrix', compact('stockInfos'));
    }
 

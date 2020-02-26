@@ -20,4 +20,8 @@ class Company extends DrbModel
     {
         return $this->hasOne('App\StockInfo');
     }
+
+    public function scopeWithStockInfo($query){
+        return $this->stockInfo != null;
+    }
 }
