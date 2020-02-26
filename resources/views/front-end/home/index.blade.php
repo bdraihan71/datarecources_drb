@@ -29,30 +29,27 @@
         </div>
     </div>
     <div class="container-fluid">
-        <div class="row">
         <div class="row sliding-news"> 
-                    @if($top5s->isEmpty())
-                        <div class="col-4 col-sm text-center">
-                            <h4 class="card-text main-text-color"><small>No news available</small></h4>
-                        </div>
-                    @else
-                        <div class="owl-carousel mt-4 px-3">
-                            @foreach ($top5s as $news)
-                            <div>
-                                <a href="{{route('news.single',$news->id)}}">
-                                    <div class="card border-0 black-card">
-                                        @if($news->image)
-                                            <img src="{{ env('S3_URL') }}{{ $news->image }}" class="card-img-top top5-news-img rounded-0" alt="...">
-                                        @endif
-                                        <p class="py-1 news-line-height"><small>{{ $news->heading }}</small></p>
-                                    </div>
-                                </a>
-                            </div>
-                            @endforeach
-                        </div>  
-                    @endif 
+            @if($top5s->isEmpty())
+                <div class="col-4 col-sm text-center">
+                    <h4 class="card-text main-text-color"><small>No news available</small></h4>
                 </div>
-
+            @else
+                <div class="owl-carousel mt-5 px-5">
+                    @foreach ($top5s as $news)
+                    <div>
+                        <a href="{{route('news.single',$news->id)}}">
+                            <div class="card border-0 black-card">
+                                @if($news->image)
+                                    <img src="{{ env('S3_URL') }}{{ $news->image }}" class="card-img-top top5-news-img rounded-0" alt="...">
+                                @endif
+                                <p class="py-1 news-line-height"><small>{{ $news->heading }}</small></p>
+                            </div>
+                        </a>
+                    </div>
+                    @endforeach
+                </div>  
+            @endif 
         </div>
     </div>
     <div class="container">

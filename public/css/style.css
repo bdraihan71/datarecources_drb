@@ -609,6 +609,16 @@ input[type="search"]::placeholder {
         height: 200px;
         object-fit: cover;
     }
+
+    .owl-prev,
+    .owl-next {
+    height: 0px;
+    position: absolute;
+    text-align: center;
+    top: 28% !important;
+    transform: translateY(-50%);
+    width: 0px;
+    }
 }
 
 .category-news-img {
@@ -722,17 +732,17 @@ input[type="search"]::placeholder {
   height: 0px;
   position: absolute;
   text-align: center;
-  top: 20%;
+  top: 18%;
   transform: translateY(-50%);
   width: 0px;
 }
 
 .owl-next {
-  right: -10px;
+  right: 30px;
 }
 
 .owl-prev {
-  left: -20px;
+  left: 20px;
 } 
 
 .owl-next:focus {

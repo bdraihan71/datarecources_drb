@@ -105,7 +105,7 @@
     responsive:{
         0:{
             items:1,
-            nav:false
+            nav:true
         },
         600:{
             items:3,
