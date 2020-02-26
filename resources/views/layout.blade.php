@@ -28,6 +28,9 @@
     <!-- Favicon -->
     <link rel="icon" href="/img/favicon.png">
 
+
+    @yield('styles')
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145375324-8"></script>
     <script>
@@ -75,7 +78,7 @@
     <script src="/js/script.js"></script>
 
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5dce8059e10469a8"></script>
+    {{-- <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5dce8059e10469a8"></script> --}}
 
     <script>
     $(window).scroll(function() {
@@ -88,6 +91,9 @@
     }
     });
     </script>
+
+
+    @yield('scripts')
 </body>
 
 </html>

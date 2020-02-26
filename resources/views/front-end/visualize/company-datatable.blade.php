@@ -1,9 +1,8 @@
 <!-- DataTables Example -->
 <div class="card mb-3">
-    <div class="card-header">
     <div class="card-body">
-        <div class="table-responsive">
-        <table class="table table-bordered data-matrix" id="dataTable" width="100%" cellspacing="0">
+       
+        <table id="example" class="stripe row-border order-column" style="width:100%">
             <thead>
                 <tr>
                     <th rowspan="2">Sl.</th>
@@ -25,7 +24,7 @@
                     <th rowspan="2">ROAA<br>(%)</th>
                     <th rowspan="2">3 Year NPAT<br>CAGR(%)</th>
                     <th rowspan="2">3 Year Revenue<br>CAGR(%)</th>
-                    <th rowspan="2">Paid Up Capital<br>(BDT mn)</th>
+                    <th rowspan="2">PaidUp Capital<br><small>(BDT mn)</small></th>
                     <th rowspan="1" colspan="4">Ownership</th>
                 </tr>
                 <tr>
@@ -34,8 +33,8 @@
                     <th>Institute<br>(%)</th>
                     <th>Public<br>(%)</th>        
                 </tr>
-                </thead>
-                <tfoot>
+            </thead>
+            <tfoot>
                     
                     
                 <tr>
@@ -58,7 +57,7 @@
                     <th rowspan="2">ROAA<br>(%)</th>
                     <th rowspan="2">3 Year NPAT<br>CAGR(%)</th>
                     <th rowspan="2">3 Year Revenue<br>CAGR(%)</th>
-                    <th rowspan="2">Paid Up Capital<br>(BDT mn)</th>
+                    <th rowspan="2">PaidUp Capital<br><small>(BDT mn)</small></th>
                     <th>Sponsor/Director<br>(%)</th>
                     <th>Foreign<br>(%)</th>
                     <th>Institute<br>(%)</th>
@@ -67,7 +66,7 @@
                 <tr>
                     <th rowspan="1" colspan="4">Ownership</th>
                 </tr>
-                </tfoot>
+            </tfoot>
             <tbody>
                 @php
                     $i = 0;
@@ -82,56 +81,95 @@
                                 $item = null;
                             }
                         @endphp
-                    @if($item)
-                    <tr>
-                        <td>{{++$i}}</td>
-                        <td>{{$item->company->name}}</td>
-                        <td>{{$sector->name}}</td>
-                        <td class="text-right">{{sprintf("%01.2f", $item->last_trading_price)}}</td>
-                        <td class="text-right">{{sprintf("%01.2f", $item->yesterday_closing)}}</td>
-                        <td class="text-right">{{sprintf("%01.2f", $item->price_change)}}</td>
-                        <td class="text-right">{{sprintf("%01.2f", $item->turnover_bdt_mn)}}</td>
-                        <td class="text-right">{{sprintf("%01.2f", $item->volume)}}</td>
-                        <td class="text-right">{{sprintf("%01.2f", $item->audited_eps)}}</td>
-                        <td class="text-right">{{sprintf("%01.2f", $item->pe_1_basic)}}</td>
-                        <td class="text-right">{{sprintf("%01.2f", $item->pe_5)}}</td>
-                        <td class="text-right">{{sprintf("%01.2f", $item->navps)}}</td>
-                        <td class="text-right">{{sprintf("%01.2f", $item->p_navps_x)}}</td>
-                        <td class="text-right">{{sprintf("%01.2f", $item->dps)}}</td>
-                        <td class="text-right">{{sprintf("%01.2f", $item->dividend_yield)}}</td>
-                        <td class="text-right">{{sprintf("%01.2f", $item->roe)}}</td>
-                        <td class="text-right">{{sprintf("%01.2f", $item->roa)}}</td>
-                        <td class="text-right">{{sprintf("%01.2f", $item->three_year_npat_cagr)}}</td>
-                        <td class="text-right">{{sprintf("%01.2f", $item->three_year_revenue_cagr)}}</td>
-                        <td class="text-right">{{sprintf("%01.2f", $item->paid_up_capital_bdt_mn)}}</td>
-                        <td class="text-right">{{sprintf("%01.2f", $item->sponsor_or_director)}}</td>
-                        <td class="text-right">{{sprintf("%01.2f", $item->foreign)}}</td>
-                        <td class="text-right">{{sprintf("%01.2f", $item->institute)}}</td>
-                        <td class="text-right">{{sprintf("%01.2f", $item->public)}}</td>
-                       
-                    </tr>
-                    @endif
+                        @if($item)
+                            <tr>
+                                <td>{{++$i}}</td>
+                                <td>{{$item->company->name}}</td>
+                                <td>{{$sector->name}}</td>
+                                <td class="text-right">{{sprintf("%01.1f", $item->last_trading_price)}}</td>
+                                <td class="text-right">{{sprintf("%01.1f", $item->yesterday_closing)}}</td>
+                                <td class="text-right">{{sprintf("%01.1f", $item->price_change)}}</td>
+                                <td class="text-right">{{sprintf("%01.1f", $item->turnover_bdt_mn)}}</td>
+                                <td class="text-right">{{sprintf("%01.1f", $item->volume)}}</td>
+                                <td class="text-right">{{sprintf("%01.1f", $item->audited_eps)}}</td>
+                                <td class="text-right">{{sprintf("%01.1f", $item->pe_1_basic)}}</td>
+                                <td class="text-right">{{sprintf("%01.1f", $item->pe_5)}}</td>
+                                <td class="text-right">{{sprintf("%01.1f", $item->navps)}}</td>
+                                <td class="text-right">{{sprintf("%01.1f", $item->p_navps_x)}}</td>
+                                <td class="text-right">{{sprintf("%01.1f", $item->dps)}}</td>
+                                <td class="text-right">{{sprintf("%01.1f", $item->dividend_yield)}}</td>
+                                <td class="text-right">{{sprintf("%01.1f", $item->roe)}}</td>
+                                <td class="text-right">{{sprintf("%01.1f", $item->roa)}}</td>
+                                <td class="text-right">{{sprintf("%01.1f", $item->three_year_npat_cagr)}}</td>
+                                <td class="text-right">{{sprintf("%01.1f", $item->three_year_revenue_cagr)}}</td>
+                                <td class="text-right">{{sprintf("%01.1f", $item->paid_up_capital_bdt_mn)}}</td>
+                                <td class="text-right">{{sprintf("%01.1f", $item->sponsor_or_director)}}</td>
+                                <td class="text-right">{{sprintf("%01.1f", $item->foreign)}}</td>
+                                <td class="text-right">{{sprintf("%01.1f", $item->institute)}}</td>
+                                <td class="text-right">{{sprintf("%01.1f", $item->public)}}</td>
+                            
+                            </tr>
+                        @endif
+                    @endforeach
                 @endforeach
-            @endforeach
-            
             </tbody>
         </table>
-        
-        </div>
+    
+        <p class="legend"> 
+            N/A= Not applicable ,
+             LTP= Last Traded Price ,
+             YCP= Yesterday Closing Price ,
+             EPS= Earnings Per Share ,
+             NAVPS= Net Asset Value Per Share ,
+             DPS= Dividend Per Share ,
+             ROAE= Return on Average Equity ,
+             ROAA= Return on Average Asset ,
+             CAGR= Compound Annual Growth Rate
+        </p>
+    
+    
     </div>
 
-    <p class="legend"> 
-        N/A= Not applicable<br>
-        LTP= Last Traded Price<br>
-        YCP= Yesterday Closing Price<br>
-        EPS= Earnings Per Share<br>
-        NAVPS= Net Asset Value Per Share<br>
-        DPS= Dividend Per Share<br>
-        ROAE= Return on Average Equity <br>
-        ROAA= Return on Average Asset<br>
-        CAGR= Compound Annual Growth Rate<br>
-    </p>
+    
 </div>
-@section('scripts')
 
+@section('scripts')
+ <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+ <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+ <script src="https://cdn.datatables.net/fixedcolumns/3.3.0/js/dataTables.fixedColumns.min.js"></script>
+ <script>
+     
+   $(document).ready(function() {
+        $("#example").dataTable().fnDestroy();
+        var table = $('#example').DataTable( {
+            info:           false,
+            scrollX:        true,
+            scrollCollapse: true,
+            paging:         false,
+            fixedColumns:   {
+                leftColumns: 2
+            }
+        } );
+    } );
+ </script>
 @endsection
+
+@section('styles')
+<link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"  rel="stylesheet">
+<link href="https://cdn.datatables.net/fixedcolumns/3.3.0/css/fixedColumns.dataTables.min.css"  rel="stylesheet">
+ <style>
+     /* Ensure that the demo table scrolls */
+    th, td { white-space: nowrap; }
+    div.dataTables_wrapper {
+        width: 100%;
+        margin: 0 auto;
+    }
+ </style>
+@endsection
+
+
+
+
+
+
+
