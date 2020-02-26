@@ -20,6 +20,9 @@
             <div class="col-md-12 text-center mt-3">
                 <ul class="nav nav-tabs justify-content-center mb-4 mt-md-n5" id="myTab" role="tablist">
                     <li class="nav-item">
+                        <a class="nav-link bg-transparent text-secondary" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link bg-transparent text-secondary" id="financial-info-tab" data-toggle="tab" href="#financial-info" role="tab" aria-controls="financial-info" aria-selected="true">Financial Information</a>
                     </li>
                     <li class="nav-item">
@@ -34,7 +37,11 @@
                 </ul>
 
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="financial-info" role="tabpanel" aria-labelledby="financial-info-tab">
+                    <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+                         @include('front-end.search.all')
+                         {{-- <h1>H</h1> --}}
+                    </div>
+                    <div class="tab-pane fade" id="financial-info" role="tabpanel" aria-labelledby="financial-info-tab">
                         @include('front-end.search.financial')
                     </div>
                     <div class="tab-pane fade" id="page" role="tabpanel" aria-labelledby="page-tab">

@@ -10,7 +10,7 @@
             <div class="col-md-6 mb-5">
                 <form action="{{route('newssearch')}}" method="GET">
                     <div class="input-group mt-2">
-                        <input class="form-control border-secondary search-border border border-secondary" type="search" value="" name="search" placeholder=" Search by keyword">
+                        <input class="form-control border-secondary search-border border border-secondary" type="search" value="{{Request::get('search')}}" name="search" placeholder=" Search by keyword">
                         <div class="input-group-append">
                             <button type="submit" class="btn btn-warning search-btn-border border border-secondary" type="button">
                                 <i class="fa fa-search"></i>
@@ -18,6 +18,21 @@
                         </div>
                     </div>
                 </form>
+                {{-- <div class="dropdown show mt-2">
+                    <a class="btn dropdown-toggle " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Any time
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">Past hour</a>
+                        <a class="dropdown-item" href="#">Past 24 hours</a>
+                        <a class="dropdown-item" href="#">Past week</a>
+                        <a class="dropdown-item" href="#">Past month</a>
+                        <a class="dropdown-item" href="#">Past year</a>
+                         <div class="dropdown-divider"></div>
+                            <a class="dropdown-item"  data-toggle="modal" data-target="#exampleModal">Custom range</a>
+                        </div>
+                    </div>
+                </div> --}}
             </div>
             <div class="col-md-3"></div>
             <div class="col-md-12">
@@ -50,6 +65,39 @@
             </div>
         </div>
     </div>
+    {{-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Customised date range</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+               <form  method="GET">
+                    <div class="form-group row">
+                        <label for="example-date-input" class="col-4 col-form-label">Date From</label>
+                        <div class="col-8">
+                            <input class="form-control" type="date" value="{{ Request()->from}}" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-date-input" class="col-4 col-form-label">Date To</label>
+                        <div class="col-8">
+                            <input class="form-control" type="date" value="{{ Request()->to}}">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Search</button>
+                    </div>
+                </form>
+            </div>
+            
+            </div>
+        </div>
+    </div> --}}
 </section>
 
 @endsection
