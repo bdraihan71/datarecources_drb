@@ -132,6 +132,7 @@
     div.dataTables_wrapper {
         width: 100%;
         margin: 0 auto;
+        font-size: .7em;
     }
     .DTFC_LeftBodyWrapper{
         top: -12px !important;
