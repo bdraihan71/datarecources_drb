@@ -189,6 +189,14 @@ a.article:hover {
     background-image:linear-gradient(rgba(29, 30, 114, 0.4), rgba(4, 3, 102, 0.4)),url('../img/hero.jpg');
 }
 
+@media (max-width: 500px) {
+    .hero-background {
+        height:95vh;
+        background-size:cover;
+        background-image:linear-gradient(rgba(29, 30, 114, 0.4), rgba(4, 3, 102, 0.4)),url('../img/hero.jpg');
+    }
+}
+
 .search-width {
     padding: 0px 0px 0px 0px;
     font-size: 13px;
