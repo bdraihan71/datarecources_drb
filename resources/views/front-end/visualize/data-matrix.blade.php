@@ -1,5 +1,6 @@
 @extends('front-end.main-layout')
 @section('content')
+
 <!-- Navigation -->
 <section class="financial-statement" id="mainApp">
 

@@ -37,6 +37,8 @@
     event.preventDefault();
   });
 
+    
+    
   // Data Table Call
   $(document).ready(function() {
     $('#dataTable').DataTable();
@@ -140,3 +142,4 @@ function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+

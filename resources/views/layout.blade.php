@@ -45,7 +45,7 @@
 </head>
 
 <body id="page-top">
-
+    <div class="se-pre-con"></div>
 
     @yield('main-content')
     @yield('sub-content')
@@ -93,6 +93,12 @@
     </script>
 
 
+    <script>
+        $(window).on('load', function() {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");;
+        });
+    </script>
     @yield('scripts')
 </body>
 
