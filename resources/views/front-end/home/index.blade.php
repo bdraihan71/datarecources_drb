@@ -13,7 +13,7 @@
                         <div class="col-md-6">
                             <form action="{{route('search')}}" method="GET">
                                 <div class="input-group search-bar-index">
-                                    <input class="form-control py-4 " type="search" value="" name="search" placeholder="type a company name">
+                                    <input class="form-control py-4 " type="search" value="" name="search" placeholder="search for Company, Industry & News">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-warning px-5  " type="button">
                                             <i class="fa fa-search"></i>
