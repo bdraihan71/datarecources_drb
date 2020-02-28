@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
 
 /*
@@ -26,3 +27,5 @@ AWS_SECRET_ACCESS_KEY=EKrpwj2NvW/5CivAAfXxHoOKzs/V7dtv1iswT4PZ
 AWS_DEFAULT_REGION=ap-southeast-1
 AWS_BUCKET=data-resource-bd-staging
 S3_URL="https://data-resource-bd-staging.s3-ap-southeast-1.amazonaws.com/"', 'ApiController@fetchDSE');
+
+route::get('news/{time}', 'ApiController@getAllNews');

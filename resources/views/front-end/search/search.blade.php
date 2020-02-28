@@ -23,7 +23,7 @@
                         <a class="nav-link bg-transparent text-secondary" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link bg-transparent text-secondary" id="financial-info-tab" data-toggle="tab" href="#financial-info" role="tab" aria-controls="financial-info" aria-selected="true">Financial Information</a>
+                        <a class="nav-link bg-transparent text-secondary" id="financial-info-tab" data-toggle="tab" href="#financial-info" role="tab" aria-controls="financial-info" aria-selected="true">Financial Statement</a>
                     </li>
                     <li class="nav-item">
                         <a  class="nav-link bg-transparent text-secondary" id="page-tab" data-toggle="tab" href="#page" role="tab" aria-controls="page" aria-selected="false">Page</a>

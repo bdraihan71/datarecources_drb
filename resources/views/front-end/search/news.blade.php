@@ -1,10 +1,21 @@
-<section class="news">
+<section class="news" id ="news">
     <div class="container">
-        <div class="dropdown show">
+        {{-- <div class="dropdown show">
             <a class="btn dropdown-toggle text-dark" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Any time
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            </a> --}}
+            <div class="form-group ropdown show">
+                <select class="form-control" id="exampleFormControlSelect1" v-model="time" @click="getAllNews">
+                  <option>Any time</option>
+                  <option value="1">Past 24 hours</option>
+                  <option value="7">Past week</option>
+                  <option value="30">Past month</option>
+                  <option value="365">Past year</option>
+                  {{-- <option  data-toggle="modal" data-target="#exampleModal">Custom range</option> --}}
+                 
+                </select>
+              </div>
+            {{-- <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" v-model="time">
                 <a class="dropdown-item" href="#">Past hour</a>
                 <a class="dropdown-item" href="#">Past 24 hours</a>
                 <a class="dropdown-item" href="#">Past week</a>
@@ -13,8 +24,8 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item"  data-toggle="modal" data-target="#exampleModal">Custom range</a>
                 </div>
-            </div>
-        </div>
+            </div> --}}
+        {{-- </div> --}}
         <div class="row">
             <div class="col-md-12">
                 @if($allnews->count() == 0)
@@ -80,3 +91,30 @@
         </div>
     </div>
 </section>
+@section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#news',
+        data () {
+            return {
+                allNews: [],
+                time: null
+            }
+        },
+      
+        methods: {
+            getAllNews: function(){
+                    console.log("calling get news");
+                    fetch('/api/news/' + this.time)
+                    .then(function(response) {
+                        return response.json();
+                    })
+                    .then(response => (this.allNews = (response)))
+                },
+
+        }
+       
+    })
+</script>
+@endsection
