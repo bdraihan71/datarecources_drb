@@ -1,20 +1,27 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top nav-bg border-bottom mt-lg-n5">
     <div class="container">
         <a class="navbar-brand text-white" href="/"><h2>DRB</h2></a>
-        @if (!Request::is('/'))
+        {{-- @if (!Request::is('/')) --}}
         <div class="search-custom-margin">
             <form action="{{route('search')}}" method="GET">
                 <div class="input-group">
-                    <input class="form-control border-secondary search-border border border-secondary search-width" type="search" value="" name="search" placeholder=" Search by keyword">
+                    <input class="form-control border-secondary border border-secondary search-width" type="search" value="" name="search" placeholder=" Search by keyword">
                     <div class="input-group-append">
-                        <button type="submit" class="btn btn-warning search-btn-border border border-secondary search-btn-width" type="button">
+                        <button type="submit" class="btn btn-warning border border-secondary search-btn-width" type="button">
                             <i class="fa fa-search"></i>
                         </button>
                     </div>
                 </div>
             </form>
+            <form class="form-inline auth-nav-btn">
+                @if(Auth::check())
+                    <a class="text-white small mr-3" href="{{route('logout')}}"> Sign Out</a>
+                @else
+                    <a class="text-white small mr-3" href="{{route('login')}}"> Sign In</a>
+                @endif
+            </form>
         </div>
-        @endif
+        {{-- @endif --}}
         <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
