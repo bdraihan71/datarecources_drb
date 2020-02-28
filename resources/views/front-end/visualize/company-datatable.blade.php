@@ -111,7 +111,7 @@
         $("#example").dataTable().fnDestroy();
         var table = $('#example').DataTable( {
             info:           false,
-            scrollY:        "400px",
+            scrollY:        "80vh",
             scrollX:        "100%",
             scrollCollapse: true,
             paging:         false,
@@ -128,7 +128,7 @@
 <link href="https://cdn.datatables.net/fixedcolumns/3.3.0/css/fixedColumns.dataTables.min.css"  rel="stylesheet">
  <style>
      /* Ensure that the demo table scrolls */
-    th, td { white-space: nowrap; }
+    th, td { white-space: nowrap;}
     div.dataTables_wrapper {
         width: 100%;
         margin: 0 auto;
