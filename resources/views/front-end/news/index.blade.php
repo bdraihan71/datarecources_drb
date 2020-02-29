@@ -10,9 +10,9 @@
             <div class="col-md-6 mb-5">
                 <form action="{{route('newssearch')}}" method="GET">
                     <div class="input-group mt-2">
-                        <input class="form-control border-secondary search-border border border-secondary" type="search" value="{{Request::get('search')}}" name="search" placeholder=" Search by keyword">
+                        <input class="form-control border-secondary border border-secondary" type="search" value="{{Request::get('search')}}" name="search" placeholder=" Search by keyword">
                         <div class="input-group-append">
-                            <button type="submit" class="btn btn-warning search-btn-border border border-secondary" type="button">
+                            <button type="submit" class="btn btn-warning border border-secondary" type="button">
                                 <i class="fa fa-search"></i>
                             </button>
                         </div>
