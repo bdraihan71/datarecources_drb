@@ -3,7 +3,7 @@
     <div class="card-header">
     <div class="card-body">
         <div class="table-responsive">
-        <table class="table table-bordered data-matrix" id="dataTable" width="100%" cellspacing="0">
+        <table class="table table-bordered data-matrix" id="dataTable" width="100%" cellspacing="0" data-display-length='100'>
             <thead>
                 <tr>
                     <th rowspan="2">Sl.</th>
