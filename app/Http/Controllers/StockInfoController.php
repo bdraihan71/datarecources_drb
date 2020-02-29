@@ -38,8 +38,6 @@ class StockInfoController extends Controller
 
            foreach($value as $key2=>$value2){
                 $stockInfo[$key2] = $value[$key2];
-                echo($stockInfo[$key2]);
-                echo( $value[$key2]);
            }
 
            $stockInfo->save();
