@@ -33,10 +33,15 @@ class StockInfoController extends Controller
 
    public function process(Request $request){
        foreach($request->data as $key=>$value){
+            
            $stockInfo = StockInfo::find($key);
+
            foreach($value as $key2=>$value2){
                 $stockInfo[$key2] = $value[$key2];
+                echo($stockInfo[$key2]);
+                echo( $value[$key2]);
            }
+
            $stockInfo->save();
        }
        return redirect()->back();
