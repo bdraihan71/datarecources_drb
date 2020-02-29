@@ -1,40 +1,32 @@
-@extends('front-end.main-layout')
-@section('content')
-<section class="news">
+<section class="news" id ="news">
     <div class="container">
-        <div class="row custom-header-top">
-            <div class="col-md-12 mt-5">
-                <h3>News</h3>
-            </div>
-            <div class="col-md-3"></div>
-            <div class="col-md-6 mb-5">
-                <form action="{{route('newssearch')}}" method="GET">
-                    <div class="input-group mt-2">
-                        <input class="form-control border-secondary search-border border border-secondary" type="search" value="{{Request::get('search')}}" name="search" placeholder=" Search by keyword">
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-warning search-btn-border border border-secondary" type="button">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                {{-- <div class="dropdown show mt-2">
-                    <a class="btn dropdown-toggle " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Any time
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">Past hour</a>
-                        <a class="dropdown-item" href="#">Past 24 hours</a>
-                        <a class="dropdown-item" href="#">Past week</a>
-                        <a class="dropdown-item" href="#">Past month</a>
-                        <a class="dropdown-item" href="#">Past year</a>
-                         <div class="dropdown-divider"></div>
-                            <a class="dropdown-item"  data-toggle="modal" data-target="#exampleModal">Custom range</a>
-                        </div>
-                    </div>
-                </div> --}}
-            </div>
-            <div class="col-md-3"></div>
+        {{-- <div class="dropdown show">
+            <a class="btn dropdown-toggle text-dark" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Any time
+            </a> --}}
+            <div class="form-group ropdown show">
+                <select class="form-control" id="exampleFormControlSelect1" v-model="time" @click="getAllNews">
+                  <option>Any time</option>
+                  <option value="1">Past 24 hours</option>
+                  <option value="7">Past week</option>
+                  <option value="30">Past month</option>
+                  <option value="365">Past year</option>
+                  {{-- <option  data-toggle="modal" data-target="#exampleModal">Custom range</option> --}}
+                 
+                </select>
+              </div>
+            {{-- <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" v-model="time">
+                <a class="dropdown-item" href="#">Past hour</a>
+                <a class="dropdown-item" href="#">Past 24 hours</a>
+                <a class="dropdown-item" href="#">Past week</a>
+                <a class="dropdown-item" href="#">Past month</a>
+                <a class="dropdown-item" href="#">Past year</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item"  data-toggle="modal" data-target="#exampleModal">Custom range</a>
+                </div>
+            </div> --}}
+        {{-- </div> --}}
+        <div class="row">
             <div class="col-md-12">
                 @if($allnews->count() == 0)
                     <h3>Your search  did not match any news.</h3>
@@ -58,14 +50,15 @@
                     @endforeach
                 @endif    
             </div>
-            <div class="col-md-12 my-5">
+            <div class="col-md-12 mb-5">
                 <div class="row justify-content-center">
                     {{ $allnews->links() }}
                 </div>
             </div>
         </div>
     </div>
-    {{-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
@@ -89,7 +82,6 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary">Search</button>
                     </div>
                 </form>
@@ -97,7 +89,32 @@
             
             </div>
         </div>
-    </div> --}}
+    </div>
 </section>
+@section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#news',
+        data () {
+            return {
+                allNews: [],
+                time: null
+            }
+        },
+      
+        methods: {
+            getAllNews: function(){
+                    console.log("calling get news");
+                    fetch('/api/news/' + this.time)
+                    .then(function(response) {
+                        return response.json();
+                    })
+                    .then(response => (this.allNews = (response)))
+                },
 
+        }
+       
+    })
+</script>
 @endsection

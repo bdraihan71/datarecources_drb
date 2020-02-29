@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
 
 /*
@@ -18,3 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::get('getcompany/{sectorid}', 'ApiController@getCompany');
 Route::get('fetch/dse', 'ApiController@fetchDSE');
+Route::get('', 'ApiController@fetchDSE');
+
+Route::get('news/{time}', 'ApiController@getAllNews');

@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 use Goutte\Client;
 use Illuminate\Http\Request;
 use App\Company;
+use App\News;
 use Symfony\Component\DomCrawler\Crawler;
 use App\StockInfo;
 use App\Sector;
+use Carbon\Carbon;
 class ApiController extends Controller
 {
     public function getCompany($sector_id)
@@ -100,5 +102,11 @@ class ApiController extends Controller
 
             } 
         });
+    }
+
+    public function getAllNews($time)
+    {
+        $allnews = News::whereBetween('created_at', [Carbon::now()->subDays($time), Carbon::now()])->get();
+        return response()->json($allnews);
     }
 }
