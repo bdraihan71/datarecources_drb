@@ -189,6 +189,14 @@ a.article:hover {
     background-image:linear-gradient(rgba(29, 30, 114, 0.4), rgba(4, 3, 102, 0.4)),url('../img/hero.jpg');
 }
 
+@media (max-width: 500px) {
+    .hero-background {
+        height:95vh;
+        background-size:cover;
+        background-image:linear-gradient(rgba(29, 30, 114, 0.4), rgba(4, 3, 102, 0.4)),url('../img/hero.jpg');
+    }
+}
+
 .search-width {
     padding: 0px 0px 0px 0px;
     font-size: 13px;
@@ -379,12 +387,12 @@ a.article:hover {
 }
 
 @media (max-width: 768px) {
-    .announcement {
+    /* .announcement {
         position: fixed;
         right: 0;
         top: 100px;
         width: 80%;
-    }
+    } */
 
     #scroll-to-top {
         display: none;
@@ -493,10 +501,10 @@ a.article:hover {
         padding: 0px 0px 0px 0px; 
     }
 
-    .search-custom-margin {
+    /* .search-custom-margin {
         margin-left: -5%;
         width: 176px; 
-    }
+    } */
 }
 
 input[type="search"]::placeholder {  
@@ -782,4 +790,55 @@ input[type="search"]::placeholder {
     -webkit-box-shadow: -2px 3px 34px 2px rgba(0,0,0,1);
     -moz-box-shadow: -2px 3px 34px 2px rgba(0,0,0,1);
     box-shadow: -2px 3px 34px 2px rgba(0,0,0,1);
+}
+
+@media (max-width: 991px) {
+    .custom-toggler.navbar-toggler {
+        position: relative;
+        border:none !important;
+        left: -5px;
+        right: 0;
+        top: -57px;
+        bottom: 0;
+    }
+
+    .navbar-toggler:focus, .navbar-toggler:active {
+        outline: none;
+        box-shadow: none;
+    }
+
+    .search-custom-margin {
+        margin-top: -7px;
+        width: 100%;
+        height: 0px; 
+    }
+
+    .navbar-brand {
+        position: relative;
+        left: 50px;
+        right: 0;
+        top: -5px;
+        bottom: 0;
+    }
+
+    .announcement {
+        position: fixed;
+        right: 0;
+        top: 148px;
+        width: 80%;
+    }
+
+    .auth-nav-btn {
+        position: relative;
+        left: 85%;
+        right: 0;
+        top: -75px;
+        bottom: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .auth-nav-btn {
+        display: none;
+    }
 }
