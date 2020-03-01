@@ -47,15 +47,19 @@ class LoginController extends Controller
     {
         $this->validateLogin($request);
         $user = User::where('email', $request->email)->latest()->first();
-        $subscriber = Subscriber::where('user_id', $user->id)->latest()->first();
+        if($user!=null){
+            $subscriber = Subscriber::where('user_id', $user->id)->latest()->first();
 
-        if($subscriber !=  null){
-            if($subscriber->expire_date <= date("Y-m-d")){
-                $subscriber = Subscriber::find($subscriber->id);
-                $subscriber->is_expire = true;
-                $subscriber->save();
+            if($subscriber !=  null){
+                if($subscriber->expire_date <= date("Y-m-d")){
+                    $subscriber = Subscriber::find($subscriber->id);
+                    $subscriber->is_expire = true;
+                    $subscriber->save();
+                }
             }
+
         }
+      
         
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
