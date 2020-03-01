@@ -40,6 +40,7 @@
   // Data Table Call
   $(document).ready(function() {
     $('#dataTable').DataTable();
+    
   });
 
   // Sidebar Collapse

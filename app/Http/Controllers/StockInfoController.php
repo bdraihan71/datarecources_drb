@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Company;
 use App\StockInfo;
 class StockInfoController extends Controller
 {
@@ -26,16 +27,19 @@ class StockInfoController extends Controller
    }
 
    public function dataMatrix(){
-        $stockInfos = StockInfo::all();
+        $stockInfos = Company::has('stockInfo')->orderBy('name')->paginate(10);
        return view('back-end.stockinfo.data-matrix', compact('stockInfos'));
    }
 
    public function process(Request $request){
        foreach($request->data as $key=>$value){
+            
            $stockInfo = StockInfo::find($key);
+
            foreach($value as $key2=>$value2){
                 $stockInfo[$key2] = $value[$key2];
            }
+
            $stockInfo->save();
        }
        return redirect()->back();

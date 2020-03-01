@@ -5,7 +5,7 @@
         <div class="search-custom-margin">
             <form action="{{route('search')}}" method="GET">
                 <div class="input-group">
-                    <input class="form-control border-secondary border border-secondary search-width" type="search" value="" name="search" placeholder=" Search by keyword">
+                    <input class="form-control border-secondary border border-secondary search-width" type="search" value="" name="search" placeholder="search for Company, Industry &amp News">
                     <div class="input-group-append">
                         <button type="submit" class="btn btn-warning border border-secondary search-btn-width" type="button">
                             <i class="fa fa-search"></i>

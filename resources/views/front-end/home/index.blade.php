@@ -13,7 +13,7 @@
                         <div class="col-md-6">
                             <form action="{{route('search')}}" method="GET">
                                 <div class="input-group search-bar-index">
-                                    <input class="form-control py-4 " type="search" value="" name="search" placeholder="type a company name">
+                                    <input class="form-control py-4 " type="search" value="" name="search" placeholder="search for Company, Industry &amp News">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-warning px-5  " type="button">
                                             <i class="fa fa-search"></i>
@@ -65,7 +65,7 @@
                             @if($world->image)
                             <img src="{{ env('S3_URL') }}{{$world->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
                             @endif
-                            <p class="card-text main-text-color category-news-heading-border py-2 news-line-height">{{$world->heading}}</p>
+                            <h6 class="card-text main-text-color category-news-heading-border py-2 news-line-height">{{$world->heading}}</h6>
                         </a> 
                         @else 
                             <p class="card-text main-text-color"><small>No news available</small></p>
@@ -83,7 +83,7 @@
                             @if($country->image)
                             <img src="{{ env('S3_URL') }}{{$country->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
                             @endif
-                            <p class="card-text main-text-color category-news-heading-border py-2 news-line-height">{{$country->heading}}</p>
+                            <h6 class="card-text main-text-color category-news-heading-border py-2 news-line-height">{{$country->heading}}</h6>
                         </a>
                         @else 
                             <p class="card-text main-text-color"><small>No news available</small></p>
@@ -102,7 +102,7 @@
                             @if($economy->image)
                             <img src="{{ env('S3_URL') }}{{$economy->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
                             @endif
-                            <p class="card-text main-text-color category-news-heading-border py-2 news-line-height">{{$economy->heading}}</p>
+                            <h6 class="card-text main-text-color category-news-heading-border py-2 news-line-height">{{$economy->heading}}</h6>
                         </a>
                         @else 
                             <p class="card-text main-text-color"><small>No news available</small></p>
@@ -120,7 +120,7 @@
                             @if($company->image)
                              <img src="{{ env('S3_URL') }}{{$company->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
                             @endif
-                            <p class="card-text main-text-color category-news-heading-border py-2 news-line-height">{{$company->heading}}</p>
+                            <h6 class="card-text main-text-color category-news-heading-border py-2 news-line-height">{{$company->heading}}</h6>
                         </a>
                         @else 
                             <p class="card-text main-text-color"><small>No news available</small></p>
@@ -372,7 +372,6 @@
                             </div>
                             <div class="col-6">
                                 <p class="font-weight-bold price-text-2">BDT {{ $subscriptionplan->price_per_year }}/year<br><span class="text-warning">{{ intval($subscriptionplan->discount($subscriptionplan->price_per_month , $subscriptionplan->price_per_year)) }}% Discount</span></p>
-                               
                                 <hr class="small d-block d-sm-none">
                                 <p class="price-text"><i class="fas fa-check d-none d-sm-block"></i><span class="small d-block d-sm-none">Full News Aggregator</span></p>
                                 <p class="price-text"><i class="fas fa-check d-none d-sm-block"></i><span class="small d-block d-sm-none">Full Data Matrix</span></p>

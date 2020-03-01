@@ -3,7 +3,7 @@
     <div class="card-header">
     <div class="card-body">
         <div class="table-responsive">
-        <table class="table table-bordered hundred" id="dataTable" width="100%" cellspacing="0" data-display-length='100'>
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" data-display-length='100'>
             <thead>
             <tr>
                 <th>Company</th>

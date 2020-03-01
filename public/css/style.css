@@ -722,12 +722,12 @@ input[type="search"]::placeholder {
 }
 
 .legend{
-    float: right;
-    width: 15%;
-    padding: 5px;
+    float: left;
+    /* width: 15%; */
+    /* padding: 50px; */
     color: #888;
     background-color: #e6e6e6;
-    font-size: .8em;
+    font-size: .7em;
 }
 
 .data-matrix-admin-panel-table {
@@ -790,6 +790,21 @@ input[type="search"]::placeholder {
     -webkit-box-shadow: -2px 3px 34px 2px rgba(0,0,0,1);
     -moz-box-shadow: -2px 3px 34px 2px rgba(0,0,0,1);
     box-shadow: -2px 3px 34px 2px rgba(0,0,0,1);
+}
+
+/* Paste this css to your style sheet file or under head tag */
+/* This only works with JavaScript, 
+if it's not present, don't show loader */
+.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url(/img/spinner.gif) center no-repeat #fff;
 }
 
 @media (max-width: 991px) {
