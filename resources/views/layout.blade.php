@@ -102,4 +102,5 @@
     @yield('scripts2')
 </body>
 
+
 </html>
