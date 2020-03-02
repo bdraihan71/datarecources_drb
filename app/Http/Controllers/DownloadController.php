@@ -20,7 +20,7 @@ class DownloadController extends Controller
                     $download->save();
                     return redirect()->away($request->file_path);
                 }else{
-                    return redirect()->back()->with('error', 'Download limit exceeded');
+                    return redirect()->back()->withErrors(['Download limit exceeded, please subscribe']);
                 }
             }else{
                 $download = Download::find($download->id);
