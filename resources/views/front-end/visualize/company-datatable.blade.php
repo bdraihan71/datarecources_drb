@@ -1,7 +1,7 @@
 <!-- DataTables Example -->
 <div class="card mb-3">
     <div class="card-body">
-       
+        <i class="fas fa-arrow-right" style="float:right"></i><br>
         <table id="example" class="stripe row-border order-column" style="width:100%">
             <thead>
                 <tr>
