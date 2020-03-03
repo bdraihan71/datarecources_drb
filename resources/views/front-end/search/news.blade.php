@@ -40,7 +40,7 @@
                                     </a>
                                 @endif
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-10" style="text-align: left">
                                 <a href="{{route('news.single',$news->id)}}"><h5 class="pt-3 pt-md-0">{{ $news->heading }}</h5></a>
                                 <a href="{{route('news.single',$news->id)}}"><p class="text-justify">{{ implode(' ', array_slice(explode(' ', strip_tags($news->body) ), 0, 70))}}</p></a>
                                 <a href="{{route('news.single',$news->id)}}">See More ></a>
