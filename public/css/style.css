@@ -641,8 +641,14 @@ input[type="search"]::placeholder {
     object-fit: cover;
 }
 
-.category-news-heading-border {
-    border-bottom: 1px dashed rgb(230, 230, 230);
+.category-news-heading-border category-news {
+    border-bottom: 3px dashed rgb(230, 230, 230);
+}
+
+.category-news{
+    font-size: 1.176em;
+    font-weight: 300;
+    margin-top: -3px;
 }
 
 .featured-news-img {
