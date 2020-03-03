@@ -13,25 +13,25 @@
                     <th rowspan="2">Change<br><small>(%)</small></th>
                     <th rowspan="2">Turnover<br><small>(BDT mn)</small></th>
                     <th rowspan="2">Volume</th>
-                    <th rowspan="2">Audited<br><small>EPS(BDT)</small></th>
-                    <th rowspan="2">Audited<br><small>P/E(x)</small></th>
-                    <th rowspan="2">Forward<br><small>P/E(x)</small></th>
+                    <th rowspan="2">Audited<br>EPS<small> (BDT)</small></th>
+                    <th rowspan="2">Audited<br>P/E<small> (x)</small></th>
+                    <th rowspan="2">Forward<br>P/E<small> (x)</small></th>
                     <th rowspan="2">NAVPS</th>
                     <th rowspan="2">P/NAVPS<br><small>(x)</small></th>
-                    <th rowspan="2">DPS</th>
-                    <th rowspan="2">Dividend<br><small>Yield(%)</small></th>
+                    <th rowspan="2">DPS<small> (BDT)</small></th>
+                    <th rowspan="2">Dividend<br>Yield<small> (%)</small></th>
                     <th rowspan="2">ROAE<br><small>(%)</small></th>
                     <th rowspan="2">ROAA<br><small>(%)</small></th>
-                    <th rowspan="2">3 Year NPAT<br><small>CAGR(%)</small></th>
-                    <th rowspan="2">3 Year Revenue<br><small>CAGR(%)</small></th>
-                    <th rowspan="2">PaidUp Capital<br><small>(BDT mn)</small></th>
-                    <th rowspan="1" colspan="4">Ownership</th>
-                </tr>
+                    <th rowspan="2">3 Year NPAT<br>CAGR<small> (%)</small></th>
+                    <th rowspan="2">3 Year NPAT<br>Revenue<small> (%)</small></th>
+                    <th rowspan="2">Paidup Capital<br><small>(BDT mn)</small></th>
+                    <th rowspan="1" colspan="4" style="text-align: center">Ownership</th>
+                </tr>-
                 <tr>
-                    <th><small>Sponsor/Director(%)</small></th>
-                    <th><small>Foreign(%)</small></th>
-                    <th><small>Institute(%)</small></th>
-                    <th><small>Public(%)</small></th>        
+                    <th>Sponsor/Director<small>(%)</small></th>
+                    <th>Foreign<small>(%)</small></th>
+                    <th>Institute<small>(%)</small></th>
+                    <th>Public<small>(%)</small></th>        
                 </tr>
             </thead>
             
