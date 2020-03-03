@@ -11,7 +11,7 @@
                 </form>
             </td>
         @else
-            <td><a href="#" class="btn btn-warning">Please Subscribe</a></td>
+            <td><a href="/#pricing" class="btn btn-warning">Please Subscribe</a></td>
         @endif 
        
     @endif

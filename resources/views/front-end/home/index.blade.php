@@ -322,7 +322,7 @@
 @endif
 
 
-<section class="pricing py-5 bg-light">
+<section id="pricing" class="pricing py-5 bg-light">
     <h1 class="text-center main-text-color mb-md-5">Our Pricing</h1>
     <div class="container-fluid">
       <div class="row">
