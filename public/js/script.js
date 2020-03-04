@@ -39,7 +39,13 @@
 
   // Data Table Call
   $(document).ready(function() {
-    $('#dataTable').DataTable();
+    $('#dataTable').DataTable(
+      {
+        scrollY:        "100vh",
+        scrollX:        true,
+        scrollCollapse: true
+      }
+    );
     
   });
 

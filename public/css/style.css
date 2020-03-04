@@ -872,3 +872,14 @@ if it's not present, don't show loader */
 .word-break {
     overflow-wrap: break-word;
 }
+
+.finance-table th:first-child, .finance-table td:first-child {
+    position: sticky !important;
+    left: 0px;
+    background-color: #F7F7F7;
+}
+
+.th-bg-color {
+    background-color: #F7F7F7 !important;
+    z-index: 1;
+}
