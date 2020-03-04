@@ -10,7 +10,7 @@ class NewsController extends Controller
 {
     public function index()
     {
-        $allnews = News::where('is_published', 1)->latest()->paginate(10);
+        $allnews = News::where('is_published', 1)->latest()->paginate(50);
         return view('front-end.news.index', compact('allnews'));
     }
 

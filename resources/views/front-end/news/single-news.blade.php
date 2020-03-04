@@ -13,7 +13,7 @@
                 @if($news->image)
                     <img src="{{ env('S3_URL') }}{{$news->image}}" class="img-fluid w-50 float-right pl-4" alt="...">
                 @endif
-                <p class="text-justify">{!! nl2br($news->body) !!}</p>
+                <p class="text-justify word-break">{!! nl2br($news->body) !!}</p>
             </div>
             <div class="col-md-12">
                 <p>Source: {{$news->source}}</p>
