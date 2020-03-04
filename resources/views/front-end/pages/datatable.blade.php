@@ -11,7 +11,7 @@
                     </button>
                     <ul class="p-0 m-0" style="list-style: none;">
                         @foreach($errors->all() as $error)
-                        <li>{{$error}}</li>
+                        <li>{{$error}} <a class="font-weight-bold" href="/#pricing">Here</a></li>
                         @endforeach
                     </ul>
                 </div>
