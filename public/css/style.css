@@ -641,8 +641,9 @@ input[type="search"]::placeholder {
     object-fit: cover;
 }
 
-.category-news-heading-border category-news {
-    border-bottom: 3px dashed rgb(230, 230, 230);
+.category-news-heading-border {
+    border-bottom: 1.4px dashed rgb(230, 230, 230);
+    padding: 10px 0px;
 }
 
 .category-news{
@@ -702,6 +703,10 @@ input[type="search"]::placeholder {
 
 .news-line-height {
     line-height: 1.2;
+}
+
+.subnews-line-height {
+    line-height: 1;
 }
 
 .pricing-card-border-radius {
