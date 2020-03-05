@@ -352,7 +352,7 @@
                         <h6 class="card-title text-uppercase">{{ $subscriptionplan->name}} <small>({{ $subscriptionplan->user_limit }} User)</small></h6>
                         <div class="row">
                             <div class="col-6">
-                                <p class="font-weight-bold price-text-2">BDT {{ $subscriptionplan->price_per_month }}/<br>month</p>
+                                <p class="font-weight-bold price-text-2">BDT {{ number_format($subscriptionplan->price_per_month) }}/<br>month</p>
                                 <hr class="small d-block d-sm-none">
                                 <p class="price-text"><i class="fas fa-check d-none d-sm-block"></i><span class="small d-block d-sm-none">News Aggregator</span></p>
                                 <p class="price-text"><i class="fas fa-check d-none d-sm-block"></i><span class="small d-block d-sm-none">Data Matrix</span></p>
@@ -371,7 +371,7 @@
                                 @endif 
                             </div>
                             <div class="col-6">
-                                <p class="font-weight-bold price-text-2">BDT {{ $subscriptionplan->price_per_year }}/year<br><span class="text-warning">{{ intval($subscriptionplan->discount($subscriptionplan->price_per_month , $subscriptionplan->price_per_year)) }}% Discount</span></p>
+                                <p class="font-weight-bold price-text-2">BDT {{ number_format($subscriptionplan->price_per_year) }}/year<br><span class="text-warning">{{ intval($subscriptionplan->discount($subscriptionplan->price_per_month , $subscriptionplan->price_per_year)) }}% Discount</span></p>
                                 <hr class="small d-block d-sm-none">
                                 <p class="price-text"><i class="fas fa-check d-none d-sm-block"></i><span class="small d-block d-sm-none">News Aggregator</span></p>
                                 <p class="price-text"><i class="fas fa-check d-none d-sm-block"></i><span class="small d-block d-sm-none">Data Matrix</span></p>
