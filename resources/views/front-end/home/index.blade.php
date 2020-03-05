@@ -341,8 +341,8 @@
                         <h6 class="card-title text-uppercase">Basic</h6>
                         <p class="font-weight-bold price-text-2">BDT 0/<br>month</p>
                         <hr class="small d-block d-sm-none">
-                        <p class="price-text"><i class="fas fa-check d-none d-sm-block"></i><span class="small d-block d-sm-none">Full News Aggregator</span></p>
-                        <p class="price-text"><i class="fas fa-check d-none d-sm-block"></i><span class="small d-block d-sm-none">Full Data Matrix</span></p>
+                        <p class="price-text"><i class="fas fa-check d-none d-sm-block"></i><span class="small d-block d-sm-none">News Aggregator</span></p>
+                        <p class="price-text"><i class="fas fa-check d-none d-sm-block"></i><span class="small d-block d-sm-none">Data Matrix</span></p>
                         <p class="price-text"><b class="d-none d-sm-block">10</b><span class="small d-block d-sm-none">10 Downloads</span></p>
                     </div>
                 </div>
@@ -354,8 +354,8 @@
                             <div class="col-6">
                                 <p class="font-weight-bold price-text-2">BDT {{ $subscriptionplan->price_per_month }}/<br>month</p>
                                 <hr class="small d-block d-sm-none">
-                                <p class="price-text"><i class="fas fa-check d-none d-sm-block"></i><span class="small d-block d-sm-none">Full News Aggregator</span></p>
-                                <p class="price-text"><i class="fas fa-check d-none d-sm-block"></i><span class="small d-block d-sm-none">Full Data Matrix</span></p>
+                                <p class="price-text"><i class="fas fa-check d-none d-sm-block"></i><span class="small d-block d-sm-none">News Aggregator</span></p>
+                                <p class="price-text"><i class="fas fa-check d-none d-sm-block"></i><span class="small d-block d-sm-none">Data Matrix</span></p>
                                 <p class="price-text"><b class="d-none d-sm-block">Unlimited</b><span class="small d-block d-sm-none">Unlimited Downloads</span></p>
                                 @if(auth()->user())
                                     <form  method="post" action="{{ route('subscribe.plan') }}">
@@ -373,8 +373,8 @@
                             <div class="col-6">
                                 <p class="font-weight-bold price-text-2">BDT {{ $subscriptionplan->price_per_year }}/year<br><span class="text-warning">{{ intval($subscriptionplan->discount($subscriptionplan->price_per_month , $subscriptionplan->price_per_year)) }}% Discount</span></p>
                                 <hr class="small d-block d-sm-none">
-                                <p class="price-text"><i class="fas fa-check d-none d-sm-block"></i><span class="small d-block d-sm-none">Full News Aggregator</span></p>
-                                <p class="price-text"><i class="fas fa-check d-none d-sm-block"></i><span class="small d-block d-sm-none">Full Data Matrix</span></p>
+                                <p class="price-text"><i class="fas fa-check d-none d-sm-block"></i><span class="small d-block d-sm-none">News Aggregator</span></p>
+                                <p class="price-text"><i class="fas fa-check d-none d-sm-block"></i><span class="small d-block d-sm-none">Data Matrix</span></p>
                                 <p class="price-text"><b class="d-none d-sm-block">Unlimited</b><span class="small d-block d-sm-none">Unlimited Downloads</span></p>
                                 @if(auth()->user())
                                     <form  method="post" action="{{ route('subscribe.plan') }}">
