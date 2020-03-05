@@ -41,7 +41,7 @@
   $(document).ready(function() {
     $('#dataTable').DataTable(
       {
-        scrollY:        "100vh",
+        scrollY:        "60vh",
         scrollX:        true,
         scrollCollapse: true
       }
