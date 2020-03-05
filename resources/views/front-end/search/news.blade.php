@@ -26,7 +26,7 @@
                 </div>
             </div> --}}
         {{-- </div> --}}
-        <div class="row">
+        <div class="row" v-if="laravel">
             <div class="col-md-12">
                 @if($allnews->count() == 0)
                     <h3>Your search  did not match any news.</h3>
@@ -57,6 +57,27 @@
             </div>
         </div>
     </div>
+
+    
+    <div class="row" v-if="vue">
+        <div class="col-md-12">
+            <div class="row" v-for="news in allNews" :key="news.id">
+                <div class="col-md-2">
+                    <a href="#">
+                        <img src="{{ env('S3_URL') }}@{{news.image}}" class="mr-3 img-fluid news-index-img" alt="...">
+                    </a>
+                </div>
+                <div class="col-md-10">
+                    <a href="#"><h5 class="pt-3 pt-md-0">@{{ news.heading }}</h5></a>
+                    <a href="#"><p class="text-justify">@{{ news.body }}</p></a>
+                    <a href="#">See More ></a>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+
+
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -99,12 +120,16 @@
         data () {
             return {
                 allNews: [],
-                time: null
+                time: null,
+                laravel: true,
+                vue: false,
             }
         },
       
         methods: {
             getAllNews: function(){
+                    this.laravel = false,
+                    this.vue = true,
                     console.log("calling get news");
                     fetch('/api/news/' + this.time)
                     .then(function(response) {
@@ -112,8 +137,7 @@
                     })
                     .then(response => (this.allNews = (response)))
                 },
-
-        }
+            },
        
     })
 </script>
