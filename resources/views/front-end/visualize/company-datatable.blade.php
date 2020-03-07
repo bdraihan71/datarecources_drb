@@ -43,7 +43,7 @@
 
                     @foreach ($sector->company as $company)
                         @php
-                            if($company->stockInfo != null){
+                            if($company->is_visible && $company->stockInfo != null){
                                 $item = $company->stockInfo;
                             }else{
                                 $item = null;

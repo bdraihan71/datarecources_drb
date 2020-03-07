@@ -21,6 +21,21 @@
         </div>
 
         <div class="col-md-3">
+            <div class="form-group">
+            <label>Visibility</label>
+                <select class="form-control" name="is_visible">
+                    @if($company->is_visible)
+                    <option value="1" >Show</option>
+                    <option value="0">Hide</option>
+                    @else
+                        <option value="0">Hide</option>
+                        <option value="1" >Show</option>
+                    @endif
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-3">
             <div class="form-group ">
                 <label>Sector:<span class="text-danger">*</span> </label>
                 <select class="form-control dropdown-custom" name="sector_id" require>

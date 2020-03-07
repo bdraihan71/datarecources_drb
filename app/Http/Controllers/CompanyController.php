@@ -50,6 +50,7 @@ class CompanyController extends Controller
         $company->name = $request->get('name');
         $company->ticker = $request->get('ticker');
         $company->sector_id = $request->get('sector_id');
+        $company->is_visible = $request->get('is_visible');
         $company->save();
         return redirect()->route('company.index')->with('success', 'Company has been updated successfully');
     }

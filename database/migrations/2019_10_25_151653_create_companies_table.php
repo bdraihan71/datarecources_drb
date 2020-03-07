@@ -19,6 +19,7 @@ class CreateCompaniesTable extends Migration
             $table->string('name');
             $table->string('ticker');
             $table->bigInteger('sector_id');
+            $table->boolean('is_visible')->default(true);
             $table->timestamps();
         });
     }
