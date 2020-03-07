@@ -15,9 +15,9 @@
             </form>
             <form class="form-inline auth-nav-btn">
                 @if(Auth::check())
-                    <a class="text-white small mr-3" href="{{route('logout')}}"> Sign Out</a>
+                    <a class="text-white small mr-3" href="{{route('logout')}}">Sign Out</a>
                 @else
-                    <a class="text-white small mr-3" href="{{route('login')}}"> Sign In</a>
+                    <a class="text-white small mr-3" href="{{route('login')}}">Sign In</a>
                 @endif
             </form>
         </div>
@@ -89,14 +89,14 @@
                 <form class="form-inline my-2 my-lg-0">
                     @if(Auth::check())
                         @if(Auth::user()->type == 'admin')
-                            <button class="btn btn-warning btn-sm my-2 my-sm-0 mx-1" type="submit"><a href="/admin/menu">Admin Panel</a></button>
+                            <a class="btn btn-warning btn-sm my-2 my-sm-0 mx-1" href="/admin/menu">Admin Panel</a>
                         @else
-                            <button class="btn btn-warning btn-sm my-2 my-sm-0 mx-1" type="submit"><a href="/invoice-user">Admin Panel</a></button>
+                            <a class="btn btn-warning btn-sm my-2 my-sm-0 mx-1" href="/invoice-user">Admin Panel</a>
                         @endif
-                        <button class="btn btn-warning btn-sm my-2 my-sm-0 mx-1" type="submit"><a href="{{route('logout')}}"> Sign Out</a></button>
+                        <a class="btn btn-warning btn-sm my-2 my-sm-0 mx-1" href="{{route('logout')}}">Sign Out</a>
                     @else
-                        <button class="btn btn-warning btn-sm my-2 my-sm-0 mx-1" type="submit"><a href="{{route('register')}}"> Sign Up</a></button>
-                        <button class="btn btn-outline-warning btn-sm my-2 my-sm-0 text-white mx-1" type="submit"><a href="{{route('login')}}"> Sign In</a></button>
+                        <a class="btn btn-warning btn-sm my-2 my-sm-0 mx-1" href="{{route('register')}}">Sign Up</a>
+                        <a class="btn btn-outline-warning btn-sm my-2 my-sm-0 text-white mx-1" href="{{route('login')}}">Sign In</a>
                     @endif
                 </form>
             </ul>
