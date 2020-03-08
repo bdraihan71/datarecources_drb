@@ -11,21 +11,10 @@
                   <option value="7">Past week</option>
                   <option value="30">Past month</option>
                   <option value="365">Past year</option>
-                  {{-- <option  data-toggle="modal" data-target="#exampleModal">Custom range</option> --}}
+                  <option value="custom">Custom range</option>
                  
                 </select>
               </div>
-            {{-- <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" v-model="time">
-                <a class="dropdown-item" href="#">Past hour</a>
-                <a class="dropdown-item" href="#">Past 24 hours</a>
-                <a class="dropdown-item" href="#">Past week</a>
-                <a class="dropdown-item" href="#">Past month</a>
-                <a class="dropdown-item" href="#">Past year</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item"  data-toggle="modal" data-target="#exampleModal">Custom range</a>
-                </div>
-            </div> --}}
-        {{-- </div> --}}
         <div class="row" v-if="laravel">
             <div class="col-md-12">
                 @if($allnews->count() == 0)
@@ -58,7 +47,7 @@
         </div>
     </div>
 
-    
+    <p v-if="selected_time_range == 'custom'">Show news from @{{this.custom_date_range_from}} to @{{this.custom_date_range_to}}</p>
     <div class="row" v-if="vue">
         <div class="col-md-12">
             <div class="row" v-for="news in allNews" :key="news.id">
@@ -84,28 +73,26 @@
             <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Customised date range</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" @click="closeModal">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                <form  method="GET">
                     <div class="form-group row">
-                        <label for="example-date-input" class="col-4 col-form-label">Date From</label>
+                        <label for="example-date-input" class="col-4 col-form-label">From</label>
                         <div class="col-8">
-                            <input class="form-control" type="date" value="{{ Request()->from}}" >
+                            <input class="form-control" type="date" v-model="custom_date_range_from">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="example-date-input" class="col-4 col-form-label">Date To</label>
+                        <label for="example-date-input" class="col-4 col-form-label">To</label>
                         <div class="col-8">
-                            <input class="form-control" type="date" value="{{ Request()->to}}">
+                            <input class="form-control" type="date" v-model="custom_date_range_to">
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Search</button>
-                    </div>
                 </form>
+                <button @click="customSearch">Filter</button>
             </div>
             
             </div>
@@ -124,21 +111,46 @@
                 laravel: true,
                 vue: false,
                 url: "{{ env('S3_URL') }}",
+                custom_date_range_to: null,
+                custom_date_range_from: null
+            }
+        },
+
+        watch: {
+            selected_time_range: function (val){
+                if(val == 'custom'){
+                    $("#exampleModal").modal('show');
+                }
             }
         },
       
         methods: {
+            customSearch: function(){
+                if(this.custom_date_range_from != null && this.custom_date_range_to != null){
+                    fetch('/api/news/from/' + this.custom_date_range_from + '/to/' + this.custom_date_range_to)
+                        .then(function(response) {
+                            return response.json();
+                        })
+                        .then(response => (this.allNews = (response)))
+                }
+            },
+            closeModal: function(){
+                $("#exampleModal").modal('hide');
+            },
+
             getAllNews: function(){
                     this.laravel = false,
                     this.vue = true,
                     console.log("calling get news");
                     if(this.selected_time_range == null){
                         range = 0;
-                    }else{
+                    }else if(this.selected_time_range != 'custom'){
                         range = this.selected_time_range;
+                    }else{
+                        range = 0;
                     }
 
-                    fetch('/api/news/' + this.selected_time_range)
+                    fetch('/api/news/' + range)
                     .then(function(response) {
                         return response.json();
                     })

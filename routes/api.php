@@ -21,3 +21,4 @@ Route::get('getcompany/{sectorid}', 'ApiController@getCompany');
 Route::get('fetch/dse', 'ApiController@fetchDSE');
 
 Route::get('news/{time}', 'ApiController@getAllNews');
+Route::get('news/from/{from}/to/{to}', 'ApiController@getCustomRangeNews');

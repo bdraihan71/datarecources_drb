@@ -112,4 +112,15 @@ class ApiController extends Controller
 
         return response()->json($allnews);
     }
+
+    public function getCustomRangeNews(Request $request, $from, $to)
+    {
+        $from = Carbon::parse($from);
+        $to = Carbon::parse($to);
+        $allnews = News::where('is_published', 1)->where('heading', 'LIKE', "%$request->search%")->whereBetween('created_at', [$from, $to])->get();
+
+        return response()->json($allnews);
+    }
+
+    
 }

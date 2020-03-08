@@ -8,7 +8,7 @@
             </div>
             <div class="col-md-3"></div>
             <div class="col-md-6 mb-5">
-                <form action="{{route('newssearch')}}" method="GET">
+                <!-- <form action="{{route('newssearch')}}" method="GET">
                     <div class="input-group mt-2">
                         <input class="form-control border-secondary border border-secondary" type="search" value="{{Request::get('search')}}" name="search" placeholder="search for Company, Industry &amp News">
                         <div class="input-group-append">
@@ -17,7 +17,7 @@
                             </button>
                         </div>
                     </div>
-                </form>
+                </form> -->
                 {{-- <div class="dropdown show mt-2">
                     <a class="btn dropdown-toggle " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Any time
