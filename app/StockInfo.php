@@ -13,21 +13,36 @@ class StockInfo extends DrbModel
 
     public function getThreeYearRevenueCagrAttribute(){
         if($this->beginning_revenue!=0){
-            return (($this->ending_revenue / $this->beginning_revenue) ** (1/3))-1;
+            $result = (($this->ending_revenue / $this->beginning_revenue) ** (1/3))-1 * 100;
+            if($result < 0){
+                return ('N/A');
+            }else{
+                return $result;
+            }
         }
         return '';
     }
 
     public function getRoaAttribute(){
         if(($this->beginning_asset+$this->ending_asset)!=0){
-            return ($this->npat / (($this->beginning_asset+$this->ending_asset)/2));
+            $result = ($this->npat / (($this->beginning_asset+$this->ending_asset)/2)) * 100;
+            if($result < 0){
+                return ('N/A');
+            }else{
+                return $result;
+            }
         }
         return '';
     }
 
     public function getRoeAttribute(){
         if(($this->beginning_equity+$this->ending_equity)!=0){
-            return ($this->npat_non_controlling_interest / (($this->beginning_equity+$this->ending_equity)/2));
+            $result = ($this->npat_non_controlling_interest / (($this->beginning_equity+$this->ending_equity)/2)) * 100;
+            if($result < 0){
+                return ('N/A');
+            }else{
+                return $result;
+            }
         }
         return '';
     }
@@ -41,17 +56,35 @@ class StockInfo extends DrbModel
 
     public function getPnavpsXattribute(){
         if((((float)$this->navps))!=0){
-            return (((float)$this->last_trading_price )/ ((float)$this->navps));
+            $result = (((float)$this->last_trading_price )/ ((float)$this->navps));
+            if($result < 0){
+                return ('N/A');
+            }else{
+                return $result;
+            }
         }
         return '';
     }
 
     public function getDividendYieldAttribute(){
         if((((float)$this->last_trading_price))!=0){
-            return (((float)$this->dps )/ ((float)$this->last_trading_price));
+            return (((float)$this->dps )/ ((float)$this->last_trading_price)) * 100;
         }
         return '';
     }
+
+    // public function getThreeYearNpatCagrAttribute(){
+    //     $result = $this->three_year_npat_cagr * 100;
+    //     if($result < 0){
+    //         return ('N/A');
+    //     }else{
+    //         return $result;
+    //     }
+    // }   
 }
+
+
+
+
 
 
