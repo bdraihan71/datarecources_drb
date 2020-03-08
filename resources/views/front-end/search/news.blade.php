@@ -49,19 +49,25 @@
 
     <p v-if="selected_time_range == 'custom'">Show news from @{{this.custom_date_range_from}} to @{{this.custom_date_range_to}}</p>
     <div class="row" v-if="vue">
-        <div class="col-md-12">
-            <div class="row" v-for="news in allNews" :key="news.id">
-                <div class="col-md-2">
-                    <a href="#">
-                        <img :src="getImageUrl(news.image)" class="mr-3 img-flui  d news-index-img" alt="...">
-                    </a>
+    <div class="col-md-12">
+
+    <div class="row" v-for="news in allNews" :key="news.id">
+              
+                <div class="row">
+                    <div class="col-md-2">
+                        <a href="#" v-if="news.image">
+                            <img :src="getImageUrl(news.image)" class="mr-3 img-flui  d news-index-img" alt="...">
+                        </a>
+                    </div>
+                    <div class="col-md-10">
+                        <a href="#"><h5 class="pt-3 pt-md-0">@{{ news.heading }}</h5></a>
+                        <a href="#"><p class="text-justify word-break">@{{ news.body.slice(0, 500) }}</p></a>
+                        <a :href="getNewsUrl(news.id)">See More ></a>
+                    </div>
                 </div>
-                <div class="col-md-10">
-                    <a href="#"><h5 class="pt-3 pt-md-0">@{{ news.heading }}</h5></a>
-                    <a href="#"><p class="text-justify">@{{ news.body }}</p></a>
-                    <a href="#">See More ></a>
-                </div>
+            <hr>
             </div>
+
             <hr>
         </div>
     </div>
@@ -125,6 +131,10 @@
         },
       
         methods: {
+            getNewsUrl: function(id){
+                return '/single-news/' + id;
+            },
+
             customSearch: function(){
                 if(this.custom_date_range_from != null && this.custom_date_range_to != null){
                     fetch('/api/news/from/' + this.custom_date_range_from + '/to/' + this.custom_date_range_to)
