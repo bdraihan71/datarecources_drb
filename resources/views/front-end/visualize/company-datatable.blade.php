@@ -63,13 +63,13 @@
                                 <td class="text-right">{{sprintf("%01.1f", $item->pe_1_basic)}}</td>
                                 <td class="text-right">{{sprintf("%01.1f", $item->pe_5)}}</td>
                                 <td class="text-right">{{sprintf("%01.1f", $item->navps)}}</td>
-                                <td class="text-right">{{sprintf("%01.1f", $item->p_navps_x)}}</td>
+                                <td class="text-right">{{ $item->p_navps_x == 'n/a' ? 'n/a' :  sprintf("%01.1f", $item->p_navps_x)}}</td>
                                 <td class="text-right">{{sprintf("%01.1f", $item->dps)}}</td>
                                 <td class="text-right">{{sprintf("%01.1f", $item->dividend_yield)}}</td>
-                                <td class="text-right">{{sprintf("%01.1f", $item->roe)}}</td>
-                                <td class="text-right">{{sprintf("%01.1f", $item->roa)}}</td>
-                                <td class="text-right">{{sprintf("%01.1f", $item->three_year_npat_cagr)}}</td>
-                                <td class="text-right">{{sprintf("%01.1f", $item->three_year_revenue_cagr)}}</td>
+                                <td class="text-right">{{ $item->roe == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->roe)}}</td>
+                                <td class="text-right">{{ $item->roa == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->roa)}}</td>
+                                <td class="text-right">{{ $item->three_year_npat_cagr == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->three_year_npat_cagr)}}</td>
+                                <td class="text-right">{{ $item->three_year_revenue_cagr == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->three_year_revenue_cagr)}}</td>
                                 <td class="text-right">{{sprintf("%01.1f", $item->paid_up_capital_bdt_mn)}}</td>
                                 <td class="text-right">{{sprintf("%01.1f", $item->sponsor_or_director)}}</td>
                                 <td class="text-right">{{sprintf("%01.1f", $item->foreign)}}</td>
