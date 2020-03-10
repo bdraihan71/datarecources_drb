@@ -85,5 +85,3 @@ class StockInfo extends DrbModel
         return '';
     }
 }
-
-

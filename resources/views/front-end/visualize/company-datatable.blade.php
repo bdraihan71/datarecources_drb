@@ -54,28 +54,27 @@
                                 <td>{{++$i}}</td>
                                 <td>{{$item->company->name}}</td>
                                 <td>{{$sector->name}}</td>
-                                <td class="text-right">{{ $item->last_trading_price == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->last_trading_price)}}</td>
-                                <td class="text-right">{{ $item->yesterday_closing == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->yesterday_closing)}}</td>
-                                <td class="text-right">{{ $item->price_change == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->price_change)}}</td>
-                                <td class="text-right">{{ $item->turnover_bdt_mn == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->turnover_bdt_mn)}}</td>
-                                <td class="text-right">{{ $item->volume == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->volume)}}</td>
-                                <td class="text-right">{{ $item->audited_eps == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->audited_eps)}}</td>
-                                <td class="text-right">{{ $item->pe_1_basic == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->pe_1_basic)}}</td>
-                                <td class="text-right">{{ $item->pe_5 == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->pe_5)}}</td>
-                                <td class="text-right">{{ $item->navps == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->navps)}}</td>
-                                <td class="text-right">{{ $item->p_navps_x == 'n/a' ? 'n/a' :  sprintf("%01.1f", $item->p_navps_x)}}</td>
-                                <td class="text-right">{{ $item->dps == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->dps)}}</td>
-                                <td class="text-right">{{ $item->dividend_yield == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->dividend_yield)}}</td>
-                                <td class="text-right">{{ $item->roe == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->roe)}}</td>
-                                <td class="text-right">{{ $item->roa == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->roa)}}</td>
-                                <td class="text-right">{{ $item->three_year_npat_cagr == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->three_year_npat_cagr)}}</td>
-                                <td class="text-right">{{ $item->three_year_revenue_cagr == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->three_year_revenue_cagr)}}</td>
-                                <td class="text-right">{{ $item->paid_up_capital_bdt_mn == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->paid_up_capital_bdt_mn)}}</td>
-                                <td class="text-right">{{ $item->sponsor_or_director == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->sponsor_or_director)}}</td>
-                                <td class="text-right">{{ $item->foreign == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->foreign)}}</td>
-                                <td class="text-right">{{ $item->institute == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->institute)}}</td>
-                                <td class="text-right">{{ $item->public == 'n/a' ? 'n/a' : sprintf("%01.1f", $item->public)}}</td>
-                            
+                                <td class="text-right">{{ $item->last_trading_price == 'n/a' || $item->last_trading_price == null ? 'n/a' : sprintf("%01.1f", $item->last_trading_price)}}</td>
+                                <td class="text-right">{{ $item->yesterday_closing == 'n/a'  || $item->yesterday_closing == null  ? 'n/a' : sprintf("%01.1f", $item->yesterday_closing)}}</td>
+                                <td class="text-right">{{ $item->price_change == 'n/a'  || $item->price_change == null  ? 'n/a' : sprintf("%01.1f", $item->price_change)}}</td>
+                                <td class="text-right">{{ $item->turnover_bdt_mn == 'n/a'  || $item->turnover_bdt_mn == null  ? 'n/a' : sprintf("%01.1f", $item->turnover_bdt_mn)}}</td>
+                                <td class="text-right">{{ $item->volume == 'n/a'  || $item->volume == null  ? 'n/a' : sprintf("%01.1f", $item->volume)}}</td>
+                                <td class="text-right">{{ $item->audited_eps == 'n/a'  || $item->audited_eps == null  ? 'n/a' : sprintf("%01.1f", $item->audited_eps)}}</td>
+                                <td class="text-right">{{ $item->pe_1_basic == 'n/a'  || $item->pe_1_basic == null  ? 'n/a' : sprintf("%01.1f", $item->pe_1_basic)}}</td>
+                                <td class="text-right">{{ $item->pe_5 == 'n/a'  || $item->pe_5 == null  ? 'n/a' : sprintf("%01.1f", $item->pe_5)}}</td>
+                                <td class="text-right">{{ $item->navps == 'n/a'  || $item->navps == null  ? 'n/a' : sprintf("%01.1f", $item->navps)}}</td>
+                                <td class="text-right">{{ $item->p_navps_x == 'n/a'  || $item->p_navps_x == null  ? 'n/a' :  sprintf("%01.1f", $item->p_navps_x)}}</td>
+                                <td class="text-right">{{ $item->dps == 'n/a'  || $item->dps == null  ? 'n/a' : sprintf("%01.1f", $item->dps)}}</td>
+                                <td class="text-right">{{ $item->dividend_yield == 'n/a'  || $item->dividend_yield == null  ? 'n/a' : sprintf("%01.1f", $item->dividend_yield)}}</td>
+                                <td class="text-right">{{ $item->roe == 'n/a'  || $item->roe == null  ? 'n/a' : sprintf("%01.1f", $item->roe)}}</td>
+                                <td class="text-right">{{ $item->roa == 'n/a'  || $item->roa == null  ? 'n/a' : sprintf("%01.1f", $item->roa)}}</td>
+                                <td class="text-right">{{ $item->three_year_npat_cagr == 'n/a'  || $item->three_year_npat_cagr == null  ? 'n/a' : sprintf("%01.1f", $item->three_year_npat_cagr)}}</td>
+                                <td class="text-right">{{ $item->three_year_revenue_cagr == 'n/a'  || $item->three_year_revenue_cagr == null  ? 'n/a' : sprintf("%01.1f", $item->three_year_revenue_cagr)}}</td>
+                                <td class="text-right">{{ $item->paid_up_capital_bdt_mn == 'n/a'  || $item->paid_up_capital_bdt_mn == null  ? 'n/a' : sprintf("%01.1f", $item->paid_up_capital_bdt_mn)}}</td>
+                                <td class="text-right">{{ $item->sponsor_or_director == 'n/a'  || $item->sponsor_or_director == null  ? 'n/a' : sprintf("%01.1f", $item->sponsor_or_director)}}</td>
+                                <td class="text-right">{{ $item->foreign == 'n/a'  || $item->foreign == null  ? 'n/a' : sprintf("%01.1f", $item->foreign)}}</td>
+                                <td class="text-right">{{ $item->institute == 'n/a'  || $item->institute == null  ? 'n/a' : sprintf("%01.1f", $item->institute)}}</td>
+                                <td class="text-right">{{ $item->public == 'n/a'  || $item->public == null  ? 'n/a' : sprintf("%01.1f", $item->public)}}</td>
                             </tr>
                         @endif
                     @endforeach
