@@ -28,7 +28,7 @@ class PublicPagesController extends Controller
         $country = News::where('is_published', 1)->where('showing_area', 'country')->latest()->first();
         $economy = News::where('is_published', 1)->where('showing_area', 'economy')->latest()->first();
         $company = News::where('is_published', 1)->where('showing_area', 'company')->latest()->first();
-        $top5s = News::where('is_published', 1)->where('showing_area', 'top5')->latest()->get();
+        $top5s = News::where('is_published', 1)->where('showing_area', 'top5')->latest()->take(7)->get();
         $sides = News::where('is_published', 1)->where('showing_area', 'side')->latest()->take(10)->get();
         // $allnews = News::where('is_published', 1)->where('showing_area', '<>',  'featured')->latest()->take(5)->get();
         return view('front-end.home.index', compact('subscriptionplans','surveys', 'survey_results','staticcontent','featured','world','country','economy','company', 'top5s', 'sides'));
