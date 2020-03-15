@@ -50,7 +50,7 @@
                 <label class="form-check-label mr-4" for="exampleRadios1">
                   Featured
                 </label> --}}
-                <input class="form-check-input" type="radio" name="showing_area" id="exampleRadios6" value="top5" >
+                <input class="form-check-input" type="radio" name="showing_area" id="exampleRadios6" value="top5" {{$news->showing_area == 'top5' ?'checked':''}}>
                 <label class="form-check-label mr-4" for="exampleRadios6">
                   Top News
                 </label>
