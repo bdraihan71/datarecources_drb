@@ -106,7 +106,9 @@ class ApiController extends Controller
 
     public function getAllNews($time)
     {
-        $allnews = News::whereBetween('created_at', [Carbon::now()->subDays($time), Carbon::now()])->get();
+        $from = Carbon::now()->subDays($time);
+        $to = Carbon::now();
+        $allnews = News::whereBetween('created_at', [$from, $to])->get();
         return response()->json($allnews);
     }
 }
