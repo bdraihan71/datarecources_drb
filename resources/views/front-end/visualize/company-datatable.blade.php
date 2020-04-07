@@ -26,7 +26,7 @@
                     <th rowspan="2">3 Year NPAT<br>Revenue<small> (%)</small></th>
                     <th rowspan="2">Paidup Capital<br><small>(BDT mn)</small></th>
                     <th rowspan="1" colspan="4" style="text-align: center">Ownership</th>
-                </tr>-
+                </tr>
                 <tr>
                     <th>Sponsor/Director<small>(%)</small></th>
                     <th>Foreign<small>(%)</small></th>
