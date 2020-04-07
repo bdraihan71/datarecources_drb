@@ -5,8 +5,8 @@
                 Any time
             </a> --}}
             <div class="form-group ropdown show">
-                <select class="form-control" id="exampleFormControlSelect1" v-model="time" @click="getAllNews">
-                  <option>Any time</option>
+                <select class="form-control" id="exampleFormControlSelect1" v-model="selected_time_range" @click="getAllNews">
+                  <option value="0">Any time</option>
                   <option value="1">Past 24 hours</option>
                   <option value="7">Past week</option>
                   <option value="30">Past month</option>
@@ -64,7 +64,7 @@
             <div class="row" v-for="news in allNews" :key="news.id">
                 <div class="col-md-2">
                     <a href="#">
-                        <img src="{{ env('S3_URL') }}@{{news.image}}" class="mr-3 img-fluid news-index-img" alt="...">
+                        <img :src="getImageUrl(news.image)" class="mr-3 img-flui  d news-index-img" alt="...">
                     </a>
                 </div>
                 <div class="col-md-10">
@@ -120,9 +120,10 @@
         data () {
             return {
                 allNews: [],
-                time: null,
+                selected_time_range: 0,
                 laravel: true,
                 vue: false,
+                url: "{{ env('S3_URL') }}",
             }
         },
       
@@ -131,14 +132,22 @@
                     this.laravel = false,
                     this.vue = true,
                     console.log("calling get news");
-                    fetch('/api/news/' + this.time)
+                    if(this.selected_time_range == null){
+                        range = 0;
+                    }else{
+                        range = this.selected_time_range;
+                    }
+
+                    fetch('/api/news/' + this.selected_time_range)
                     .then(function(response) {
                         return response.json();
                     })
                     .then(response => (this.allNews = (response)))
                 },
-            },
-       
+            getImageUrl: function(input){
+                return  this.url + input;
+            }
+        }
     })
 </script>
 @endsection
