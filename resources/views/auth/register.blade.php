@@ -103,6 +103,7 @@
                             </div>
                         </div>
                     </form>
+                    <small class="float-right">* Mandatory</small>
                 </div>
             </div>
         </div>
