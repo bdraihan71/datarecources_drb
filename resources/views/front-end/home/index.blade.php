@@ -184,60 +184,60 @@
                     <div class="col-12">
                         <div class="row no-gutters">
                             <div class="col-md-2">
-                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/Commodity_Price" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">Commodity</a>
+                                <a href="https://www.dataresources-bd.com/Commodity" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">Commodity</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/Registered%20Vehicle" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Vehicle</a>
+                                <a href="https://www.dataresources-bd.com/Vehicle" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Vehicle</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/Monthly%20Macro" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">Monthly Macro</a>
+                                <a href="https://www.dataresources-bd.com/Monthly%20Macro" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">Monthly Macro</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/Internet%20Subscriber" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Internet</a>
+                                <a href="https://www.dataresources-bd.com/Internet_Subscriber" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Internet</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/Publication" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">Publication</a>
+                                <a href="https://www.dataresources-bd.com/Publication" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">Publication</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/Mobile%20Subscriber" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Mobile Subscriber</a>
-                            </div>
-
-                            <div class="col-md-2">
-                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/finance-info" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Grameenphone</a>
-                            </div>
-                            <div class="col-md-2">
-                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/search?search=brac+bank" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">BRAC Bank</a>
-                            </div>
-                            <div class="col-md-2">
-                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/search?search=bergerpbl" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">BergerPBL</a>
-                            </div>
-                            <div class="col-md-2">
-                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/search?search=reckit" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">Reckittben</a>
-                            </div>
-                            <div class="col-md-2">
-                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/search?search=marico" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Marico</a>
-                            </div>
-                            <div class="col-md-2">
-                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/search?search=Esquire+knit" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">Esquire knit</a>
+                                <a href="https://www.dataresources-bd.com/Mobile_Subscriber" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Mobile Subscriber</a>
                             </div>
 
                             <div class="col-md-2">
-                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/search?search=ifad+autos" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">Ifad Autos</a>
+                                <a href="https://www.dataresources-bd.com/search?search=grameenphone" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Grameenphone</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/search?search=olympic" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Olympic</a>
+                                <a href="https://www.dataresources-bd.com/search?search=brac+bank" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">BRAC Bank</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/search?search=summit+power" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">Summit Power</a>
+                                <a href="https://www.dataresources-bd.com/search?search=bergerpbl" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">BergerPBL</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/search?search=IDLC" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">IDLC</a>
+                                <a href="https://www.dataresources-bd.com/search?search=reckitben" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">Reckittben</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/search?search=Singer" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">Singer</a>
+                                <a href="https://www.dataresources-bd.com/search?search=marico" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Marico</a>
                             </div>
                             <div class="col-md-2">
-                                <a href="http://ec2-54-169-255-50.ap-southeast-1.compute.amazonaws.com/search?search=Bata+shoe" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Bata Shoe</a>
+                                <a href="https://www.dataresources-bd.com/search?search=esquire" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">Esquire knit</a>
+                            </div>
+
+                            <div class="col-md-2">
+                                <a href="https://www.dataresources-bd.com/search?search=ifad+autos" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">Ifad Autos</a>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="https://www.dataresources-bd.com/search?search=OLYMPIC+INDU" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Olympic</a>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="https://www.dataresources-bd.com/search?search=SUMMIT+POWER" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">Summit Power</a>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="https://www.dataresources-bd.com/search?search=IDLC" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">IDLC</a>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="https://www.dataresources-bd.com/search?search=SINGER" class="btn rounded-0 main-text-color ash-btn-color my-2 w-100" target="_blank">Singer</a>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="https://www.dataresources-bd.com/search?search=Bata+shoe" class="btn rounded-0 main-color text-white my-2 w-100" target="_blank">Bata Shoe</a>
                             </div>
                         </div>
                     </div>
