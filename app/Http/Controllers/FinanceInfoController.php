@@ -29,7 +29,7 @@ class FinanceInfoController extends Controller
     {
         $sectors = Sector::all();
         $companies = Company::all();
-        $finance_infos = FinanceInfo::where('company_id', 'LIKE', "%$request->company%")->get();
+        $finance_infos = FinanceInfo::where('company_id', "$request->company")->get();
         $user = Auth::user();
         if($request->frequency == 'yearly'){
            $frequency = 'yearly';
