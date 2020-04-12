@@ -46,14 +46,14 @@ class ApiController extends Controller
                 ]);
 
                 $stockinfo->company_id = $company->id;
-                $stockinfo->last_trading_price = $row->children()->eq(2)->text();
-                $stockinfo->closing_price = $row->children()->eq(5)->text();
-                $stockinfo->yesterday_closing = $row->children()->eq(6)->text();
-                $stockinfo->price_change = $row->children()->eq(7)->text();
-                $stockinfo->turnover_bdt_mn = $row->children()->eq(9)->text();
-                $stockinfo->volume = $row->children()->eq(10)->text();
-                $stockinfo->trade = $row->children()->eq(8)->text();
-
+                $stockinfo->last_trading_price = floatval(preg_replace('/[^\d.]/', '', $row->children()->eq(2)->text()));
+                $stockinfo->closing_price = floatval(preg_replace('/[^\d.]/', '', $row->children()->eq(5)->text()));
+                $stockinfo->yesterday_closing = floatval(preg_replace('/[^\d.]/', '', $row->children()->eq(6)->text()));
+                $stockinfo->price_change = floatval(preg_replace('/[^\d.]/', '', $row->children()->eq(7)->text()));
+                $stockinfo->turnover_bdt_mn = floatval(preg_replace('/[^\d.]/', '', $row->children()->eq(9)->text()));
+                $stockinfo->volume = floatval(preg_replace('/[^\d.]/', '', $row->children()->eq(10)->text()));
+                $stockinfo->trade = floatval(preg_replace('/[^\d.]/', '', $row->children()->eq(8)->text()));
+                   
                 $stockinfo->touch();
                 $stockinfo->save();
             } 
@@ -88,15 +88,15 @@ class ApiController extends Controller
                 ]);
 
                 $stockinfo->company_id = $company->id;
-                $stockinfo->close_price_from_pe = $row->children()->eq(2)->text();
-                $stockinfo->ycp = $row->children()->eq(3)->text();
-                $stockinfo->pe_1_basic = $row->children()->eq(4)->text();
-                $stockinfo->pe_2_diluted = $row->children()->eq(5)->text();
-                $stockinfo->pe_3_basic = $row->children()->eq(6)->text();
-                $stockinfo->pe_4_diluted = $row->children()->eq(7)->text();
-                $stockinfo->pe_5 = $row->children()->eq(8)->text();
-                $stockinfo->pe_6 = $row->children()->eq(9)->text();
-
+                $stockinfo->close_price_from_pe = floatval(preg_replace('/[^\d.]/', '', $row->children()->eq(2)->text()));
+                $stockinfo->ycp = floatval(preg_replace('/[^\d.]/', '', $row->children()->eq(3)->text()));
+                $stockinfo->pe_1_basic = floatval(preg_replace('/[^\d.]/', '', $row->children()->eq(4)->text()));
+                $stockinfo->pe_2_diluted = floatval(preg_replace('/[^\d.]/', '', $row->children()->eq(5)->text()));
+                $stockinfo->pe_3_basic = floatval(preg_replace('/[^\d.]/', '', $row->children()->eq(6)->text()));
+                $stockinfo->pe_4_diluted = floatval(preg_replace('/[^\d.]/', '', $row->children()->eq(7)->text()));
+                $stockinfo->pe_5 = floatval(preg_replace('/[^\d.]/', '', $row->children()->eq(8)->text()));
+                $stockinfo->pe_6 = floatval(preg_replace('/[^\d.]/', '', $row->children()->eq(9)->text()));
+                    dd($stockinfo);
                 $stockinfo->touch();
                 $stockinfo->save();
 
