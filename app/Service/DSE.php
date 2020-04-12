@@ -5,6 +5,7 @@ use Goutte\Client;
 use Symfony\Component\DomCrawler\Crawler;
 use App\Company;
 use App\StockInfo;
+use App\Sector;
 
 class DSE
 {
