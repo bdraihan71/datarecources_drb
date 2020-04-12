@@ -13,6 +13,6 @@ class Page extends DrbModel
 
     public function pageItems()
     {
-        return $this->hasMany('App\PageItem');
+        return $this->hasMany('App\PageItem')->orderBy('updated_at', 'DESC');
     }
 }

@@ -37,7 +37,7 @@ class StockInfoController extends Controller
            $stockInfo = StockInfo::find($key);
 
            foreach($value as $key2=>$value2){
-                $stockInfo[$key2] = $value[$key2];
+                $stockInfo[$key2] = floatval(preg_replace('/[^\d.]/', '', $value[$key2]));
            }
 
            $stockInfo->save();

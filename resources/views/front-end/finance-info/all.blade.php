@@ -70,9 +70,9 @@
                     <input class="form-check-input" type="checkbox" name="q3" value="q3" id="q3" {{Request::get('q3') == 'q3' ? 'checked' : ''}}>
                     <label class="form-check-label">Q3</label>
                 </div>
-                <div class="form-check form-check-inline">
+                {{-- <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" name="q4" value="q4" id="q4" {{Request::get('q4') == 'q4' ? 'checked' : ''}}>                    <label class="form-check-label">Q4</label>
-                </div>
+                </div> --}}
             </div>
 
             <button type="submit" class="btn btn-primary">Filter</button>

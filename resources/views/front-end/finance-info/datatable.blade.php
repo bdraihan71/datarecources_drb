@@ -3,7 +3,7 @@
     <div class="card-header">
     <div class="card-body">
         <div class="table-responsive">
-        <table class="table table-bordered finance-table" id="dataTable" width="100%" cellspacing="0" data-display-length='100'>
+        <table class="table table-bordered finance-table finance-table-font-size" id="dataTable" width="100%" cellspacing="0" data-display-length='100'>
             <thead>
             <tr>
                 <th class="th-bg-color">Company</th>
@@ -15,8 +15,8 @@
                 <th>Q2 Excel</th>
                 <th>Q3 PDF</th>
                 <th>Q3 Excel</th>
-                <th>Q4 PDF</th>
-                <th>Q4 Excel</th>
+                {{-- <th>Q4 PDF</th>
+                <th>Q4 Excel</th> --}}
                 <th>Annual Excel</th>
                 <th>Annual PDF 1</th>
                 <th>Annual PDF 2</th>
@@ -36,8 +36,8 @@
                 <th>Q2 Excel</th>
                 <th>Q3 PDF</th>
                 <th>Q3 Excel</th>
-                <th>Q4 PDF</th>
-                <th>Q4 Excel</th>
+                {{-- <th>Q4 PDF</th>
+                <th>Q4 Excel</th> --}}
                 <th>Annual Excel</th>
                 <th>Annual PDF 1</th>
                 <th>Annual PDF 2</th>
@@ -97,7 +97,7 @@
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
                     @endif 
 
-                    @if(auth()->user())
+                    {{-- @if(auth()->user())
                        @include('front-end.partial.q4__pdf_url', compact('item'))
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
@@ -107,7 +107,7 @@
                       @include('front-end.partial.q4_excel_url', compact('item'))
                     @else
                         <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                    @endif 
+                    @endif  --}}
                     
                 
                     @if(auth()->user())

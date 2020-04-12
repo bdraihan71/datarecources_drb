@@ -16,8 +16,8 @@
                     <th>Q2 Excel</th>
                     <th>Q3 PDF</th>
                     <th>Q3 Excel</th>
-                    <th>Q4 PDF</th>
-                    <th>Q4 Excel</th>
+                    {{-- <th>Q4 PDF</th>
+                    <th>Q4 Excel</th> --}}
                 @else    
                     @isset($q1)
                         <th>Q1 PDF</th>
@@ -31,10 +31,10 @@
                         <th>Q3 PDF</th>
                         <th>Q3 Excel</th>
                     @endisset
-                    @isset($q4)
+                    {{-- @isset($q4)
                         <th>Q4 PDF</th>
                         <th>Q4 Excel</th>
-                    @endisset
+                    @endisset --}}
                 @endif    
 
             </tr>
@@ -51,8 +51,8 @@
                     <th>Q2 Excel</th>
                     <th>Q3 PDF</th>
                     <th>Q3 Excel</th>
-                    <th>Q4 PDF</th>
-                    <th>Q4 Excel</th>
+                    {{-- <th>Q4 PDF</th>
+                    <th>Q4 Excel</th> --}}
                 @else    
                     @isset($q1)
                         <th>Q1 PDF</th>
@@ -66,10 +66,10 @@
                         <th>Q3 PDF</th>
                         <th>Q3 Excel</th>
                     @endisset
-                    @isset($q4)
+                    {{-- @isset($q4)
                         <th>Q4 PDF</th>
                         <th>Q4 Excel</th>
-                    @endisset
+                    @endisset --}}
                 @endif
             </tr>
             </tfoot>
@@ -119,7 +119,7 @@
                             <td><a href="/login" class="btn btn-warning">Login</a></td>   
                         @endif 
 
-                        @if(auth()->user())
+                        {{-- @if(auth()->user())
                             @include('front-end.partial.q4__pdf_url', compact('item'))
                         @else
                             <td><a href="/login" class="btn btn-warning">Login</a></td>   
@@ -129,7 +129,7 @@
                             @include('front-end.partial.q4_excel_url', compact('item'))
                         @else
                             <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                        @endif
+                        @endif --}}
 
                     @else  
                         @isset($q1)
@@ -176,7 +176,7 @@
                         @endisset
 
 
-                        @isset($q4)
+                        {{-- @isset($q4)
                             @if(auth()->user())
                                 @include('front-end.partial.q4__pdf_url', compact('item'))
                             @else
@@ -188,7 +188,7 @@
                             @else
                                 <td><a href="/login" class="btn btn-warning">Login</a></td>   
                             @endif
-                        @endisset
+                        @endisset --}}
                     @endif        
                 </tr>
             @endforeach
