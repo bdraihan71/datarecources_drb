@@ -11,7 +11,15 @@
                     <li>Web: www.dataresources-bd.com</li>
                 </ul>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-2">
+                <ul class="list-unstyled text-small">
+                  <li><a class="text-light" href="#">About Us</a></li>
+                  <li><a class="text-light" href="#">Terms & Condition</a></li>
+                  <li><a class="text-light" href="#">Refund Policy</a></li>
+                  <li><a class="text-light" href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
                 <label>Stay Updated</label>
                  <form action="{{route('subscribe')}}" method="post">
                     @csrf
