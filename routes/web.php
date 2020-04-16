@@ -81,6 +81,9 @@ Route::middleware(['auth','admin'])->group(function () {
 
         Route::get('/stockinfo', 'StockInfoController@index')->name('stockinfo.index');
 
+        Route::get('/stockinfo/bulk', 'StockInfoController@uploadBulk')->name('stockinfo.upload-bulk');
+        Route::post('/stockinfo/bulk', 'StockInfoController@storeBulk')->name('stockinfo.store-bulk');
+
         //invoice
         Route::get('/invoice', 'InvoiceController@index')->name('invoice.index');
         Route::get('/stockinfo/data-matrix', 'StockInfoController@dataMatrix')->name('stockinfo.data-matrix');

@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Imports\UsersImport;
+use Excel;
 use Illuminate\Http\Request;
 use App\Company;
 use App\StockInfo;
@@ -44,4 +45,16 @@ class StockInfoController extends Controller
        }
        return redirect()->back();
    }
+
+    public function storeBulk(Request $request){
+        if($request->hasFile('file')){
+            $path1 = $request->file('file')->store('temp'); 
+            $path = storage_path('app').'/'.$path1;  
+            $data = Excel::import(new StockInfoImport,  $path);
+        }
+   }
+
+   public function uploadBulk(){
+        return view('back-end.stockinfo.create-bulk');
+    }
 }
