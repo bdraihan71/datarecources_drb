@@ -52,7 +52,7 @@
       </form>
       <div class="row">
         <div class="col-md-12 text-right">
-          <a class="alert-primary" href="/example/users.csv" >Download Example File</a>
+          <a class="alert-primary" href="/example/stockinfos.csv" >Download Example File</a>
         </div>
       </div>
     </div>
