@@ -31,8 +31,8 @@ class NewsController extends Controller
         $this->validate($request, [
             'image' => 'mimes:jpeg,jpg,png,gif|max:10000',
             'heading' => 'required|min:3|max:255',
-            'source' => 'required|max:255',
-            'body' => 'required|min:10|max:20000',
+            'source' => 'required|max:255|regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
+            'body' => 'required|min:10|max:200',
             'showing_area' => 'required',
         ]);
 
@@ -82,8 +82,8 @@ class NewsController extends Controller
         $this->validate($request, [
             'image' => 'mimes:jpeg,jpg,png,gif|max:10000',
             'heading' => 'required|min:3|max:255',
-            'source' => 'required|max:255',
-            'body' => 'required|min:10|max:20000',
+            'source' => 'required|max:255|regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
+            'body' => 'required|min:10|max:200',
             'showing_area' => 'required',
         ]);
 

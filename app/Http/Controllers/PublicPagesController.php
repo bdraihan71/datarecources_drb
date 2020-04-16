@@ -25,13 +25,17 @@ class PublicPagesController extends Controller
         $subscriptionplans = SubscriptionPlan::where('is_visible', 1)->get();
         $featured = News::where('is_published', 1)->where('showing_area', 'featured')->latest()->first();
         $world = News::where('is_published', 1)->where('showing_area', 'world')->latest()->first();
+        $worlds = News::where('is_published', 1)->where('showing_area', 'world')->orderBy('id', 'desc')->skip(1)->take(4)->get();
         $country = News::where('is_published', 1)->where('showing_area', 'country')->latest()->first();
+        $countries = News::where('is_published', 1)->where('showing_area', 'country')->orderBy('id', 'desc')->skip(1)->take(4)->get();
         $economy = News::where('is_published', 1)->where('showing_area', 'economy')->latest()->first();
+        $economies = News::where('is_published', 1)->where('showing_area', 'economy')->orderBy('id', 'desc')->skip(1)->take(4)->get();
         $company = News::where('is_published', 1)->where('showing_area', 'company')->latest()->first();
+        $companies = News::where('is_published', 1)->where('showing_area', 'company')->orderBy('id', 'desc')->skip(1)->take(4)->get();
         $top5s = News::where('is_published', 1)->where('showing_area', 'top5')->latest()->take(7)->get();
         $sides = News::where('is_published', 1)->where('showing_area', 'side')->latest()->take(10)->get();
         // $allnews = News::where('is_published', 1)->where('showing_area', '<>',  'featured')->latest()->take(5)->get();
-        return view('front-end.home.index', compact('subscriptionplans','surveys', 'survey_results','staticcontent','featured','world','country','economy','company', 'top5s', 'sides'));
+        return view('front-end.home.index', compact('subscriptionplans','surveys', 'survey_results','staticcontent','featured','world','worlds','country','countries','economy','economies','company','companies', 'top5s', 'sides'));
     }
 
     public function search(Request $request)
