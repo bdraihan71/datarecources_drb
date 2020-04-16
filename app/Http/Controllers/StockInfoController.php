@@ -6,6 +6,7 @@ use Excel;
 use Illuminate\Http\Request;
 use App\Company;
 use App\StockInfo;
+use App\Imports\StockInfoImport;
 class StockInfoController extends Controller
 {
     public function index()

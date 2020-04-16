@@ -20,20 +20,11 @@
         <h6>Dear {{auth()->user()->full_name}}, <br>To update stockinfos in bulk please follow the following steps:</h6>
         <ul class="remove-bullet">
           <li>
-            <b>1.</b> Create a CSV file with the information in following order:
-            <ul class="remove-bullet">
-              <li>a. Company Name</li>
-              <li>b. Field to be decided by client</li>
-              <li>c. Field to be decided by client</li>
-              <li>d. Field to be decided by client</li>
-              <li>e. Field to be decided by client</li>
-              <br>(Please download the example file for reference)</li>
-            </ul>
+            <b>1.</b> Create a CSV file with the information in mentioned in the example file.
           </li>
-          <li><b>2.</b> All the information must be provided in the CSV file. It cannot have any missing cell. Missing cell will return error</li>
-          <li><b>3.</b> Company Name should be properly matched with our database</li>
-          <li><b>4.</b> Click on the "Choose File" button and browse and add the CSV file.</li>
-          <li><b>5.</b> After adding the CSV file click on the "Submit" button to upload the file.</li>
+          <li><b>2.</b> Company Name should be properly matched with our database</li>
+          <li><b>3.</b> Click on the "Choose File" button and browse and add the CSV file.</li>
+          <li><b>4.</b> After adding the CSV file click on the "Submit" button to upload the file.</li>
         </ul>
         <b>** For downloading example CSV file click on the "Download Example File" link under the "Submit" button.</b>
       </div>

@@ -1,14 +1,11 @@
-Company Name,Field 1,Field 2,Field 3,Field 4,Field 5
-Company 1,123,123,123,123,123
-Company 2,124,124,124,124,124
-Company 3,125,125,125,125,125
-Company 4,126,126,126,126,126
-Company 5,127,127,127,127,127
-Company 6,128,128,128,128,128
-Company 7,129,129,129,129,129
-Company 8,130,130,130,130,130
-Company 9,131,131,131,131,131
-Company 10,132,132,132,132,132
-Company 11,133,133,133,133,133
-Company 12,134,134,134,134,134
-Company 13,135,135,135,135,135
+Company Name,Sponsor/Director,Government,Institute,Foreign,Public,Paid Up Capital (BDT mn),Beginning Revenue,Ending Revenue,Beginning NPAT,Ending NPAT,NPAT,Beginning Asset,Ending Asset,NPAT-non Controlling Interest,Beginning Equity,Ending Equity,NAVPS,DPS
+Company 1,,,,,,,,,,,,,,,,,,
+Company 2,,,,,,,,,,,,,,,,,,
+Company 3,,,,,,,,,,,,,,,,,,
+Company 4,,,,,,,,,,,,,,,,,,
+Company 5,,,,,,,,,,,,,,,,,,
+Company 6,,,,,,,,,,,,,,,,,,
+Company 7,,,,,,,,,,,,,,,,,,
+Company 8,,,,,,,,,,,,,,,,,,
+Company 9,,,,,,,,,,,,,,,,,,
+Company 10,,,,,,,,,,,,,,,,,,
