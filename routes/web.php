@@ -153,6 +153,11 @@ Route::get('/data-matrix', 'VisualizeController@dataMatrix')->name('visualize.da
 Route::post('/subscribe-plan', 'SubscriptionPlanController@subscribePlan')->name('subscribe.plan');
 
 
+//comment
+Route::post('/comment', 'CommentController@store')->name('comment.store');
+Route::delete('/comment/{id}', 'CommentController@destroy')->name('comment.destroy');
+
+
 //Page
 Route::get('{slug}', 'PageController@page')->name('page');
 
