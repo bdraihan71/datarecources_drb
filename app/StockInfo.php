@@ -76,11 +76,7 @@ class StockInfo extends DrbModel
     public function getThreeYearNpatCagrAttribute(){
         if($this->beginning_npat!=0){
             $result = ((($this->ending_npat / $this->beginning_npat) ** (1/3))-1)*100;
-            if($result<0){
-                return 'n/a';
-            }else{
-                return $result;
-            }
+            return $result;
         }
         return '';
     }
