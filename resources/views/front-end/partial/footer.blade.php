@@ -13,7 +13,7 @@
             </div>
             <div class="col-md-2">
                 <ul class="list-unstyled text-small">
-                  <li><a class="text-light" href="#">About Us</a></li>
+                  <li><a class="text-light" href="/#who-we-are">About Us</a></li>
                   <li><a class="text-light" href="#">Terms & Condition</a></li>
                   <li><a class="text-light" href="#">Refund Policy</a></li>
                   <li><a class="text-light" href="#">Privacy Policy</a></li>
@@ -31,8 +31,14 @@
                     </div>
                 </form>
             </div>
-            <div class="col-md-12 border-top border-light mt-5">
-                <div class="text-center mt-5 w-100">
+            <div class="col-md-12 border-top border-light mt-5 text-center">
+                <img class="img-fluid ssl-banner" src="/img/ssl.png">
+            </div>
+            <div class="col-md-12 text-center mt-3">
+                <img class="img-fluid pci-banner" src="/img/pci.png">
+            </div>
+            <div class="col-md-12 mt-5">
+                <div class="text-center w-100">
                     <span><a href="https://www.techynaf.com" target="_blank">Copyright &copy; Data Resources Bangladesh 2019 
                                                                     <br><span class="small">Made with <span class="text-danger">&hearts;</span> by Techynaf Technologies Limited</span></a></span>
                 </div>

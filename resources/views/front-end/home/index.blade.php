@@ -400,7 +400,7 @@
 </section>
 
 
-<section class="call-to-action bg-warning">
+<section id="who-we-are" class="call-to-action bg-warning">
     <div class="container-fluid h-100">
         <div class="row text-center align-items-center h-100">
             @if (Auth::user())

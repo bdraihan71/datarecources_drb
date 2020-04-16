@@ -887,3 +887,11 @@ if it's not present, don't show loader */
 .finance-table-font-size {
     font-size: 14px;
 }
+
+.ssl-banner {
+    width: 60%;
+}
+
+.pci-banner {
+    width: 10%;
+}
