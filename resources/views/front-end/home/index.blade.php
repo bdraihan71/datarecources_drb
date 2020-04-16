@@ -38,7 +38,7 @@
                 <div class="owl-carousel mt-5 px-5">
                     @foreach ($top5s as $news)
                     <div>
-                        <a href="{{route('news.single',$news->id)}}">
+                        <a href="{{$news->source}}" target="_blank">
                             <div class="card border-0 black-card">
                                 @if($news->image)
                                     <img src="{{ env('S3_URL') }}{{ $news->image }}" class="card-img-top top5-news-img rounded-0" alt="...">
@@ -61,7 +61,7 @@
                     <div class="card border-0">
                         <h4 class="main-text-color">World</h4>
                         @if($world)
-                        <a href="{{route('news.single',$world->id)}}">
+                        <a href="{{$world->source}}" target="_blank">
                             @if($world->image)
                             <img src="{{ env('S3_URL') }}{{$world->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
                             @endif
@@ -70,16 +70,15 @@
                         @else 
                             <p class="card-text main-text-color"><small>No news available</small></p>
                         @endif
-                        <a href="{{route('news.single',App\News::where('showing_area', 'world')->orderBy('created_at', 'desc')->skip(1)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border category-news subnews-line-height"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'world')->orderBy('created_at', 'desc')->skip(1)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
-                        <a href="{{route('news.single',App\News::where('showing_area', 'world')->orderBy('created_at', 'desc')->skip(2)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border category-news subnews-line-height"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'world')->orderBy('created_at', 'desc')->skip(2)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
-                        <a href="{{route('news.single',App\News::where('showing_area', 'world')->orderBy('created_at', 'desc')->skip(3)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border category-news subnews-line-height"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'world')->orderBy('created_at', 'desc')->skip(3)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
-                        <a href="{{route('news.single', App\News::where('showing_area', 'world')->orderBy('created_at', 'desc')->skip(4)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border category-news subnews-line-height"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'world')->orderBy('created_at', 'desc')->skip(4)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
+                        @foreach ($worlds as $world)
+                            <a href="{{$world->source}}" target="_blank" class="category-news-heading-border category-news subnews-line-height"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', $world->heading ), 0, 20))}}</small></a>
+                        @endforeach
                     </div>
 
                     <div class="card border-0">
                         <h4 class="main-text-color">Country</h4>
                         @if($country)
-                        <a href="{{route('news.single',$country->id)}}">
+                        <a href="{{$country->source}}" target="_blank">
                             @if($country->image)
                             <img src="{{ env('S3_URL') }}{{$country->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
                             @endif
@@ -88,16 +87,15 @@
                         @else 
                             <p class="card-text main-text-color"><small>No news available</small></p>
                         @endif
-                        <a href="{{route('news.single',App\News::where('showing_area', 'country')->orderBy('created_at', 'desc')->skip(1)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border category-news subnews-line-height"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'country')->orderBy('created_at', 'desc')->skip(1)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>  
-                        <a href="{{route('news.single',App\News::where('showing_area', 'country')->orderBy('created_at', 'desc')->skip(2)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border category-news subnews-line-height"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'country')->orderBy('created_at', 'desc')->skip(2)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
-                        <a href="{{route('news.single',App\News::where('showing_area', 'country')->orderBy('created_at', 'desc')->skip(3)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border category-news subnews-line-height"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'country')->orderBy('created_at', 'desc')->skip(3)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
-                        <a href="{{route('news.single', App\News::where('showing_area', 'country')->orderBy('created_at', 'desc')->skip(4)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border category-news subnews-line-height"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'country')->orderBy('created_at', 'desc')->skip(4)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
+                        @foreach ($countries as $country)
+                            <a href="{{$country->source}}" target="_blank" class="category-news-heading-border category-news subnews-line-height"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', $country->heading ), 0, 20))}}</small></a>
+                        @endforeach
                     </div>
 
                     <div class="card border-0">
                         <h4 class="main-text-color">Economy</h4>
                         @if($economy)
-                        <a href="{{route('news.single',$economy->id)}}">
+                        <a href="{{$economy->source}}" target="_blank">
 
                             @if($economy->image)
                             <img src="{{ env('S3_URL') }}{{$economy->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
@@ -107,16 +105,15 @@
                         @else 
                             <p class="card-text main-text-color"><small>No news available</small></p>
                         @endif
-                        <a href="{{route('news.single',App\News::where('showing_area', 'economy')->orderBy('created_at', 'desc')->skip(1)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border category-news subnews-line-height"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'economy')->orderBy('created_at', 'desc')->skip(1)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>  
-                        <a href="{{route('news.single',App\News::where('showing_area', 'economy')->orderBy('created_at', 'desc')->skip(2)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border category-news subnews-line-height"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'economy')->orderBy('created_at', 'desc')->skip(2)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
-                        <a href="{{route('news.single',App\News::where('showing_area', 'economy')->orderBy('created_at', 'desc')->skip(3)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border category-news subnews-line-height"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'economy')->orderBy('created_at', 'desc')->skip(3)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
-                        <a href="{{route('news.single', App\News::where('showing_area', 'economy')->orderBy('created_at', 'desc')->skip(4)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border category-news subnews-line-height"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'economy')->orderBy('created_at', 'desc')->skip(4)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>  
+                        @foreach ($economies as $economy)
+                            <a href="{{$economy->source}}" target="_blank" class="category-news-heading-border category-news subnews-line-height"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', $economy->heading ), 0, 20))}}</small></a>
+                        @endforeach
                     </div>
 
                     <div class="card border-0">
                         <h4 class="main-text-color">Company</h4>
                         @if($company)
-                        <a href="{{route('news.single',$company->id)}}">
+                        <a href="{{$company->source}}" target="_blank">
                             @if($company->image)
                              <img src="{{ env('S3_URL') }}{{$company->image}}" class="card-img-top rounded-0 category-news-img" alt="...">
                             @endif
@@ -124,11 +121,10 @@
                         </a>
                         @else 
                             <p class="card-text main-text-color"><small>No news available</small></p>
-                        @endif   
-                        <a href="{{route('news.single',App\News::where('showing_area', 'company')->orderBy('created_at', 'desc')->skip(1)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border category-news subnews-line-height"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'company')->orderBy('created_at', 'desc')->skip(1)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>  
-                        <a href="{{route('news.single',App\News::where('showing_area', 'company')->orderBy('created_at', 'desc')->skip(2)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border category-news subnews-line-height"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'company')->orderBy('created_at', 'desc')->skip(2)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
-                        <a href="{{route('news.single',App\News::where('showing_area', 'company')->orderBy('created_at', 'desc')->skip(3)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border category-news subnews-line-height"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'company')->orderBy('created_at', 'desc')->skip(3)->take(1)->get()->first()->heading ?? '#'), 0, 20))}}</small></a>
-                        <a href="{{route('news.single', App\News::where('showing_area', 'company')->orderBy('created_at', 'desc')->skip(4)->take(1)->get()->first()->id ?? '#')}}" class="category-news-heading-border category-news subnews-line-height"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', App\News::where('showing_area', 'company')->orderBy('created_at', 'desc')->skip(4)->take(1)->get()->first()->heading  ?? '#'), 0, 20))}}</small></a>
+                        @endif
+                        @foreach ($companies as $company)
+                            <a href="{{$company->source}}" target="_blank" class="category-news-heading-border category-news subnews-line-height"><small class="card-text main-text-color">{{implode(' ', array_slice(explode(' ', $company->heading ), 0, 20))}}</small></a>
+                        @endforeach
                     </div>
                 </div>
                 <div class="text-center">
