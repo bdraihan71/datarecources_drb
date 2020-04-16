@@ -90,5 +90,6 @@
         </div>
     </div>
 </form>
+@include('back-end.news.comment')
 
 @endsection
