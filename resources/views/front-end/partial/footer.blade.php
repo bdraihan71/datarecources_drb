@@ -14,9 +14,9 @@
             <div class="col-md-2">
                 <ul class="list-unstyled text-small">
                   <li><a class="text-light" href="/#who-we-are">About Us</a></li>
-                  <li><a class="text-light" href="#">Terms & Condition</a></li>
-                  <li><a class="text-light" href="#">Refund Policy</a></li>
-                  <li><a class="text-light" href="#">Privacy Policy</a></li>
+                  <li><a class="text-light" href="/terms-conditions">Terms & Condition</a></li>
+                  <li><a class="text-light" href="/refund-policy">Refund Policy</a></li>
+                  <li><a class="text-light" href="/privacy-policy">Privacy Policy</a></li>
                 </ul>
             </div>
             <div class="col-md-4">

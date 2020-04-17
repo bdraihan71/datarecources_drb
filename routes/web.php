@@ -149,6 +149,17 @@ Route::get('/visualize', 'VisualizeController@index')->name('visualize.index');
 Route::get('/data-matrix', 'VisualizeController@dataMatrix')->name('visualize.data-matrix');
 Route::post('/subscribe-plan', 'SubscriptionPlanController@subscribePlan')->name('subscribe.plan');
 
+Route::get('/terms-conditions', function () {
+  return view('front-end.legal.terms');
+});
+
+Route::get('/refund-policy', function () {
+  return view('front-end.legal.refund');
+});
+
+Route::get('/privacy-policy', function () {
+  return view('front-end.legal.privacy');
+});
 
 //Page
 Route::get('{slug}', 'PageController@page')->name('page');
