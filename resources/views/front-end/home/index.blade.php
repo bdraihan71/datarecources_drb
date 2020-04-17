@@ -318,7 +318,7 @@
 @endif
 
 
-<section id="pricing" class="pricing py-5 bg-light">
+<section id="pricing" class="pricing py-5 bg-light" >
     <h1 class="text-center main-text-color mb-md-5">Our Pricing</h1>
     <div class="container-fluid">
       <div class="row">
@@ -354,14 +354,15 @@
                                 <p class="price-text"><i class="fas fa-check d-none d-sm-block"></i><span class="small d-block d-sm-none">Data Matrix</span></p>
                                 <p class="price-text"><b class="d-none d-sm-block">Unlimited</b><span class="small d-block d-sm-none">Unlimited Downloads</span></p>
                                 @if(auth()->user())
-                                    <form  method="post" action="{{ route('subscribe.plan') }}">
-                                        @csrf
-                                        <input type="hidden" name="price" value="{{ $subscriptionplan->price_per_month }}">
+                                    {{-- <form  method="post" action="{{ route('subscribe.plan') }}">
+                                        @csrf --}}
+                                        {{-- <input type="hidden" name="price" value="{{ $subscriptionplan->price_per_month }}">
                                         <input type="hidden" name="plan_id" value="{{ $subscriptionplan->id }}">
                                         <input type="hidden" name="type" value="monthly">
-                                        <input type="hidden" name="user_limit" value="{{ $subscriptionplan->user_limit }}">
-                                        <button type="submit" class="btn btn-outline-warning btn-sm">Get Started</button>
-                                    </form>
+                                        <input type="hidden" name="user_limit" value="{{ $subscriptionplan->user_limit }}"> --}}
+                                        @include('front-end.home.partial.monthlyagreement')    
+                                        <button type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#monthlyexampleModal{{ $subscriptionplan->id }}">Get Started</button>
+                                    {{-- </form> --}}
                                 @else
                                     <td><a href="/login" class="btn btn-warning">Login</a></td>   
                                 @endif 
@@ -373,17 +374,19 @@
                                 <p class="price-text"><i class="fas fa-check d-none d-sm-block"></i><span class="small d-block d-sm-none">Data Matrix</span></p>
                                 <p class="price-text"><b class="d-none d-sm-block">Unlimited</b><span class="small d-block d-sm-none">Unlimited Downloads</span></p>
                                 @if(auth()->user())
-                                    <form  method="post" action="{{ route('subscribe.plan') }}">
+                                    {{-- <form  method="post" action="{{ route('subscribe.plan') }}">
                                         @csrf
                                         <input type="hidden" name="price" value="{{ $subscriptionplan->price_per_year }}">
                                         <input type="hidden" name="plan_id" value="{{ $subscriptionplan->id }}">
                                         <input type="hidden" name="type" value="yearly">
-                                        <input type="hidden" name="user_limit" value="{{ $subscriptionplan->user_limit }}">
-                                        <button type="submit" class="btn btn-outline-warning btn-sm">Get Started </button>
-                                    </form>
+                                        <input type="hidden" name="user_limit" value="{{ $subscriptionplan->user_limit }}"> --}}
+                                        @include('front-end.home.partial.yearlyagreement')    
+                                        <button type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#yearlyexampleModal{{ $subscriptionplan->id }}">Get Started </button>
+                                       
+                                    {{-- </form> --}}
                                 @else
                                     <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                                @endif     
+                                @endif 
                             </div>
                         </div>
                     </div>
@@ -441,4 +444,19 @@
         </div>
     </div>
 </section>
+   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script >
+        var home = new Vue({
+            el: '#home',
+            data: {
+                isButton: false,
+                   
+            },
+             methods: {
+                isShowButton: function(){ 
+                   this.isButton = true;
+                },
+             },
+        })
+</script>
 @endsection
