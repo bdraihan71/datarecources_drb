@@ -1,6 +1,6 @@
 @extends('front-end.main-layout')
 @section('content')
-<section class="news">
+<section class="news" id="app">
     <div class="container">
         <div class="row custom-header-top">
             <div class="col-md-12 mt-5">
@@ -43,17 +43,34 @@
                         <div class="row">
                             <div class="col-md-2">
                                 @if($news->image)
-                                    <a href="{{route('news.single',$news->id)}}">
+                                    <a href="{{$news->source}}" target="_blank">
                                         <img src="{{ env('S3_URL') }}{{$news->image}}" class="mr-3 img-fluid news-index-img" alt="...">
                                     </a>
                                 @endif
                             </div>
                             <div class="col-md-10">
-                                <a href="{{route('news.single',$news->id)}}"><h5 class="pt-3 pt-md-0">{{ $news->heading }}</h5></a>
-                                <a href="{{route('news.single',$news->id)}}"><p class="text-justify word-break">{{ implode(' ', array_slice(explode(' ', strip_tags($news->body) ), 0, 50))}}</p></a>
-                                <a href="{{route('news.single',$news->id)}}">See More ></a>
+                                <a href="{{$news->source}}" target="_blank"><h5 class="pt-3 pt-md-0">{{ $news->heading }}</h5></a>
+                                <a href="{{$news->source}}" target="_blank"><p class="text-justify word-break">{{ implode(' ', array_slice(explode(' ', strip_tags($news->body) ), 0, 50))}}</p></a>
+                                {{-- <a href="{{route('news.single',$news->id)}}">See More ></a> --}}
                             </div>
                         </div>
+                        <button type="button" class="btn btn-light" @click='isshowcomment({{$news->id}})'>comment</button>
+                        <div v-if='isShowComment == {{$news->id}}'>
+                            <form method="POST" action="{{ route('comment.store') }}">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Comment:</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" name="body" rows="3"></textarea>
+                                </div>
+                                <input type="hidden" name="news_id" value="{{$news->id}}">
+                                <button type="submit" class="btn btn-primary float-right">Submit</button>
+                            </form>
+                            <ul class="list-group">
+                                @foreach ($news->comments as $comment)
+                                    <li class="list-group-item">{{$comment->user_id != null ? $comment->user->full_name : 'Anonymous'}}: {{$comment->body}}  Time: {{$comment->updated_at->diffForHumans()}}</li>
+                                @endforeach
+                            </ul>
+                        </div>       
                         <hr>
                     @endforeach
                 @endif    
@@ -99,5 +116,26 @@
         </div>
     </div> --}}
 </section>
+@section('scripts')
+   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script >
+        var app = new Vue({
+            el: '#app',
+            data: {
+                isShowComment: null,
+                   
+            },
+            mounted () {
+                this.isShowComment = localStorage.isShowComment ;
+            },
+             methods: {
+                isshowcomment: function(index){
+                   this.isShowComment = index;
+                   localStorage.isShowComment = index;
+                },
+             },
+        })
+</script>
+
 
 @endsection

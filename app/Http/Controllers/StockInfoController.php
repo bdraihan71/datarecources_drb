@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Imports\UsersImport;
+use Excel;
 use Illuminate\Http\Request;
 use App\Company;
 use App\StockInfo;
+use App\Imports\StockInfoImport;
 class StockInfoController extends Controller
 {
     public function index()
@@ -44,4 +46,18 @@ class StockInfoController extends Controller
        }
        return redirect()->back();
    }
+
+    public function storeBulk(Request $request){
+        if($request->hasFile('file')){
+            $path1 = $request->file('file')->store('temp'); 
+            $path = storage_path('app').'/'.$path1;  
+            $data = Excel::import(new StockInfoImport,  $path);
+            return redirect()->route('stockinfo.data-matrix');
+        }
+        return redirect()->back()->with('error', 'Please add a file');
+   }
+
+   public function uploadBulk(){
+        return view('back-end.stockinfo.create-bulk');
+    }
 }

@@ -31,6 +31,8 @@
     <i class="fas fa-table"></i>
     Stock Info List
     <a class="btn btn-danger" target="_blank" href="/api/fetch/dse?url=http://dsebd.org/latest_share_price_all_by_change.php" >Sync from: http://dsebd.org/latest_share_price_all_by_change.php</a>    
+    <a class="btn btn-primary" href="{{ route('stockinfo.upload-bulk') }}">Bulk Upload</a>       
+            
 </div>
 <form action="{{ route('stockinfo.process') }}" method="post">
     @csrf
