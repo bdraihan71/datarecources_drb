@@ -116,26 +116,28 @@
         </div>
     </div> --}}
 </section>
-@section('scripts')
-   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script >
-        var app = new Vue({
-            el: '#app',
-            data: {
-                isShowComment: null,
-                   
-            },
-            mounted () {
-                this.isShowComment = localStorage.isShowComment ;
-            },
-             methods: {
-                isshowcomment: function(index){
-                   this.isShowComment = index;
-                   localStorage.isShowComment = index;
+    @section('scripts')
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script >
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    isShowComment: null,
+                    
                 },
-             },
-        })
-</script>
+                mounted () {
+                    this.isShowComment = localStorage.isShowComment ;
+                },
+                methods: {
+                    isshowcomment: function(index){
+                    this.isShowComment = index;
+                    localStorage.isShowComment = index;
+                    },
+                },
+            })
+        </script>
 
+
+    @endsection
 
 @endsection
