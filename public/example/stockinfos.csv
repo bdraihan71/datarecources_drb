@@ -1,11 +1,11 @@
-Company Name,Sponsor/Director,Government,Institute,Foreign,Public,Paid Up Capital (BDT mn),Beginning Revenue,Ending Revenue,Beginning NPAT,Ending NPAT,NPAT,Beginning Asset,Ending Asset,NPAT-non Controlling Interest,Beginning Equity,Ending Equity,NAVPS,DPS
-Company 1,,,,,,,,,,,,,,,,,,
-Company 2,,,,,,,,,,,,,,,,,,
-Company 3,,,,,,,,,,,,,,,,,,
-Company 4,,,,,,,,,,,,,,,,,,
-Company 5,,,,,,,,,,,,,,,,,,
-Company 6,,,,,,,,,,,,,,,,,,
-Company 7,,,,,,,,,,,,,,,,,,
-Company 8,,,,,,,,,,,,,,,,,,
-Company 9,,,,,,,,,,,,,,,,,,
-Company 10,,,,,,,,,,,,,,,,,,
+company_name,sponsordirector,government,institute,foreign,Public,paid_up_capital_bdt_mn,beginning_revenue,ending_revenue,beginning_npat,ending_npat,npat,beginning_asset,ending_asset,npat_non_controlling_interest,beginning_equity,ending_equity,navps,dps
+1JANATAMF,2,0,0,1.125,1.125,1.125,,1.125,1.125,1.125,1.125,1.125,1.125,1.125,1.125,1.125,1.125,1.125
+1STPRIMFMF,1.125,0,0,1.125,1.125,1.125,,1.125,1.125,1.125,1.125,3,1.125,3,1.125,1.125,1.125,1.125
+Aamra Networks Limited,1.125,0,0,1.125,1.125,3,,1.125,1.125,1.125,1.125,1.125,1.125,1.125,1.125,1.125,1.125,1.125
+Aamra Technologies Limited,3,3,3,1.125,1.125,1.125,,1.125,3,1.125,1.125,1.125,1.125,1.125,1.125,3,1.125,1.125
+ABB1STMF,1.125,0,0,1.125,1.125,1.125,,1.125,3,1.125,3,1.125,3,1.125,1.125,1.125,1.125,1.125
+AB Bank Limited,1.125,0,0,1.125,1.125,3,1.125,1.125,1.125,1.125,1.125,1.125,1.125,1.125,1.125,1.125,1.125,1.125
+ACFL,3,0,3,1.125,1.125,1.125,1.125,3,1.125,1.125,1.125,1.125,1.125,3,1.125,1.125,1.125,1.125
+ACI,1.125,0,0,1.125,1.125,1.125,1.125,3,1.125,1.125,3,1.125,1.125,1.125,1.125,3,1.125,1.125
+ACIFORMULA,1.125,0,0,3,1.125,1.125,1.125,1.125,1.125,1.125,1.125,1.125,3,1.125,1.125,1.125,1.125,1.125
+ACMELAB,1.125,3,0,1.125,1.125,1.125,1.125,1.125,1.125,1.125,1.125,1.125,1.125,1.125,1.125,1.125,1.125,1.125

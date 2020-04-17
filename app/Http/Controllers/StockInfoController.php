@@ -52,7 +52,9 @@ class StockInfoController extends Controller
             $path1 = $request->file('file')->store('temp'); 
             $path = storage_path('app').'/'.$path1;  
             $data = Excel::import(new StockInfoImport,  $path);
+            return redirect()->route('stockinfo.data-matrix');
         }
+        return redirect()->back()->with('error', 'Please add a file');
    }
 
    public function uploadBulk(){
