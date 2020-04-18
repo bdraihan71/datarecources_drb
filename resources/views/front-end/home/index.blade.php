@@ -429,7 +429,7 @@
                 </p>
             </div>
             <div class="col-md-6">
-                <h1 class="main-text-color">Contact Us</h1>
+                <h1 class="main-text-color"  @click="isShowButton()">Contact Us</h1>
                 <form action="{{route('contactus')}}" method="post">
                     @csrf
                     <div class="form-group">
@@ -454,7 +454,8 @@
             },
              methods: {
                 isShowButton: function(){ 
-                   this.isButton = true;
+                    console.log('isShowButton');
+                   this.isButton = !this.isButton;
                 },
              },
         })
