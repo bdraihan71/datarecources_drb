@@ -17,38 +17,21 @@
                 <input type="hidden" name="plan_id" value="{{ $subscriptionplan->id }}">
                 <input type="hidden" name="type" value="yearly">
                 <input type="hidden" name="user_limit" value="{{ $subscriptionplan->user_limit }}">
-                <div class="form-check">
+                <div class="form-check mb-4">
                     <input type="checkbox" class="form-check-input" id="exampleChecky{{ $subscriptionplan->id }}" @change="isShowButton()">
                     <label class="form-check-label" for="exampleChecky{{ $subscriptionplan->id }}">I’ve read and accept the Terms & Condition</label>
                 </div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" :disabled="!isButton">Confirm</button>
+            </form>
           
         </div>
-        <div class="modal-footer">
+        {{-- <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary" :disabled="!isButton">Confirm</button>
         </form>
-        </div>
+        </div> --}}
       </div>
     </div>
   </div>
 
-
-  @section('scripts')
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script >
-      var mycheckbox = new Vue({
-          el: '#mycheckbox',
-          data: {
-              isButton: false,
-                 
-          },
-           methods: {
-              isShowButton: function(){ 
-                  console.log('hello');
-                 this.isButton = !this.isButton;
-              },
-           },
-      })
-  </script>
-  @endsection
-  

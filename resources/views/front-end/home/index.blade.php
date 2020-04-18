@@ -321,7 +321,7 @@
 <section id="pricing" class="pricing py-5 bg-light" >
     <h1 class="text-center main-text-color mb-md-5">Our Pricing</h1>
     <div class="container-fluid">
-      <div class="row">
+      <div class="row" id="mycheckbox">
         <div class="col-md-12">
             <div class="card-group">
                 <div class="card mr-sm-3 pricing-card-border-radius pricing-card-border-top d-none d-sm-block">
@@ -344,7 +344,7 @@
                 </div>
                 @foreach ($subscriptionplans as $subscriptionplan)
                 <div class="card mr-sm-3 pricing-card-border-radius pricing-card-border-top">
-                    <div class="card-body text-center" id="mycheckbox">
+                    <div class="card-body text-center">
                         <h6 class="card-title text-uppercase">{{ $subscriptionplan->name}} <small>({{ $subscriptionplan->user_limit }} User)</small></h6>
                         <div class="row">
                             <div class="col-6">
