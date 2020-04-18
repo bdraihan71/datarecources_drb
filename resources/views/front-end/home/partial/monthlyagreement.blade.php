@@ -18,7 +18,7 @@
                 <input type="hidden" name="type" value="monthly">
                 <input type="hidden" name="user_limit" value="{{ $subscriptionplan->user_limit }}">
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck2" @click="isShowButton()">
+                    {{-- <input type="checkbox" class="form-check-input" id="exampleCheck2" @click="isShowButton()"> need help --}}
                     <label class="form-check-label" for="exampleCheck2">I’ve read and accept the Terms & Condition</label>
                 </div>
         </div>
