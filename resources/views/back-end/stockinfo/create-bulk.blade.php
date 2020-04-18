@@ -1,7 +1,7 @@
 @extends('back-end.admin-layout')
 @section('content')
 <div class="container-fluid">
-  <div class="row mt-n4 mt-md-n5 mb-2 header-panel-all">
+  <div class="row mt-n4 mt-md-5 mb-2 header-panel-all">
     <div class="col-12 my-auto text-center text-sm-left">
       <h5 class="ml-n3">Bulk StockInfo Update</h5>
     </div>

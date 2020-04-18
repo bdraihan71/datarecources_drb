@@ -56,7 +56,7 @@
                                 {{-- <a href="{{route('news.single',$news->id)}}">See More ></a> --}}
                             </div>
                         </div>
-                        <button type="button" class="btn btn-light btn-sm mb-3" @click='isshowcomment({{$news->id}})'><i class="far fa-comment-alt"></i> Comment</button>
+                        <button type="button" class="btn btn-light btn-sm mb-3 border border-secondary" @click='isshowcomment({{$news->id}})'><i class="far fa-comment-alt"></i> Comment</button>
                         <div v-if='isShowComment == {{$news->id}}'>
                             <form method="POST" action="{{ route('comment.store') }}">
                                 @csrf
