@@ -344,7 +344,7 @@
                 </div>
                 @foreach ($subscriptionplans as $subscriptionplan)
                 <div class="card mr-sm-3 pricing-card-border-radius pricing-card-border-top">
-                    <div class="card-body text-center">
+                    <div class="card-body text-center" id="mycheckbox">
                         <h6 class="card-title text-uppercase">{{ $subscriptionplan->name}} <small>({{ $subscriptionplan->user_limit }} User)</small></h6>
                         <div class="row">
                             <div class="col-6">
@@ -444,20 +444,23 @@
         </div>
     </div>
 </section>
-   {{-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> need help --}}
-    <script >
-        var home = new Vue({
-            el: '#home',
-            data: {
-                isButton: false,
-                   
+@endsection
+@section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script >
+    var mycheckbox = new Vue({
+        el: '#mycheckbox',
+        data: {
+            isButton: false,
+               
+        },
+         methods: {
+            isShowButton: function(){ 
+                console.log('hello');
+               this.isButton = !this.isButton;
             },
-             methods: {
-                isShowButton: function(){ 
-                    console.log('isShowButton');
-                   this.isButton = !this.isButton;
-                },
-             },
-        })
+         },
+    })
 </script>
 @endsection
+

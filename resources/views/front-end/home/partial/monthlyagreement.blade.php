@@ -2,7 +2,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Agreement</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -18,13 +18,13 @@
                 <input type="hidden" name="type" value="monthly">
                 <input type="hidden" name="user_limit" value="{{ $subscriptionplan->user_limit }}">
                 <div class="form-check">
-                    {{-- <input type="checkbox" class="form-check-input" id="exampleCheck2" @click="isShowButton()"> need help --}}
-                    <label class="form-check-label" for="exampleCheck2">I’ve read and accept the Terms & Condition</label>
+                    <input type="checkbox" class="form-check-input" id="exampleCheckm{{ $subscriptionplan->id }}" @change="isShowButton()">
+                    <label class="form-check-label" for="exampleCheckm{{ $subscriptionplan->id }}">I’ve read and accept the Terms & Condition</label>
                 </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="submit" class="btn btn-primary" :disabled="!isButton">Confirm</button>
         </form>
         </div>
       </div>
