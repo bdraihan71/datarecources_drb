@@ -1,5 +1,5 @@
 <div class="modal fade" id="yearlyexampleModal{{ $subscriptionplan->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Agreement</h5>
@@ -8,9 +8,6 @@
           </button>
         </div>
         <div class="modal-body">
-            <a href="/terms-conditions" target="_blank">Terms & Conditions</a><br>
-            <a href="/refund-policy" target="_blank">Refund Policy</a><br>
-            <a href="/privacy-policy" target="_blank">Privacy Policy</a><br>
             <form  method="post" action="{{ route('subscribe.plan') }}">
                 @csrf
                 <input type="hidden" name="price" value="{{ $subscriptionplan->price_per_year }}">
@@ -19,7 +16,7 @@
                 <input type="hidden" name="user_limit" value="{{ $subscriptionplan->user_limit }}">
                 <div class="form-check mb-4">
                     <input type="checkbox" class="form-check-input" id="exampleChecky{{ $subscriptionplan->id }}" @change="isShowButton()">
-                    <label class="form-check-label" for="exampleChecky{{ $subscriptionplan->id }}">I’ve read and accept the Terms & Condition</label>
+                    <label class="form-check-label" for="exampleChecky{{ $subscriptionplan->id }}">I’ve read and accept the <a class="text-warning" href="/terms-conditions" target="_blank">Terms & Conditions</a>, <a class="text-warning" href="/refund-policy" target="_blank">Refund Policy</a> and <a class="text-warning" href="/privacy-policy" target="_blank">Privacy Policy</a></label>
                 </div>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary" :disabled="!isButton">Confirm</button>
