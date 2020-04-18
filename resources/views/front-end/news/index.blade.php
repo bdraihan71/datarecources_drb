@@ -35,46 +35,53 @@
                 </div> --}}
             </div>
             <div class="col-md-3"></div>
-            <div class="col-md-12">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
                 @if($allnews->count() == 0)
                     <h3>Your search  did not match any news.</h3>
                 @else
                     @foreach($allnews as $news)
                         <div class="row">
-                            <div class="col-md-2">
+                            <div class="col-md-12">
                                 @if($news->image)
                                     <a href="{{$news->source}}" target="_blank">
                                         <img src="{{ env('S3_URL') }}{{$news->image}}" class="mr-3 img-fluid news-index-img" alt="...">
                                     </a>
                                 @endif
                             </div>
-                            <div class="col-md-10">
-                                <a href="{{$news->source}}" target="_blank"><h5 class="pt-3 pt-md-0">{{ $news->heading }}</h5></a>
-                                <a href="{{$news->source}}" target="_blank"><p class="text-justify word-break">{{ implode(' ', array_slice(explode(' ', strip_tags($news->body) ), 0, 50))}}</p></a>
+                            <div class="col-md-12">
+                                <a href="{{$news->source}}" target="_blank"><small class="pt-3 pt-md-0 news-comment-time-text text-secondary">{{ Str::limit ($news->source, 50) }}</small></a>
+                                <a href="{{$news->source}}" target="_blank"><h6 class="pt-md-0">{{ $news->heading }}</h6></a>
+                                {{-- <a href="{{$news->source}}" target="_blank"><p class="text-justify word-break">{{ implode(' ', array_slice(explode(' ', strip_tags($news->body) ), 0, 20))}}</p></a> --}}
                                 {{-- <a href="{{route('news.single',$news->id)}}">See More ></a> --}}
                             </div>
                         </div>
-                        <button type="button" class="btn btn-light" @click='isshowcomment({{$news->id}})'>comment</button>
+                        <button type="button" class="btn btn-light btn-sm mb-3" @click='isshowcomment({{$news->id}})'><i class="far fa-comment-alt"></i> Comment</button>
                         <div v-if='isShowComment == {{$news->id}}'>
                             <form method="POST" action="{{ route('comment.store') }}">
                                 @csrf
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Comment:</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" name="body" rows="3"></textarea>
+                                <div class="row">
+                                    <div class="col-10">
+                                        <div class="form-group">
+                                            <textarea class="form-control mr-5" id="exampleFormControlTextarea1" name="body" rows="1" placeholder="Write a comment..."></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <input type="hidden" name="news_id" value="{{$news->id}}">
+                                        <button type="submit" class="btn btn-primary float-right">Submit</button>
+                                    </div>
                                 </div>
-                                <input type="hidden" name="news_id" value="{{$news->id}}">
-                                <button type="submit" class="btn btn-primary float-right">Submit</button>
                             </form>
-                            <ul class="list-group">
+                            <ul class="list-group mb-3">
                                 @foreach ($news->comments as $comment)
-                                    <li class="list-group-item">{{$comment->user_id != null ? $comment->user->full_name : 'Anonymous'}}: {{$comment->body}}  Time: {{$comment->updated_at->diffForHumans()}}</li>
+                                    <li class="list-group-item rounded-pill small border-0 bg-light mb-1"><b>{{$comment->user_id != null ? $comment->user->full_name : 'Anonymous'}}:</b> {{$comment->body}}  <br> <span class="text-secondary news-comment-time-text mt-n3">{{$comment->updated_at->diffForHumans()}}</span></li>
                                 @endforeach
                             </ul>
                         </div>       
-                        <hr>
                     @endforeach
                 @endif    
             </div>
+            <div class="col-md-3"></div>
             <div class="col-md-12 my-5">
                 <div class="row justify-content-center">
                     {{ $allnews->links() }}
@@ -116,26 +123,28 @@
         </div>
     </div> --}}
 </section>
-@section('scripts')
-   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script >
-        var app = new Vue({
-            el: '#app',
-            data: {
-                isShowComment: null,
-                   
-            },
-            mounted () {
-                this.isShowComment = localStorage.isShowComment ;
-            },
-             methods: {
-                isshowcomment: function(index){
-                   this.isShowComment = index;
-                   localStorage.isShowComment = index;
+    @section('scripts')
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script >
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    isShowComment: null,
+                    
                 },
-             },
-        })
-</script>
+                mounted () {
+                    this.isShowComment = localStorage.isShowComment ;
+                },
+                methods: {
+                    isshowcomment: function(index){
+                    this.isShowComment = index;
+                    localStorage.isShowComment = index;
+                    },
+                },
+            })
+        </script>
 
+
+    @endsection
 
 @endsection
