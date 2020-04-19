@@ -127,8 +127,8 @@ class SubscriptionPlanController extends Controller
         $total_amount = $request->price;
         $currency = 'BDT';
         $tran_id = $tran_id->format('Y-m-d::H:i:s.u');
-        $success_url = $appURl.'/subscriptionplan/success';
-        $fail_url = $appURl.'/subscriptionplan/fail';
+        $success_url = $appURl.'subscriptionplan/success';
+        $fail_url = $appURl.'subscriptionplan/fail';
         $cancel_url = $appURl;
         $customer_name = Auth::user()->full_name;
         $customer_email = Auth::user()->email;
