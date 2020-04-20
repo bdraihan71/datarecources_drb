@@ -97,27 +97,23 @@
             <div class="col-md-3">
                 <h6>Most Recent</h6>
                 <div class="table-responsive">
-                    <table class="table table-hover">
+                    <table class="table table-hover border">
                         <thead>
                           <tr>
-                            <th scope="col">Sl.</th>
                             <th scope="col">Topic</th>
                             <th scope="col">Date</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <th scope="row">1</th>
                             <td>Monthly Macro</td>
                             <td>April 2020</td>
                           </tr>
                           <tr>
-                            <th scope="row">2</th>
                             <td>Bank Interest</td>
                             <td>March 2020</td>
                           </tr>
                           <tr>
-                            <th scope="row">3</th>
                             <td>Latest Publication</td>
                             <td>Deember 2019</td>
                           </tr>
