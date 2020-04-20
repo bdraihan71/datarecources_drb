@@ -41,7 +41,7 @@
                     <h3>Your search  did not match any news.</h3>
                 @else
                     @foreach($allnews as $news)
-                        <div class="row">
+                        <div class="row" id="{{$news->id}}">
                             <div class="col-md-12">
                                 @if($news->image)
                                     <a href="{{$news->source}}" target="_blank">
@@ -51,12 +51,25 @@
                             </div>
                             <div class="col-md-12">
                                 <a href="{{$news->source}}" target="_blank"><small class="pt-3 pt-md-0 news-comment-time-text text-secondary">{{ Str::limit ($news->source, 50) }}</small></a>
-                                <a href="{{$news->source}}" target="_blank"><h6 class="pt-md-0">{{ $news->heading }}</h6></a>
+                                <a href="{{$news->source}}" target="_blank"><h6 class="pt-md-0">{{ $news->heading }} {{$news->id}}</h6></a>
                                 {{-- <a href="{{$news->source}}" target="_blank"><p class="text-justify word-break">{{ implode(' ', array_slice(explode(' ', strip_tags($news->body) ), 0, 20))}}</p></a> --}}
                                 {{-- <a href="{{route('news.single',$news->id)}}">See More ></a> --}}
                             </div>
                         </div>
-                        <button type="button" class="btn btn-light btn-sm mb-3 border border-secondary" @click='isshowcomment({{$news->id}})'><i class="far fa-comment-alt"></i> Comment</button>
+                        <div class="row">
+                            <div  class="col-md-3">
+                                <button type="button" class="btn btn-light btn-sm mb-3 border border-secondary" @click='isshowcomment({{$news->id}})'><i class="far fa-comment-alt"></i> Comment</button>
+                            </div>
+                            <div  class="col-md-9">
+                                {{-- <div class="text-right">
+                                    <h6>Share</h6>
+                                    <div class="addthis_inline_share_toolbox mx-auto" id="{{$news->id}}"></div>
+                                </div> --}}
+                                <div class="text-right">
+                                    <div class="addthis_inline_share_toolbox mx-auto" data-url="{{ env('APP_URL') }}single-news/{{$news->id}}" data-title="{{$news->heading}}" data-description="{{$news->body}}" data-media="{{ env('S3_URL') }}{{$news->image}}"></div>
+                                </div>
+                            </div>
+                        </div>    
                         <div v-if='isShowComment == {{$news->id}}'>
                             <form method="POST" action="{{ route('comment.store') }}">
                                 @csrf
