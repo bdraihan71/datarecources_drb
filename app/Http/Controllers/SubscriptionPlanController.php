@@ -134,7 +134,7 @@ class SubscriptionPlanController extends Controller
         $customer_email = Auth::user()->email;
         $customer_phone = Auth::user()->contact_number;
         $client = new Client();
-        $response = $client->request('POST', 'https://sandbox.sslcommerz.com/gwprocess/v3/api.php', [
+        $response = $client->request('POST', 'https://securepay.sslcommerz.com/gwprocess/v4/api.php', [
             'form_params' => [
                 'store_id' => $store_id,
                 'store_passwd' => $store_pass,
