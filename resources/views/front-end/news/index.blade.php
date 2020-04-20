@@ -1,10 +1,10 @@
 @extends('front-end.main-layout')
 @section('content')
 <section class="news" id="app">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row custom-header-top">
-            <div class="col-md-12 mt-5">
-                <h3>News</h3>
+            <div class="col-md-12">
+                {{-- <h3>News</h3> --}}
             </div>
             <div class="col-md-3"></div>
             <div class="col-md-6 mb-5">
@@ -35,8 +35,8 @@
                 </div> --}}
             </div>
             <div class="col-md-3"></div>
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
+            <div class="col-md-2"></div>
+            <div class="col-md-7">
                 @if($allnews->count() == 0)
                     <h3>Your search  did not match any news.</h3>
                 @else
@@ -94,7 +94,37 @@
                     @endforeach
                 @endif    
             </div>
-            <div class="col-md-3"></div>
+            <div class="col-md-3">
+                <h6>Most Recent</h6>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th scope="col">Sl.</th>
+                            <th scope="col">Topic</th>
+                            <th scope="col">Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Monthly Macro</td>
+                            <td>April 2020</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Bank Interest</td>
+                            <td>March 2020</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>Latest Publication</td>
+                            <td>Deember 2019</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </div>
+            </div>
             <div class="col-md-12 my-5">
                 <div class="row justify-content-center">
                     {{ $allnews->links() }}
