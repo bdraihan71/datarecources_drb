@@ -144,9 +144,9 @@ class SubscriptionPlanController extends Controller
                 'success_url' => $success_url,
                 'fail_url' => $fail_url,
                 'cancel_url' => $cancel_url,
-                'customer_name' => $customer_name,
-                'customer_email' => $customer_email,
-                'customer_phone' => $customer_phone,
+                'cus_name' => $customer_name,
+                'cus_email' => $customer_email,
+                'cus_phone' => $customer_phone,
             ]
         ]);
 
