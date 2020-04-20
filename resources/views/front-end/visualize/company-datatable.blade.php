@@ -23,7 +23,7 @@
                     <th rowspan="2">ROAE<br><small>(%)</small></th>
                     <th rowspan="2">ROAA<br><small>(%)</small></th>
                     <th rowspan="2">3 Year NPAT<br>CAGR<small> (%)</small></th>
-                    <th rowspan="2">3 Year NPAT<br>Revenue<small> (%)</small></th>
+                    <th rowspan="2">3 Year Revenue<br>CAGR<small> (%)</small></th>
                     <th rowspan="2">Paidup Capital<br><small>(BDT mn)</small></th>
                     <th rowspan="1" colspan="4" style="text-align: center">Ownership</th>
                 </tr>

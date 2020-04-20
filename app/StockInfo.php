@@ -14,11 +14,7 @@ class StockInfo extends DrbModel
     public function getThreeYearRevenueCagrAttribute(){
         if($this->beginning_revenue!=0){
             $result = ((($this->ending_revenue / $this->beginning_revenue) ** (1/3))-1)*100;
-            if($result<0){
-                return 'n/a';
-            }else{
-                return $result;
-            }
+            return $result;
         }
         return '';
     }
