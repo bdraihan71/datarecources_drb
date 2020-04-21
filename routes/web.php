@@ -166,6 +166,9 @@ Route::get('/privacy-policy', function () {
 
 //comment
 Route::post('/comment', 'CommentController@store')->name('comment.store');
+Route::get('/comment/{id}/edit', 'CommentController@edit')->name('comment.edit');
+Route::patch('/comment/{id}', 'CommentController@update')->name('comment.update');
+Route::patch('/commentadmin/{id}', 'CommentController@commentAdmin')->name('commentAdmin.update');
 Route::delete('/comment/{id}', 'CommentController@destroy')->name('comment.destroy');
 
 

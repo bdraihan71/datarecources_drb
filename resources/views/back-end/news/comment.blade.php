@@ -30,6 +30,7 @@
                             <td>{{$comment->user_id != null ? $comment->user->full_name : 'Anonymous'}}</td>
                             <td>{{$comment->body}}</td>
                             <td>
+                                <a href="{{ route('comment.edit', $comment->id)}}" class="btn btn-outline-primary">Edit</a>
                                 <form action="{{ route('comment.destroy', $comment->id)}}" onclick="return confirm('Are you sure, you want to delete this Comment?')" method="post" style="display: inline;">
                                     @csrf
                                     @method('delete')

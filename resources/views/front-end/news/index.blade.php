@@ -57,7 +57,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div  class="col-md-3">
+                            <div  class="col-md-3" >
                                 <button type="button" class="btn btn-light btn-sm mb-3 border border-secondary" @click='isshowcomment({{$news->id}})'><i class="far fa-comment-alt"></i> Comment</button>
                             </div>
                             <div  class="col-md-9">
@@ -71,23 +71,57 @@
                             </div>
                         </div>    
                         <div v-if='isShowComment == {{$news->id}}'>
-                            <form method="POST" action="{{ route('comment.store') }}">
-                                @csrf
-                                <div class="row">
-                                    <div class="col-10">
-                                        <div class="form-group">
-                                            <textarea class="form-control mr-5" id="exampleFormControlTextarea1" name="body" rows="1" placeholder="Write a comment..."></textarea>
+                            @if (Auth::check())
+                                <form method="POST" action="{{ route('comment.store') }}">
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <div class="form-group">
+                                                <textarea class="form-control mr-5" id="exampleFormControlTextarea1" name="body" rows="1" placeholder="Write a comment..."></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="hidden" name="news_id" value="{{$news->id}}">
+                                            <button type="submit" class="btn btn-primary float-right">Submit</button>
                                         </div>
                                     </div>
-                                    <div class="col-2">
-                                        <input type="hidden" name="news_id" value="{{$news->id}}">
-                                        <button type="submit" class="btn btn-primary float-right">Submit</button>
-                                    </div>
-                                </div>
-                            </form>
+                                </form>
+                            @endif    
                             <ul class="list-group mb-3">
                                 @foreach ($news->comments as $comment)
-                                    <li class="list-group-item rounded-pill small border-0 bg-light mb-1"><b>{{$comment->user_id != null ? $comment->user->full_name : 'Anonymous'}}:</b> {{$comment->body}}  <br> <span class="text-secondary news-comment-time-text mt-n3">{{$comment->updated_at->diffForHumans()}}</span></li>
+                                    <li class="list-group-item rounded-pill small border-0 bg-light mb-1">
+                                        <b>{{$comment->user_id != null ? $comment->user->full_name : 'Anonymous'}}:</b> 
+                                        <span v-if="isShowCommentBox == {{$comment->id}}">
+                                            <form method="POST" action="{{ route('comment.update', $comment->id) }}">
+                                                @csrf
+                                                @method('patch')
+                                                <div class="row">
+                                                    <div class="col-10">
+                                                        <div class="form-group">
+                                                            <textarea class="form-control mr-5" id="exampleFormControlTextarea1" name="body" rows="1" placeholder="Write a comment...">{{$comment->body}}</textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <input type="hidden" name="news_id" value="{{$news->id}}">
+                                                        <button type="submit" class="btn btn-primary float-right">Update</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </span> 
+                                        <span v-else>{{$comment->body}}</span>
+                                        @if(Auth::user())
+                                            @if(Auth::user()->id == $comment->user_id) 
+                                                <button class="btn btn-primary" @click="isComment({{$comment->id}})"  v-if="isShowCommentBox != {{$comment->id}}">edit</button>
+                                                <form action="{{ route('comment.destroy', $comment->id)}}" onclick="return confirm('Are you sure, you want to delete this Comment?')" method="post" style="display: inline;" v-if="isShowCommentBox != {{$comment->id}}">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" class="btn btn-outline-danger">Delete</button>
+                                                </form>
+                                            @endif
+                                        @endif    
+                                        <br> 
+                                        <span class="text-secondary news-comment-time-text mt-n3">{{$comment->updated_at->diffForHumans()}}</span>
+                                    </li>
                                 @endforeach
                             </ul>
                         </div>       
@@ -169,6 +203,7 @@
                 el: '#app',
                 data: {
                     isShowComment: null,
+                    isShowCommentBox: null,
                     
                 },
                 mounted () {
@@ -179,7 +214,12 @@
                     this.isShowComment = index;
                     localStorage.isShowComment = index;
                     },
+
+                    isComment: function(index){
+                        this.isShowCommentBox = index;
                 },
+            }
+
             })
         </script>
 
