@@ -41,6 +41,7 @@
                     <h3>Your search  did not match any news.</h3>
                 @else
                     @foreach($allnews as $news)
+                    <div class="bg-light shadow-sm">
                         <div class="row" id="{{$news->id}}">
                             <div class="col-md-12">
                                 @if($news->image)
@@ -51,14 +52,14 @@
                             </div>
                             <div class="col-md-12">
                                 {{-- <a href="{{$news->source}}" target="_blank"><small class="pt-3 pt-md-0 news-comment-time-text text-secondary">{{ Str::limit ($news->source, 50) }}</small></a> --}}
-                                <a href="{{$news->source}}" target="_blank"><h5 class="pt-md-2">{{ $news->heading }} {{$news->id}}</h5></a>
-                                <a href="{{$news->source}}" target="_blank"><p class="text-justify word-break">{{ implode(' ', array_slice(explode(' ', strip_tags($news->body) ), 0, 25))}}</p></a>
+                                <a href="{{$news->source}}" target="_blank"><h5 class="pt-md-2 px-2">{{ $news->heading }} {{$news->id}}</h5></a>
+                                <a href="{{$news->source}}" target="_blank"><p class="text-justify word-break px-2">{{ implode(' ', array_slice(explode(' ', strip_tags($news->body) ), 0, 25))}}</p></a>
                                 {{-- <a href="{{route('news.single',$news->id)}}">See More ></a> --}}
                             </div>
                         </div>
                         <div class="row">
                             <div  class="col-md-3" >
-                                <button type="button" class="btn btn-light btn-sm mb-3 border border-secondary" @click='isshowcomment({{$news->id}})'><i class="far fa-comment-alt"></i> Comment</button>
+                                <button type="button" class="btn btn-light btn-sm mb-3 border border-secondary ml-2" @click='isshowcomment({{$news->id}})'><i class="far fa-comment-alt"></i> Comment</button>
                             </div>
                             <div  class="col-md-9">
                                 {{-- <div class="text-right">
@@ -69,11 +70,11 @@
                                     <div class="addthis_inline_share_toolbox news-share-buttons" data-url="{{ env('APP_URL') }}single-news/{{$news->id}}" data-title="{{$news->heading}}" data-description="{{$news->body}}" data-media="{{ env('S3_URL') }}{{$news->image}}"></div>
                                 </div> --}}
                             </div>
-                            <div class="ml-auto">
+                            <div class="ml-auto pr-2">
                                 <div class="addthis_inline_share_toolbox news-share-buttons" data-url="{{ env('APP_URL') }}single-news/{{$news->id}}" data-title="{{$news->heading}}" data-description="{{$news->body}}" data-media="{{ env('S3_URL') }}{{$news->image}}"></div>
                             </div>
                         </div>    
-                        <div v-if='isShowComment == {{$news->id}}'>
+                        <div class="px-2" v-if='isShowComment == {{$news->id}}'>
                             @if (Auth::check())
                                 <form method="POST" action="{{ route('comment.store') }}">
                                     @csrf
@@ -92,7 +93,7 @@
                             @endif    
                             <ul class="list-group mb-3">
                                 @foreach ($news->comments as $comment)
-                                    <li class="list-group-item rounded small border-0 bg-light mb-1">
+                                    <li class="list-group-item rounded small border-0 mb-1">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <b>{{$comment->user_id != null ? $comment->user->full_name : 'Anonymous'}}:</b> 
@@ -137,7 +138,9 @@
                                     </li>
                                 @endforeach
                             </ul>
-                        </div>       
+                        </div> 
+                        <hr class="mb-5">  
+                    </div>    
                     @endforeach
                 @endif    
             </div>
