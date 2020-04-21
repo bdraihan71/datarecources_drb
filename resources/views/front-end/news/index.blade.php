@@ -2,7 +2,7 @@
 @section('content')
 <section class="news" id="app">
     <div class="container-fluid">
-        <div class="row custom-header-top">
+        <div class="row custom-news-header-top">
             <div class="col-md-12">
                 {{-- <h3>News</h3> --}}
             </div>
@@ -50,9 +50,9 @@
                                 @endif
                             </div>
                             <div class="col-md-12">
-                                <a href="{{$news->source}}" target="_blank"><small class="pt-3 pt-md-0 news-comment-time-text text-secondary">{{ Str::limit ($news->source, 50) }}</small></a>
-                                <a href="{{$news->source}}" target="_blank"><h6 class="pt-md-0">{{ $news->heading }} {{$news->id}}</h6></a>
-                                {{-- <a href="{{$news->source}}" target="_blank"><p class="text-justify word-break">{{ implode(' ', array_slice(explode(' ', strip_tags($news->body) ), 0, 20))}}</p></a> --}}
+                                {{-- <a href="{{$news->source}}" target="_blank"><small class="pt-3 pt-md-0 news-comment-time-text text-secondary">{{ Str::limit ($news->source, 50) }}</small></a> --}}
+                                <a href="{{$news->source}}" target="_blank"><h5 class="pt-md-2">{{ $news->heading }} {{$news->id}}</h5></a>
+                                <a href="{{$news->source}}" target="_blank"><p class="text-justify word-break">{{ implode(' ', array_slice(explode(' ', strip_tags($news->body) ), 0, 25))}}</p></a>
                                 {{-- <a href="{{route('news.single',$news->id)}}">See More ></a> --}}
                             </div>
                         </div>
@@ -65,9 +65,12 @@
                                     <h6>Share</h6>
                                     <div class="addthis_inline_share_toolbox mx-auto" id="{{$news->id}}"></div>
                                 </div> --}}
-                                <div class="text-right">
-                                    <div class="addthis_inline_share_toolbox mx-auto" data-url="{{ env('APP_URL') }}single-news/{{$news->id}}" data-title="{{$news->heading}}" data-description="{{$news->body}}" data-media="{{ env('S3_URL') }}{{$news->image}}"></div>
-                                </div>
+                                {{-- <div class="text-right">
+                                    <div class="addthis_inline_share_toolbox news-share-buttons" data-url="{{ env('APP_URL') }}single-news/{{$news->id}}" data-title="{{$news->heading}}" data-description="{{$news->body}}" data-media="{{ env('S3_URL') }}{{$news->image}}"></div>
+                                </div> --}}
+                            </div>
+                            <div class="ml-auto">
+                                <div class="addthis_inline_share_toolbox news-share-buttons" data-url="{{ env('APP_URL') }}single-news/{{$news->id}}" data-title="{{$news->heading}}" data-description="{{$news->body}}" data-media="{{ env('S3_URL') }}{{$news->image}}"></div>
                             </div>
                         </div>    
                         <div v-if='isShowComment == {{$news->id}}'>
@@ -75,12 +78,12 @@
                                 <form method="POST" action="{{ route('comment.store') }}">
                                     @csrf
                                     <div class="row">
-                                        <div class="col-10">
+                                        <div class="col-8 col-md-10">
                                             <div class="form-group">
                                                 <textarea class="form-control mr-5" id="exampleFormControlTextarea1" name="body" rows="1" placeholder="Write a comment..."></textarea>
                                             </div>
                                         </div>
-                                        <div class="col-2">
+                                        <div class="col-4 col-md-2">
                                             <input type="hidden" name="news_id" value="{{$news->id}}">
                                             <button type="submit" class="btn btn-warning w-100 float-right">Submit</button>
                                         </div>
