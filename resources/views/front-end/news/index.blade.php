@@ -80,7 +80,7 @@
                                     <div class="row">
                                         <div class="col-8 col-md-10">
                                             <div class="form-group">
-                                                <textarea class="form-control mr-5" id="exampleFormControlTextarea1" name="body" rows="1" placeholder="Write a comment..."></textarea>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" name="body" rows="1" placeholder="Write a comment..."></textarea>
                                             </div>
                                         </div>
                                         <div class="col-4 col-md-2">
