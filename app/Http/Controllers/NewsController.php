@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\MostRecent;
 use Illuminate\Http\Request;
 use App\News;
 use Auth;
@@ -11,7 +12,8 @@ class NewsController extends Controller
     public function index()
     {
         $allnews = News::where('is_published', 1)->latest()->paginate(50);
-        return view('front-end.news.index', compact('allnews'));
+        $mostrecents = MostRecent::where('is_published', 1)->orderBy('created_at', 'DESC')->get();
+        return view('front-end.news.index', compact('allnews','mostrecents'));
     }
 
     public function singleNews($id)

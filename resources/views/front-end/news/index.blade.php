@@ -139,18 +139,12 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>Monthly Macro</td>
-                            <td>April 2020</td>
-                          </tr>
-                          <tr>
-                            <td>Bank Interest</td>
-                            <td>March 2020</td>
-                          </tr>
-                          <tr>
-                            <td>Latest Publication</td>
-                            <td>Deember 2019</td>
-                          </tr>
+                            @foreach ($mostrecents as $recent)
+                                <tr>
+                                    <td class="more">{!! nl2br($recent->body) !!}</td>
+                                    <td>{{ date('F Y', strtotime($recent->date)) }}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                       </table>
                   </div>

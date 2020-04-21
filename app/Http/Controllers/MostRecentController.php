@@ -44,6 +44,29 @@ class MostRecentController extends Controller
         return view('back-end.most-recent.edit', compact('mostrecent'));
     }
 
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'body' => 'required|max:200',
+            'date' => 'required',
+        ]);
+
+        if($request->get('is_published') == null){
+            $is_published = 0;
+          } else {
+            $is_published = request('is_published');
+        }
+
+        $mostrecents = MostRecent::find($id);
+        $mostrecents->user_id = Auth::user()->id;
+        $mostrecents->body = $request->get('body');
+        $mostrecents->date = $request->get('date');
+        $mostrecents->is_published = $is_published;
+        $mostrecents->save();
+        return redirect()->route('recent.index')->with('success', 'Most Recent Topic has been updated successfully');
+
+    }
+
     public function destroy($id)
     {
         $mostrecent = MostRecent::find($id);

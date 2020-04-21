@@ -30,7 +30,7 @@
                         <tr>
                             <td>{{$i++}}</td>
                             <td class="more">{!! nl2br($recent->body) !!}</td>
-                            <td>{{$recent->date}}</td>
+                            <td>{{ date('F Y', strtotime($recent->date)) }}</td>
                             <td>
                                 @if ( $recent->is_published == 0)
                                     No
