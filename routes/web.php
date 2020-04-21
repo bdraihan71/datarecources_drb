@@ -67,7 +67,15 @@ Route::middleware(['auth','admin'])->group(function () {
         //   return view('back-end.news.index');
         // });
 
-          //User
+        //Most Recent
+        Route::get('/most-recent', 'MostRecentController@index')->name('recent.index');
+        Route::post('/most-recent', 'MostRecentController@store')->name('recent.store');
+        Route::get('/most-recent/{id}/edit', 'MostRecentController@edit')->name('recent.edit');
+        Route::patch('/most-recent/{id}', 'MostRecentController@update')->name('recent.update');
+        Route::delete('/most-recent/{id}', 'MostRecentController@destroy')->name('recent.destroy');
+        // Route::get('/news-portal', function () {
+
+        //User
         Route::get('/user', 'UserController@index')->name('user.index');
         Route::get('/user/{id}', 'UserController@edit')->name('user.edit');
         Route::get('/user/{id}/edit', 'UserController@edit')->name('user.edit');
