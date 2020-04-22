@@ -19,7 +19,7 @@
     </div>
 </section> --}}
 <section class="news">
-    <div class="container">
+    <div class="container" id="app">
         <div class="row custom-header-top">
             <div class="col-md-2"></div>
             <div class="col-md-8">
@@ -34,7 +34,7 @@
                     </div>
                     <div class="col-md-12">
                         <a href="{{$news->source}}" target="_blank"><small class="pt-3 pt-md-0 news-comment-time-text text-secondary">{{ Str::limit ($news->source, 50) }}</small></a>
-                        <a href="{{$news->source}}" target="_blank"><h6 class="pt-md-0">{{ $news->heading }} {{$news->id}}</h6></a>
+                        <a href="{{$news->source}}" target="_blank"><h6 class="pt-md-0">{{ $news->heading }}</h6></a>
                         {{-- <a href="{{$news->source}}" target="_blank"><p class="text-justify word-break">{{ implode(' ', array_slice(explode(' ', strip_tags($news->body) ), 0, 20))}}</p></a> --}}
                         {{-- <a href="{{route('news.single',$news->id)}}">See More ></a> --}}
                     </div>
@@ -70,5 +70,35 @@
         </div>
     </div>
 </section>
+
+@section('scripts')
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script >
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    isShowComment: null,
+                    isShowCommentBox: null,
+                    
+                },
+                mounted () {
+                    this.isShowComment = localStorage.isShowComment ;
+                },
+                methods: {
+                    isshowcomment: function(index){
+                    this.isShowComment = index;
+                    localStorage.isShowComment = index;
+                    },
+
+                    isComment: function(index){
+                        this.isShowCommentBox = index;
+                },
+            }
+
+            })
+        </script>
+
+
+    @endsection
 
 @endsection

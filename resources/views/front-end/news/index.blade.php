@@ -52,7 +52,7 @@
                             </div>
                             <div class="col-md-12">
                                 {{-- <a href="{{$news->source}}" target="_blank"><small class="pt-3 pt-md-0 news-comment-time-text text-secondary">{{ Str::limit ($news->source, 50) }}</small></a> --}}
-                                <a href="{{$news->source}}" target="_blank"><h5 class="pt-md-2 px-2">{{ $news->heading }} {{$news->id}}</h5></a>
+                                <a href="{{$news->source}}" target="_blank"><h5 class="pt-md-2 px-2">{{ $news->heading }}</h5></a>
                                 <a href="{{$news->source}}" target="_blank"><p class="text-justify word-break px-2">{{ implode(' ', array_slice(explode(' ', strip_tags($news->body) ), 0, 25))}}</p></a>
                                 {{-- <a href="{{route('news.single',$news->id)}}">See More ></a> --}}
                             </div>
@@ -125,6 +125,7 @@
                                                 @if(Auth::user())
                                                     @if(Auth::user()->id == $comment->user_id) 
                                                         <button class="bg-transparent border-0 small text-secondary" @click="isComment({{$comment->id}})"  v-if="isShowCommentBox != {{$comment->id}}">Edit</button>
+                                                        <button class="bg-transparent border-0 small text-secondary" @click="isComment(null)"  v-if="isShowCommentBox == {{$comment->id}}">Cancle</button>
                                                         <form action="{{ route('comment.destroy', $comment->id)}}" onclick="return confirm('Are you sure, you want to delete this Comment?')" method="post" style="display: inline;" v-if="isShowCommentBox != {{$comment->id}}">
                                                             @csrf
                                                             @method('delete')
