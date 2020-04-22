@@ -125,7 +125,7 @@
                                                 @if(Auth::user())
                                                     @if(Auth::user()->id == $comment->user_id) 
                                                         <button class="bg-transparent border-0 small text-secondary" @click="isComment({{$comment->id}})"  v-if="isShowCommentBox != {{$comment->id}}">Edit</button>
-                                                        <button class="bg-transparent border-0 small text-secondary" @click="isComment(null)"  v-if="isShowCommentBox == {{$comment->id}}">Cancle</button>
+                                                        <button class="bg-transparent border-0 small text-secondary" @click="isComment(null)"  v-if="isShowCommentBox == {{$comment->id}}">Cancel</button>
                                                         <form action="{{ route('comment.destroy', $comment->id)}}" onclick="return confirm('Are you sure, you want to delete this Comment?')" method="post" style="display: inline;" v-if="isShowCommentBox != {{$comment->id}}">
                                                             @csrf
                                                             @method('delete')
