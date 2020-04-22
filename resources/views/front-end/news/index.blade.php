@@ -41,7 +41,7 @@
                     <h3>Your search  did not match any news.</h3>
                 @else
                     @foreach($allnews as $news)
-                    <div class="bg-light shadow-sm">
+                    <div class="bg-light shadow-sm mb-5 border-bottom border-warning">
                         <div class="row" id="{{$news->id}}">
                             <div class="col-md-12">
                                 @if($news->image)
@@ -140,14 +140,13 @@
                                 @endforeach
                             </ul>
                         </div> 
-                        <hr class="mb-5">  
                     </div>    
                     @endforeach
                 @endif    
             </div>
             <div class="col-md-3">
-                <h6>Most Recent</h6>
-                <div class="table-responsive">
+                <h5>Most Recent</h5>
+                <div class="table-responsive border-top border-warning">
                     <table class="table table-hover border">
                         <thead>
                           <tr>

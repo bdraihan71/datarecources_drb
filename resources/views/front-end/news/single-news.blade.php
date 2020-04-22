@@ -24,7 +24,7 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                 <a href="{{route('news.index')}}" class="btn btn-outline-warning mb-3">All News</a>
-                <div class="bg-light shadow-sm">
+                <div class="bg-light shadow-sm border-bottom border-warning mb-5">
                     <div class="row" id="{{$news->id}}">
                         <div class="col-md-12">
                             @if($news->image)
