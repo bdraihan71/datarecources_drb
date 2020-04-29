@@ -1,60 +1,82 @@
 @extends('front-end.main-layout')
 @section('content')
+
 <section class="news" id="app">
     <div class="container-fluid">
         <div class="row custom-news-header-top">
             <div class="col-md-12">
                 {{-- <h3>News</h3> --}}
+                <button type="button" id="sidebarCollapse" class="btn btn-warning my-2 d-md-none">
+                    <i id="news-sidenav" class="fas fa-chevron-right"></i>
+                    <span>Data Resource BD</span>
+                </button>
             </div>
-            <div class="col-md-3"></div>
-            <div class="col-md-6 mb-5">
-                <!-- <form action="{{route('newssearch')}}" method="GET">
-                    <div class="input-group mt-2">
-                        <input class="form-control border-secondary border border-secondary" type="search" value="{{Request::get('search')}}" name="search" placeholder="search for Company, Industry &amp News">
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-warning border border-secondary" type="button">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form> -->
-                {{-- <div class="dropdown show mt-2">
-                    <a class="btn dropdown-toggle " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Any time
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">Past hour</a>
-                        <a class="dropdown-item" href="#">Past 24 hours</a>
-                        <a class="dropdown-item" href="#">Past week</a>
-                        <a class="dropdown-item" href="#">Past month</a>
-                        <a class="dropdown-item" href="#">Past year</a>
-                         <div class="dropdown-divider"></div>
-                            <a class="dropdown-item"  data-toggle="modal" data-target="#exampleModal">Custom range</a>
-                        </div>
-                    </div>
-                </div> --}}
+            <div class="col-md-2">
+                <div class="wrapper">
+                    <!-- Sidebar  -->
+                    <nav id="sidebar" class="bg-transparent text-dark custom-news-nav-header-top">
+                
+                        <ul class="list-unstyled components">
+                            <li>
+                                <a href="#" class="news-sidenav-active">Top news</a>
+                            </li>
+                            <li>
+                                <a href="#">Latest news</a>
+                            </li>
+                            <li>
+                                <a href="#">Bangladesh</a>
+                            </li>
+                            <li>
+                                <a href="#">World</a>
+                            </li>
+                            <li>
+                                <a href="#">Economy</a>
+                            </li>
+                            <li>
+                                <a href="#">Business</a>
+                            </li>
+                            <li>
+                                <a href="#">Editorial</a>
+                            </li>
+                            <li>
+                                <a href="#">Sports</a>
+                            </li>
+                            <li>
+                                <a href="#">Health</a>
+                            </li>
+                            <li>
+                                <a href="#">Technology</a>
+                            </li>
+                            <li>
+                                <a href="#">Education</a>
+                            </li>
+                            <li>
+                                <a href="#">Entertainment</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
-            <div class="col-md-3"></div>
-            <div class="col-md-2"></div>
             <div class="col-md-7">
                 @if($allnews->count() == 0)
                     <h3>Your search  did not match any news.</h3>
                 @else
                     @foreach($allnews as $news)
-                    <div class="bg-light shadow-sm mb-5 border-bottom border-warning">
+                    <div class="shadow-sm mb-3 single-news-border">
                         <div class="row" id="{{$news->id}}">
-                            <div class="col-md-12">
-                                @if($news->image)
-                                    <a href="{{$news->source}}" target="_blank">
-                                        <img src="{{ env('S3_URL') }}{{$news->image}}" class="mr-3 img-fluid news-index-img" alt="...">
-                                    </a>
-                                @endif
-                            </div>
-                            <div class="col-md-12">
+                            <div class="col-md-9">
                                 {{-- <a href="{{$news->source}}" target="_blank"><small class="pt-3 pt-md-0 news-comment-time-text text-secondary">{{ Str::limit ($news->source, 50) }}</small></a> --}}
                                 <a href="{{$news->source}}" target="_blank"><h5 class="pt-md-2 px-2">{{ $news->heading }}</h5></a>
                                 <a href="{{$news->source}}" target="_blank"><p class="text-justify word-break px-2">{{ implode(' ', array_slice(explode(' ', strip_tags($news->body) ), 0, 25))}}</p></a>
+                                <small class="text-secondary ml-2">{{$news->updated_at->diffForHumans()}}</small>
                                 {{-- <a href="{{route('news.single',$news->id)}}">See More ></a> --}}
+                            </div>
+                            <div class="col-md-3">
+                                @if($news->image)
+                                    <a href="{{$news->source}}" target="_blank">
+                                        <img src="{{ env('S3_URL') }}{{$news->image}}" class="mb-3 img-fluid news-index-img" alt="...">
+                                    </a>
+                                @endif
                             </div>
                         </div>
                         <div class="row">
@@ -74,7 +96,7 @@
                                 <div class="addthis_inline_share_toolbox news-share-buttons" data-url="{{ env('APP_URL') }}single-news/{{$news->id}}" data-title="{{$news->heading}}" data-description="{{$news->body}}" data-media="{{ env('S3_URL') }}{{$news->image}}"></div>
                             </div>
                         </div>    
-                        <div class="px-2" v-if='isShowComment == {{$news->id}}'>
+                        <div v-if='isShowComment == {{$news->id}}'>
                             @if (Auth::check())
                                 <form method="POST" action="{{ route('comment.store') }}">
                                     @csrf
@@ -91,9 +113,9 @@
                                     </div>
                                 </form>
                             @endif    
-                            <ul class="list-group mb-3">
+                            <ul class="list-group">
                                 @foreach ($news->comments as $comment)
-                                    <li class="list-group-item rounded small border-0 mb-1">
+                                    <li class="list-group-item rounded small border-0 mb-1 bg-light">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <b>{{$comment->user_id != null ? $comment->user->full_name : 'Anonymous'}}:</b> 
@@ -146,8 +168,8 @@
             </div>
             <div class="col-md-3">
                 <h5>Most Recent</h5>
-                <div class="table-responsive border-top border-warning">
-                    <table class="table table-hover border">
+                <div class="table-responsive most-recent-border">
+                    <table class="table table-hover">
                         <thead>
                           <tr>
                             <th scope="col">Topic</th>
@@ -162,8 +184,8 @@
                                 </tr>
                             @endforeach
                         </tbody>
-                      </table>
-                  </div>
+                    </table>
+                </div>
             </div>
             <div class="col-md-12 my-5">
                 <div class="row justify-content-center">

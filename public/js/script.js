@@ -125,6 +125,12 @@
     }
   });
 
+  $(document).ready(function() {
+    $('#sidebarCollapse').click(function() {
+      $('#news-sidenav').toggleClass('fa-chevron-left fa-chevron-right');
+    });
+  }); 
+
 })(jQuery);
 
 //Get the button
