@@ -530,13 +530,17 @@ input[type="search"]::placeholder {
 
 .custom-news-nav-header-top::-webkit-scrollbar {
     display: none;
-  }
+}
 
 @media (max-width: 767px) {
     .custom-news-nav-header-top {
-        margin-top: 179px;
+        margin-top: 170px;
         background-color: rgba(0, 0, 0, 0.8) !important;
         color: white !important;
+    }
+
+    .custom-news-header-top {
+        margin-top: 170px;
     }
 }
 
@@ -960,4 +964,10 @@ if it's not present, don't show loader */
 .most-recent-border {
     border: 1px solid rgb(219, 219, 219);
     border-radius: 15px;
+}
+
+.news-toggle-button {
+    position: fixed;
+    top: 120px;
+    z-index: 99;
 }
