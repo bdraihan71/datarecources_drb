@@ -32,8 +32,8 @@
             </div>
         </div>
 
-        {{-- <div class="col-md-8">
-            <h6>Where to show</h6>
+        <div class="col-md-5">
+            <h6>Where to show in Home page</h6>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="showing_area" id="exampleRadios6" value="top5" >
                 <label class="form-check-label mr-4" for="exampleRadios6">
@@ -56,9 +56,9 @@
                   Company
                 </label>
             </div>
-        </div> --}}
+        </div>
 
-        <div class="col-md-8">
+        <div class="col-md-3">
             <div class="form-group ">
                 <label>Select Category:<span class="text-danger">*</span> </label>
                 <select class="form-control dropdown-custom" name="category_id" require>

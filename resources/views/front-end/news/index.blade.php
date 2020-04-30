@@ -17,6 +17,9 @@
                     <nav id="sidebar" class="bg-transparent text-dark custom-news-nav-header-top">
                 
                         <ul class="list-unstyled components">
+                            <li class="{{ request()->url() == route('news.index') ? 'news-sidenav-active' : '' }}">
+                                <a href="{{route('news.index')}}">All News</a>
+                            </li>
                             @foreach ($categories as $category)
                                 <li class="{{ request()->url() == route('news.bycategoty', $category->name) ? 'news-sidenav-active' : '' }}">
                                     <a href="{{route('news.bycategoty', $category->name)}}">{{ $category->name }}</a>
@@ -29,9 +32,9 @@
             <div class="col-md-7">
                 @if($allnews->count() == 0)
                     @if ($category != null)
-                        <h3>There is no news in this category.</h3>
+                        <h3 class="text-center mt-5">There is no news in this category.</h3>
                     @else
-                        <h3>Your search  did not match any news.</h3>
+                        <h3 class="text-center mt-5">Your search  did not match any news.</h3>
                     @endif
                 @else
                     @foreach($allnews as $news)
