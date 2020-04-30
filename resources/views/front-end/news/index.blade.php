@@ -6,7 +6,7 @@
         <div class="row custom-news-header-top">
             <div class="col-md-12">
                 {{-- <h3>News</h3> --}}
-                <button type="button" id="sidebarCollapse" class="btn btn-warning my-2 d-md-none">
+                <button type="button" id="sidebarCollapse" class="btn btn-warning my-2 d-md-none news-toggle-button news-sidenav-scroll-hide">
                     <i id="news-sidenav" class="fas fa-chevron-right"></i>
                     <span>Data Resource BD</span>
                 </button>
@@ -14,7 +14,7 @@
             <div class="col-md-2">
                 <div class="wrapper">
                     <!-- Sidebar  -->
-                    <nav id="sidebar" class="bg-transparent text-dark custom-news-nav-header-top">
+                    <nav id="sidebar" class="bg-transparent text-dark custom-news-nav-header-top news-sidenav-scroll-hide">
                 
                         <ul class="list-unstyled components">
                             <li class="{{ request()->url() == route('news.index') ? 'news-sidenav-active' : '' }}">
