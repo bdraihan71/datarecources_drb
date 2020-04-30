@@ -17,7 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->bigIncrements('id');
             $table->softDeletes();
             $table->string('name');
-            $table->integer('order');
+            $table->integer('order')->nullable();
             $table->boolean('is_published')->default(false);
             $table->timestamps();
         });

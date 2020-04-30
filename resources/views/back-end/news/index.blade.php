@@ -1,7 +1,7 @@
 @extends('back-end.admin-layout')
 
 @section('content')
-
+<a class="btn btn-primary" href="{{route('category.index')}}">Create News Category</a>
 <form  method="post" action="{{ route('news.store') }}" enctype="multipart/form-data">
     @csrf
     <div class="row bg-white my-4 mx-1 p-3 shadow-sm">

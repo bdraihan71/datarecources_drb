@@ -21,7 +21,7 @@
 
         <div class="col-md-2 text-md-center ml-4 ml-md-0 sub-plan-check-top">
             <input class="form-check-input" type="checkbox" name="is_published" value=1 id="defaultCheck1">
-            <label class="form-check-label h5" for="defaultCheck1">
+            <label class="form-check-label h5" for="defaultCheck1"  {{ old('is_published') == 1 ? 'checked' : ''}}>
                 Publish
             </label>
         </div>

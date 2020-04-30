@@ -32,7 +32,7 @@
                             <td>{{$category->name}}</td>
                             <td>{{$category->order}}</td>
                             <td>
-                                @if ( $news->is_published == 0)
+                                @if ( $category->is_published == 0)
                                     No
                                 @else
                                     Yes
