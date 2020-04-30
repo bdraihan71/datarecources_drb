@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/logout', 'Auth\LoginController@logout');
 
 
@@ -66,6 +68,9 @@ Route::middleware(['auth','admin'])->group(function () {
         // Route::get('/news-portal', function () {
         //   return view('back-end.news.index');
         // });
+
+        //category
+        Route::resource('category', 'CategoryController')->except(['show','create']);
 
         //Most Recent
         Route::get('/most-recent', 'MostRecentController@index')->name('recent.index');

@@ -18,7 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->softDeletes();
             $table->string('name');
             $table->integer('order');
-            $table->boolean('is_publish')->default(false);
+            $table->boolean('is_published')->default(false);
             $table->timestamps();
         });
     }
