@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\MostRecent;
 use Illuminate\Http\Request;
 use App\News;
@@ -11,9 +12,10 @@ class NewsController extends Controller
 {
     public function index()
     {
+        $categories = Category::where('is_published', 1)->orderBy('order', 'asc')->get();
         $allnews = News::where('is_published', 1)->latest()->paginate(50);
         $mostrecents = MostRecent::where('is_published', 1)->orderBy('created_at', 'DESC')->get();
-        return view('front-end.news.index', compact('allnews','mostrecents'));
+        return view('front-end.news.index', compact('allnews','mostrecents','categories'));
     }
 
     public function singleNews($id)
@@ -133,5 +135,14 @@ class NewsController extends Controller
     {
         $allnews = News::where('is_published', 1)->where('heading', 'LIKE', "%$request->search%")->latest()->paginate(10);
         return view('front-end.news.index', compact('allnews'));
+    }
+
+    public function newsByCategoty($category)
+    {
+        $category = Category::where('name', $category)->first();
+        $categories = Category::where('is_published', 1)->orderBy('order', 'asc')->get();
+        $allnews = News::where('is_published', 1)->where('category_id', $category->id)->latest()->paginate(50);
+        $mostrecents = MostRecent::where('is_published', 1)->orderBy('created_at', 'DESC')->get();
+        return view('front-end.news.index', compact('allnews','mostrecents','categories','category'));
     }
 }

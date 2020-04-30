@@ -153,6 +153,7 @@ Route::post('/subscribe', 'PublicPagesController@subscribe')->name('subscribe');
 //News
 Route::get('/news', 'NewsController@index')->name('news.index');
 Route::get('/single-news/{id}', 'NewsController@singleNews')->name('news.single');
+Route::get('/news/{category}', 'NewsController@newsByCategoty')->name('news.bycategoty');
 // Route::get('/news', function () {
 //   return view('front-end.news.index');
 // });
