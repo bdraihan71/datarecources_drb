@@ -15,6 +15,7 @@
                     <th>Name of Source</th>
                     <th>Source</th>
                     <th>Publish</th>
+                    <th>Category</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -26,6 +27,7 @@
                     <th>Name of Source</th>
                     <th>Source</th>
                     <th>Publish</th>
+                    <th>Category</th>
                     <th>Action</th>
                 </tr>
                 </tfoot>
@@ -48,6 +50,13 @@
                                     No
                                 @else
                                     Yes
+                                @endif
+                            </td>
+                            <td>
+                                @if ($news->category == null)
+                                    N/A
+                                @else
+                                    {{$news->category->name}}
                                 @endif
                             </td>
                             <td>

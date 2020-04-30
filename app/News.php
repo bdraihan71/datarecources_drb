@@ -10,4 +10,9 @@ class News extends DrbModel
     {
         return $this->hasMany('App\Comment')->orderBy('id', 'DESC');
     }
+
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
+    }
 }

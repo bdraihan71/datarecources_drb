@@ -39,6 +39,7 @@ class NewsController extends Controller
             'source' => 'required|max:255|regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
             'body' => 'required|min:10|max:200',
             'showing_area' => 'required',
+            'category_id' => 'required',
         ]);
 
         if($request->file('image')){
@@ -69,6 +70,7 @@ class NewsController extends Controller
             'source' => $request->get('source'),
             'body' => $request->get('body'),
             'showing_area' => $request->get('showing_area'),
+            'category_id' => $request->get('category_id'),
             'is_published' => $is_published
         ]);
         $news->save();
@@ -78,8 +80,9 @@ class NewsController extends Controller
 
     public function newsEdit($id)
     {
+        $categories = Category::where('is_published', 1)->orderBy('order', 'asc')->get();
         $news = News::find($id);
-        return view('back-end.news.edit', compact('news'));
+        return view('back-end.news.edit', compact('news','categories'));
     }
 
     public function newsUpdate(Request $request, $id)
@@ -90,6 +93,7 @@ class NewsController extends Controller
             'source' => 'required|max:255|regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
             'body' => 'required|min:10|max:200',
             'showing_area' => 'required',
+            'category_id' => 'required',
         ]);
 
         if($request->file('image')){
@@ -119,6 +123,7 @@ class NewsController extends Controller
         $news->heading = $request->get('heading');
         $news->source = $request->get('source');
         $news->body = $request->get('body');
+        $news->category_id = $request->get('category_id');
         $news->showing_area = $request->get('showing_area');
         $news->is_published = $is_published;
         $news->save();
