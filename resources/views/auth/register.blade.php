@@ -3,8 +3,8 @@
 <div class="container top-margin">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+            <div class="card shadow">
+                <div class="card-header alert-warning text-dark font-weight-bold">{{ __('Register') }}</div>
                 @if(count($errors) > 0 )
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
