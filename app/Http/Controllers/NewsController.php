@@ -26,8 +26,9 @@ class NewsController extends Controller
 
     public function newsPortal()
     {
+        $categories = Category::where('is_published', 1)->orderBy('order', 'asc')->get();
         $allnews = News::orderBy('id', 'DESC')->get();
-        return view('back-end.news.index', compact('allnews'));
+        return view('back-end.news.index', compact('allnews','categories'));
     }
 
     public function newsStore (Request $request)
