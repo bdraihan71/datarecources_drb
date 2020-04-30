@@ -55,9 +55,11 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div  class="col-md-3" >
-                                <button type="button" class="btn btn-light btn-sm mb-3 border border-secondary ml-2" @click='isshowcomment({{$news->id}})'><i class="far fa-comment-alt"></i> Comment</button>
-                            </div>
+                            @if($news->comments->count() > 0 || Auth::check())
+                                <div  class="col-md-3" >
+                                    <button type="button" class="btn btn-light btn-sm mb-3 border border-secondary ml-2" @click='isshowcomment({{$news->id}})'><i class="far fa-comment-alt"></i> Comment</button>
+                                </div>
+                            @endif    
                             <div  class="col-md-9">
                                 {{-- <div class="text-right">
                                     <h6>Share</h6>
