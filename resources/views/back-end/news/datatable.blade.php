@@ -12,7 +12,7 @@
                     <th>Sl.</th>
                     <th>Heading</th>
                     <th>Image</th>
-                    <th>Description</th>
+                    <th>Name of Source</th>
                     <th>Source</th>
                     <th>Publish</th>
                     <th>Action</th>
@@ -23,7 +23,7 @@
                     <th>Sl.</th>
                     <th>Heading</th>
                     <th>Image</th>
-                    <th>Description</th>
+                    <th>Name of Source</th>
                     <th>Source</th>
                     <th>Publish</th>
                     <th>Action</th>

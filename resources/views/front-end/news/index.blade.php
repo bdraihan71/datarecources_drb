@@ -40,8 +40,7 @@
                             <div class="col-md-9">
                                 {{-- <a href="{{$news->source}}" target="_blank"><small class="pt-3 pt-md-0 news-comment-time-text text-secondary">{{ Str::limit ($news->source, 50) }}</small></a> --}}
                                 <a href="{{$news->source}}" target="_blank"><h5 class="pt-md-2 px-2">{{ $news->heading }}</h5></a>
-                                <a href="{{$news->source}}" target="_blank"><p class="text-justify word-break px-2">{{ implode(' ', array_slice(explode(' ', strip_tags($news->body) ), 0, 25))}}</p></a>
-                                <small class="text-secondary ml-2">{{$news->updated_at->diffForHumans()}}</small>
+                                <a href="{{$news->source}}" target="_blank"><p class="text-justify word-break px-2">{{ implode(' ', array_slice(explode(' ', strip_tags($news->body) ), 0, 25))}} |<span class="text-secondary ml-2 small">{{$news->updated_at->diffForHumans()}}</span></p></a>
                                 {{-- <a href="{{route('news.single',$news->id)}}">See More ></a> --}}
                             </div>
                             <div class="col-md-3">
