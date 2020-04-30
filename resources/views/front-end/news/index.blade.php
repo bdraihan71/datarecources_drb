@@ -14,7 +14,7 @@
             <div class="col-md-2">
                 <div class="wrapper">
                     <!-- Sidebar  -->
-                    <nav id="sidebar" class="bg-transparent text-dark custom-news-nav-header-top">
+                    <nav id="sidebar" class="bg-transparent text-dark custom-news-nav-header-top news-sidenav-scroll-hide">
                 
                         <ul class="list-unstyled components">
                             <li>

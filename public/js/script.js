@@ -131,6 +131,17 @@
     });
   }); 
 
+  $(window).scroll(function() {
+    if($(window).scrollTop() + $(window).height() > $(document).height() - 550)
+     {
+        $('.news-sidenav-scroll-hide').hide(10);
+     }
+    else
+     {
+      $('.news-sidenav-scroll-hide').show(10);
+     }
+ });
+
 })(jQuery);
 
 //Get the button
