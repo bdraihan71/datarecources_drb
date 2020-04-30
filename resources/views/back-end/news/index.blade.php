@@ -27,8 +27,8 @@
 
         <div class="col-md-12">
             <div class="form-group">
-                <label>Description</label>
-                <textarea class="form-control" rows="5" name="body" placeholder="Enter news description">{{ old('body') }}</textarea>
+                <label>Name of Source</label>
+                <textarea class="form-control" rows="5" name="body" placeholder="Enter name of source of the news">{{ old('body') }}</textarea>
             </div>
         </div>
 
