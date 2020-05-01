@@ -134,7 +134,7 @@ class SubscriptionPlanController extends Controller
         $customer_email = Auth::user()->email;
         $customer_phone = Auth::user()->contact_number;
         $client = new Client();
-        $response = $client->request('POST', 'https://sandbox.sslcommerz.com/gwprocess/v3/api.php', [
+        $response = $client->request('POST', 'https://securepay.sslcommerz.com/gwprocess/v4/api.php', [
             'form_params' => [
                 'store_id' => $store_id,
                 'store_passwd' => $store_pass,
@@ -160,7 +160,7 @@ class SubscriptionPlanController extends Controller
         $val_id=urlencode($_POST['val_id']);
         $store_id=env('SSL_STORE_ID', false);
         $store_passwd=env('SSL_STORE_PASS', false);
-        $requested_url = ("https://sandbox.sslcommerz.com/validator/api/validationserverAPI.php?val_id=".$val_id."&store_id=".$store_id."&store_passwd=".$store_passwd."&v=1&format=json");
+        $requested_url = ("https://securepay.sslcommerz.com/validator/api/validationserverAPI.php?val_id=".$val_id."&store_id=".$store_id."&store_passwd=".$store_passwd."&v=1&format=json");
 
         $handle = curl_init();
         curl_setopt($handle, CURLOPT_URL, $requested_url);
