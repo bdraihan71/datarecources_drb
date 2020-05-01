@@ -116,8 +116,8 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('subscriptionplan/success', 'SubscriptionPlanController@success')->name('subscriptionplan.success');
-    Route::get('subscriptionplan/fail', 'SubscriptionPlanController@fail')->name('subscriptionplan.fail');
+    Route::post('subscriptionplan/success', 'SubscriptionPlanController@success')->name('subscriptionplan.success');
+    Route::post('subscriptionplan/fail', 'SubscriptionPlanController@fail')->name('subscriptionplan.fail');
 
     //invoice
     Route::get('/invoice-user', 'InvoiceController@invoiceUser')->name('invoice.user');
