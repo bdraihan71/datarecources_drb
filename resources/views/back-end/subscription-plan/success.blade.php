@@ -10,6 +10,7 @@
         <div class="card-body">
           <h5 class="card-title">PAYMENT COMPLETE!</h5>
           <p class="card-text">Thank you for your transfer</p>
+          <p class="card-text">status: {{$status}}</p>
           <a href="/" class="text-decoration-none text-warning">Back to Home ></a>
         </div>
       </div>
