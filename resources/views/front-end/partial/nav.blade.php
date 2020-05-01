@@ -27,34 +27,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                @php
-                    $menus = App\Menu::whereNull('parent_menu_id')->orderBy('created_at', 'DESC')->get();
-                @endphp
-                @foreach($menus as $menu)
-                    @php
-                        $sub_menus = App\Menu::where('parent_menu_id', $menu->id)->orderBy('created_at', 'DESC')->get();
-                    @endphp
-                    @if(count($sub_menus)>0)
-                    <li class="nav-item dropdown nav-custom-margin-top">
-                        <a class="nav-link dropdown-toggle font-weight-bold text-white" href="{{ $menu->page ? $menu->page->slug : "#" }}"  id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <small class="font-weight-bold nav-item-custom-size">{{$menu->title}}</small>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            @foreach($sub_menus as $menu)
-                                <a class="dropdown-item" href="{{ $menu->page ? $menu->page->slug : "#" }}">
-                                    <small class="font-weight-bold nav-item-custom-size">{{$menu->title}}</small>
-                                </a>
-                            @endforeach
-                        </div>
-                    </li>
-                    @else
-                        <li class="nav-item nav-custom-margin-top">
-                            <a class="nav-link font-weight-bold text-white" href="{{ $menu->page ? $menu->page->slug : "#" }}" >
-                                <small class="font-weight-bold nav-item-custom-size">{{$menu->title}}</small>
-                            </a>
-                        </li>
-                    @endif
-                @endforeach
                 <li class="nav-item dropdown nav-custom-margin-top">
                     <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <small class="font-weight-bold nav-item-custom-size">COMPANY</small>
@@ -83,6 +55,35 @@
                         <small class="font-weight-bold nav-item-custom-size">DATA MATRIX</small>
                     </a>
                 </li>
+
+                @php
+                    $menus = App\Menu::whereNull('parent_menu_id')->orderBy('created_at', 'DESC')->get();
+                @endphp
+                @foreach($menus as $menu)
+                    @php
+                        $sub_menus = App\Menu::where('parent_menu_id', $menu->id)->orderBy('created_at', 'DESC')->get();
+                    @endphp
+                    @if(count($sub_menus)>0)
+                    <li class="nav-item dropdown nav-custom-margin-top">
+                        <a class="nav-link dropdown-toggle font-weight-bold text-white" href="{{ $menu->page ? $menu->page->slug : "#" }}"  id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <small class="font-weight-bold nav-item-custom-size">{{$menu->title}}</small>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            @foreach($sub_menus as $menu)
+                                <a class="dropdown-item" href="{{ $menu->page ? $menu->page->slug : "#" }}">
+                                    <small class="font-weight-bold nav-item-custom-size">{{$menu->title}}</small>
+                                </a>
+                            @endforeach
+                        </div>
+                    </li>
+                    @else
+                        <li class="nav-item nav-custom-margin-top">
+                            <a class="nav-link font-weight-bold text-white" href="{{ $menu->page ? $menu->page->slug : "#" }}" >
+                                <small class="font-weight-bold nav-item-custom-size">{{$menu->title}}</small>
+                            </a>
+                        </li>
+                    @endif
+                @endforeach
 
                 
                
