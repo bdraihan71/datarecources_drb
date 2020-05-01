@@ -1,7 +1,7 @@
 @extends('back-end.admin-layout')
 
 @section('content')
-
+<a class="btn btn-primary" href="{{route('category.index')}}">Create News Category</a>
 <form  method="post" action="{{ route('news.store') }}" enctype="multipart/form-data">
     @csrf
     <div class="row bg-white my-4 mx-1 p-3 shadow-sm">
@@ -32,13 +32,9 @@
             </div>
         </div>
 
-        <div class="col-md-8">
-            <h6>Where to show</h6>
+        <div class="col-md-5">
+            <h6>Where to show in Home page</h6>
             <div class="form-check">
-                {{-- <input class="form-check-input" type="radio" name="showing_area" id="exampleRadios1" value="featured" checked>
-                <label class="form-check-label mr-4" for="exampleRadios1">
-                  Featured
-                </label> --}}
                 <input class="form-check-input" type="radio" name="showing_area" id="exampleRadios6" value="top5" >
                 <label class="form-check-label mr-4" for="exampleRadios6">
                   Top News
@@ -59,10 +55,17 @@
                 <label class="form-check-label mr-4" for="exampleRadios5">
                   Company
                 </label>
-                {{-- <input class="form-check-input" type="radio" name="showing_area" id="exampleRadios7" value="side" >
-                <label class="form-check-label" for="exampleRadios7">
-                  Side
-                </label> --}}
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group ">
+                <label>Select Category:<span class="text-danger">*</span> </label>
+                <select class="form-control dropdown-custom" name="category_id" require>
+                @foreach($categories as $category)
+                    <option value="{{$category->id}}"  {{ (old("category_id") == $category->id ? "selected":"") }}>{{$category->name}}</option>
+                @endforeach
+                </select>
             </div>
         </div>
 

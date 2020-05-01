@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\MostRecent;
 use Illuminate\Http\Request;
 use App\News;
@@ -11,9 +12,10 @@ class NewsController extends Controller
 {
     public function index()
     {
+        $categories = Category::where('is_published', 1)->orderBy('order', 'asc')->get();
         $allnews = News::where('is_published', 1)->latest()->paginate(50);
         $mostrecents = MostRecent::where('is_published', 1)->orderBy('created_at', 'DESC')->get();
-        return view('front-end.news.index', compact('allnews','mostrecents'));
+        return view('front-end.news.index', compact('allnews','mostrecents','categories'));
     }
 
     public function singleNews($id)
@@ -24,8 +26,9 @@ class NewsController extends Controller
 
     public function newsPortal()
     {
+        $categories = Category::where('is_published', 1)->orderBy('order', 'asc')->get();
         $allnews = News::orderBy('id', 'DESC')->get();
-        return view('back-end.news.index', compact('allnews'));
+        return view('back-end.news.index', compact('allnews','categories'));
     }
 
     public function newsStore (Request $request)
@@ -36,6 +39,7 @@ class NewsController extends Controller
             'source' => 'required|max:255|regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
             'body' => 'required|min:10|max:200',
             'showing_area' => 'required',
+            'category_id' => 'required',
         ]);
 
         if($request->file('image')){
@@ -66,6 +70,7 @@ class NewsController extends Controller
             'source' => $request->get('source'),
             'body' => $request->get('body'),
             'showing_area' => $request->get('showing_area'),
+            'category_id' => $request->get('category_id'),
             'is_published' => $is_published
         ]);
         $news->save();
@@ -75,8 +80,9 @@ class NewsController extends Controller
 
     public function newsEdit($id)
     {
+        $categories = Category::where('is_published', 1)->orderBy('order', 'asc')->get();
         $news = News::find($id);
-        return view('back-end.news.edit', compact('news'));
+        return view('back-end.news.edit', compact('news','categories'));
     }
 
     public function newsUpdate(Request $request, $id)
@@ -87,6 +93,7 @@ class NewsController extends Controller
             'source' => 'required|max:255|regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
             'body' => 'required|min:10|max:200',
             'showing_area' => 'required',
+            'category_id' => 'required',
         ]);
 
         if($request->file('image')){
@@ -116,6 +123,7 @@ class NewsController extends Controller
         $news->heading = $request->get('heading');
         $news->source = $request->get('source');
         $news->body = $request->get('body');
+        $news->category_id = $request->get('category_id');
         $news->showing_area = $request->get('showing_area');
         $news->is_published = $is_published;
         $news->save();
@@ -133,5 +141,14 @@ class NewsController extends Controller
     {
         $allnews = News::where('is_published', 1)->where('heading', 'LIKE', "%$request->search%")->latest()->paginate(10);
         return view('front-end.news.index', compact('allnews'));
+    }
+
+    public function newsByCategoty($category)
+    {
+        $category = Category::where('name', $category)->first();
+        $categories = Category::where('is_published', 1)->orderBy('order', 'asc')->get();
+        $allnews = News::where('is_published', 1)->where('category_id', $category->id)->latest()->paginate(50);
+        $mostrecents = MostRecent::where('is_published', 1)->orderBy('created_at', 'DESC')->get();
+        return view('front-end.news.index', compact('allnews','mostrecents','categories','category'));
     }
 }

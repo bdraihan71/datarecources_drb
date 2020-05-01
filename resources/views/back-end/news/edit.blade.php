@@ -43,13 +43,9 @@
             </div>
         </div>
 
-        <div class="col-md-8">
+        <div class="col-md-5">
             <h6>Where to show</h6>
             <div class="form-check">
-                {{-- <input class="form-check-input" type="radio" name="showing_area" id="exampleRadios1" value="featured" {{$news->showing_area == 'featured' ?'checked':''}}>
-                <label class="form-check-label mr-4" for="exampleRadios1">
-                  Featured
-                </label> --}}
                 <input class="form-check-input" type="radio" name="showing_area" id="exampleRadios6" value="top5" {{$news->showing_area == 'top5' ?'checked':''}}>
                 <label class="form-check-label mr-4" for="exampleRadios6">
                   Top News
@@ -70,10 +66,21 @@
                 <label class="form-check-label mr-4" for="exampleRadios5">
                   Company
                 </label>
-                {{-- <input class="form-check-input" type="radio" name="showing_area" id="exampleRadios7" value="side" >
-                <label class="form-check-label" for="exampleRadios7">
-                  Side
-                </label> --}}
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group ">
+                <label>Sector:<span class="text-danger">*</span> </label>
+                <select class="form-control dropdown-custom" name="category_id" require>
+                    @foreach($categories as $category)
+                        @if (($news->category->id) == $category->id))
+                            <option value="{{$category->id}}" selected>{{$category->name}}</option>
+                        @else
+                            <option value="{{$category->id}}">{{$category->name}}</option>
+                        @endif
+                    @endforeach
+                </select>
             </div>
         </div>
 

@@ -17,49 +17,25 @@
                     <nav id="sidebar" class="bg-transparent text-dark custom-news-nav-header-top news-sidenav-scroll-hide">
                 
                         <ul class="list-unstyled components">
-                            <li>
-                                <a href="#" class="news-sidenav-active">Top news</a>
+                            <li class="{{ request()->url() == route('news.index') ? 'news-sidenav-active' : '' }}">
+                                <a href="{{route('news.index')}}">All News</a>
                             </li>
-                            <li>
-                                <a href="#">Latest news</a>
-                            </li>
-                            <li>
-                                <a href="#">Bangladesh</a>
-                            </li>
-                            <li>
-                                <a href="#">World</a>
-                            </li>
-                            <li>
-                                <a href="#">Economy</a>
-                            </li>
-                            <li>
-                                <a href="#">Business</a>
-                            </li>
-                            <li>
-                                <a href="#">Editorial</a>
-                            </li>
-                            <li>
-                                <a href="#">Sports</a>
-                            </li>
-                            <li>
-                                <a href="#">Health</a>
-                            </li>
-                            <li>
-                                <a href="#">Technology</a>
-                            </li>
-                            <li>
-                                <a href="#">Education</a>
-                            </li>
-                            <li>
-                                <a href="#">Entertainment</a>
-                            </li>
+                            @foreach ($categories as $category)
+                                <li class="{{ request()->url() == route('news.bycategoty', $category->name) ? 'news-sidenav-active' : '' }}">
+                                    <a href="{{route('news.bycategoty', $category->name)}}">{{ $category->name }}</a>
+                                </li>
+                            @endforeach
                         </ul>
                     </nav>
                 </div>
             </div>
             <div class="col-md-7">
                 @if($allnews->count() == 0)
-                    <h3>Your search  did not match any news.</h3>
+                    @if ($category != null)
+                        <h3 class="text-center mt-5">There is no news in this category.</h3>
+                    @else
+                        <h3 class="text-center mt-5">Your search  did not match any news.</h3>
+                    @endif
                 @else
                     @foreach($allnews as $news)
                     <div class="shadow-sm mb-3 single-news-border">
@@ -79,9 +55,11 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div  class="col-md-3" >
-                                <button type="button" class="btn btn-light btn-sm mb-3 border border-secondary ml-2" @click='isshowcomment({{$news->id}})'><i class="far fa-comment-alt"></i> Comment</button>
-                            </div>
+                            @if($news->comments->count() > 0 || Auth::check())
+                                <div  class="col-md-3" >
+                                    <button type="button" class="btn btn-light btn-sm mb-3 border border-secondary ml-2" @click='isshowcomment({{$news->id}})'><i class="far fa-comment-alt"></i> Comment</button>
+                                </div>
+                            @endif    
                             <div  class="col-md-9">
                                 {{-- <div class="text-right">
                                     <h6>Share</h6>
