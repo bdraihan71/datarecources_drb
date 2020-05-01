@@ -42,8 +42,8 @@
                         <div class="row" id="{{$news->id}}">
                             <div class="col-md-9">
                                 {{-- <a href="{{$news->source}}" target="_blank"><small class="pt-3 pt-md-0 news-comment-time-text text-secondary">{{ Str::limit ($news->source, 50) }}</small></a> --}}
-                                <a href="{{$news->source}}" target="_blank"><h5 class="pt-md-2 px-2">{{ $news->heading }}</h5></a>
-                                <a href="{{$news->source}}" target="_blank"><p class="text-justify word-break px-2">{{ implode(' ', array_slice(explode(' ', strip_tags($news->body) ), 0, 25))}} |<span class="text-secondary ml-2 small">{{$news->updated_at->diffForHumans()}}</span></p></a>
+                                <a href="{{$news->source}}" target="_blank"><h5>{{ $news->heading }}</h5></a>
+                                <a href="{{$news->source}}" target="_blank"><p class="text-justify word-break">{{ implode(' ', array_slice(explode(' ', strip_tags($news->body) ), 0, 25))}} | <span class="text-secondary small">{{$news->updated_at->diffForHumans()}}</span></p></a>
                                 {{-- <a href="{{route('news.single',$news->id)}}">See More ></a> --}}
                             </div>
                             <div class="col-md-3">
@@ -56,11 +56,11 @@
                         </div>
                         <div class="row">
                             @if($news->comments->count() > 0 || Auth::check())
-                                <div  class="col-md-3" >
-                                    <button type="button" class="btn btn-light btn-sm mb-3 border border-secondary ml-2" @click='isshowcomment({{$news->id}})'><i class="far fa-comment-alt"></i> Comment</button>
+                                <div  class="col-md-12 mb-n4" >
+                                    <button type="button" class="btn btn-light btn-sm mb-3 border border-secondary comment-btn-top" @click='isshowcomment({{$news->id}})'><i class="far fa-comment-alt"></i> Comment</button>
                                 </div>
                             @endif    
-                            <div  class="col-md-9">
+                            {{-- <div  class="col-md-9"> --}}
                                 {{-- <div class="text-right">
                                     <h6>Share</h6>
                                     <div class="addthis_inline_share_toolbox mx-auto" id="{{$news->id}}"></div>
@@ -68,16 +68,16 @@
                                 {{-- <div class="text-right">
                                     <div class="addthis_inline_share_toolbox news-share-buttons" data-url="{{ env('APP_URL') }}single-news/{{$news->id}}" data-title="{{$news->heading}}" data-description="{{$news->body}}" data-media="{{ env('S3_URL') }}{{$news->image}}"></div>
                                 </div> --}}
-                            </div>
+                            {{-- </div> --}}
                             <div class="ml-auto pr-2">
                                 <div class="addthis_inline_share_toolbox news-share-buttons" data-url="{{ env('APP_URL') }}single-news/{{$news->id}}" data-title="{{$news->heading}}" data-description="{{$news->body}}" data-media="{{ env('S3_URL') }}{{$news->image}}"></div>
                             </div>
                         </div>    
-                        <div v-if='isShowComment == {{$news->id}}'>
+                        <div class="comment-field-top" v-if='isShowComment == {{$news->id}}'>
                             @if (Auth::check())
                                 <form method="POST" action="{{ route('comment.store') }}">
                                     @csrf
-                                    <div class="row">
+                                    <div class="row mb-n2">
                                         <div class="col-8 col-md-10">
                                             <div class="form-group">
                                                 <textarea class="form-control" id="exampleFormControlTextarea1" name="body" rows="1" placeholder="Write a comment..."></textarea>

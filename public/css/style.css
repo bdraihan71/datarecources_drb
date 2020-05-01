@@ -945,14 +945,26 @@ if it's not present, don't show loader */
 
 .news-share-buttons {
     transform: scale(0.75);
-    margin: -55px -32px 10px 0px;
+    margin: -53px 160px 0px 0px;
+}
+
+.comment-btn-top {
+    margin: -73px 0px 0px 0px;
+}
+
+.comment-field-top {
+    margin: -5px 0px 0px 0px;
 }
 
 @media only screen and (max-width: 767px) {
     .news-share-buttons {
-        transform: scale(0.75);
-        margin: -55px -15px 10px 0px;
+        transform: scale(0.7);
+        margin: -30px -18px 10px 0px;
     } 
+
+    .comment-btn-top {
+        margin: 0px 0px 0px 0px;
+    }
 }
 
 .single-news-border {
