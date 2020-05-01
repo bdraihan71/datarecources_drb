@@ -210,7 +210,7 @@ class SubscriptionPlanController extends Controller
             $validated_on = $result->validated_on;
             $gw_version = $result->gw_version;
 
-            return view('back-end.subscription-plan.success', compact('status'));
+            return view('back-end.subscription-plan.success');
 
         } else {
 
