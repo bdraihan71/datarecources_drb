@@ -22,7 +22,7 @@
                             </li>
                             @foreach ($categories as $category)
                                 <li class="{{ request()->url() == route('news.bycategoty', $category->name) ? 'news-sidenav-active' : '' }}">
-                                    <a href="{{route('news.bycategoty', $category->name)}}">{{ $category->name }}</a>
+                                    <a class="news-sidenav-hover" href="{{route('news.bycategoty', $category->name)}}">{{ $category->name }}</a>
                                 </li>
                             @endforeach
                         </ul>
