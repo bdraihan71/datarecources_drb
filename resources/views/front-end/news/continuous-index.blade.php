@@ -98,21 +98,26 @@
                                             </form>
                                         </span> 
                                         <span v-else>@{{comment.body}}</span>
-                                        @if(Auth::user())
-                                            {{-- @if(Auth::user()->id == 1)  --}}
-                                            <diV v-if="userId == comment.user_id">
-                                                <button class="bg-transparent border-0 small text-secondary" @click="isComment(comment.id)"  v-if="isShowCommentBox != comment.id">edit</button>
-                                                <button class="bg-transparent border-0 small text-secondary" @click="isComment(null)"  v-if="isShowCommentBox == comment.id">Cancel</button>
-                                                <form :action="route + comment.id" onclick="return confirm('Are you sure, you want to delete this Comment?')" method="post" style="display: inline;" v-if="isShowCommentBox != comment.id">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit" class="bg-transparent border-0 small text-secondary">Delete</button>
-                                                </form>
-                                            </diV>
-                                            {{-- @endif --}}
-                                        @endif    
-                                        <br> 
-                                        <span class="text-secondary news-comment-time-text mt-n3">@{{comment.human_readable_time}}</span>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span class="text-secondary news-comment-time-text mt-n3">@{{comment.human_readable_time}}</span>
+                                            </div>
+                                            <div class="col-md-6 text-right">
+                                                @if(Auth::user())
+                                                    {{-- @if(Auth::user()->id == 1)  --}}
+                                                    <diV v-if="userId == comment.user_id">
+                                                        <button class="bg-transparent border-0 small text-secondary" @click="isComment(comment.id)"  v-if="isShowCommentBox != comment.id">edit</button>
+                                                        <button class="bg-transparent border-0 small text-secondary" @click="isComment(null)"  v-if="isShowCommentBox == comment.id">Cancel</button>
+                                                        <form :action="route + comment.id" onclick="return confirm('Are you sure, you want to delete this Comment?')" method="post" style="display: inline;" v-if="isShowCommentBox != comment.id">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button type="submit" class="bg-transparent border-0 small text-secondary">Delete</button>
+                                                        </form>
+                                                    </diV>
+                                                    {{-- @endif --}}
+                                                @endif 
+                                            </div>
+                                        </div>
                                     </li>
                                 {{-- @endforeach --}}
                                 </div>

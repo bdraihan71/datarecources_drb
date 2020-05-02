@@ -977,6 +977,10 @@ if it's not present, don't show loader */
     .comment-btn-top {
         margin: 0px 0px 0px 0px;
     }
+
+    .comment-field-top {
+        margin: 25px 0px 0px 0px;
+    }
 }
 
 .single-news-border {
