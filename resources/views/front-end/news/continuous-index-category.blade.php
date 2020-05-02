@@ -55,7 +55,7 @@
                                 </div>
                             {{-- @endif     --}}
                             <div class="ml-auto pr-2">
-                                <!-- <div class="addthis_inline_share_toolbox news-share-buttons" data-url="{{ env('APP_URL') }}single-news/@{{item.id}}" data-title="@{{item.heading}}" data-description="@{{item.source}}" data-media="{{ env('S3_URL') }}@{{item.image}}"></div> -->
+                                <div class="addthis_inline_share_toolbox news-share-buttons" :data-url="getUrl(item)" :data-title="getTitle(item)" :data-description="getDescription(item)" :data-media="getImageUrl(item.image)"></div>
                             </div>
                         </div>    
                         <div class="comment-field-top" v-if='isShowComment == item.id'>
@@ -182,6 +182,29 @@
                 window.removeEventListener('scroll', this.handleScroll);
             },
             methods: {
+                getUrl: function(item){
+                    let url = "{{ env('APP_URL') }}";
+                    url = url + '/single-news/' + item.id;
+                    return (url);
+                },
+                getTitle: function(item){
+                    return item.heading;
+                },
+                getDescription: function(item){
+                    return item.body;
+                },
+                isshowcomment: function(index){
+                    this.isShowComment = index;
+                    localStorage.isShowComment = index;
+                    },
+
+                    isComment: function(index){
+                        this.isShowCommentBox = index;
+                },
+
+                getImageUrl(name){
+                    return "https://data-resources-bd.s3-ap-southeast-1.amazonaws.com/" + name;
+                },
                 isshowcomment: function(index){
                     this.isShowComment = index;
                     localStorage.isShowComment = index;
