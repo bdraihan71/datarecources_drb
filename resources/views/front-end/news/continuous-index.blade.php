@@ -22,7 +22,7 @@
                             </li>
                             @foreach ($categories as $category)
                                 <li class="{{ request()->url() == route('news.bycategoty', $category->name) ? 'news-sidenav-active' : '' }}">
-                                    <a href="{{route('news.bycategoty', $category->name)}}">{{ $category->name }}</a>
+                                    <a class="news-sidenav-hover" href="{{route('news.bycategoty', $category->name)}}">{{ $category->name }}</a>
                                 </li>
                             @endforeach
                         </ul>
@@ -49,11 +49,12 @@
                             </div>
                         </div>
                         <div class="row">
-                          
-                                <div  class="col-md-12 mb-n4" >
+                            @{{item.comments.length}}
+                            {{-- @if(@{{item.comments.length}} > 0 || Auth::check()) --}}
+                                <div v-if="isAuth || item.comments.length > 0" class="col-md-12 mb-n4" >
                                     <button type="button" class="btn btn-light btn-sm mb-3 border border-secondary comment-btn-top" @click='isshowcomment(item.id)'><i class="far fa-comment-alt"></i> Comment</button>
                                 </div>
-              
+                            {{-- @endif     --}}
                             <div class="ml-auto pr-2">
                                 <!-- <div class="addthis_inline_share_toolbox news-share-buttons" data-url="{{ env('APP_URL') }}single-news/@{{item.id}}" data-title="@{{item.heading}}" data-description="@{{item.source}}" data-media="{{ env('S3_URL') }}@{{item.image}}"></div> -->
                             </div>
@@ -75,13 +76,13 @@
                                     </div>
                                 </form>
                             @endif    
-                            <ul class="list-group mb-3">
+                            <ul class="list-group">
                                 {{-- @foreach ($news->comments as $comment) --}}
                                 <div v-for="comment in item.comments" :key="comment.id">
-                                    <li class="list-group-item rounded-pill small border-0 bg-light mb-1">
+                                    <li class="list-group-item rounded small border-0 mb-1 bg-light">
                                         <b>@{{comment.user_id != null ? comment.username : 'Anonymous'}}:</b> 
                                         <span v-if="isShowCommentBox == comment.id">
-                                            {{-- <form method="POST" action="@{{ update + comment.id }}"> --}}
+                                            <form method="POST" :action="route + comment.id">
                                                 @csrf
                                                 @method('patch')
                                                 <div class="row">
@@ -92,22 +93,22 @@
                                                     </div>
                                                     <div class="col-2">
                                                         <input type="hidden" name="news_id" v-bind:value="item.id">
-                                                        <button type="submit" class="btn btn-primary float-right">Update</button>
+                                                        <button type="submit" class="btn btn-warning w-100 float-right">Update</button>
                                                     </div>
                                                 </div>
-                                            {{-- </form> --}}
+                                            </form>
                                         </span> 
-                                        <span v-else>@{{comment.body}}</span>
+                                        <span v-else>@{{comment.body}}</span>@{{comment.user_id}}
                                         @if(Auth::user())
-                                            {{-- @if(Auth::user()->id == $comment->user_id)  --}}
+                                            @if(Auth::user()->id == 1) 
                                                 <button class="bg-transparent border-0 small text-secondary" @click="isComment(comment.id)"  v-if="isShowCommentBox != comment.id">edit</button>
                                                 <button class="bg-transparent border-0 small text-secondary" @click="isComment(null)"  v-if="isShowCommentBox == comment.id">Cancel</button>
                                                 <form :action="route + comment.id" onclick="return confirm('Are you sure, you want to delete this Comment?')" method="post" style="display: inline;" v-if="isShowCommentBox != comment.id">
                                                     @csrf
                                                     @method('delete')
-                                                    <button type="submit" class="bg-transparent border-0 small text-secondary">@{{ route + comment.id }}</button>
+                                                    <button type="submit" class="bg-transparent border-0 small text-secondary">Delete</button>
                                                 </form>
-                                            {{-- @endif --}}
+                                            @endif
                                         @endif    
                                         <br> 
                                         <span class="text-secondary news-comment-time-text mt-n3">@{{comment.human_readable_time}}</span>
@@ -150,6 +151,20 @@
         <script >
             var example1 = new Vue({
             el: '#example-1',
+            data () {
+                return {
+                    last_id: 0,
+                    threshold: 300,
+                    count: 0,
+                    content: [],
+                    initial: [],
+                    latest_call: [],
+                    isShowComment: null,
+                    isShowCommentBox: null,
+                    route: "/comment/",
+                    isAuth: {{ Auth::check()}},
+                }        
+            },
             mounted () {
                 this.initial_call();
                 this.isShowComment = localStorage.isShowComment ;
@@ -232,17 +247,6 @@
                     });
                 }
             },
-            data: {
-                last_id: 0,
-                threshold: 300,
-                count: 0,
-                content: [],
-                initial: [],
-                latest_call: [],
-                isShowComment: null,
-                isShowCommentBox: null,
-                route: "/comment/",
-            }
             })
         </script>
 
