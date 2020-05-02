@@ -49,7 +49,6 @@
                             </div>
                         </div>
                         <div class="row">
-                            @{{item.comments.length}}
                             {{-- @if(@{{item.comments.length}} > 0 || Auth::check()) --}}
                                 <div v-if="isAuth || item.comments.length > 0" class="col-md-12 mb-n4" >
                                     <button type="button" class="btn btn-light btn-sm mb-3 border border-secondary comment-btn-top" @click='isshowcomment(item.id)'><i class="far fa-comment-alt"></i> Comment</button>
@@ -98,9 +97,10 @@
                                                 </div>
                                             </form>
                                         </span> 
-                                        <span v-else>@{{comment.body}}</span>@{{comment.user_id}}
+                                        <span v-else>@{{comment.body}}</span>
                                         @if(Auth::user())
-                                            @if(Auth::user()->id == 1) 
+                                            {{-- @if(Auth::user()->id == 1)  --}}
+                                            <diV v-if="userId == comment.user_id">
                                                 <button class="bg-transparent border-0 small text-secondary" @click="isComment(comment.id)"  v-if="isShowCommentBox != comment.id">edit</button>
                                                 <button class="bg-transparent border-0 small text-secondary" @click="isComment(null)"  v-if="isShowCommentBox == comment.id">Cancel</button>
                                                 <form :action="route + comment.id" onclick="return confirm('Are you sure, you want to delete this Comment?')" method="post" style="display: inline;" v-if="isShowCommentBox != comment.id">
@@ -108,7 +108,8 @@
                                                     @method('delete')
                                                     <button type="submit" class="bg-transparent border-0 small text-secondary">Delete</button>
                                                 </form>
-                                            @endif
+                                            </diV>
+                                            {{-- @endif --}}
                                         @endif    
                                         <br> 
                                         <span class="text-secondary news-comment-time-text mt-n3">@{{comment.human_readable_time}}</span>
@@ -162,7 +163,12 @@
                     isShowComment: null,
                     isShowCommentBox: null,
                     route: "/comment/",
+                    @if(Auth::check())
                     isAuth: {{ Auth::check()}},
+                    userId : {{ Auth::user()->id}},
+                    @else
+                    isAuth: null,
+                    @endif
                 }        
             },
             mounted () {
