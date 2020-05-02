@@ -948,6 +948,13 @@ if it's not present, don't show loader */
     margin: -53px 160px 0px 0px;
 }
 
+@media only screen and (min-width: 1550px) {
+    .news-share-buttons {
+        transform: scale(0.75);
+        margin: -53px 220px 0px 0px;
+    }
+}
+
 .comment-btn-top {
     margin: -73px 0px 0px 0px;
 }
