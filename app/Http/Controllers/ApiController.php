@@ -49,13 +49,46 @@ class ApiController extends Controller
         return response()->json($allnews);
     }
 
+    public function getNewsByCategory($last_id, $category_id){
+        if($last_id != 0){
+            $allnews = News::where('id', '<', $last_id)->where('category_id', $category_id)->with("comments")->orderBy('created_at', 'DESC')->take(10)->get();
+        }else{
+            $allnews = News::where('category_id', $category_id)->with("comments")->orderBy('created_at', 'DESC')->take(10)->get();
+        }
+        
+        if($allnews->count() >0){
+            return response()->json([
+                'success' => true,
+                'items' => $allnews,
+                'last_id' => $allnews->last()->id,
+            ]);
+        }else{
+            return response()->json([
+                'success' => false,
+                'items' => [],
+            ]);
+        }
+    }
+
     public function getNewsByLastId($last_id){
-        $allnews = News::where('id', '>', $last_id)->take(5)->get();
-        return response()->json([
-            'success' => true,
-            'items' => $allnews,
-            'last_id' => $allnews->last()->id,
-        ]);
+        if($last_id != 0){
+            $allnews = News::where('id', '<', $last_id)->with("comments")->orderBy('created_at', 'DESC')->take(10)->get();
+        }else{
+            $allnews = News::with("comments")->orderBy('created_at', 'DESC')->take(10)->get();
+        }
+        
+        if($allnews->count() >0){
+            return response()->json([
+                'success' => true,
+                'items' => $allnews,
+                'last_id' => $allnews->last()->id,
+            ]);
+        }else{
+            return response()->json([
+                'success' => false,
+                'items' => [],
+            ]);
+        }
     }
     
 }

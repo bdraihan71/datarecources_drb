@@ -210,7 +210,9 @@
                         console.log('no call');
                         return;
                     }
-                    fetch('/api/news/last_id/'+ this.last_id, {
+                    let url = '/api/news/last_id/'+ this.last_id + '/' + {{ $category_id }} ;
+                    console.log(url);
+                    fetch(url, {
                         method: 'Get', // *GET, POST, PUT, DELETE, etc.
                         mode: 'cors', // no-cors, cors, *same-origin
                         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -237,8 +239,13 @@
                         }
                     });
                 },
+
                 initial_call() {
-                    fetch('/api/news/last_id/'+ 0, {
+
+                    let url = '/api/news/last_id/'+ this.last_id + '/' + {{ $category_id }} ;
+
+                    console.log(url);
+                    fetch(url, {
                         method: 'Get', // *GET, POST, PUT, DELETE, etc.
                         mode: 'cors', // no-cors, cors, *same-origin
                         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached

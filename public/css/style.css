@@ -96,6 +96,11 @@ a:focus {
     background: #fff;
 }
 
+.news-sidenav-hover:hover {
+    color: #2c3d88;
+    background: none !important;
+}
+
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
@@ -946,6 +951,13 @@ if it's not present, don't show loader */
 .news-share-buttons {
     transform: scale(0.75);
     margin: -53px 160px 0px 0px;
+}
+
+@media only screen and (min-width: 1550px) {
+    .news-share-buttons {
+        transform: scale(0.75);
+        margin: -53px 220px 0px 0px;
+    }
 }
 
 .comment-btn-top {

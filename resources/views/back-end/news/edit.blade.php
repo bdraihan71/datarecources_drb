@@ -74,8 +74,10 @@
                 <label>Sector:<span class="text-danger">*</span> </label>
                 <select class="form-control dropdown-custom" name="category_id" require>
                     @foreach($categories as $category)
-                        @if (($news->category->id) == $category->id))
-                            <option value="{{$category->id}}" selected>{{$category->name}}</option>
+                        @if( $news->category != null)
+                            @if (($news->category->id) == $category->id))
+                                <option value="{{$category->id}}" selected>{{$category->name}}</option>
+                            @endif
                         @else
                             <option value="{{$category->id}}">{{$category->name}}</option>
                         @endif

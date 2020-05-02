@@ -23,3 +23,4 @@ Route::get('fetch/dse', 'ApiController@fetchDSE');
 Route::get('news/{time}', 'ApiController@getAllNews');
 Route::get('news/from/{from}/to/{to}', 'ApiController@getCustomRangeNews');
 Route::get('news/last_id/{last_id}', 'ApiController@getNewsByLastId');
+Route::get('news/last_id/{last_id}/{category_id}', 'ApiController@getNewsByCategory');
