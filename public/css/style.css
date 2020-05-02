@@ -562,6 +562,24 @@ input[type="search"]::placeholder {
     border-radius: 0px 25px 25px 0px;
 }
 
+@media (max-width: 1200px) {
+    .news-sidenav-active {
+        background-color: rgb(16, 28, 83);
+        color: white !important;
+        border-radius: 0px 25px 25px 0px;
+        width: 70%;
+    }  
+}
+
+@media (max-width: 980px) {
+    .news-sidenav-active {
+        background-color: rgb(16, 28, 83);
+        color: white !important;
+        border-radius: 0px 25px 25px 0px;
+        width: 60%;
+    }  
+}
+
 .price-text {
     font-size: 100%;
     color: black;
