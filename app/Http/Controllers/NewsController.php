@@ -148,8 +148,8 @@ class NewsController extends Controller
     {
         $category = Category::where('name', $category)->first();
         $categories = Category::where('is_published', 1)->orderBy('order', 'asc')->get();
-        $allnews = News::where('is_published', 1)->where('category_id', $category->id)->latest()->paginate(50);
+        // $allnews = News::where('is_published', 1)->where('category_id', $category->id)->latest()->paginate(50);
         $mostrecents = MostRecent::where('is_published', 1)->orderBy('created_at', 'DESC')->get();
-        return view('front-end.news.index', compact('allnews','mostrecents','categories','category'));
+        return view('front-end.news.continuous-index', compact('mostrecents','categories','category'));
     }
 }

@@ -228,7 +228,6 @@
                         this.last_id = response.last_id;
                     });
                 },
-
                 initial_call() {
                     fetch('/api/news/last_id/'+ 0, {
                         method: 'Get', // *GET, POST, PUT, DELETE, etc.

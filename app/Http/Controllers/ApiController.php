@@ -57,5 +57,14 @@ class ApiController extends Controller
             'last_id' => $allnews->last()->id,
         ]);
     }
+
+    public function getNewsByCategory($last_id, $category_id){
+        $allnews = News::where('id', '>', $last_id)->where('category_id', $category_id)->take(10)->with("comments")->orderBy('created_at', 'DESC')->get();
+        return response()->json([
+            'success' => true,
+            'items' => $allnews,
+            'last_id' => $allnews->last()->id,
+        ]);
+    }
     
 }
