@@ -30,38 +30,60 @@
                 </div>
             </div>
             <div class="col-md-7">
+                
+
+                <!-- ///////////////////////////////////////////////// -->
+
                 <ul id="example-1">
-                    <div v-for="item in initial" :key="item.message">
+                    <div v-for="item in initial" :key="item.id">
                     <div class="shadow-sm mb-3 single-news-border">
-                        <div class="row" id="$news->id">
+                        <div class="row" v-bind:id="item.id">
                             <div class="col-md-9">
-                        
-                                <a href="" target="_blank"><h5 class="pt-md-2 px-2">@{{item.heading}}</h5></a>
-                                <a href="$news->source}}" target="_blank"><p class="text-justify word-break px-2"><span class="text-secondary ml-2 small">@{{item.url}}</span></p></a>
-                 
+                                <a v-bind:href="item.url" target="_blank"><h5>@{{item.heading}}</h5></a> 
+                                <a v-bind:href="item.url" target="_blank"><p class="text-justify word-break">@{{item.source}} | <span class="text-secondary small">@{{item.human_readable_time}}</span></p></a>
                             </div>
-                            <div class="col-md-3">
-                               
-                                    <a href="item.url" target="_blank">
-                                        <img  v-bind:src="getImageUrl(item.image)" class="mb-3 img-fluid news-index-img" alt="...">
-                                    </a>
+                            <div class="col-md-3" v-if="item.image" >
+                                <a v-bind:href="item.url" target="_blank">
+                                    <img  v-bind:src="getImageUrl(item.image)" class="mb-3 img-fluid news-index-img" alt="...">
+                                </a>
                             </div>
                         </div>
                         <div class="row">
-                        
-                                <div  class="col-md-3" >
-                                    <button type="button" class="btn btn-light btn-sm mb-3 border border-secondary ml-2" ><i class="far fa-comment-alt"></i> Comment</button>
+                          
+                                <div  class="col-md-12 mb-n4" >
+                                    <button type="button" class="btn btn-light btn-sm mb-3 border border-secondary comment-btn-top" @click='isshowcomment(item.id)'><i class="far fa-comment-alt"></i> Comment</button>
                                 </div>
-                            <div  class="col-md-9">
-
+              
+                            <div class="ml-auto pr-2">
+                                <!-- <div class="addthis_inline_share_toolbox news-share-buttons" data-url="{{ env('APP_URL') }}single-news/@{{item.id}}" data-title="@{{item.heading}}" data-description="@{{item.source}}" data-media="{{ env('S3_URL') }}@{{item.image}}"></div> -->
                             </div>
-                           
                         </div>    
-                        
+                        <div class="comment-field-top" v-if='isShowComment == item.id'>
+                            @if (Auth::check())
+                                <form method="POST" action="{{ route('comment.store') }}">
+                                    @csrf
+                                    <div class="row mb-n2">
+                                        <div class="col-8 col-md-10">
+                                            <div class="form-group">
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" name="body" rows="1" placeholder="Write a comment..."></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-md-2">
+                                            <input type="hidden" name="news_id" v-bind:value="item.id">
+                                            <button type="submit" class="btn btn-warning w-100 float-right">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            @endif    
+                            <ul class="list-group">
+                                
+                            </ul>
+                        </div> 
                     </div>  
                     </div>
                 </ul>
             </div>
+                <!-- ////////////////////////////////////////////////// -->
             <div class="col-md-3">
                 <h5>Most Recent</h5>
                 <div class="table-responsive most-recent-border">
@@ -85,39 +107,6 @@
             </div>
         </div>
     </div>
-    {{-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Customised date range</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-               <form  method="GET">
-                    <div class="form-group row">
-                        <label for="example-date-input" class="col-4 col-form-label">Date From</label>
-                        <div class="col-8">
-                            <input class="form-control" type="date" value="{{ Request()->from}}" >
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="example-date-input" class="col-4 col-form-label">Date To</label>
-                        <div class="col-8">
-                            <input class="form-control" type="date" value="{{ Request()->to}}">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Search</button>
-                    </div>
-                </form>
-            </div>
-            
-            </div>
-        </div>
-    </div> --}}
 </section>
     @section('scripts')
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -126,6 +115,7 @@
             el: '#example-1',
             mounted () {
                 this.initial_call();
+                this.isShowComment = localStorage.isShowComment ;
             },
             created () {
                 window.addEventListener('scroll', this.handleScroll);
@@ -134,18 +124,30 @@
                 window.removeEventListener('scroll', this.handleScroll);
             },
             methods: {
+                isshowcomment: function(index){
+                    this.isShowComment = index;
+                    localStorage.isShowComment = index;
+                    },
+
+                    isComment: function(index){
+                        this.isShowCommentBox = index;
+                },
+
                 getImageUrl(name){
                     return "https://data-resources-bd.s3-ap-southeast-1.amazonaws.com/" + name;
                 },
+
                 handleScroll (event) {
+                    console.log(window.scrollY);
                     if(window.scrollY > this.threshold){
                         this.call();
                         this.initial = this.initial.concat(this.latest_call);
 
-                        this.threshold = this.threshold + 600;
+                        this.threshold = this.threshold + 300;
                     };
                 },
                 call (){
+                    console.log("calling");
                     fetch('/api/news/last_id/'+ this.last_id, {
                         method: 'Get', // *GET, POST, PUT, DELETE, etc.
                         mode: 'cors', // no-cors, cors, *same-origin
@@ -200,6 +202,8 @@
                 content: [],
                 initial: [],
                 latest_call: [],
+                isShowComment: null,
+                isShowCommentBox: null,
             }
             })
         </script>

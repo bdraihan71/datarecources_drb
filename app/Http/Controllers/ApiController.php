@@ -50,7 +50,7 @@ class ApiController extends Controller
     }
 
     public function getNewsByLastId($last_id){
-        $allnews = News::where('id', '>', $last_id)->take(5)->get();
+        $allnews = News::where('id', '>', $last_id)->take(10)->get();
         return response()->json([
             'success' => true,
             'items' => $allnews,
