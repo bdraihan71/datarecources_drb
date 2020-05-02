@@ -63,14 +63,14 @@
                                 <form method="POST" action="{{ route('comment.store') }}">
                                     @csrf
                                     <div class="row mb-n2">
-                                        <div class="col-8 col-md-10">
+                                        <div class="col-9 col-md-10">
                                             <div class="form-group">
                                                 <textarea class="form-control" id="exampleFormControlTextarea1" name="body" rows="1" placeholder="Write a comment..."></textarea>
                                             </div>
                                         </div>
-                                        <div class="col-4 col-md-2">
+                                        <div class="col-3 col-md-2">
                                             <input type="hidden" name="news_id" v-bind:value="item.id">
-                                            <button type="submit" class="btn btn-warning w-100 float-right">Submit</button>
+                                            <button type="submit" class="btn btn-warning w-100 float-right"><i class="fas fa-check d-xl-none"></i> <span class="d-none d-xl-block">Submit</span></button>
                                         </div>
                                     </div>
                                 </form>
@@ -85,14 +85,14 @@
                                                 @csrf
                                                 @method('patch')
                                                 <div class="row">
-                                                    <div class="col-10">
+                                                    <div class="col-9 col-md-10">
                                                         <div class="form-group">
                                                             <textarea class="form-control mr-5" id="exampleFormControlTextarea1" name="body" rows="1" placeholder="Write a comment..." :value="comment.body"></textarea>
                                                         </div>
                                                     </div>
-                                                    <div class="col-2">
+                                                    <div class="col-3 col-md-2">
                                                         <input type="hidden" name="news_id" v-bind:value="item.id">
-                                                        <button type="submit" class="btn btn-warning w-100 float-right">Update</button>
+                                                        <button type="submit" class="btn btn-warning w-100 float-right"><i class="fas fa-check d-xl-none"></i> <span class="d-none d-xl-block">Update</span></button>
                                                     </div>
                                                 </div>
                                             </form>
