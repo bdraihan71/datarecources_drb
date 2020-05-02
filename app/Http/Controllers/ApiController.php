@@ -49,5 +49,13 @@ class ApiController extends Controller
         return response()->json($allnews);
     }
 
+    public function getNewsByLastId($last_id){
+        $allnews = News::where('id', '>', $last_id)->take(5)->get();
+        return response()->json([
+            'success' => true,
+            'items' => $allnews,
+            'last_id' => $allnews->last()->id,
+        ]);
+    }
     
 }
