@@ -49,22 +49,46 @@ class ApiController extends Controller
         return response()->json($allnews);
     }
 
-    public function getNewsByLastId($last_id){
-        $allnews = News::where('id', '>', $last_id)->take(10)->with("comments")->orderBy('created_at', 'DESC')->get();
-        return response()->json([
-            'success' => true,
-            'items' => $allnews,
-            'last_id' => $allnews->last()->id,
-        ]);
+    public function getNewsByCategory($last_id, $category_id){
+        if($last_id != 0){
+            $allnews = News::where('id', '<', $last_id)->where('category_id', $category_id)->with("comments")->orderBy('created_at', 'DESC')->take(10)->get();
+        }else{
+            $allnews = News::where('category_id', $category_id)->with("comments")->orderBy('created_at', 'DESC')->take(10)->get();
+        }
+        
+        if($allnews->count() >0){
+            return response()->json([
+                'success' => true,
+                'items' => $allnews,
+                'last_id' => $allnews->last()->id,
+            ]);
+        }else{
+            return response()->json([
+                'success' => false,
+                'items' => [],
+            ]);
+        }
     }
 
-    public function getNewsByCategory($last_id, $category_id){
-        $allnews = News::where('id', '>', $last_id)->where('category_id', $category_id)->take(10)->with("comments")->orderBy('created_at', 'DESC')->get();
-        return response()->json([
-            'success' => true,
-            'items' => $allnews,
-            'last_id' => $allnews->last()->id,
-        ]);
+    public function getNewsByLastId($last_id){
+        if($last_id != 0){
+            $allnews = News::where('id', '<', $last_id)->with("comments")->orderBy('created_at', 'DESC')->take(10)->get();
+        }else{
+            $allnews = News::with("comments")->orderBy('created_at', 'DESC')->take(10)->get();
+        }
+        
+        if($allnews->count() >0){
+            return response()->json([
+                'success' => true,
+                'items' => $allnews,
+                'last_id' => $allnews->last()->id,
+            ]);
+        }else{
+            return response()->json([
+                'success' => false,
+                'items' => [],
+            ]);
+        }
     }
     
 }
