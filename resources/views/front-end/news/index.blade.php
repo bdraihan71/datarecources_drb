@@ -37,110 +37,117 @@
                         <h3 class="text-center mt-5">Your search  did not match any news.</h3>
                     @endif
                 @else
-                    @foreach($allnews as $news)
-                    <div class="shadow-sm mb-3 single-news-border">
-                        <div class="row" id="{{$news->id}}">
-                            <div class="col-md-9">
-                                {{-- <a href="{{$news->source}}" target="_blank"><small class="pt-3 pt-md-0 news-comment-time-text text-secondary">{{ Str::limit ($news->source, 50) }}</small></a> --}}
-                                <a href="{{$news->source}}" target="_blank"><h5>{{ $news->heading }}</h5></a>
-                                <a href="{{$news->source}}" target="_blank"><p class="text-justify word-break">{{ implode(' ', array_slice(explode(' ', strip_tags($news->body) ), 0, 25))}} | <span class="text-secondary small">{{$news->updated_at->diffForHumans()}}</span></p></a>
-                                {{-- <a href="{{route('news.single',$news->id)}}">See More ></a> --}}
-                            </div>
-                            <div class="col-md-3">
-                                @if($news->image)
-                                    <a href="{{$news->source}}" target="_blank">
-                                        <img src="{{ env('S3_URL') }}{{$news->image}}" class="mb-3 img-fluid news-index-img" alt="...">
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="row">
-                            @if($news->comments->count() > 0 || Auth::check())
-                                <div  class="col-md-12 mb-n4" >
-                                    <button type="button" class="btn btn-light btn-sm mb-3 border border-secondary comment-btn-top" @click='isshowcomment({{$news->id}})'><i class="far fa-comment-alt"></i> Comment</button>
+                    <div class="infinite-scroll">
+                        @foreach($allnews as $news)
+                        <div class="shadow-sm mb-3 single-news-border">
+                            <div class="row" id="{{$news->id}}">
+                                <div class="col-md-9">
+                                    {{-- <a href="{{$news->source}}" target="_blank"><small class="pt-3 pt-md-0 news-comment-time-text text-secondary">{{ Str::limit ($news->source, 50) }}</small></a> --}}
+                                    <a href="{{$news->source}}" target="_blank"><h5>{{ $news->heading }}</h5></a>
+                                    <a href="{{$news->source}}" target="_blank"><p class="text-justify word-break">{{ implode(' ', array_slice(explode(' ', strip_tags($news->body) ), 0, 25))}} | <span class="text-secondary small">{{$news->updated_at->diffForHumans()}}</span></p></a>
+                                    {{-- <a href="{{route('news.single',$news->id)}}">See More ></a> --}}
                                 </div>
-                            @endif    
-                            {{-- <div  class="col-md-9"> --}}
-                                {{-- <div class="text-right">
-                                    <h6>Share</h6>
-                                    <div class="addthis_inline_share_toolbox mx-auto" id="{{$news->id}}"></div>
-                                </div> --}}
-                                {{-- <div class="text-right">
-                                    <div class="addthis_inline_share_toolbox news-share-buttons" data-url="{{ env('APP_URL') }}single-news/{{$news->id}}" data-title="{{$news->heading}}" data-description="{{$news->body}}" data-media="{{ env('S3_URL') }}{{$news->image}}"></div>
-                                </div> --}}
-                            {{-- </div> --}}
-                            <div class="ml-auto pr-2">
-                                <div class="addthis_inline_share_toolbox news-share-buttons" data-url="{{ env('APP_URL') }}single-news/{{$news->id}}" data-title="{{$news->heading}}" data-description="{{$news->body}}" data-media="{{ env('S3_URL') }}{{$news->image}}"></div>
+                                <div class="col-md-3">
+                                    @if($news->image)
+                                        <a href="{{$news->source}}" target="_blank">
+                                            <img src="{{ env('S3_URL') }}{{$news->image}}" class="mb-3 img-fluid news-index-img" alt="...">
+                                        </a>
+                                    @endif
+                                </div>
                             </div>
-                        </div>    
-                        <div class="comment-field-top" v-if='isShowComment == {{$news->id}}'>
-                            @if (Auth::check())
-                                <form method="POST" action="{{ route('comment.store') }}">
-                                    @csrf
-                                    <div class="row mb-n2">
-                                        <div class="col-8 col-md-10">
-                                            <div class="form-group">
-                                                <textarea class="form-control" id="exampleFormControlTextarea1" name="body" rows="1" placeholder="Write a comment..."></textarea>
+                            <div class="row">
+                                @if($news->comments->count() > 0 || Auth::check())
+                                    <div  class="col-md-12 mb-n4" >
+                                        <button type="button" class="btn btn-light btn-sm mb-3 border border-secondary comment-btn-top" @click='isshowcomment({{$news->id}})'><i class="far fa-comment-alt"></i> Comment</button>
+                                    </div>
+                                @endif    
+                                {{-- <div  class="col-md-9"> --}}
+                                    {{-- <div class="text-right">
+                                        <h6>Share</h6>
+                                        <div class="addthis_inline_share_toolbox mx-auto" id="{{$news->id}}"></div>
+                                    </div> --}}
+                                    {{-- <div class="text-right">
+                                        <div class="addthis_inline_share_toolbox news-share-buttons" data-url="{{ env('APP_URL') }}single-news/{{$news->id}}" data-title="{{$news->heading}}" data-description="{{$news->body}}" data-media="{{ env('S3_URL') }}{{$news->image}}"></div>
+                                    </div> --}}
+                                {{-- </div> --}}
+                                <div class="ml-auto pr-2">
+                                    <div class="addthis_inline_share_toolbox news-share-buttons" data-url="{{ env('APP_URL') }}single-news/{{$news->id}}" data-title="{{$news->heading}}" data-description="{{$news->body}}" data-media="{{ env('S3_URL') }}{{$news->image}}"></div>
+                                </div>
+                            </div>    
+                            <div class="comment-field-top" v-if='isShowComment == {{$news->id}}'>
+                                @if (Auth::check())
+                                    <form method="POST" action="{{ route('comment.store') }}">
+                                        @csrf
+                                        <div class="row mb-n2">
+                                            <div class="col-8 col-md-10">
+                                                <div class="form-group">
+                                                    <textarea class="form-control" id="exampleFormControlTextarea1" name="body" rows="1" placeholder="Write a comment..."></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 col-md-2">
+                                                <input type="hidden" name="news_id" value="{{$news->id}}">
+                                                <button type="submit" class="btn btn-warning w-100 float-right">Submit</button>
                                             </div>
                                         </div>
-                                        <div class="col-4 col-md-2">
-                                            <input type="hidden" name="news_id" value="{{$news->id}}">
-                                            <button type="submit" class="btn btn-warning w-100 float-right">Submit</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            @endif    
-                            <ul class="list-group">
-                                @foreach ($news->comments as $comment)
-                                    <li class="list-group-item rounded small border-0 mb-1 bg-light">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <b>{{$comment->user_id != null ? $comment->user->full_name : 'Anonymous'}}:</b> 
-                                                <span v-if="isShowCommentBox == {{$comment->id}}">
-                                                    <form method="POST" action="{{ route('comment.update', $comment->id) }}">
-                                                        @csrf
-                                                        @method('patch')
-                                                        <div class="row">
-                                                            <div class="col-10">
-                                                                <div class="form-group">
-                                                                    <textarea class="form-control mr-5" id="exampleFormControlTextarea1" name="body" rows="1" placeholder="Write a comment...">{{$comment->body}}</textarea>
+                                    </form>
+                                @endif    
+                                <ul class="list-group">
+                                    @foreach ($news->comments as $comment)
+                                        <li class="list-group-item rounded small border-0 mb-1 bg-light">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <b>{{$comment->user_id != null ? $comment->user->full_name : 'Anonymous'}}:</b> 
+                                                    <span v-if="isShowCommentBox == {{$comment->id}}">
+                                                        <form method="POST" action="{{ route('comment.update', $comment->id) }}">
+                                                            @csrf
+                                                            @method('patch')
+                                                            <div class="row">
+                                                                <div class="col-10">
+                                                                    <div class="form-group">
+                                                                        <textarea class="form-control mr-5" id="exampleFormControlTextarea1" name="body" rows="1" placeholder="Write a comment...">{{$comment->body}}</textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-2">
+                                                                    <input type="hidden" name="news_id" value="{{$news->id}}">
+                                                                    <button type="submit" class="btn btn-warning w-100 float-right">Update</button>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-2">
-                                                                <input type="hidden" name="news_id" value="{{$news->id}}">
-                                                                <button type="submit" class="btn btn-warning w-100 float-right">Update</button>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </span> 
-                                                <span v-else>{{$comment->body}}</span>
-                                            </div>
-
-                                            <div class="col-md-6">
-                                                <span class="text-secondary news-comment-time-text mt-n3">{{$comment->updated_at->diffForHumans()}}</span>
-                                            </div>
-
-                                            <div class="col-md-6 text-right">
-                                                @if(Auth::user())
-                                                    @if(Auth::user()->id == $comment->user_id) 
-                                                        <button class="bg-transparent border-0 small text-secondary" @click="isComment({{$comment->id}})"  v-if="isShowCommentBox != {{$comment->id}}">Edit</button>
-                                                        <button class="bg-transparent border-0 small text-secondary" @click="isComment(null)"  v-if="isShowCommentBox == {{$comment->id}}">Cancel</button>
-                                                        <form action="{{ route('comment.destroy', $comment->id)}}" onclick="return confirm('Are you sure, you want to delete this Comment?')" method="post" style="display: inline;" v-if="isShowCommentBox != {{$comment->id}}">
-                                                            @csrf
-                                                            @method('delete')
-                                                            <button type="submit" class="bg-transparent border-0 small text-secondary">Delete</button>
                                                         </form>
-                                                    @endif
-                                                @endif  
+                                                    </span> 
+                                                    <span v-else>{{$comment->body}}</span>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <span class="text-secondary news-comment-time-text mt-n3">{{$comment->updated_at->diffForHumans()}}</span>
+                                                </div>
+
+                                                <div class="col-md-6 text-right">
+                                                    @if(Auth::user())
+                                                        @if(Auth::user()->id == $comment->user_id) 
+                                                            <button class="bg-transparent border-0 small text-secondary" @click="isComment({{$comment->id}})"  v-if="isShowCommentBox != {{$comment->id}}">Edit</button>
+                                                            <button class="bg-transparent border-0 small text-secondary" @click="isComment(null)"  v-if="isShowCommentBox == {{$comment->id}}">Cancel</button>
+                                                            <form action="{{ route('comment.destroy', $comment->id)}}" onclick="return confirm('Are you sure, you want to delete this Comment?')" method="post" style="display: inline;" v-if="isShowCommentBox != {{$comment->id}}">
+                                                                @csrf
+                                                                @method('delete')
+                                                                <button type="submit" class="bg-transparent border-0 small text-secondary">Delete</button>
+                                                            </form>
+                                                        @endif
+                                                    @endif  
+                                                </div>
+                                        
                                             </div>
-                                    
-                                        </div>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div> 
-                    </div>    
-                    @endforeach
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div> 
+                        </div>    
+                        @endforeach
+                        <div class="col-md-12 my-5">
+                            <div class="row justify-content-center">
+                                {{ $allnews->links() }}
+                            </div>
+                        </div>
+                    </div>
                 @endif    
             </div>
             <div class="col-md-3">
@@ -164,11 +171,7 @@
                     </table>
                 </div>
             </div>
-            <div class="col-md-12 my-5">
-                <div class="row justify-content-center">
-                    {{ $allnews->links() }}
-                </div>
-            </div>
+            
         </div>
     </div>
     {{-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -215,6 +218,9 @@
                     isShowCommentBox: null,
                     
                 },
+                created () {
+                    window.addEventListener('scroll', this.isshowcomment);
+                },
                 mounted () {
                     this.isShowComment = localStorage.isShowComment ;
                 },
@@ -230,9 +236,23 @@
             }
 
             })
+            // src="/img/spinner.gif"
         </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.3.7/jquery.jscroll.min.js"></script>
+        <script type="text/javascript">
 
-
-    @endsection
-
+            $('ul.pagination').hide();
+            $('.infinite-scroll').jscroll({
+                    autoTrigger: true,
+                    debug: true,
+                    loadingHtml: '<img class="center-block" src="/img/spinner.gif" alt="Loading..." />',
+                    padding: 0,
+                    nextSelector: '.pagination li.active + li a',
+                    contentSelector: 'div.infinite-scroll',
+                    callback: function() {
+                        $('ul.pagination').remove();
+                    }
+            });
+        </script>
 @endsection
