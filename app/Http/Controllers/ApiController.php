@@ -50,7 +50,7 @@ class ApiController extends Controller
     }
 
     public function getNewsByLastId($last_id){
-        $allnews = News::where('id', '>', $last_id)->take(10)->orderBy('created_at', 'DESC')->get();
+        $allnews = News::where('id', '>', $last_id)->take(10)->with("comments")->orderBy('created_at', 'DESC')->get();
         return response()->json([
             'success' => true,
             'items' => $allnews,

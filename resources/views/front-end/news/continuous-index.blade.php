@@ -75,8 +75,45 @@
                                     </div>
                                 </form>
                             @endif    
-                            <ul class="list-group">
-                                
+                            <ul class="list-group mb-3">
+                                {{-- @foreach ($news->comments as $comment) --}}
+                                <div v-for="comment in item.comments" :key="comment.id">
+                                    <li class="list-group-item rounded-pill small border-0 bg-light mb-1">
+                                        <b>@{{comment.user_id != null ? comment.username : 'Anonymous'}}:</b> 
+                                        <span v-if="isShowCommentBox == comment.id">
+                                            {{-- <form method="POST" action="@{{ update + comment.id }}"> --}}
+                                                @csrf
+                                                @method('patch')
+                                                <div class="row">
+                                                    <div class="col-10">
+                                                        <div class="form-group">
+                                                            <textarea class="form-control mr-5" id="exampleFormControlTextarea1" name="body" rows="1" placeholder="Write a comment..." :value="comment.body"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <input type="hidden" name="news_id" v-bind:value="item.id">
+                                                        <button type="submit" class="btn btn-primary float-right">Update</button>
+                                                    </div>
+                                                </div>
+                                            {{-- </form> --}}
+                                        </span> 
+                                        <span v-else>@{{comment.body}}</span>
+                                        @if(Auth::user())
+                                            {{-- @if(Auth::user()->id == $comment->user_id)  --}}
+                                                <button class="bg-transparent border-0 small text-secondary" @click="isComment(comment.id)"  v-if="isShowCommentBox != comment.id">edit</button>
+                                                <button class="bg-transparent border-0 small text-secondary" @click="isComment(null)"  v-if="isShowCommentBox == comment.id">Cancel</button>
+                                                <form :action="route + comment.id" onclick="return confirm('Are you sure, you want to delete this Comment?')" method="post" style="display: inline;" v-if="isShowCommentBox != comment.id">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" class="bg-transparent border-0 small text-secondary">@{{ route + comment.id }}</button>
+                                                </form>
+                                            {{-- @endif --}}
+                                        @endif    
+                                        <br> 
+                                        <span class="text-secondary news-comment-time-text mt-n3">@{{comment.human_readable_time}}</span>
+                                    </li>
+                                {{-- @endforeach --}}
+                                </div>
                             </ul>
                         </div> 
                     </div>  
@@ -204,6 +241,7 @@
                 latest_call: [],
                 isShowComment: null,
                 isShowCommentBox: null,
+                route: "/comment/",
             }
             })
         </script>
