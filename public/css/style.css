@@ -96,6 +96,11 @@ a:focus {
     background: #fff;
 }
 
+.news-sidenav-hover:hover {
+    color: #2c3d88;
+    background: none !important;
+}
+
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
