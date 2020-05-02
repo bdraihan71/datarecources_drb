@@ -187,6 +187,11 @@
                 window.removeEventListener('scroll', this.handleScroll);
             },
             methods: {
+
+                loadDynamicContent: function() {
+                    addthis.layers.refresh();
+                },
+
                 getUrl: function(item){
                     let url = "{{ env('APP_URL') }}";
                     url = url + '/single-news/' + item.id;
@@ -215,9 +220,12 @@
                     console.log(window.scrollY);
                     if(window.scrollY > this.threshold){
                         this.call();
-                        this.initial = this.initial.concat(this.latest_call);
+                        if(this.latest_call != []){
+                            this.initial = this.initial.concat(this.latest_call);
 
-                        this.threshold = this.threshold + 300;
+                            this.loadDynamicContent();
+                            this.threshold = this.threshold + 300;
+                        }
                     };
                 },
                 call (){
