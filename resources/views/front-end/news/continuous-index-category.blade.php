@@ -54,8 +54,9 @@
                                     <button type="button" class="btn btn-light btn-sm mb-3 border border-secondary comment-btn-top" @click='isshowcomment(item.id)'><i class="far fa-comment-alt"></i> Comment</button>
                                 </div>
                             {{-- @endif     --}}
+
                             <div class="ml-auto pr-2">
-                                <div class="addthis_inline_share_toolbox news-share-buttons" :data-url="getUrl(item)" :data-title="getTitle(item)" :data-description="getDescription(item)" :data-media="getImageUrl(item.image)"></div>
+                                <div class="addthis_toolbox addthis_inline_share_toolbox news-share-buttons" :data-url="getUrl(item)" :data-title="getTitle(item)" :data-description="getDescription(item)" :data-media="getImageUrl(item.image)"></div>
                             </div>
                         </div>    
                         <div class="comment-field-top" v-if='isShowComment == item.id'>
@@ -162,6 +163,7 @@
                     latest_call: [],
                     isShowComment: null,
                     isShowCommentBox: null,
+                    url: "{{ env('APP_URL') }}",
                     route: "/comment/",
                     @if(Auth::check())
                     isAuth: {{ Auth::check()}},
@@ -182,8 +184,11 @@
                 window.removeEventListener('scroll', this.handleScroll);
             },
             methods: {
+                loadDynamicContent: function() {
+                    addthis.layers.refresh();
+                },
                 getUrl: function(item){
-                    let url = "{{ env('APP_URL') }}";
+                    let url = this.url;
                     url = url + '/single-news/' + item.id;
                     return (url);
                 },
@@ -222,9 +227,11 @@
                     console.log(window.scrollY);
                     if(window.scrollY > this.threshold){
                         this.call();
-                        this.initial = this.initial.concat(this.latest_call);
-
-                        this.threshold = this.threshold + 300;
+                        if(this.latest_call != []){
+                            this.initial = this.initial.concat(this.latest_call);
+                            this.loadDynamicContent();
+                            this.threshold = this.threshold + 300;
+                        }
                     };
                 },
                 call (){
