@@ -91,7 +91,7 @@ class NewsController extends Controller
             'image' => 'mimes:jpeg,jpg,png,gif|max:10000',
             'heading' => 'required|min:3|max:255',
             'source' => 'required|max:255|regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
-            'body' => 'required|min:10|max:200',
+            'body' => 'required|max:200',
             'category_id' => 'required',
         ]);
 
