@@ -27,15 +27,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown nav-custom-margin-top">
-                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <small class="font-weight-bold nav-item-custom-size">COMPANY</small>
+                <li class="nav-item nav-custom-margin-top">
+                    <a class="nav-link font-weight-bold text-white" href="{{route('finance-info-all')}}">
+                        <small class="font-weight-bold nav-item-custom-size text-uppercase">Financial Statement</small>
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{route('finance-info-all')}}">
-                            <small class="font-weight-bold nav-item-custom-size">Financial Statement</small>
-                        </a>
-                    </div>
                 </li>
 
                 <li class="nav-item nav-custom-margin-top">
