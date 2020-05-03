@@ -71,17 +71,11 @@
 
         <div class="col-md-3">
             <div class="form-group ">
-                <label>Sector:<span class="text-danger">*</span> </label>
+                <label>Select Category:<span class="text-danger">*</span> </label>
                 <select class="form-control dropdown-custom" name="category_id" require>
-                    @foreach($categories as $category)
-                        @if( $news->category != null)
-                            @if (($news->category->id) == $category->id))
-                                <option value="{{$category->id}}" selected>{{$category->name}}</option>
-                            @endif
-                        @else
-                            <option value="{{$category->id}}">{{$category->name}}</option>
-                        @endif
-                    @endforeach
+                @foreach($categories as $category)
+                    <option value="{{$category->id}}"  {{ (old("category_id") == $category->id ? "selected":"") }}>{{$category->name}}</option>
+                @endforeach
                 </select>
             </div>
         </div>
