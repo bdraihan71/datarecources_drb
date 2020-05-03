@@ -937,6 +937,16 @@ if it's not present, don't show loader */
     overflow-wrap: break-word;
     font-size: 14px;
     line-height: 18px;
+    padding-bottom: 45px;
+}
+
+@media only screen and (max-width: 767px) {
+    .word-break {
+        overflow-wrap: break-word;
+        font-size: 14px;
+        line-height: 18px;
+        padding-bottom: 0px;
+    }
 }
 
 .finance-table th:first-child, .finance-table td:first-child {
