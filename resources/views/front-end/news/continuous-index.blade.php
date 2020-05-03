@@ -40,7 +40,7 @@
                         <div class="row" v-bind:id="item.id">
                             <div class="col-md-9">
                                 <a :href="item.source" target="_blank"><h5>@{{item.heading}}</h5></a> 
-                                <a :href="item.source" target="_blank"><p class="text-justify word-break">@{{item.source}} | <span class="text-secondary small">@{{item.human_readable_time}}</span></p></a>
+                                <a :href="item.source" target="_blank"><p class="text-justify word-break">@{{item.body}} | <span class="text-secondary small">@{{item.human_readable_time}}</span></p></a>
                             </div>
                             <div class="col-md-3" v-if="item.image" >
                                 <a :href="item.source" target="_blank">
