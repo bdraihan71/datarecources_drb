@@ -39,7 +39,6 @@ class NewsController extends Controller
             'heading' => 'required|min:3|max:255',
             'source' => 'required|max:255|regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
             'body' => 'required|max:200',
-            'showing_area' => 'required',
             'category_id' => 'required',
         ]);
 
@@ -93,7 +92,6 @@ class NewsController extends Controller
             'heading' => 'required|min:3|max:255',
             'source' => 'required|max:255|regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
             'body' => 'required|min:10|max:200',
-            'showing_area' => 'required',
             'category_id' => 'required',
         ]);
 
