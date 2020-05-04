@@ -34,10 +34,14 @@ class NewsController extends Controller
 
     public function newsStore (Request $request)
     {
+        $request->merge([
+            'source' => urldecode($request->get('source')),
+        ]);
+        // dd( $request->source);
         $this->validate($request, [
             'image' => 'mimes:jpeg,jpg,png,gif|max:10000',
             'heading' => 'required|min:3|max:255',
-            'source' => 'required|max:255|regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
+            'source' => 'required|max:255',
             'body' => 'required|max:200',
             'category_id' => 'required',
         ]);
@@ -87,10 +91,14 @@ class NewsController extends Controller
 
     public function newsUpdate(Request $request, $id)
     {
+        $request->merge([
+            'source' => urldecode($request->get('source')),
+        ]);
+        
         $this->validate($request, [
             'image' => 'mimes:jpeg,jpg,png,gif|max:10000',
             'heading' => 'required|min:3|max:255',
-            'source' => 'required|max:255|regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
+            'source' => 'required|max:255',
             'body' => 'required|max:200',
             'category_id' => 'required',
         ]);
