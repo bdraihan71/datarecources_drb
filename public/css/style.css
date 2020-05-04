@@ -759,6 +759,13 @@ input[type="search"]::placeholder {
     font-weight: 700 !important;
 }
 
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+    .nav-item-custom-size {
+        font-size: 11px;
+        font-weight: 600 !important;
+    }
+}
+
 .aside-img {
     width: 100%;
     height: 100vh;
