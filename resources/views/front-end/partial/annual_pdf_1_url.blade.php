@@ -14,7 +14,7 @@
             <td><a href="/#pricing" class="btn btn-warning">Please Subscribe</a></td>
         @endif 
        
-    @endif
+    @endif 
 @else
     <td>No PDF</td>
 @endif

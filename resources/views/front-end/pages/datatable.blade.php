@@ -77,7 +77,7 @@
                             @endif
                         @endif
                     @else
-                        <span class="font-weight-bold">Please <a href="/login" class="btn btn-warning">Login</a> to Download</span>
+                    <td><span class="font-weight-bold"> <a href="/login" class="btn btn-warning">Login</a></span></td>
                     @endif
                 </tr>
             @endforeach
