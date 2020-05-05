@@ -126,7 +126,7 @@
                 <!-- ////////////////////////////////////////////////// -->
             <div class="col-md-3">
                 <h5>Most Recent</h5>
-                <div class="table-responsive most-recent-border">
+                <div class="table-responsive most-recent-border mb-3">
                     <table class="table table-hover">
                         <thead>
                           <tr>
