@@ -17,7 +17,14 @@ class StockInfoImport implements ToModel, WithValidation, WithHeadingRow
     */
     public function model(array $row)
     {
-        $stockInfo = Company::where('name', $row['company_name'])->first()->stockInfo()->first();
+        $company = Company::where('name', $row['company_name'])->first();
+
+        if($company){
+            $stockInfo = $company->stockInfo()->first();
+        }
+        if($stockInfo == null){
+            return;
+        }
 
         if($row['sponsordirector'] != null){
             $stockInfo->sponsor_or_director = floatval(preg_replace('/[^\d.]/', '', $row['sponsordirector'])) ;
