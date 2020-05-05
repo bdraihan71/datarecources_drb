@@ -5,9 +5,9 @@
         <table id="example" class="stripe row-border order-column" style="width:100%">
             <thead>
                 <tr>
-                    <th rowspan="2">Sl.</th>
+                    <!-- <th rowspan="2">Sl.</th> -->
                     <th rowspan="2">Company</th>
-                    <th rowspan="2">Sector</th>
+                    <!-- <th rowspan="2">Sector</th> -->
                     <th rowspan="2">LTP<br><small>(BDT)</small></th>
                     <th rowspan="2">YCP<br><small>(BDT)</small></th>
                     <th rowspan="2">Change<br><small>(%)</small></th>
@@ -51,9 +51,9 @@
                         @endphp
                         @if($item)
                             <tr>
-                                <td>{{++$i}}</td>
-                                <td>{{$item->company->name}}</td>
-                                <td>{{$sector->name}}</td>
+                                <!-- <td>{{++$i}}</td> -->
+                                <td>{{$item->company->ticker}}</td>
+                                <!-- <td>{{$sector->name}}</td> -->
                                 <td class="text-right">{{ $item->last_trading_price == 'n/a' || $item->last_trading_price == null ? 'n/a' : sprintf("%01.1f", $item->last_trading_price)}}</td>
                                 <td class="text-right">{{ $item->yesterday_closing == 'n/a'  || $item->yesterday_closing == null  ? 'n/a' : sprintf("%01.1f", $item->yesterday_closing)}}</td>
                                 <td class="text-right">{{ $item->price_change == 'n/a'  || $item->price_change == null  ? 'n/a' : sprintf("%01.1f", $item->price_change)}}</td>
@@ -110,12 +110,12 @@
         $("#example").dataTable().fnDestroy();
         var table = $('#example').DataTable( {
             info:           false,
-            scrollY:        "80vh",
+            scrollY:        "50vh",
             scrollX:        "100%",
             scrollCollapse: true,
             paging:         false,
             fixedColumns:   {
-                leftColumns: 2
+                leftColumns: 1
             }
         } );
     } );
@@ -131,7 +131,7 @@
     div.dataTables_wrapper {
         width: 100%;
         margin: 0 auto;
-        font-size: .7em;
+        font-size: .55em;
     }
     .DTFC_LeftBodyWrapper{
         top: -12px !important;
