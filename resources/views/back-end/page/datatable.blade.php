@@ -31,10 +31,20 @@
                     <tr>
                         <td>{{$i++}}</td>
                         <td>{{ $page->title }}</td>
-                        @if($page->menu)
-                            <td>{{ $page->menu->title }}</td>
-                        @endif
-                        <td>{{ $page->description }}</td>
+                        <td>
+                            @if($page->menu)
+                                {{ $page->menu->title }}
+                             @else
+                                N/A
+                             @endif
+                        </td>
+                        <td>
+                            @if ($page->description != null)
+                                {{ $page->description }}
+                            @else
+                               N/A
+                            @endif
+                        </td>
                         <td>{{ $page->slug }}</td>
                         <td>
                             <a href="{{ route('page.show', $page->id)}}" class="btn btn-outline-primary">Show</a>
