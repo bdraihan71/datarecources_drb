@@ -18,7 +18,7 @@
                 
                         <ul class="list-unstyled components">
                             <li class="{{ request()->url() == route('news.index') ? 'news-sidenav-active' : '' }}">
-                                <a href="{{route('news.index')}}">All News</a>
+                                <a class="news-sidenav-hover" href="{{route('news.index')}}">All News</a>
                             </li>
                             @foreach ($categories as $category)
                                 <li class="{{ request()->url() == route('news.bycategoty', $category->name) ? 'news-sidenav-active' : '' }}">
