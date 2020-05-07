@@ -55,7 +55,7 @@
                                 </div>
                             {{-- @endif     --}}
                             <div class="ml-auto pr-2">
-                                <div class="addthis_inline_share_toolbox news-share-buttons" :data-url="getUrl(item)" :data-title="getTitle(item.heading)" :data-description="getDescription(item.body)" :data-media="getImageUrl(item.image)"></div>
+                                <div class="addthis_inline_share_toolbox news-share-buttons" :data-url="getUrl(item)" :data-title="item.heading" :data-description="getDescription(item)" :data-media="getImageUrl(item.image)"></div>
                             </div>
                         </div>    
                         <div class="comment-field-top" v-if='isShowComment == item.id'>
