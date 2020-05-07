@@ -18,7 +18,7 @@
                 
                         <ul class="list-unstyled components">
                             <li class="{{ request()->url() == route('news.index') ? 'news-sidenav-active' : '' }}">
-                                <a class="news-sidenav-hover" href="{{route('news.index')}}">All News</a>
+                                <a href="{{route('news.index')}}">All News</a>
                             </li>
                             @foreach ($categories as $category)
                                 <li class="{{ request()->url() == route('news.bycategoty', $category->name) ? 'news-sidenav-active' : '' }}">
@@ -55,7 +55,7 @@
                                 </div>
                             {{-- @endif     --}}
                             <div class="ml-auto pr-2">
-                                <div class="addthis_inline_share_toolbox news-share-buttons" :data-url="getUrl(item)" :data-title="item.heading" :data-description="getDescription(item)" :data-media="getImageUrl(item.image)"></div>
+                                <div class="addthis_inline_share_toolbox news-share-buttons" :data-url="getUrl(item)" :data-title="getTitle(item)" :data-description="getDescription(item)" :data-media="getImageUrl(item.image)"></div>
                             </div>
                         </div>    
                         <div class="comment-field-top" v-if='isShowComment == item.id'>
