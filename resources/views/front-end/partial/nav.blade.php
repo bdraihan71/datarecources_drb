@@ -34,7 +34,7 @@
                 </li>
 
                 <li class="nav-item nav-custom-margin-top">
-                    <a class="nav-link font-weight-bold text-white" href="/news" >
+                    <a class="nav-link font-weight-bold text-white" href="/news/Top%20Stories" >
                         <small class="font-weight-bold nav-item-custom-size">NEWS</small>
                     </a>
                 </li>
