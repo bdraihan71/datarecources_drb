@@ -35,7 +35,7 @@
                 <!-- ///////////////////////////////////////////////// -->
 
                 <ul id="example-1" style="margin: 0; padding: 0;">
-                    <div v-for="item in initial" :key="item.id">
+                    <div v-for="item in initial" :key="item.id + Math.random()">
                     <div class="shadow-sm mb-3 single-news-border">
                         <div class="row" v-bind:id="item.id">
                             <div class="col-md-9">
@@ -77,7 +77,7 @@
                             @endif    
                             <ul class="list-group">
                                 {{-- @foreach ($news->comments as $comment) --}}
-                                <div v-for="comment in item.comments" :key="comment.id">
+                                <div v-for="comment in item.comments" :key="comment.id + Math.random()">
                                     <li class="list-group-item rounded small border-0 mb-1 bg-light">
                                         <b>@{{comment.user_id != null ? comment.username : 'Anonymous'}}:</b> 
                                         <span v-if="isShowCommentBox == comment.id">
