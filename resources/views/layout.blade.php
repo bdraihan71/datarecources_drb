@@ -49,7 +49,8 @@
         gtag('js', new Date());
         gtag('config', 'UA-165851846-1');
     </script>
-
+    
+    @yield('meta')
 
 </head>
 
