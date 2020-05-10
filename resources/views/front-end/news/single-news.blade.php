@@ -1,6 +1,9 @@
 @extends('front-end.main-layout')
 @section('content')
 <!-- Navigation -->
+<meta property="og:title" content="{{$news->heading}}" /> 
+<meta property="og:description" content="{{$news->body}}" />
+<meta property="og:image" content="{{ env('S3_URL') }}{{$news->image}}" />
 
 {{-- <section class="news">
     <div class="container">
