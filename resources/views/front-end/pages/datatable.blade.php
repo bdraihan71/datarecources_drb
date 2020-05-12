@@ -16,7 +16,7 @@
                     </ul>
                 </div>
                 @endif
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" data-display-length='50'>
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" data-display-length='25'>
             <thead>
             <tr>
                 <th>Sl.</th>
