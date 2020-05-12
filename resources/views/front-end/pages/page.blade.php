@@ -4,13 +4,17 @@
 
 <section class="financial-statement">
     <div class="container h-100">
-        <h3>{{$page->title}} </h3>
-        <p>{{$page->description}} </p>
-        <div class="row align-items-center h-100">
-            <div class="col-md-12 text-center">
-                @include('front-end.pages.datatable')
+        @if($page)
+            <h3>{{$page->title}} </h3>
+            <p>{{$page->description}} </p>
+            <div class="row align-items-center h-100">
+                <div class="col-md-12 text-center">
+                    @include('front-end.pages.datatable')
+                </div>
             </div>
-        </div>
+        @else 
+            <h3 class="text-center mb-5">No Data Available </h3>
+        @endif    
     </div>
 </section>
 

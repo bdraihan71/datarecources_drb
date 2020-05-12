@@ -52,100 +52,97 @@
             @endphp
             {{-- {{dd($user->subscriptionplans)}} --}}
             @foreach ($finance_infos as $item)
-                <tr>
-                    @if($item->company!=null)
-                    <td>{{$item->company->name}}</td>
-                    <td>{{$item->company->ticker}}</td>
-                    @else
-                    <td>No Company Available</td>
-                    <td>No Company Available</td>
-                    @endif
-                    <td>{{$item->year}}</td>
-                    @if(auth()->user())
-                       @include('front-end.partial.q1__pdf_url', compact('item'))
-                    @else
-                        <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                    @endif 
+                @if($item->company!=null)
+                    <tr>
+                        <td>{{$item->company->name}}</td>
+                        <td>{{$item->company->ticker}}</td>
+                        <td>{{$item->year}}</td>
+                        @if(auth()->user())
+                        @include('front-end.partial.q1__pdf_url', compact('item'))
+                        @else
+                            <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                        @endif 
 
-                    @if(auth()->user())
-                       @include('front-end.partial.q1_excel_url', compact('item'))
-                    @else
-                        <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                    @endif 
+                        @if(auth()->user())
+                        @include('front-end.partial.q1_excel_url', compact('item'))
+                        @else
+                            <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                        @endif 
 
-                    @if(auth()->user())
-                        @include('front-end.partial.q2__pdf_url', compact('item'))
-                    @else
-                        <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                    @endif 
+                        @if(auth()->user())
+                            @include('front-end.partial.q2__pdf_url', compact('item'))
+                        @else
+                            <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                        @endif 
 
-                    @if(auth()->user())
-                       @include('front-end.partial.q2_excel_url', compact('item'))
-                    @else
-                        <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                    @endif 
+                        @if(auth()->user())
+                        @include('front-end.partial.q2_excel_url', compact('item'))
+                        @else
+                            <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                        @endif 
 
-                    @if(auth()->user())
-                        @include('front-end.partial.q3__pdf_url', compact('item'))
-                    @else
-                        <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                    @endif 
+                        @if(auth()->user())
+                            @include('front-end.partial.q3__pdf_url', compact('item'))
+                        @else
+                            <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                        @endif 
 
-                    @if(auth()->user())
-                       @include('front-end.partial.q3_excel_url', compact('item'))
-                    @else
-                        <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                    @endif 
+                        @if(auth()->user())
+                        @include('front-end.partial.q3_excel_url', compact('item'))
+                        @else
+                            <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                        @endif 
 
-                    {{-- @if(auth()->user())
-                       @include('front-end.partial.q4__pdf_url', compact('item'))
-                    @else
-                        <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                    @endif 
+                        {{-- @if(auth()->user())
+                        @include('front-end.partial.q4__pdf_url', compact('item'))
+                        @else
+                            <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                        @endif 
 
-                    @if(auth()->user())
-                      @include('front-end.partial.q4_excel_url', compact('item'))
-                    @else
-                        <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                    @endif  --}}
+                        @if(auth()->user())
+                        @include('front-end.partial.q4_excel_url', compact('item'))
+                        @else
+                            <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                        @endif  --}}
+                        
                     
-                
-                    @if(auth()->user())
-                        @include('front-end.partial.annual_excel_url', compact('item'))
-                    @else
-                        <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                    @endif  
+                        @if(auth()->user())
+                            @include('front-end.partial.annual_excel_url', compact('item'))
+                        @else
+                            <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                        @endif  
 
-                    @if(auth()->user())
-                        @include('front-end.partial.annual_pdf_1_url', compact('item'))
-                    @else
-                        <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                    @endif 
+                        @if(auth()->user())
+                            @include('front-end.partial.annual_pdf_1_url', compact('item'))
+                        @else
+                            <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                        @endif 
 
-                    @if(auth()->user())
-                        @include('front-end.partial.annual_pdf_2_url', compact('item'))
-                    @else
-                        <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                    @endif 
+                        @if(auth()->user())
+                            @include('front-end.partial.annual_pdf_2_url', compact('item'))
+                        @else
+                            <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                        @endif 
 
-                    @if(auth()->user())
-                        @include('front-end.partial.annual_pdf_3_url', compact('item'))
-                    @else
-                        <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                    @endif 
+                        @if(auth()->user())
+                            @include('front-end.partial.annual_pdf_3_url', compact('item'))
+                        @else
+                            <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                        @endif 
 
-                    @if(auth()->user())
-                         @include('front-end.partial.annual_pdf_4_url', compact('item'))
-                    @else
-                        <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                    @endif 
+                        @if(auth()->user())
+                            @include('front-end.partial.annual_pdf_4_url', compact('item'))
+                        @else
+                            <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                        @endif 
 
-                    @if(auth()->user())
-                       @include('front-end.partial.annual_pdf_5_url', compact('item'))     
-                    @else
-                        <td><a href="/login" class="btn btn-warning">Login</a></td>   
-                    @endif 
-                </tr>
+                        @if(auth()->user())
+                        @include('front-end.partial.annual_pdf_5_url', compact('item'))     
+                        @else
+                            <td><a href="/login" class="btn btn-warning">Login</a></td>   
+                        @endif 
+                    </tr>
+                @endif    
             @endforeach
             </tbody>
         </table>
