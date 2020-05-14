@@ -52,14 +52,14 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <a href="{{ url('/auth/redirect/google') }}" class="btn btn-primary"><i class="fa fa-google"></i>Login with Gmail</a>
+                                <a href="{{ url('/auth/redirect/google') }}" class="btn btn-warning">Login with Gmail</a>
                             </div>
                         </div>
         
                         <br />
-                        <div class="form-group row mb-0">
+                        <div class="form-group row mb-3">
                             <div class="col-md-8 offset-md-4">
-                                <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-primary"><i class="fa fa-facebook"></i>Login with Facebook</a>
+                                <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-warning">Login with Facebook</a>
                             </div>
                         </div>
 
