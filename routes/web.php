@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
+Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+Route::get('/callback/{provider}', 'SocialController@callback');
+
 
 Route::middleware(['auth','admin'])->group(function () {
 
