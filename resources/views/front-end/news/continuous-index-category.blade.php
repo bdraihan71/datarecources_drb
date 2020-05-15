@@ -55,7 +55,7 @@
                                 </div>
                             {{-- @endif     --}}
 
-                            <div class="ml-auto pr-2">
+                            <div class="ml-auto pr-2 news-share-button-mobile">
                                 <div class="addthis_toolbox addthis_inline_share_toolbox news-share-buttons" :data-url="getUrl(item)" :data-title="getTitle(item)" :data-description="getDescription(item)" :data-media="getImageUrl(item.image)"></div>
                             </div>
                         </div>    

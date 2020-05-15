@@ -54,7 +54,7 @@
                                     <button type="button" class="btn btn-light btn-sm mb-3 border border-secondary comment-btn-top" @click='isshowcomment(item.id)'><i class="far fa-comment-alt"></i> Comment</button>
                                 </div>
                             {{-- @endif     --}}
-                            <div class="ml-auto pr-2">
+                            <div class="ml-auto pr-2 news-share-button-mobile">
                                 <div class="addthis_inline_share_toolbox news-share-buttons" :data-url="getUrl(item)" :data-title="getTitle(item)" :data-description="getDescription(item)" :data-media="getImageUrl(item.image)"></div>
                             </div>
                         </div>    

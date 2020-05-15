@@ -1004,9 +1004,21 @@ if it's not present, don't show loader */
 }
 
 @media only screen and (max-width: 767px) {
+    .comment-field-top {
+        margin: 20px 0px 0px 0px;
+    }
+
+    .news-share-button-mobile {
+        position: relative;
+        top: -50px;
+        Left: -35px;
+        right: 0px;
+        bottom: 0px;
+    }
+
     .news-share-buttons {
-        transform: scale(0.7);
-        margin: -30px -18px 10px 0px;
+        position: absolute;
+        transform: scale(0.5);
     } 
 
     .comment-btn-top {
