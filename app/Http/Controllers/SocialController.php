@@ -31,6 +31,8 @@ class SocialController extends Controller
             $user = User::create([
                 'full_name'     => $getInfo->name,
                 'email'    => $getInfo->email,
+                'provider' => $provider,
+                'provider_id' => $getInfo->id,
             ]);
         }
         return $user;
