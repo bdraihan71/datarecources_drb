@@ -2,7 +2,7 @@
 @section('content')<br><br>
 <div class="container top-margin">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card shadow">
                 <div class="card-header alert-warning text-dark font-weight-bold">{{ __('Login') }}</div>
 
@@ -10,11 +10,26 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                        <div class="form-group row mb-3">
+                            <div class="col-md-8 offset-md-2">
+                                <a href="{{ url('/auth/redirect/google') }}" class="btn btn-danger w-100"><i class="fab fa-google float-left mt-1"></i> Login with Gmail</a>
+                            </div>
+                        </div>
+        
+                        <div class="form-group row mb-3">
+                            <div class="col-md-8 offset-md-2">
+                                <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-primary w-100"><i class="fab fa-facebook-f float-left mt-1"></i> Login with Facebook</a>
+                            </div>
+                        </div>
+                        <div class="col-md-8 offset-md-2 text-center">
+                            <p>--- OR ---</p>
+                        </div>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <div class="form-group row">
+                            {{-- <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label> --}}
+
+                            <div class="col-md-8 offset-md-2">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="{{ __('E-Mail Address') }}">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -25,10 +40,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            {{-- <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label> --}}
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                            <div class="col-md-8 offset-md-2">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="{{ __('Password') }}">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -39,7 +54,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-8 offset-md-2">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
@@ -51,20 +66,7 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <a href="{{ url('/auth/redirect/google') }}" class="btn btn-warning">Login with Gmail</a>
-                            </div>
-                        </div>
-        
-                        <br />
-                        <div class="form-group row mb-3">
-                            <div class="col-md-8 offset-md-4">
-                                <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-warning">Login with Facebook</a>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
+                            <div class="col-md-8 offset-md-2">
                                 <button type="submit" class="btn btn-warning">
                                     {{ __('Login') }}
                                 </button>
@@ -81,5 +83,5 @@
             </div>
         </div>
     </div>
-</div><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div><br><br><br><br><br><br><br><br><br>
 @endsection
