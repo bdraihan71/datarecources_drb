@@ -31,9 +31,9 @@ return [
     ],
 
     'google' => [
-        'client_id' => '296153337261-jh405e88p5n4hsfhg49iht3s8bco92pg.apps.googleusercontent.com',
-        'client_secret' => 't1W63umrfvVnJX0V6uuh_Y4Q',
-        'redirect' => 'http://127.0.0.1:8000/callback/google',
+        'client_id' => '296153337261-ggf8edf67jo09u5nsf4g09pp1q78qusm.apps.googleusercontent.com',
+        'client_secret' => 'iQH2HqE0cWi-5RMMB-WBRSVs',
+        'redirect' => 'https://staging.drb.techynaf.com/callback/google',
     ], 
 
     'facebook' => [
