@@ -16,6 +16,9 @@ class AddUpdateUserTableToUsers extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->string('provider')->nullable();
             $table->string('provider_id')->nullable();
+            $table->string('email')->nullable()->change();
+            $table->string('password')->nullable()->change();
+            $table->rememberToken()->nullable()->change();
         });
     }
 
@@ -29,6 +32,8 @@ class AddUpdateUserTableToUsers extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('provider');
             $table->dropColumn('provider_id');
+            $table->string('email')->nullable(false)->change();
+            $table->string('password')->nullable(false)->change();
         });
     }
 }
