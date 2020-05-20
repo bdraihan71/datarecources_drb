@@ -33,7 +33,7 @@ return [
     'google' => [
         'client_id' => '296153337261-ggf8edf67jo09u5nsf4g09pp1q78qusm.apps.googleusercontent.com',
         'client_secret' => 'iQH2HqE0cWi-5RMMB-WBRSVs',
-        'redirect' => 'https://www.dataresources-bd.com/callback/google',
+        'redirect' => 'https://dataresources-bd.com/callback/google',
     ], 
 
     'facebook' => [
