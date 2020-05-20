@@ -30,4 +30,16 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'google' => [
+        'client_id' => '296153337261-ggf8edf67jo09u5nsf4g09pp1q78qusm.apps.googleusercontent.com',
+        'client_secret' => 'iQH2HqE0cWi-5RMMB-WBRSVs',
+        'redirect' => 'https://staging.drb.techynaf.com/callback/google',
+    ], 
+
+    'facebook' => [
+        'client_id' => env('FACEBOOK_APP_ID'),
+        'client_secret' => env('FACEBOOK_APP_SECRET'),
+        'redirect' => env('FACEBOOK_REDIRECT'),
+    ],
+
 ];

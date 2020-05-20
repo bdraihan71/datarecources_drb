@@ -15,7 +15,7 @@ class FinanceInfoController extends Controller
     public function all(){
         $sectors = Sector::orderBy('name')->get()->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE);
         $companies = Company::all();
-        $finance_infos = FinanceInfo::all();
+        $finance_infos = FinanceInfo::orderBy('year', 'DESC')->get();
         $user = Auth::user();
         $frequency = null;
         $q1 = null;
@@ -29,7 +29,7 @@ class FinanceInfoController extends Controller
     {
         $sectors = Sector::all();
         $companies = Company::all();
-        $finance_infos = FinanceInfo::where('company_id', "$request->company")->get();
+        $finance_infos = FinanceInfo::where('company_id', "$request->company")->orderBy('year', 'DESC')->get();
         $user = Auth::user();
         if($request->frequency == 'yearly'){
            $frequency = 'yearly';

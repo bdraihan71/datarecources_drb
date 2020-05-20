@@ -15,8 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
+Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+Route::get('/callback/{provider}', 'SocialController@callback');
 
-Route::middleware(['auth','admin'])->group(function () {
+
+Route::middleware(['auth','admin', 'verified'])->group(function () {
 
     Route::prefix('admin')->group(function () {
         //Menu
@@ -107,15 +110,15 @@ Route::middleware(['auth','admin'])->group(function () {
     // Route::resource('page', 'PageController')->except(['show']);
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
   Route::prefix('user')->group(function () {
       Route::post('survey/{surveyQuestion}', 'SurveyController@saveResponse')->name('save-response');
   });
 });
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('subscriptionplan/success', 'SubscriptionPlanController@success')->name('subscriptionplan.success');
     Route::post('subscriptionplan/fail', 'SubscriptionPlanController@fail')->name('subscriptionplan.fail');
 
