@@ -328,7 +328,7 @@
                     <div class="card-body text-center">
                         <h5 class="mt-4 card-title text-uppercase">Features</h5>
                         <p class="price-text mt-5">News Aggregator</p>
-                        <p class="price-text">Data Matrix</p>
+                        <p class="price-text">Dashboard</p>
                         <p class="price-text">Download Data</p>
                     </div>
                 </div>
