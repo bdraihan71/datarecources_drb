@@ -47,9 +47,10 @@ class PublicPagesController extends Controller
             $finance_infos = new Collection();
             foreach ($companies as $company)
             {
-                $finance_info = FinanceInfo::where('company_id', 'LIKE', "$company->id")->first();
-                if ($finance_info != null) {
-                    $finance_infos->push($finance_info);
+                $finance_info = FinanceInfo::where('company_id', $company->id)->get();
+                if ($finance_info->count() > 0) {
+                    // $finance_infos->push($finance_info);
+                    $finance_infos = $finance_infos->concat($finance_info);
                 }
             }
         }
