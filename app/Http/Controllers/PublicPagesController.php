@@ -47,7 +47,7 @@ class PublicPagesController extends Controller
             $finance_infos = new Collection();
             foreach ($companies as $company)
             {
-                $finance_info = FinanceInfo::where('company_id', $company->id)->get();
+                $finance_info = FinanceInfo::where('company_id', $company->id)->orderBy('year', 'DESC')->get();
                 if ($finance_info->count() > 0) {
                     // $finance_infos->push($finance_info);
                     $finance_infos = $finance_infos->concat($finance_info);
@@ -66,7 +66,7 @@ class PublicPagesController extends Controller
         //     }
         // }
         else{
-            $finance_infos = FinanceInfo::where('year', 'LIKE', "%$request->search%")->get();
+            $finance_infos = FinanceInfo::where('year', 'LIKE', "%$request->search%")->orderBy('year', 'DESC')->get();
         }
 
         $menu = Menu::where('title', 'LIKE', "%$request->search%")->first();
